@@ -65,7 +65,10 @@ flowchart TB
     SA -. "출고지시" .-> W
     PR -- "생산 → 입고" --> W
     W -- "출고 → 매입" --> CU
-    CU -. "결재 → 입금" .-> AC
+    W -. "출고 완료" .-> AC
+    W -. "출고 완료" .-> SA
+    W -. "출고 완료" .-> PR
+    CU -. "결제 → 입금" .-> AC
 
     classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
     classDef wms fill:#93ad70,stroke:#5f7a44,color:#121a08
