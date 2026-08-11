@@ -20,7 +20,7 @@ flowchart LR
 
 그 특화 시스템이 OMS·WMS·TMS이고, 이 책이 다루는 것은 그중 창고를 맡는 WMS다.
 
-아래 도식에서 실선은 재고의 물리적 이동, 점선은 시스템 사이의 정보 흐름을 뜻한다.
+아래 도식에서 실선은 재고의 물리적 이동, 점선은 시스템 사이의 정보 흐름을 뜻한다. `1)~4)`는 [WMS 연계 과정](./2-WMS-시스템이란.md#wms는-혼자-돌지-않는다)의 순서이며, 고객 주문은 출고 지시를 만드는 별도 흐름이다.
 
 ```mermaid
 flowchart TB
@@ -29,16 +29,23 @@ flowchart TB
     subgraph OWN["자사 시스템"]
         O["OMS<br/>주문 접수 → ERP 연계"]
         subgraph ERPB["ERP · 전사 최적화"]
-            E["영업 · 재무회계 · 관리회계<br/>구매/자재 · 생산 · 인사"]
+            PR["생산 시스템"]
+            SA["영업 시스템"]
+            AC["회계 시스템"]
         end
         W["WMS<br/>입고 → 재고관리 → 출고"]
         T["TMS<br/>운송 → 전달"]
     end
 
-    C -. "1) 주문 전달" .-> O
-    O -. "2) 주문 연계" .-> E
-    E -. "3) 입고 정보 · 출고 지시" .-> W
-    W -. "4) 재고 · 실적 보고" .-> E
+    C -. "고객 주문" .-> O
+    O -. "주문 연계" .-> SA
+    PR -. "1) 입고 정보" .-> W
+    W -. "2) 판매 가능 재고" .-> SA
+    W -. "2) 재고 정보" .-> AC
+    SA -. "3) 출고 지시" .-> W
+    W -. "4) 출고 완료" .-> PR
+    W -. "4) 출고 완료" .-> SA
+    W -. "4) 출고 완료" .-> AC
     S -- "조달 운송" --> T
     T -- "입고" --> W
     W -- "출고" --> T
@@ -46,7 +53,7 @@ flowchart TB
 
     classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
     classDef wms fill:#93ad70,stroke:#5f7a44,color:#121a08
-    class E,O,T,C,S sys
+    class PR,SA,AC,O,T,C,S sys
     class W wms
     style ERPB fill:#cfe0ee,stroke:#8fb4d0,color:#0f2233
     style OWN fill:none,stroke:#9aa0a6,stroke-dasharray: 4 4
