@@ -45,37 +45,31 @@ WMS는 재고 최적화와 관련되어 있기 때문에 독립적으로 운영�
 **④ WMS → 회계·영업·생산**
 출고 완료된 결과는 회계·영업·생산시스템에 다시 **피드백**된다.
 
-거래 관점까지 포함해 전체를 한 장에 놓으면 이렇게 된다. 실선은 재고가 실제로 움직이는 흐름이고, 점선은 정보만 오가는 흐름이다.
+거래 관점까지 포함해 전체를 한 장에 놓으면 이렇게 된다. 번호는 앞에서 설명한 WMS 연계 순서를 나타낸다. 실선은 재고가 실제로 움직이는 흐름이고, 점선은 정보만 오가는 흐름이다.
 
 ```mermaid
-%% lint-ok: BARE-NOUN  원서 [그림 1-4]의 라벨을 그대로 옮긴 것이므로 바꾸지 않는다
-flowchart TB
-    subgraph OWN["자사 시스템"]
-        subgraph ERPB["ERP"]
-            AC["회계시스템<br/>매출발생 → 입금"]
-            SA["영업시스템<br/>주문서등록 → 매출확정"]
-            PR["생산시스템<br/>(생산)"]
-        end
-        W["WMS시스템<br/>입고 → 재고관리 → 출고"]
+sequenceDiagram
+    participant PF as 생산 공장
+    participant W as WMS
+    box ERP
+        participant PR as 생산 시스템
+        participant SA as 영업 시스템
+        participant AC as 회계 시스템
     end
-    CU["고객매입시스템<br/>발주 → 매입"]
+    participant CU as 고객 시스템
 
-    CU -. "발주" .-> SA
-    SA -. "매출발생" .-> AC
-    SA -. "출고지시" .-> W
-    PR -- "생산 → 입고" --> W
-    W -- "출고 → 매입" --> CU
-    W -. "출고 완료" .-> AC
-    W -. "출고 완료" .-> SA
-    W -. "출고 완료" .-> PR
-    CU -. "결제 → 입금" .-> AC
-
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef wms fill:#93ad70,stroke:#5f7a44,color:#121a08
-    class AC,SA,PR,CU sys
-    class W wms
-    style ERPB fill:#cfe0ee,stroke:#8fb4d0,color:#0f2233
-    style OWN fill:none,stroke:#9aa0a6,stroke-dasharray: 4 4
+    PR-->>W: 1) 입고 정보 전달
+    PF->>W: 생산품 입고
+    W-->>SA: 2) 판매 가능 재고 공유
+    W-->>AC: 2) 재고 정보 공유
+    CU-->>SA: 고객 발주
+    SA-->>W: 3) 출고 지시
+    W->>CU: 제품 출고
+    W-->>PR: 4) 출고 완료 공유
+    W-->>SA: 4) 출고 완료 공유
+    W-->>AC: 4) 출고 완료 공유
+    SA-->>AC: 매출 발생
+    CU-->>AC: 결제
 ```
 
 *[그림 1-4] ERP와 WMS 시스템 연계*
