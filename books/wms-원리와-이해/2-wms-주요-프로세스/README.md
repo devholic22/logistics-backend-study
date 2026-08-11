@@ -24,10 +24,12 @@ flowchart LR
     SUP -- "① 입고" --> RCV
     RCV -- "② 적치" --> L1
     L1 -- "③ 재고이동" --> L2
-    L2 -- "④ 재고보충" --> PCK
-    L2 -- "⑨ 부가서비스" --> WRK
+    L2 -- "④ 재고보충 (선택)" --> PCK
+    L2 -- "⑨ 유통가공" --> WRK
     WRK -- "가공 완료" --> L2
-    ORD -. "⑤ 할당(로케이션 예약)" .-> PCK
+    ORD -. "⑤ 할당 (피킹존 운영)" .-> PCK
+    ORD -. "⑤ 할당 (직접 피킹)" .-> L2
+    L2 -- "⑥ 직접 피킹" --> SHP
     PCK -- "⑥ 피킹" --> SHP
     SHP -- "⑦ 출고" --> CUS
     RCV -- "⑪ 크로스도킹" --> DST
@@ -43,13 +45,15 @@ flowchart LR
 
 *창고의 존과 주요 프로세스 — 번호는 원서의 프로세스 순서다*
 
-네 가지를 읽는 법을 짚어둔다.
+도식을 읽을 때 주의할 점을 짚어둔다.
 
 - **① 입고 직후의 재고는 아직 팔 수 없다.** 입고가 끝나면 WMS가 관리하는 재고는 늘지만, 품질 검사 등이 남아 있어 보관존으로 바로 가지 않고 입고존에 임시로 머문다. 이 재고는 **가용재고에 반영되지 않는다.** ② 적치를 거쳐 보관존에 들어가야 비로소 가용재고가 된다. 자세한 내용은 [입고](./2-입고와-적치.md#①-입고--입하)에 있다.
 	- 다만 보관존에 있다고 전부 가용한 것은 아니다. [재고관리](./5-재고관리.md)의 **재고보류**로 정상 출고 대상에서 빠진 재고는 제외된다.
-- **③ 재고이동**은 보관존 **안에서** 로케이션과 로케이션 사이를 옮기는 작업이다. 존을 넘나들지 않으므로 보관존을 두 로케이션으로 나눠 그렸다.
-- 다만 **재고이동이 모든 재고에 항상 일어나는 것은 아니다.** 창고 최적화가 필요할 때 시행된다. 도식에서 ④ 재고보충과 ⑨ 부가서비스가 `다른 로케이션`에서 출발하는 것은 이동이 있었던 경우를 이어 그린 것이고, 이동이 없었다면 최초 보관 로케이션에서 그대로 진행된다.
+- **③ 재고이동**은 로케이션과 로케이션 사이를 옮기는 작업이다. 위 도식은 보관존 안에서 이동하는 예시를 그렸지만, 운영 목적에 따라 보류존처럼 다른 존으로 이동할 수도 있다.
+- **재고이동이 모든 재고에 항상 일어나는 것은 아니다.** 창고 최적화가 필요할 때 시행된다. 도식에서 ④ 재고보충과 ⑨ 유통가공이 `다른 로케이션`에서 출발하는 것은 이동이 있었던 경우를 이어 그린 것이고, 이동이 없었다면 최초 보관 로케이션에서 그대로 진행된다.
+- **④ 재고보충은 선택 경로다.** 피킹존을 운영하면 출고 전에 재고를 보충한 뒤 ⑥ 피킹하고, 프리로케이션 방식처럼 보관 로케이션에서 직접 피킹하면 ④를 거치지 않고 출고존으로 이동한다.
 - **⑤ 할당**은 유일하게 점선이다. 재고를 옮기지 않고 **예약만** 걸기 때문이다.
+- **⑨ 부가서비스 중 도식에 표시한 것은 재고를 작업존으로 옮기는 유통가공이다.** 주문접수·콜센터·수금관리처럼 재고를 다루지 않는 대행 업무에는 물리적 이동이 없다.
 
 ⑧ 재고관리와 ⑩ 재고조사는 특정 구간의 이동이 아니라 **보관 중인 재고 전체를 대상으로** 수행하므로 위 도식에 화살표로 나타내지 않았다. 다만 ⑧의 **재고보류**는 창고에 따라 보류존을 두고 실물을 옮기기도 한다. [보류한 재고는 어디에 두는가](./5-재고관리.md#보류한-재고는-어디에-두는가)에서 다룬다.
 
@@ -82,11 +86,11 @@ flowchart LR
 <td style="text-align:center; white-space:nowrap">3</td>
 <td style="text-align:left; white-space:nowrap">재고이동</td>
 <td style="text-align:left; white-space:nowrap">창고 최적화를 위한 로케이션 간 이동</td>
-<td style="text-align:left; white-space:nowrap">보관존 → 보관존</td>
+<td style="text-align:left; white-space:nowrap">로케이션 → 로케이션<br>(존 내부 또는 존 간)</td>
 </tr>
 <tr>
 <td style="text-align:center; white-space:nowrap">4</td>
-<td style="text-align:left; white-space:nowrap">재고보충(Replacement)</td>
+<td style="text-align:left; white-space:nowrap">재고보충(Replenishment)</td>
 <td style="text-align:left; white-space:nowrap">출고할 물량을 미리 피킹존으로</td>
 <td style="text-align:left; white-space:nowrap">보관존 → 피킹존</td>
 </tr>
@@ -100,7 +104,7 @@ flowchart LR
 <td style="text-align:center; white-space:nowrap">6</td>
 <td style="text-align:left; white-space:nowrap">피킹(Picking)</td>
 <td style="text-align:left; white-space:nowrap">할당을 기반으로 실제 재고 이동</td>
-<td style="text-align:left; white-space:nowrap">피킹존 → 출고존</td>
+<td style="text-align:left; white-space:nowrap">피킹존 또는 보관존 → 출고존</td>
 </tr>
 <tr>
 <td style="text-align:center; white-space:nowrap">7</td>
@@ -117,8 +121,8 @@ flowchart LR
 <tr>
 <td style="text-align:center; white-space:nowrap">9</td>
 <td style="text-align:left; white-space:nowrap">부가서비스</td>
-<td style="text-align:left; white-space:nowrap">조립·해체·포장/라벨링 등 유통가공</td>
-<td style="text-align:left; white-space:nowrap">보관존 ↔ 작업존</td>
+<td style="text-align:left; white-space:nowrap">유통가공 또는 주문·고객 응대 대행</td>
+<td style="text-align:left; white-space:nowrap">유통가공: 보관존 ↔ 작업존<br>비재고 대행: 이동 없음</td>
 </tr>
 <tr>
 <td style="text-align:center; white-space:nowrap">10</td>
