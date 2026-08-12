@@ -28,21 +28,28 @@ flowchart LR
 
 ## 재고는 언제 팔 수 있게 되는가
 
-이 장에서 가장 중요한 지점이다. 입고확정으로 재고는 늘어나지만, 그 재고는 **아직 출고할 수 없다.** 아래 도식에서 실선은 재고의 물리적 이동을 뜻한다.
+이 장에서 가장 중요한 지점이다. 입고확정으로 재고는 늘어나지만, 그 재고는 **아직 출고할 수 없다.** 아래 도식에서 실선은 재고의 물리적 이동, 점선은 WMS와 작업자 사이의 정보 흐름을 뜻한다.
 
 ```mermaid
 flowchart LR
     SUP["공급처 · 공장"]
     RCV["입고존<br/>임시 보관 · 가용재고 아님"]
     STO["보관존<br/>가용재고 편입"]
+    OP["작업자"]
+    W["WMS"]
 
-    SUP -- "②③ 검수 → 입고확정" --> RCV
-    RCV -- "④⑤ 적치지시 → 적치확정" --> STO
+    SUP -- "② 물량 도착 · 검수" --> RCV
+    RCV -- "⑤ 적치 이동" --> STO
+    OP -. "③ 입고확정" .-> W
+    W -. "④ 적치지시" .-> OP
+    OP -. "⑤ 적치완료" .-> W
 
     classDef zone fill:#e9e5a8,stroke:#a99f4d,color:#26240c
     classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
+    classDef actor fill:#cfe0ee,stroke:#8fb4d0,color:#0f2233
     class SUP,RCV zone
-    class STO core
+    class STO,W core
+    class OP actor
 ```
 
 *적치가 완료되어야 출고 가능한 가용재고에 포함된다.*
