@@ -22,16 +22,23 @@ sequenceDiagram
     box 창고
         participant W as 관리자 · WMS
         participant O as 작업자
+        participant S as 보관 로케이션
+        participant P as 피킹 로케이션
         participant D as 출고존
     end
     participant V as 차량
 
     C-->>W: 1) 출고예정 등록 · 전송
     W-->>W: 2) 출고가능 체크
-    W-->>W: 3) 할당 · 피킹 로케이션 보충
+    W-->>W: 3) 할당 · 재고 예약
+    opt 피킹 로케이션 재고 부족
+        W-->>O: 3) 재고보충 지시
+        S->>P: 3) 재고보충 이동
+        O-->>W: 3) 재고보충 확정
+    end
     W-->>W: 4) 차량 배차
     W-->>O: 5) 피킹지시
-    O->>D: 5) 재고 피킹 이동
+    P->>D: 5) 재고 피킹 이동
     O-->>W: 5) 피킹확정
     O-->>O: 6) 출고검수
     O-->>W: 6) 검수결과
