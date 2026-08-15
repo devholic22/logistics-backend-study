@@ -131,11 +131,60 @@ flowchart LR
 <td style="text-align:center; white-space:nowrap"></td>
 <td style="text-align:center; white-space:nowrap"></td>
 <td style="text-align:center; white-space:nowrap"></td>
-<td style="text-align:center; white-space:nowrap"><b>바뀜</b></td>
+<td style="text-align:center; white-space:nowrap"><b>최종 정산 시 바뀜</b></td>
 </tr>
 </tbody>
 </table>
 </div>
+
+재고조정은 두 시점을 구분해야 한다. **차이를 조정 로케이션으로 분리하는 동안에는 WMS 전체 수량을 유지**하고, 화주의 출고·반품 오더로 임시 재고를 정리하는 **최종 정산 시점에 전체 수량을 확정**한다.
+
+## 상황별로 어떤 기능을 선택할까
+
+비슷해 보이는 기능도 해결하려는 문제가 다르다.
+
+<div class="tbl" style="overflow-x:auto">
+<table>
+<thead>
+<tr>
+<th style="text-align:center; white-space:nowrap">상황</th>
+<th style="text-align:center; white-space:nowrap">선택할 기능</th>
+<th style="text-align:center; white-space:nowrap">판단 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">재고는 맞지만 보관 위치가 비효율적이다</td>
+<td style="text-align:center; white-space:nowrap"><b>재고이동</b></td>
+<td style="text-align:left; white-space:nowrap">수량·등급은 그대로 두고 위치만 변경</td>
+</tr>
+<tr>
+<td style="text-align:left">품질 판정 전까지 출고나 이동을 막아야 한다</td>
+<td style="text-align:center; white-space:nowrap"><b>재고 보류</b></td>
+<td style="text-align:left; white-space:nowrap">상태는 유지하고 작업만 일시 통제</td>
+</tr>
+<tr>
+<td style="text-align:left">파손·유통기한 경과로 정상 재고와 구분해야 한다</td>
+<td style="text-align:center; white-space:nowrap"><b>재고 상태변경</b></td>
+<td style="text-align:left; white-space:nowrap">A등급을 B·C등급 등으로 전환</td>
+</tr>
+<tr>
+<td style="text-align:left">실물 수량과 WMS 수량이 맞는지 확인해야 한다</td>
+<td style="text-align:center; white-space:nowrap"><b>재고조사</b></td>
+<td style="text-align:left; white-space:nowrap">차이를 발견하되 아직 수량은 수정하지 않음</td>
+</tr>
+<tr>
+<td style="text-align:left">재확인 후에도 실물과 WMS의 차이가 남는다</td>
+<td style="text-align:center; white-space:nowrap"><b>재고조정</b></td>
+<td style="text-align:left">조정 로케이션으로 차이를 분리하고 화주와 최종 정산</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+### 작업관리는 여섯 기능을 가로지른다
+
+[작업관리](./7-작업관리.md)는 재고의 위치·가용성·등급·수량을 직접 바꾸는 기능이 아니다. 이동·조사 같은 작업의 **지시, 진행 상태, 작업자, 처리시간과 결과 이력**을 관리하는 공통 계층이므로 위 여섯 기능과 별도로 다룬다.
 
 ## 목차
 
