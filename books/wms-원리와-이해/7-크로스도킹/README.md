@@ -236,7 +236,7 @@ flowchart LR
 <tr>
 <td style="text-align:center; white-space:nowrap">사전분류입고</td>
 <td style="text-align:center; white-space:nowrap"><b>A 30 · B 30 · C 40</b>으로 이미 나뉘어</td>
-<td style="text-align:center; white-space:nowrap"><b>바로 통과</b></td>
+<td style="text-align:center; white-space:nowrap"><b>거치지 않음</b></td>
 <td style="text-align:center; white-space:nowrap">쓰지 않음</td>
 </tr>
 <tr>
@@ -281,33 +281,20 @@ flowchart LR
 </tr>
 <tr>
 <td style="text-align:center; white-space:nowrap"><b>부족분 재고배분</b></td>
-<td style="text-align:center; white-space:nowrap">Merge-in-transit</td>
+<td style="text-align:center; white-space:nowrap">Merge-in-transit<br>(원서 표기)</td>
 <td style="text-align:left; white-space:nowrap">창고에 일정 수준의 재고를 보유해 놓고<br>부족분만 입고 후 출고 처리</td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### 세 방식은 "분류를 누가 하는가"로 갈린다
+### 세 방식은 분류와 보완을 어디서 하는가로 갈린다
 
-```mermaid
-flowchart LR
-    Q["출고처별 분류를<br/>누가 하는가"]
-    A["사전분류입고<br/>공급처가 한다"]
-    B["총량입고 / 분류<br/>창고가 한다"]
-    C["부족분 재고배분<br/>창고가 하고<br/>보관재고까지 섞는다"]
+1. **사전분류입고** — 공급처가 출고처별 분류를 맡는다.
+2. **총량입고 / 분류** — 창고가 크로스도킹존에서 분류한다.
+3. **부족분 재고배분** — 창고가 분류하고 부족량은 가용 보관재고로 보완한다.
 
-    Q -. "공급처에 맡김" .-> A
-    Q -. "창고 분류장에서" .-> B
-    Q -. "창고 + 보관재고" .-> C
-
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    class A,B,C sys
-    class Q core
-```
-
-*분류 부담을 어디에 두느냐가 세 방식을 가른다. 이 도식은 물류 이동이 아니라 방식 선택 기준을 나타낸다*
+> 용어 주의: 이 장은 원서의 분류에 따라 부족분 재고배분을 `Merge-in-transit`으로 표기한다. 일반적인 물류 용례에서는 [2장의 설명](../2-wms-주요-프로세스/8-크로스도킹.md)처럼 **여러 공급처의 구성품을 운송 중 합류 지점에서 주문 단위로 병합하는 방식**을 뜻한다. 두 개념을 혼동하지 않도록 이 장에서는 본문 명칭인 **부족분 재고배분**을 사용한다.
 
 <div class="tbl" style="overflow-x:auto">
 <table>
