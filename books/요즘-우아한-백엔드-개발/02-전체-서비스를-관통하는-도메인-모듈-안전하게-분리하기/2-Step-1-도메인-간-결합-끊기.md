@@ -109,7 +109,7 @@ flowchart TB
     APP --> UC
     UC -- "사용" --> DIN
     UC -- "사용" --> DOUT
-    UC -- "Implement" --> DINV
+    DINV -- "Implement" --> UC
     DIN --> DM
     DOUT --> DM
     DINV --> DM
