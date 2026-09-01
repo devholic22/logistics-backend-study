@@ -30,7 +30,7 @@ class DataChangeSubscription(ABC):
 - **`foo`는 `table_type`이면 괜찮지만, 좀 더 또렷하게는 `table_type_filter`도 고려**한다. **테이블 타입이 어떻게 쓰이는지 분명해진다.**
 - **`bar`는 `on_record_changed`** 가 좋다. 이유가 세 겹이다 — **`on_` 접두사는 이벤트 핸들러에 널리 쓰는 관행**이고, **단수 `record`는 무엇이 바뀌었는지 드러내며**, **과거형 `changed`는 커밋이 이미 일어났음을 알려 준다.**
 - 나중에 **변경 커밋 직전에 실행할 콜백**을 더한다면 **`on_record_changing`** 이라 부를 수 있다.
-- **클래스명 `Changed`와 결을 맞추려고 `changed`를 골랐다.**
+- **`DataChangeSubscription`이 데이터 변경 구독을 나타내고, 콜백은 그 변경이 완료된 시점에 실행되므로 `changed`를 골랐다.**
 
 **시제가 정보를 나른다**는 점이 이 답안의 묘미다. `changed`와 `changing` 한 글자 차이가 **콜백이 커밋 전인지 후인지**를 말한다 — [모호성 회피](./5-이해-시나리오-이름-짓기.md)가 문법으로 실현된 예다.
 
