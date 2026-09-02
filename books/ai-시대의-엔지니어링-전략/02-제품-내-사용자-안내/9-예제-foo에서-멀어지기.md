@@ -83,4 +83,4 @@ mutual_friends = await current_user.getMutualFriends(friend_user)
 
 ## 함께 읽기
 - [이 장의 목차](./README.md)
-- 다음 장 — 에러와 경고
+- [다음 장 — 에러와 경고](../03-에러와-경고/README.md)
