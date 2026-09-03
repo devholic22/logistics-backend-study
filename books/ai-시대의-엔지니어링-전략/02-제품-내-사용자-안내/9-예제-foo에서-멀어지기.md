@@ -84,3 +84,4 @@ mutual_friends = await current_user.getMutualFriends(friend_user)
 ## 함께 읽기
 - [이 장의 목차](./README.md)
 - [다음 장 — 에러와 경고](../03-에러와-경고/README.md)
+- [4.7 샘플과 요약](../04-자사-제품-체험/7-샘플과-요약.md) — 이름뿐 아니라 샘플 데이터에서도 `foo`를 벗어나 현실적인 맥락을 제공하는 방법
