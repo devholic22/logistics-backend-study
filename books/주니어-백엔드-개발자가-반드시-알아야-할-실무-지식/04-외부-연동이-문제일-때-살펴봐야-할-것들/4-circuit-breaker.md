@@ -13,7 +13,7 @@
 - CLOSED에서 실패를 관측하고, OPEN에서 차단하며, HALF_OPEN에서 제한된 probe로 회복을 확인한다.
 - 최소 표본과 실패·slow-call 기준을 함께 설정하고 validation 오류는 장애율에서 구분한다.
 - Circuit breaker는 동시성을 제한하지 않으므로 bulkhead를 대체하지 않는다.
-- Lab 비교 실험에서는 sliding window·최소 호출 수·실패율과 open 시간을 바꿔 상태 전환을 확인한다.
+- 원본 노트의 Lab 비교 실험에서는 sliding window·최소 호출 수·실패율과 open 시간을 바꿔 상태 전환을 확인하지만, 해당 Lab 자료는 현재 이 저장소에 포함되어 있지 않다.
 
 downstream이 계속 timeout이나 오류를 반환한다면 매 요청을 끝까지 기다릴 이유가 없다. Circuit breaker는 최근 호출 결과를 관찰하다 장애 기준을 넘으면 호출을 잠시 차단해 빠르게 실패시킨다.
 

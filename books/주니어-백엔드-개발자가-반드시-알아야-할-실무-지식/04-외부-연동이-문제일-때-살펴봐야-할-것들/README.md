@@ -44,7 +44,7 @@ flowchart LR
 - 외부 API가 전체 최대 TPS를 제한하는 원리는 [최대 TPS와 필수 의존성](../02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md#최대-tps는-가장-느린-구간이-결정한다)에서 다룬다.
 - 외부 성공·DB 실패 같은 일관성 문제는 [실패와 트랜잭션 고려하기](../03-성능을-좌우하는-db-설계와-쿼리/4-실패와-트랜잭션-고려하기.md#실패와-트랜잭션-고려하기)를 함께 읽는다.
 - ALB·NAT Gateway·OS keepalive와 Apache HttpClient timeout을 함께 조정한 논의는 [동기 외부 API와 계층별 Timeout](./10-실무-사례-동기-외부-api와-계층별-timeout.md)에서 해석한다.
-- Thread 포화, tail latency, retry 증폭과 bulkhead·circuit의 차이는 외부 연동 장애 Lab에서 직접 비교한다.
+- 원본 노트는 Thread 포화, tail latency, retry 증폭과 bulkhead·circuit의 차이를 외부 연동 장애 Lab에서 비교하지만, 해당 Lab 자료는 현재 이 저장소에 포함되어 있지 않다.
 - 보호 장치가 사용자의 과업 완료율에 미치는 영향은 [『AI 시대의 엔지니어링 전략』의 가용성](../../ai-시대의-엔지니어링-전략/09-프로덕트-아키텍처/4-가용성.md)과 함께 본다.
 
 ## 목차

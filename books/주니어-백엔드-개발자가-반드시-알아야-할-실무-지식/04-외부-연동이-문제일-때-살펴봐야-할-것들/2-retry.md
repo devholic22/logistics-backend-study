@@ -14,7 +14,7 @@
 - 적은 횟수, exponential backoff, jitter와 전체 retry deadline을 둔다.
 - 여러 계층이 각각 retry해 호출 수가 곱셈으로 늘어나지 않도록 책임을 한곳에 둔다.
 - Timeout과 재시도 비교로 증폭을 확인한다.
-- Lab의 `스레드 유지`와 `다시 예약`을 비교해 backoff가 blocking thread 점유에 주는 차이도 확인한다.
+- 원본 노트의 Lab에서는 `스레드 유지`와 `다시 예약`을 비교해 backoff가 blocking thread 점유에 주는 차이를 확인하지만, 해당 Lab 자료는 현재 이 저장소에 포함되어 있지 않다.
 
 네트워크에는 일시적인 연결 실패, connection reset, 429와 일시적 5xx가 발생할 수 있다. retry는 이런 순간 실패를 성공으로 바꿀 수 있지만, 실패한 시스템에 추가 부하를 보내는 행위이기도 하다.
 
