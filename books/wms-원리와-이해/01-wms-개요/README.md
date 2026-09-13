@@ -6,15 +6,7 @@
 
 WMS를 바로 설명하기 전에, 물류시스템이 왜 따로 필요해졌는지부터 짚는 편이 이해가 빠르다. 기업의 관리 시스템은 "무엇이 부족한가"를 하나씩 발견하면서 확장되어 왔다.
 
-```mermaid
-flowchart LR
-    A["MRP<br/>원부자재 소요 계획"] -- "설비·인력이 부족" --> B["MRP II<br/>+ 인력·설비 능력"]
-    B -- "돈과 영업이 필요" --> C["ERP<br/>+ 재무·영업 등 전사"]
-    C -- "고객·협력사로 확장" --> D["Extended ERP<br/>+ 고객 · 협력사 관리"]
-
-    classDef step fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class A,B,C,D step
-```
+![MRP에서 Extended ERP까지 부족한 자원을 보완하며 확장되는 과정](./assets/01-erp-확장과정.svg)
 
 *ERP의 확장 과정 — 각 단계는 앞 단계에서 드러난 "부족한 자원"을 끌어안는다.*
 
@@ -24,42 +16,7 @@ flowchart LR
 
 아래 도식에서 실선은 재고의 물리적 이동, 점선은 시스템 사이의 정보 흐름을 뜻한다. `1)~4)`는 [WMS 연계 과정](./2-WMS-시스템이란.md#wms는-혼자-돌지-않는다)의 순서이며, 고객 주문은 출고 지시를 만드는 별도 흐름이다.
 
-```mermaid
-flowchart TB
-    S["공장 · 공급처"]
-    C["고객"]
-    subgraph OWN["자사 시스템"]
-        O["OMS<br/>주문 접수 → ERP 연계"]
-        subgraph ERPB["ERP · 전사 최적화"]
-            PR["생산 시스템"]
-            SA["영업 시스템"]
-            AC["회계 시스템"]
-        end
-        W["WMS<br/>입고 → 재고관리 → 출고"]
-        T["TMS<br/>운송 → 전달"]
-    end
-
-    C -. "고객 주문" .-> O
-    O -. "주문 연계" .-> SA
-    PR -. "1) 입고 정보" .-> W
-    W -. "2) 판매 가능 재고" .-> SA
-    W -. "2) 재고 정보" .-> AC
-    SA -. "3) 출고 지시" .-> W
-    W -. "4) 출고 완료" .-> PR
-    W -. "4) 출고 완료" .-> SA
-    W -. "4) 출고 완료" .-> AC
-    S -- "조달 운송" --> T
-    T -- "입고" --> W
-    W -- "출고" --> T
-    T -- "고객 전달" --> C
-
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef wms fill:#93ad70,stroke:#5f7a44,color:#121a08
-    class PR,SA,AC,O,T,C,S sys
-    class W wms
-    style ERPB fill:#cfe0ee,stroke:#8fb4d0,color:#0f2233
-    style OWN fill:none,stroke:#9aa0a6,stroke-dasharray: 4 4
-```
+![ERP·OMS·WMS·TMS의 역할과 재고 이동 및 정보 연계 흐름](./assets/02-물류시스템-지형도.svg)
 
 *물류시스템은 ERP를 대체하지 않고, ERP가 감당하기 어려운 영역을 특화해 지원한다. 주문은 OMS가 접수해 ERP로 연계하고, 출고 지시는 ERP의 영업시스템이 WMS로 내린다. 재고는 공장·공급처에서 입고되어 WMS를 거쳐 출고된다.*
 

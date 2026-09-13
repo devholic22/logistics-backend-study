@@ -94,30 +94,7 @@ WMS는 창고에서 일어나는 작업을 바코드·모바일 장비·RFID·�
 
 동작 방식은 단순하다. 창고 작업자가 작업을 수행하면서 그 결과를 바코드 스캐닝 등으로 입력하면, WMS에 바로 실시간으로 반영된다. 아래 도식의 번호는 처리 순서이며, 점선은 정보 흐름을 뜻한다.
 
-```mermaid
-flowchart LR
-    subgraph FLOOR["창고 현장"]
-        A["작업자<br/>작업 수행"]
-        D["바코드 · 모바일 장비<br/>RFID · 물류자동화 장비"]
-    end
-    W["WMS<br/>재고 변동 실시간 반영"]
-    subgraph SHARE["실시간 공유"]
-        M["관리자<br/>작업 · 진척도 · 재고 현황"]
-        E["ERP 등 관련 시스템<br/>인터페이스"]
-    end
-
-    A -. "1) 작업 결과 입력" .-> D
-    D -. "2) 결과 데이터 전송" .-> W
-    W -. "3) 운영 현황 공유" .-> M
-    W -. "4) 재고 정보 연계" .-> E
-
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef wms fill:#93ad70,stroke:#5f7a44,color:#121a08
-    class A,D,M,E sys
-    class W wms
-    style FLOOR fill:none,stroke:#9aa0a6,stroke-dasharray: 4 4
-    style SHARE fill:none,stroke:#9aa0a6,stroke-dasharray: 4 4
-```
+![작업 결과가 장비를 거쳐 WMS에 반영되고 관리자와 ERP로 공유되는 순서](./assets/04-실시간-재고관리.svg)
 
 *작업 결과가 장비를 거쳐 즉시 WMS에 반영되고, 관리자와 타 시스템으로 실시간 공유된다.*
 
