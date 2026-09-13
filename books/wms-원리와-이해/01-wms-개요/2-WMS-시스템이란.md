@@ -49,30 +49,7 @@ WMS는 재고 최적화와 관련되어 있기 때문에 독립적으로 운영�
 
 거래 관점까지 포함해 전체를 한 장에 놓으면 이렇게 된다. 번호는 앞에서 설명한 WMS 연계 순서를 나타낸다. 실선은 재고가 실제로 움직이는 흐름이고, 점선은 정보만 오가는 흐름이다.
 
-```mermaid
-sequenceDiagram
-    participant PF as 생산 공장
-    participant W as WMS
-    box ERP
-        participant PR as 생산 시스템
-        participant SA as 영업 시스템
-        participant AC as 회계 시스템
-    end
-    participant CU as 고객 시스템
-
-    PR-->>W: 1) 입고 정보 전달
-    PF->>W: 생산품 입고
-    W-->>SA: 2) 판매 가능 재고 공유
-    W-->>AC: 2) 재고 정보 공유
-    CU-->>SA: 고객 발주
-    SA-->>W: 3) 출고 지시
-    W->>CU: 제품 출고
-    W-->>PR: 4) 출고 완료 공유
-    W-->>SA: 4) 출고 완료 공유
-    W-->>AC: 4) 출고 완료 공유
-    SA-->>AC: 매출 발생
-    CU-->>AC: 결제
-```
+![생산 공장·WMS·ERP 하위 시스템·고객 시스템 사이의 재고 이동과 정보 연계 순서](./assets/03-erp-wms-연계.svg)
 
 *[그림 1-4] ERP와 WMS 시스템 연계*
 
