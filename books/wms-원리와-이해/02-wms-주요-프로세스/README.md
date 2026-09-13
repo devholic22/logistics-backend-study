@@ -6,44 +6,7 @@
 
 공급처에서 재고를 공급받아 최종 출고처에 배송하기까지, 입고·출고·재고관리 등 주요 프로세스는 **모두 로케이션에서 로케이션으로 재고가 이동하는 흐름을 관리하면서** 처리된다. 그래서 프로세스를 보기 전에 로케이션과 존을 먼저 알아야 한다.
 
-```mermaid
-flowchart LR
-    SUP["공급처 · 공장"]
-    ORD["출고 주문"]
-    subgraph WH["창고"]
-        RCV["입고존<br/>임시 보관(가용재고 아님)"]
-        subgraph STOZ["보관존(가용재고)"]
-            L1["최초 보관 로케이션"]
-            L2["다른 로케이션"]
-        end
-        WRK["작업존"]
-        PCK["피킹존"]
-        DST["분배존"]
-        SHP["출고존"]
-    end
-    CUS["출고처 · 고객"]
-
-    SUP -- "① 입고" --> RCV
-    RCV -- "② 적치" --> L1
-    L1 -- "③ 재고이동" --> L2
-    L2 -- "④ 재고보충 (선택)" --> PCK
-    L2 -- "⑨ 유통가공" --> WRK
-    WRK -- "가공 완료" --> L2
-    ORD -. "⑤ 할당 (피킹존 운영)" .-> PCK
-    ORD -. "⑤ 할당 (직접 피킹)" .-> L2
-    L2 -- "⑥ 직접 피킹" --> SHP
-    PCK -- "⑥ 피킹" --> SHP
-    SHP -- "⑦ 출고" --> CUS
-    RCV -- "⑪ 크로스도킹" --> DST
-    DST -- "바로 출고" --> SHP
-
-    classDef zone fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    class SUP,ORD,CUS,RCV,PCK,SHP,WRK,DST zone
-    class L1,L2 core
-    style STOZ fill:none,stroke:#5f7a44
-    style WH fill:none,stroke:#9aa0a6,stroke-dasharray: 4 4
-```
+![WMS 주요 프로세스와 창고 내 재고 이동 및 출고 주문 흐름](./assets/01-wms-주요-프로세스.svg)
 
 *창고의 존과 주요 프로세스 — 번호는 원서의 프로세스 순서다*
 
