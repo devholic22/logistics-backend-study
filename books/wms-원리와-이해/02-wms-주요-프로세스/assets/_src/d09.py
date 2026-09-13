@@ -3,7 +3,7 @@ import sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from lib import *
 
-W, H = 660, 920
+W, H = 660, 780
 s = Svg(W, H, "크로스도킹 — 보관존을 거치지 않고 입고 당일 출고하는 흐름")
 s.text(W/2, 40, "크로스도킹", 19, INK, 700)
 s.text(W/2, 62, "입고 재고를 보관존에 적치하지 않고 분배해 바로 출고", 13, INK3)
