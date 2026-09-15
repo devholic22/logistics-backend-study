@@ -10,44 +10,7 @@
 
 WMS는 세 갈래의 기준정보를 기반으로 운영된다. **재고를 보관 관리하기 위한 주체인 "창고"**, **재고를 입고받거나 출고해야 할 대상인 "거래처"**, 그리고 **창고에 보관되는 "제품"** 이다.
 
-```mermaid
-flowchart TB
-%% lint: layout   기준정보의 구성을 나열한 배치도다. 흐름이 아니므로 검사를 건너뛴다
-    subgraph WH["창고"]
-        direction TB
-        W1["창고 (Warehouse)"]
-        W2["존 (Zone)"]
-        W3["로케이션 (Location)"]
-        W1 ~~~ W2
-        W2 ~~~ W3
-    end
-
-    subgraph PT["거래처"]
-        direction TB
-        P1["고객사"]
-        P2["입고처"]
-        P3["출고처"]
-        P4["운송사"]
-        P1 ~~~ P2
-        P2 ~~~ P3
-        P3 ~~~ P4
-    end
-
-    subgraph IT["제품"]
-        direction TB
-        I1["제품"]
-        I2["제품그룹"]
-        I1 ~~~ I2
-    end
-
-    WH ~~~ PT
-    PT ~~~ IT
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class W1,W2,W3 core
-    class P1,P2,P3,P4,I1,I2 sys
-```
+![WMS 기준정보의 구성](assets/01-기준정보-구성.svg)
 
 *[그림 3-1] 기준정보 주요 구성 — 창고 쪽 세 단계가 ERP와 WMS를 가르는 지점이다*
 
