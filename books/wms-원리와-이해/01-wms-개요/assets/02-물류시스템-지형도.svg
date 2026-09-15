@@ -1,1 +1,645 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="740" height="845" viewBox="0 0 740 845" role="img" font-family="-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Malgun Gothic',system-ui,sans-serif"><title>ERP·OMS·WMS·TMS의 역할 분담과 재고·정보 흐름</title><defs><marker id="a334155" markerWidth="8" markerHeight="8" refX="7.2" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0.6 L7.6,4 L0,7.4 z" fill="#334155"/></marker><marker id="a6b7280" markerWidth="8" markerHeight="8" refX="7.2" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0.6 L7.6,4 L0,7.4 z" fill="#6b7280"/></marker></defs><rect x="0.5" y="0.5" width="739" height="844" rx="10" ry="10" fill="#fbfbf9" stroke="#e4e7e0"/><text x="370.0" y="40.0" font-size="19" font-weight="700" fill="#1f2937" text-anchor="middle">물류시스템의 자리 — ERP · OMS · WMS · TMS</text><text x="370.0" y="62.0" font-size="13" font-weight="400" fill="#6b7280" text-anchor="middle">실선은 재고의 물리적 이동, 점선은 시스템 사이의 정보 흐름</text><rect x="40.0" y="86.0" width="220.0" height="54.0" rx="12" ry="12" fill="#ffffff" stroke="#475569" stroke-width="2"/><rect x="50.0" y="96.0" width="200.0" height="32.0" rx="8" ry="8" fill="#475569"/><text x="150.0" y="118.0" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">공장 · 공급처</text><rect x="480.0" y="86.0" width="220.0" height="54.0" rx="12" ry="12" fill="#ffffff" stroke="#475569" stroke-width="2"/><rect x="490.0" y="96.0" width="200.0" height="32.0" rx="8" ry="8" fill="#475569"/><text x="590.0" y="118.0" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">고객</text><rect x="20.0" y="178.0" width="700.0" height="612.0" rx="16" ry="16" fill="none" stroke="#a9b0a4" stroke-width="1.6" stroke-dasharray="7 6"/><rect x="325.9" y="165.0" width="88.2" height="26.0" rx="13" ry="13" fill="#fbfbf9" stroke="#6b7280" stroke-width="1.4"/><text x="370.0" y="182.5" font-size="12.5" font-weight="700" fill="#6b7280" text-anchor="middle">자사 시스템</text><rect x="40.0" y="216.0" width="230.0" height="83.0" rx="12" ry="12" fill="#ffffff" stroke="#8a6a1c" stroke-width="2"/><rect x="50.0" y="226.0" width="210.0" height="32.0" rx="8" ry="8" fill="#8a6a1c"/><text x="155.0" y="248.0" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">TMS</text><text x="155.0" y="282.0" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="middle">운송 → 전달</text><rect x="470.0" y="216.0" width="230.0" height="83.0" rx="12" ry="12" fill="#ffffff" stroke="#8a6a1c" stroke-width="2"/><rect x="480.0" y="226.0" width="210.0" height="32.0" rx="8" ry="8" fill="#8a6a1c"/><text x="585.0" y="248.0" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">OMS</text><text x="585.0" y="282.0" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="middle">주문 접수 → ERP 연계</text><rect x="118.0" y="352.0" width="578.0" height="128.0" rx="16" ry="16" fill="#e9eef9" stroke="#2b4fa8" stroke-width="1.6"/><rect x="136.0" y="339.0" width="123.8" height="26.0" rx="13" ry="13" fill="#fbfbf9" stroke="#2b4fa8" stroke-width="1.4"/><text x="197.9" y="356.5" font-size="12.5" font-weight="700" fill="#2b4fa8" text-anchor="middle">ERP · 전사 최적화</text><rect x="134.0" y="396.0" width="170.0" height="54.0" rx="12" ry="12" fill="#ffffff" stroke="#2b4fa8" stroke-width="2"/><rect x="144.0" y="406.0" width="150.0" height="32.0" rx="8" ry="8" fill="#2b4fa8"/><text x="219.0" y="428.0" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">생산 시스템</text><rect x="324.0" y="396.0" width="170.0" height="54.0" rx="12" ry="12" fill="#ffffff" stroke="#2b4fa8" stroke-width="2"/><rect x="334.0" y="406.0" width="150.0" height="32.0" rx="8" ry="8" fill="#2b4fa8"/><text x="409.0" y="428.0" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">영업 시스템</text><rect x="514.0" y="396.0" width="170.0" height="54.0" rx="12" ry="12" fill="#ffffff" stroke="#2b4fa8" stroke-width="2"/><rect x="524.0" y="406.0" width="150.0" height="32.0" rx="8" ry="8" fill="#2b4fa8"/><text x="599.0" y="428.0" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">회계 시스템</text><rect x="130.0" y="640.0" width="480.0" height="104.0" rx="12" ry="12" fill="#ffffff" stroke="#2f6b46" stroke-width="2"/><rect x="140.0" y="660.5" width="460.0" height="32.0" rx="8" ry="8" fill="#2f6b46"/><text x="370.0" y="682.5" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">WMS</text><text x="370.0" y="716.5" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="middle">입고 → 재고관리 → 출고</text><path d="M150.0,144.0 L150.0,210.0" fill="none" stroke="#334155" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a334155)"/><rect x="112.1" y="168.0" width="75.8" height="24.0" rx="12.0" ry="12.0" fill="#ffffff" stroke="#334155" stroke-width="1.4"/><text x="150.0" y="184.5" font-size="12.5" font-weight="700" fill="#334155" text-anchor="middle">조달 운송</text><path d="M90.0,303.0 L90.0,700.0 L124.0,700.0" fill="none" stroke="#334155" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a334155)"/><rect x="66.5" y="458.0" width="47.0" height="24.0" rx="12.0" ry="12.0" fill="#ffffff" stroke="#334155" stroke-width="1.4"/><text x="90.0" y="474.5" font-size="12.5" font-weight="700" fill="#334155" text-anchor="middle">입고</text><path d="M126.0,676.0 L60.0,676.0 L60.0,305.0" fill="none" stroke="#334155" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a334155)"/><rect x="36.5" y="533.0" width="47.0" height="24.0" rx="12.0" ry="12.0" fill="#ffffff" stroke="#334155" stroke-width="1.4"/><text x="60.0" y="549.5" font-size="12.5" font-weight="700" fill="#334155" text-anchor="middle">출고</text><path d="M274.0,242.0 L310.0,242.0 L310.0,204.0 L570.0,204.0 L570.0,146.0" fill="none" stroke="#334155" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a334155)"/><rect x="354.1" y="192.0" width="75.8" height="24.0" rx="12.0" ry="12.0" fill="#ffffff" stroke="#334155" stroke-width="1.4"/><text x="392.0" y="208.5" font-size="12.5" font-weight="700" fill="#334155" text-anchor="middle">고객 전달</text><path d="M630.0,144.0 L630.0,210.0" fill="none" stroke="#6b7280" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a6b7280)" stroke-dasharray="7 5"/><rect x="592.1" y="168.0" width="75.8" height="24.0" rx="12.0" ry="12.0" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/><text x="630.0" y="184.5" font-size="12.5" font-weight="700" fill="#6b7280" text-anchor="middle">고객 주문</text><path d="M585.0,303.0 L585.0,322.0 L409.0,322.0 L409.0,390.0" fill="none" stroke="#6b7280" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a6b7280)" stroke-dasharray="7 5"/><rect x="462.1" y="310.0" width="75.8" height="24.0" rx="12.0" ry="12.0" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/><text x="500.0" y="326.5" font-size="12.5" font-weight="700" fill="#6b7280" text-anchor="middle">주문 연계</text><path d="M197.0,454.0 L197.0,634.0" fill="none" stroke="#6b7280" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a6b7280)" stroke-dasharray="7 5"/><rect x="150.2" y="533.0" width="93.5" height="24.0" rx="12.0" ry="12.0" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/><text x="197.0" y="549.5" font-size="12.5" font-weight="700" fill="#6b7280" text-anchor="middle">1) 입고 정보</text><path d="M247.0,636.0 L247.0,456.0" fill="none" stroke="#6b7280" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a6b7280)" stroke-dasharray="7 5"/><rect x="200.2" y="588.0" width="93.5" height="24.0" rx="12.0" ry="12.0" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/><text x="247.0" y="604.5" font-size="12.5" font-weight="700" fill="#6b7280" text-anchor="middle">4) 출고 완료</text><path d="M379.0,454.0 L379.0,634.0" fill="none" stroke="#6b7280" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a6b7280)" stroke-dasharray="7 5"/><rect x="332.2" y="533.0" width="93.5" height="24.0" rx="12.0" ry="12.0" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/><text x="379.0" y="549.5" font-size="12.5" font-weight="700" fill="#6b7280" text-anchor="middle">3) 출고 지시</text><path d="M443.0,636.0 L443.0,456.0" fill="none" stroke="#6b7280" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a6b7280)" stroke-dasharray="7 5"/><rect x="381.9" y="580.5" width="122.2" height="41.0" rx="10" ry="10" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/><text x="443.0" y="597.0" font-size="12.5" font-weight="700" fill="#6b7280" text-anchor="middle">2) 판매 가능 재고</text><text x="443.0" y="614.0" font-size="12.5" font-weight="700" fill="#6b7280" text-anchor="middle">4) 출고 완료</text><path d="M603.0,636.0 L603.0,456.0" fill="none" stroke="#6b7280" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a6b7280)" stroke-dasharray="7 5"/><rect x="556.2" y="539.5" width="93.5" height="41.0" rx="10" ry="10" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/><text x="603.0" y="556.0" font-size="12.5" font-weight="700" fill="#6b7280" text-anchor="middle">2) 재고 정보</text><text x="603.0" y="573.0" font-size="12.5" font-weight="700" fill="#6b7280" text-anchor="middle">4) 출고 완료</text><path d="M40,818 L70,818" stroke="#334155" stroke-width="2.2" stroke-linecap="round"/><text x="78.0" y="822.5" font-size="12.5" font-weight="600" fill="#6b7280" text-anchor="start">재고의 물리적 이동</text><path d="M211.5,818 L241.5,818" stroke="#6b7280" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="7 5"/><text x="249.5" y="822.5" font-size="12.5" font-weight="600" fill="#6b7280" text-anchor="start">정보 흐름 (번호 = 연계 순서)</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="650" viewBox="0 0 1120 650" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-theme="light" data-quality-profile="showcase">
+<style><![CDATA[svg[data-chapter-handoff] [data-node-id][data-chapter-role="stay"] { opacity: 1; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="enter"] { opacity: 0.78; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="leave"] { opacity: 0.26; }
+svg [data-node-id][data-chapter-role] { opacity: 1 !important; }
+svg[data-chapter-preview] [data-node-id],
+      svg[data-chapter-preview] [data-edge-from] { opacity: 1 !important; filter: none !important; }
+.c-grid { stroke: #e2e8f0; fill: none; }
+.c-mask { fill: #ffffff; stroke: none; }
+.c-frontend { fill: rgb(218, 245, 247);   stroke: #0891b2; }
+.c-backend { fill: rgb(215, 244, 232);    stroke: #059669; }
+.c-database { fill: rgb(234, 229, 249);   stroke: #7c3aed; }
+.c-cloud { fill: rgb(251, 240, 211);      stroke: #d97706; }
+.c-security { fill: rgb(251, 230, 232);   stroke: #e11d48; }
+.c-messagebus { fill: rgb(251, 235, 221); stroke: #ea580c; }
+.c-external { fill: rgb(232, 235, 237);   stroke: #64748b; }
+.t-primary { fill: #0f172a; }
+.t-muted { fill: #64748b; }
+.t-dim { fill: #94a3b8; }
+.t-frontend { fill: #0891b2; }
+.t-backend { fill: #059669; }
+.t-database { fill: #7c3aed; }
+.t-cloud { fill: #d97706; }
+.t-security { fill: #e11d48; }
+.t-messagebus { fill: #ea580c; }
+.t-external { fill: #64748b; }
+svg .semantic-sigil {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.35;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.76;
+      pointer-events: none;
+    }
+svg .semantic-sigil > * { vector-effect: non-scaling-stroke; }
+svg .semantic-sigil .sigil-fill { fill: currentColor; stroke: none; }
+svg .s-frontend { color: #0891b2; }
+svg .s-backend { color: #059669; }
+svg .s-database { color: #7c3aed; }
+svg .s-cloud { color: #d97706; }
+svg .s-security { color: #e11d48; }
+svg .s-messagebus { color: #ea580c; }
+svg .s-external { color: #64748b; }
+svg .brand-mark { pointer-events: none; }
+svg .brand-mark-badge { fill: #fff; stroke: none; }
+svg .brand-mark-frame {
+      fill: none;
+      stroke: #cbd5e1;
+      stroke-width: 0.8;
+      vector-effect: non-scaling-stroke;
+    }
+svg .brand-mark-fallback {
+      fill: none;
+      stroke: #475569;
+      stroke-width: 1.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+svg[data-preset="blueprint"] .brand-mark-badge,
+    svg[data-preset="blueprint"] .brand-mark-frame { rx: 1px; }
+svg [data-detail] { transition: opacity 160ms ease; }
+svg [data-detail-anchor] {
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 160ms ease;
+    }
+svg[data-focus-active] [data-focus-match][data-detail],
+    svg[data-focus-active] [data-focus-match] [data-detail],
+    svg[data-reach-active] [data-reach-match][data-detail],
+    svg[data-reach-active] [data-reach-match] [data-detail],
+    svg[data-lens-active] [data-lens-match][data-detail],
+    svg[data-lens-active] [data-lens-match] [data-detail],
+    svg[data-legend-preview-active] [data-legend-preview-match][data-detail],
+    svg[data-legend-preview-active] [data-legend-preview-match] [data-detail],
+    svg[data-intent-trace-active] [data-intent-trace-match][data-detail],
+    svg[data-intent-trace-active] [data-intent-trace-match] [data-detail],
+    svg[data-route-active] [data-route-match][data-detail],
+    svg[data-route-active] [data-route-match] [data-detail],
+    svg[data-story-active] [data-story-step][data-detail],
+    svg[data-story-active] [data-story-step] [data-detail],
+    svg[data-relationship-preview-active] [data-relationship-preview][data-detail],
+    svg[data-relationship-preview-active] [data-relationship-preview] [data-detail],
+    svg [data-node-id]:hover [data-detail],
+    svg [data-node-id]:focus-visible [data-detail] {
+      opacity: 1;
+      pointer-events: auto;
+    }
+svg[data-focus-active] [data-focus-match] [data-detail-anchor],
+    svg[data-reach-active] [data-reach-match] [data-detail-anchor],
+    svg[data-lens-active] [data-lens-match] [data-detail-anchor],
+    svg[data-legend-preview-active] [data-legend-preview-match] [data-detail-anchor],
+    svg[data-intent-trace-active] [data-intent-trace-match] [data-detail-anchor],
+    svg[data-route-active] [data-route-match] [data-detail-anchor],
+    svg[data-story-active] [data-story-step] [data-detail-anchor],
+    svg [data-node-id]:hover [data-detail-anchor],
+    svg [data-node-id]:focus-visible [data-detail-anchor] { transform: none; }
+.a-default { stroke: #94a3b8; fill: none; }
+.a-emphasis { stroke: #059669; fill: none; }
+.a-security { stroke: #e11d48; fill: none; stroke-dasharray: 5,5; }
+.a-dashed { stroke: #7c3aed; fill: none; stroke-dasharray: 4,4; }
+.m-default { fill: #94a3b8; }
+.m-emphasis { fill: #059669; }
+.m-security { fill: #e11d48; }
+.m-dashed { fill: #7c3aed; }
+svg [data-node-id] {
+      cursor: pointer;
+      transition: opacity 0.18s ease, filter 0.18s ease;
+    }
+svg [data-edge-from] { transition: opacity 0.18s ease, filter 0.18s ease; }
+svg [data-node-id]:hover,
+    svg [data-node-id]:focus-visible {
+      filter: drop-shadow(0 0 7px #0891b2);
+      outline: none;
+    }
+svg [data-node-id]:hover .source-evidence-beacon,
+    svg [data-node-id]:focus-visible .source-evidence-beacon,
+    svg [data-node-id][data-focus-selected] .source-evidence-beacon {
+      opacity: 1;
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #059669 72%, transparent));
+    }
+svg[data-preset="signal-flow"] .source-evidence-beacon { opacity: 0.9; }
+svg[data-preset="blueprint"] .source-evidence-beacon rect {
+      rx: 0.8px;
+      filter: none;
+    }
+svg [data-legend-kind][role="button"] { cursor: pointer; }
+svg [data-legend-kind]:focus { outline: none; }
+svg [data-legend-hit] {
+      fill: transparent;
+      stroke: transparent;
+      stroke-width: 1.4;
+      pointer-events: all;
+      vector-effect: non-scaling-stroke;
+      transition: stroke 150ms ease, stroke-width 150ms ease, filter 150ms ease;
+    }
+svg [data-legend-count-badge] { pointer-events: none; }
+svg [data-legend-count-badge] rect {
+      fill: #ffffff;
+      stroke: #e2e8f0;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+svg [data-legend-count-badge] text {
+      fill: #64748b;
+      font-size: 8px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+svg [data-legend-kind][role="button"]:hover [data-legend-hit] {
+      stroke: color-mix(in srgb, #7c3aed 58%, transparent);
+    }
+svg [data-legend-kind][role="button"]:focus-visible [data-legend-hit] {
+      stroke: #0891b2;
+      stroke-width: 1.8;
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg [data-legend-kind][data-legend-selected] [data-legend-hit] {
+      stroke: #7c3aed;
+      stroke-width: 2.2;
+      stroke-dasharray: 3 2;
+    }
+svg [data-legend-kind][data-legend-selected] [data-legend-count-badge] rect {
+      stroke: #7c3aed;
+      stroke-width: 1.8;
+    }
+svg [data-legend-kind][data-legend-zero] { opacity: 0.44; }
+svg[data-preset="signal-flow"] [data-legend-kind][data-legend-selected] [data-legend-hit] {
+      filter: drop-shadow(0 0 4px #7c3aed);
+    }
+svg[data-preset="blueprint"] [data-legend-hit],
+    svg[data-preset="blueprint"] [data-legend-count-badge] rect { rx: 0; filter: none; }
+svg[data-legend-preview-active] [data-node-id],
+    svg[data-legend-preview-active] [data-edge-from] { opacity: 0.11; }
+svg[data-legend-preview-active] [data-legend-preview-match] { opacity: 1; }
+svg[data-legend-preview-active] [data-legend-preview-peer] { opacity: 0.62; }
+svg[data-legend-preview-active] [data-legend-preview-selected] {
+      filter: drop-shadow(0 0 8px #7c3aed);
+    }
+svg[data-lens-active] [data-node-id],
+    svg[data-lens-active] [data-edge-from] { opacity: 0.11; }
+svg[data-lens-active] [data-lens-match] { opacity: 1; }
+svg[data-lens-active] [data-lens-peer] { opacity: 0.62; }
+svg[data-lens-active] [data-lens-selected] {
+      filter: drop-shadow(0 0 10px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow {
+      stroke-width: 3.7;
+      opacity: 1;
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="out"],
+    svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="forward"] {
+      filter: drop-shadow(0 0 6px #0891b2);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="in"],
+    svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="reverse"] {
+      filter: drop-shadow(0 0 6px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="within"] {
+      filter: drop-shadow(0 0 6px #ea580c);
+    }
+svg[data-preset="blueprint"] .semantic-lens-flow {
+      stroke-width: 2.45;
+      stroke-linecap: square;
+      filter: none;
+      opacity: 0.78;
+    }
+svg[data-focus-active] [data-node-id],
+    svg[data-focus-active] [data-edge-from] { opacity: 0.13; }
+svg[data-focus-active] [data-focus-match] { opacity: 1; }
+svg[data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-reach-active] [data-node-id],
+    svg[data-reach-active] [data-edge-from] { opacity: 0.09; }
+svg[data-reach-active] [data-reach-match] { opacity: 1; }
+svg[data-reach-active="upstream"] [data-reach-origin] {
+      filter: drop-shadow(0 0 11px #7c3aed);
+    }
+svg[data-reach-active="downstream"] [data-reach-origin] {
+      filter: drop-shadow(0 0 11px #059669);
+    }
+svg[data-reach-active="upstream"] [data-edge-from][data-reach-match] {
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #7c3aed 72%, transparent));
+    }
+svg[data-reach-active="downstream"] [data-edge-from][data-reach-match] {
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #059669 72%, transparent));
+    }
+svg[data-preset="blueprint"][data-reach-active] [data-reach-origin],
+    svg[data-preset="blueprint"][data-reach-active] [data-edge-from][data-reach-match] {
+      filter: none;
+    }
+svg[data-preset="blueprint"] .relationship-hit-target:focus-visible .relationship-focus-rail {
+      stroke-linecap: square;
+      filter: none;
+    }
+svg[data-relationship-direct-active] [data-node-id],
+    svg[data-relationship-direct-active] [data-edge-from] { opacity: 0.16; }
+svg[data-relationship-direct-active] [data-relationship-preview],
+    svg[data-relationship-direct-active] [data-relationship-preview-node] { opacity: 1; }
+svg[data-focus-active]:not([data-relationship-pin-active]) .relationship-hit-rail,
+    svg[data-story-active] .relationship-hit-rail,
+    svg[data-route-picking] .relationship-hit-rail,
+    svg[data-route-active] .relationship-hit-rail,
+    svg[data-lens-active] .relationship-hit-rail,
+    svg[data-chapter-preview] .relationship-hit-rail { pointer-events: none; }
+svg[data-relationship-preview-active] [data-focus-match] { opacity: 0.18; }
+svg[data-relationship-preview-active] [data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview-node] { opacity: 1; }
+svg[data-relationship-preview-active] [data-relationship-preview] {
+      filter: drop-shadow(0 0 5px #059669);
+    }
+svg[data-relationship-preview-active] [data-relationship-preview] path,
+    svg[data-relationship-preview-active] path[data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview] line,
+    svg[data-relationship-preview-active] line[data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview] polyline,
+    svg[data-relationship-preview-active] polyline[data-relationship-preview] {
+      stroke-width: 2.75;
+    }
+svg[data-relationship-preview-active] [data-relationship-preview-source] {
+      filter: drop-shadow(0 0 7px #0891b2);
+    }
+svg[data-relationship-preview-active] [data-relationship-preview-target] {
+      filter: drop-shadow(0 0 7px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .relationship-flow-pulse {
+      stroke: #0891b2;
+      stroke-width: 3.85;
+      filter: drop-shadow(0 0 7px #0891b2);
+    }
+svg[data-preset="blueprint"] .relationship-flow-pulse {
+      stroke-width: 2.5;
+      stroke-linecap: square;
+      filter: none;
+    }
+svg[data-preset="editorial"] .relationship-flow-pulse {
+      stroke: #059669;
+      stroke-width: 2.75;
+      filter: none;
+    }
+svg[data-preset="signal-flow"] .semantic-flow-token {
+      filter: drop-shadow(0 0 5px currentColor);
+    }
+svg[data-preset="blueprint"] .semantic-flow-token { filter: none; }
+svg[data-preset="editorial"] .semantic-flow-token { filter: none; }
+svg[data-intent-trace-active] [data-node-id],
+    svg[data-intent-trace-active] [data-edge-from] { opacity: 0.2; }
+svg[data-intent-trace-active] [data-intent-trace-match] { opacity: 1; }
+svg[data-intent-trace-active] [data-intent-trace-selected] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-preset="blueprint"] [data-intent-trace-selected],
+    svg[data-preset="blueprint"] .intent-trace-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="editorial"] [data-intent-trace-selected],
+    svg[data-preset="editorial"] .intent-trace-flow { filter: none; }
+svg[data-route-picking="target"] [data-node-id] { opacity: 0.24; }
+svg[data-route-picking="target"] [data-route-candidate],
+    svg[data-route-picking="target"] [data-route-start] { opacity: 1; }
+svg[data-route-picking] [data-node-id] { cursor: crosshair; }
+svg[data-route-picking] [data-route-start] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-route-active] [data-node-id],
+    svg[data-route-active] [data-edge-from] { opacity: 0.11; }
+svg[data-route-active] [data-route-match] { opacity: 1; }
+svg[data-route-active] [data-route-start] {
+      filter: drop-shadow(0 0 11px #0891b2);
+    }
+svg[data-route-active] [data-route-end] {
+      filter: drop-shadow(0 0 11px #e11d48);
+    }
+svg[data-route-active] [data-route-step]:not([data-route-start]):not([data-route-end]) {
+      filter: drop-shadow(0 0 7px #059669);
+    }
+svg[data-route-journey] [data-route-match][data-route-journey-state="past"] { opacity: 0.62; }
+svg[data-route-journey] [data-route-match][data-route-journey-state="future"] { opacity: 0.34; }
+svg[data-route-journey] [data-route-match][data-route-journey-state="current"] { opacity: 1; }
+svg[data-route-journey] [data-node-id][data-route-journey-current] {
+      filter: drop-shadow(0 0 10px #059669);
+    }
+svg[data-route-journey] [data-edge-from][data-route-journey-current] {
+      opacity: 1;
+      filter: drop-shadow(0 0 6px #059669);
+    }
+svg[data-preset="blueprint"] [data-route-start],
+    svg[data-preset="blueprint"] [data-route-end],
+    svg[data-preset="blueprint"] [data-route-step],
+    svg[data-preset="blueprint"] .route-probe-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="blueprint"] .route-journey-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="editorial"] [data-route-start],
+    svg[data-preset="editorial"] [data-route-end],
+    svg[data-preset="editorial"] [data-route-step],
+    svg[data-preset="editorial"] .route-probe-flow,
+    svg[data-preset="editorial"] .route-journey-flow { filter: none; }
+svg[data-preset="editorial"] .c-grid {
+      stroke-dasharray: 1 4;
+      opacity: 0.48;
+    }
+svg[data-preset="editorial"] .c-region {
+      fill: color-mix(in srgb, rgb(251, 240, 211) 48%, transparent);
+      stroke-dasharray: 9 4;
+    }
+svg[data-preset="editorial"] [data-node-id]:hover,
+    svg[data-preset="editorial"] [data-node-id]:focus-visible,
+    svg[data-preset="editorial"][data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 2px 2px color-mix(in srgb, #0f172a 18%, transparent));
+    }
+svg[data-preset="blueprint"] .c-grid {
+      stroke-dasharray: 1 3;
+      opacity: 0.78;
+    }
+svg[data-preset="blueprint"] .c-region {
+      fill: color-mix(in srgb, rgb(251, 240, 211) 58%, transparent);
+      stroke-dasharray: 12 4 2 4;
+    }
+svg[data-preset="blueprint"] .c-security-group,
+    svg[data-preset="blueprint"] .c-lane { stroke-dasharray: 7 3; }
+svg[data-preset="blueprint"] [data-node-id]:hover,
+    svg[data-preset="blueprint"] [data-node-id]:focus-visible {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-preset="blueprint"][data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-preset="blueprint"][data-focus-active][data-reach-active] [data-focus-selected][data-reach-origin] {
+      filter: none;
+    }
+svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview],
+    svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-source],
+    svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-target] {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-story-beat] [data-story-step] {
+      opacity: 0.22;
+      filter: saturate(0.42);
+      transition: opacity 180ms ease, filter 180ms ease;
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="past"] {
+      opacity: 0.72;
+      filter: saturate(0.82);
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="next"] {
+      opacity: 0.5;
+      filter: saturate(0.66);
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      opacity: 1;
+      filter: drop-shadow(0 0 7px #0891b2);
+      animation: archify-story-beat-node 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+svg[data-story-beat] [data-edge-from][data-story-beat-step] {
+      opacity: 0.16;
+      transition: opacity 160ms ease;
+    }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="past"] { opacity: 0.58; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="next"] { opacity: 0.34; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="active"] { opacity: 1; }
+svg[data-story-beat] .story-trail-flow { opacity: 0; transition: opacity 160ms ease; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="past"] { opacity: 0.34; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="next"] { opacity: 0.2; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="active"] { opacity: 0.92; }
+svg[data-story-beat] .story-trail-flow[data-story-pulse="true"] {
+      stroke-dasharray: 2 13;
+      stroke-dashoffset: 30;
+      opacity: 0.92;
+      animation: archify-story-flow 0.78s linear 1 both;
+    }
+svg[data-preset="blueprint"] .story-trail-flow {
+      stroke-linecap: square;
+      filter: none;
+      opacity: 0.5;
+    }
+svg[data-preset="blueprint"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      filter: none;
+      animation: none;
+    }
+svg[data-preset="editorial"] .story-trail-flow { filter: none; }
+svg[data-preset="editorial"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      filter: drop-shadow(0 2px 2px color-mix(in srgb, #0f172a 16%, transparent));
+    }
+svg[data-chapter-preview] [data-node-id],
+    svg[data-chapter-preview] [data-edge-from] {
+      opacity: 0.1 !important;
+      filter: none !important;
+      transition: none !important;
+    }
+svg[data-chapter-preview] .story-trail-overlay { opacity: 0.08 !important; }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="stay"] {
+      opacity: 0.76 !important;
+      filter: saturate(0.7) !important;
+    }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="enter"] {
+      opacity: 1 !important;
+      filter: saturate(1.2) !important;
+    }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="leave"] {
+      opacity: 0.28 !important;
+      filter: grayscale(0.72) !important;
+    }
+svg[data-preset="blueprint"][data-chapter-preview] [data-node-id] { filter: none !important; }
+.c-security-group { fill: transparent; stroke: #e11d48; stroke-dasharray: 4,4; }
+.c-region { fill: rgb(251, 248, 238); stroke: #d97706; stroke-dasharray: 8,4; }
+.c-lane { fill: rgb(249, 250, 251); stroke: #cbd5e1; stroke-dasharray: 6,6; }
+svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="edge"] {
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 3px #059669);
+      animation-duration: 1.75s;
+    }
+svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="node"] {
+      animation-duration: 3.1s;
+    }
+svg[data-preset="blueprint"][data-animation="trace"] [data-animate="edge"] {
+      stroke-linecap: square;
+      filter: none;
+      animation-duration: 2.15s;
+    }
+svg[data-preset="blueprint"][data-animation="trace"] [data-animate="node"] {
+      animation-name: archify-blueprint-node-pulse;
+      animation-duration: 3.8s;
+    }
+svg[data-preset="editorial"][data-animation="trace"] [data-animate="edge"] {
+      filter: none;
+      animation-duration: 2.2s;
+    }
+svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] {
+      animation-name: archify-editorial-node-pulse;
+      animation-duration: 3.5s;
+    }
+svg[data-animation="trace"] [data-animate] {
+        animation: none !important;
+        stroke-dashoffset: 0;
+      }
+.guided-view-chapter,
+      svg[data-chapter-preview] [data-node-id],
+      svg[data-chapter-preview] [data-edge-from] { transition: none !important; }
+svg[data-story-playing="true"] .story-trail-flow {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        opacity: 0.55;
+      }
+.source-evidence-beacon,
+      svg [data-node-id], svg [data-edge-from], svg [data-detail], svg [data-detail-anchor], svg [data-legend-hit], svg { transition: none !important; }
+svg, svg text { font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif; }
+svg, svg text { font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif; }]]></style>
+<rect width="100%" height="100%" fill="#fbfbf9"/>
+        <title id="archify-diagram-title">물류시스템의 자리 — ERP·OMS·WMS·TMS</title>
+        <desc id="archify-diagram-description">An architecture diagram generated by Archify.</desc>
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- Boundaries (behind everything) -->
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="자사 시스템" x="240" y="60" width="675" height="334" rx="12" class="c-region" stroke-width="1"/>
+
+        <!-- Connection paths (before components for correct z-order) -->
+        <path data-edge-from="supplier" data-edge-to="wms" data-edge-label="재고 입고" data-edge-key="0" data-composition-points="180,328;325,328;325,346;470,346" d="M 180 328 L 317 328 Q 325 328 325 336 L 325 338 Q 325 346 333 346 L 470 346" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="wms" data-edge-to="tms" data-edge-label="출고 운송" data-edge-key="1" data-composition-points="645,332;730,332" d="M 645 332 L 730 332" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="tms" data-edge-to="customer" data-edge-label="고객 전달" data-edge-key="2" data-composition-points="885,335;940,335" d="M 885 335 L 940 335" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="customer" data-edge-to="oms" data-edge-label="고객 주문" data-edge-key="3" data-composition-points="940,321;912.5,321;912.5,128;885,128" d="M 940 321 L 920.5 321 Q 912.5 321 912.5 313 L 912.5 136 Q 912.5 128 904.5 128 L 885 128" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="oms" data-edge-to="erp" data-edge-label="주문 연계" data-edge-key="4" data-composition-points="730,116;435,116" d="M 730 116 L 435 116" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="erp" data-edge-to="wms" data-edge-label="1) 입고 정보 · 3) 출고 지시" data-edge-key="5" data-composition-points="435,130;452.5,130;452.5,318;470,318" d="M 435 130 L 444.5 130 Q 452.5 130 452.5 138 L 452.5 310 Q 452.5 318 460.5 318 L 470 318" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="wms" data-edge-to="erp" data-edge-label="2) 판매 가능 재고 · 4) 출고 완료" data-edge-key="6" data-composition-points="470,332;452.5,332;452.5,144;435,144" d="M 470 332 L 460.5 332 Q 452.5 332 452.5 324 L 452.5 152 Q 452.5 144 444.5 144 L 435 144" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+
+        <!-- Components -->
+        <g id="node-supplier" data-node-id="supplier" data-node-label="공장·공급처" tabindex="0" role="button" aria-label="Focus 공장·공급처, 재고의 물리적 출처, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="재고의 물리적 출처" data-node-context="Architecture component">
+          <title>공장·공급처 · 재고의 물리적 출처 · Architecture component</title>
+          <rect x="35" y="290" width="145" height="76" rx="6" class="c-mask"/>
+          <rect x="35" y="290" width="145" height="76" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(41 296) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="107.5" y="326" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">공장·공급처</text>
+        <text data-detail="context" x="107.5" y="342" class="t-muted" font-size="9" text-anchor="middle">재고의 물리적 출처</text>
+        </g>
+
+        <g id="node-erp" data-node-id="erp" data-node-label="ERP" tabindex="0" role="button" aria-label="Focus ERP, 생산·영업·회계 통합, 자사 시스템" aria-pressed="false" data-node-kind="backend" data-node-sublabel="생산·영업·회계 통합" data-node-tag="전사 최적화" data-node-context="자사 시스템">
+          <title>ERP · 생산·영업·회계 통합 · 자사 시스템 · 전사 최적화</title>
+          <rect x="270" y="90" width="165" height="80" rx="6" class="c-mask"/>
+          <rect x="270" y="90" width="165" height="80" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(276 96) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="352.5" y="128" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">ERP</text>
+        <text data-detail="context" x="352.5" y="144" class="t-muted" font-size="9" text-anchor="middle">생산·영업·회계 통합</text>
+        <text data-detail="fine" x="352.5" y="162" class="t-backend" font-size="7" text-anchor="middle">전사 최적화</text>
+        </g>
+
+        <g id="node-wms" data-node-id="wms" data-node-label="WMS" tabindex="0" role="button" aria-label="Focus WMS, 입고·재고관리·출고, 자사 시스템" aria-pressed="false" data-node-kind="database" data-node-sublabel="입고·재고관리·출고" data-node-tag="물류 실행" data-node-context="자사 시스템">
+          <title>WMS · 입고·재고관리·출고 · 자사 시스템 · 물류 실행</title>
+          <rect x="470" y="290" width="175" height="84" rx="6" class="c-mask"/>
+          <rect x="470" y="290" width="175" height="84" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(476 296) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="557.5" y="330" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">WMS</text>
+        <text data-detail="context" x="557.5" y="346" class="t-muted" font-size="9" text-anchor="middle">입고·재고관리·출고</text>
+        <text data-detail="fine" x="557.5" y="366" class="t-database" font-size="7" text-anchor="middle">물류 실행</text>
+        </g>
+
+        <g id="node-oms" data-node-id="oms" data-node-label="OMS" tabindex="0" role="button" aria-label="Focus OMS, 고객 주문 접수, 자사 시스템" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="고객 주문 접수" data-node-context="자사 시스템">
+          <title>OMS · 고객 주문 접수 · 자사 시스템</title>
+          <rect x="730" y="90" width="155" height="76" rx="6" class="c-mask"/>
+          <rect x="730" y="90" width="155" height="76" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(736 96) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="807.5" y="126" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">OMS</text>
+        <text data-detail="context" x="807.5" y="142" class="t-muted" font-size="9" text-anchor="middle">고객 주문 접수</text>
+        </g>
+
+        <g id="node-tms" data-node-id="tms" data-node-label="TMS" tabindex="0" role="button" aria-label="Focus TMS, 조달·출고 운송, 자사 시스템" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="조달·출고 운송" data-node-context="자사 시스템">
+          <title>TMS · 조달·출고 운송 · 자사 시스템</title>
+          <rect x="730" y="290" width="155" height="76" rx="6" class="c-mask"/>
+          <rect x="730" y="290" width="155" height="76" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(736 296) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="807.5" y="326" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">TMS</text>
+        <text data-detail="context" x="807.5" y="342" class="t-muted" font-size="9" text-anchor="middle">조달·출고 운송</text>
+        </g>
+
+        <g id="node-customer" data-node-id="customer" data-node-label="고객" tabindex="0" role="button" aria-label="Focus 고객, 주문·상품 수령, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="주문·상품 수령" data-node-context="Architecture component">
+          <title>고객 · 주문·상품 수령 · Architecture component</title>
+          <rect x="940" y="290" width="140" height="76" rx="6" class="c-mask"/>
+          <rect x="940" y="290" width="140" height="76" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(946 296) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1010" y="326" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">고객</text>
+        <text data-detail="context" x="1010" y="342" class="t-muted" font-size="9" text-anchor="middle">주문·상품 수령</text>
+        </g>
+
+        <!-- Connection labels -->
+        <g data-detail="context" data-edge-from="supplier" data-edge-to="wms" data-edge-label="재고 입고" data-edge-key="0">
+          <rect x="298.4" y="317" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="325" y="327" class="t-backend" font-size="8" text-anchor="middle">재고 입고</text>
+        </g>
+        <g data-detail="context" data-edge-from="wms" data-edge-to="tms" data-edge-label="출고 운송" data-edge-key="1">
+          <rect x="660.9" y="312" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="687.5" y="322" class="t-backend" font-size="8" text-anchor="middle">출고 운송</text>
+        </g>
+        <g data-detail="context" data-edge-from="tms" data-edge-to="customer" data-edge-label="고객 전달" data-edge-key="2">
+          <rect x="885.9" y="343" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="912.5" y="353" class="t-backend" font-size="8" text-anchor="middle">고객 전달</text>
+        </g>
+        <g data-detail="context" data-edge-from="customer" data-edge-to="oms" data-edge-label="고객 주문" data-edge-key="3">
+          <rect x="885.9" y="170.5" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="912.5" y="180.5" class="t-messagebus" font-size="8" text-anchor="middle">고객 주문</text>
+        </g>
+        <g data-detail="context" data-edge-from="oms" data-edge-to="erp" data-edge-label="주문 연계" data-edge-key="4">
+          <rect x="555.9" y="96" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="582.5" y="106" class="t-messagebus" font-size="8" text-anchor="middle">주문 연계</text>
+        </g>
+        <g data-detail="context" data-edge-from="erp" data-edge-to="wms" data-edge-label="1) 입고 정보 · 3) 출고 지시" data-edge-key="5">
+          <rect x="290.7" y="204" width="139.6" height="14" rx="3" class="c-mask"/>
+          <text x="360.5" y="214" class="t-messagebus" font-size="8" text-anchor="middle">1) 입고 정보 · 3) 출고 지시</text>
+        </g>
+        <g data-detail="context" data-edge-from="wms" data-edge-to="erp" data-edge-label="2) 판매 가능 재고 · 4) 출고 완료" data-edge-key="6">
+          <rect x="474.7" y="218" width="163.6" height="14" rx="3" class="c-mask"/>
+          <text x="556.5" y="228" class="t-messagebus" font-size="8" text-anchor="middle">2) 판매 가능 재고 · 4) 출고 완료</text>
+        </g>
+
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="자사 시스템">
+          <rect data-graph-role="structural-frame-label-mask" x="244" y="70" width="69.4" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="248" y="83" class="t-cloud" font-size="9" font-weight="600">자사 시스템</text>
+        </g>
+
+        <!-- Legend -->
+
+      </svg>
