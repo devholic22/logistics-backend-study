@@ -10,21 +10,7 @@
 
 즉 물건이 도착하기 전, 정보가 먼저 도착하는 시점부터가 입고다. 그리고 물건이 창고에 들어온 것으로 끝나지 않고 **적치가 끝나야 입고가 끝난다.**
 
-```mermaid
-flowchart LR
-    S1["① 입고예정수신<br/>ASN 수신"]
-    S2["② 차량도착 · 검수<br/>수량 · 상태 확인"]
-    S3["③ 입고확정<br/>재고 증가(+) · 책임 이전"]
-    S4["④ 적치지시<br/>최적 로케이션 선정"]
-    S5["⑤ 적치확정<br/>이동 완료 · 가용재고 편입"]
-
-    S1 --> S2 --> S3 --> S4 --> S5
-
-    classDef step fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef done fill:#93ad70,stroke:#5f7a44,color:#121a08
-    class S1,S2,S3,S4 step
-    class S5 done
-```
+![WMS 입고 프로세스의 다섯 단계](assets/01-입고-프로세스.svg)
 
 *입고 프로세스 5단계 — ⑤ 적치확정까지 끝나야 입고가 완료된다.*
 
@@ -32,27 +18,7 @@ flowchart LR
 
 이 장에서 가장 중요한 지점이다. 입고확정으로 재고는 늘어나지만, 그 재고는 **아직 출고할 수 없다.** 아래 도식에서 실선은 재고의 물리적 이동, 점선은 WMS와 작업자 사이의 정보 흐름을 뜻한다.
 
-```mermaid
-flowchart LR
-    SUP["공급처 · 공장"]
-    RCV["입고존<br/>임시 보관 · 가용재고 아님"]
-    STO["보관존<br/>가용재고 편입"]
-    OP["작업자"]
-    W["WMS"]
-
-    SUP -- "② 물량 도착 · 검수" --> RCV
-    RCV -- "⑤ 적치 이동" --> STO
-    OP -. "③ 입고확정" .-> W
-    W -. "④ 적치지시" .-> OP
-    OP -. "⑤ 적치완료" .-> W
-
-    classDef zone fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef actor fill:#cfe0ee,stroke:#8fb4d0,color:#0f2233
-    class SUP,RCV zone
-    class STO,W core
-    class OP actor
-```
+![입고 과정의 물리적 이동과 정보 흐름](assets/02-입고-물리-정보-흐름.svg)
 
 *적치가 완료되어야 출고 가능한 가용재고에 포함된다.*
 
