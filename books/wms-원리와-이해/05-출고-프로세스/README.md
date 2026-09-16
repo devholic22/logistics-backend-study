@@ -18,36 +18,7 @@
 
 도식의 실선은 재고의 물리적 이동, 점선은 정보와 처리 결과의 흐름을 뜻한다. 번호는 아래 프로세스 표의 단계와 같다.
 
-```mermaid
-sequenceDiagram
-    participant C as 고객사(화주 · 출고처)
-    box 창고
-        participant W as 관리자 · WMS
-        participant O as 작업자
-        participant S as 보관 로케이션
-        participant P as 피킹 로케이션
-        participant D as 출고존
-    end
-    participant V as 차량
-
-    C-->>W: 1) 출고예정 등록 · 전송
-    W-->>W: 2) 출고가능 체크
-    W-->>W: 3) 할당 · 재고 예약
-    opt 피킹 로케이션 재고 부족
-        W-->>O: 3) 재고보충 지시
-        S->>P: 3) 재고보충 이동
-        O-->>W: 3) 재고보충 확정
-    end
-    W-->>W: 4) 차량 배차
-    W-->>O: 5) 피킹지시
-    P->>D: 5) 재고 피킹 이동
-    O-->>W: 5) 피킹확정
-    O-->>O: 6) 출고검수
-    O-->>W: 6) 검수결과
-    O->>V: 7) 재고 인계 · 상차
-    W-->>W: 7) 출고확정 · 재고 차감
-    W-->>C: 출고전표 전달 · 출고결과 송신
-```
+![WMS 출고 주요 프로세스](./assets/01-출고-프로세스.svg)
 
 *[그림 5-2] 출고 주요 프로세스 — 참여자별로 나눠 본 흐름*
 
@@ -142,22 +113,7 @@ sequenceDiagram
 
 입고에서 "언제 팔 수 있게 되는가"가 핵심이었듯, 출고에서는 **언제 재고가 빠지는가**가 핵심이다.
 
-```mermaid
-flowchart LR
-    STO["보관 · 피킹 로케이션<br/>가용재고"]
-    ALLOC["할당(출고지시)<br/>예약 수량 증가(+)"]
-    DOCK["출고존(Dock Zone)<br/>피킹 완료 재고"]
-    OUT["출고확정<br/>WMS 재고 감소(−)"]
-
-    STO -. "할당 = 예약만" .-> ALLOC
-    STO -- "피킹 = 실제 이동" --> DOCK
-    DOCK -- "인수인계" --> OUT
-
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    class STO,ALLOC,DOCK sys
-    class OUT core
-```
+![출고 과정의 예약과 실제 재고 이동](./assets/02-출고-예약과-이동.svg)
 
 *할당은 예약, 피킹은 이동, 출고확정에서 비로소 재고가 빠진다*
 

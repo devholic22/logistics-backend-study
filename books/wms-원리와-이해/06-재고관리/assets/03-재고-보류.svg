@@ -1,0 +1,622 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1230" height="760" viewBox="0 0 1230 760" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-theme="light" data-preset="classic" data-quality-profile="showcase">
+<style><![CDATA[svg[data-chapter-handoff] [data-node-id][data-chapter-role="stay"] { opacity: 1; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="enter"] { opacity: 0.78; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="leave"] { opacity: 0.26; }
+svg [data-node-id][data-chapter-role] { opacity: 1 !important; }
+svg[data-chapter-preview] [data-node-id],
+      svg[data-chapter-preview] [data-edge-from] { opacity: 1 !important; filter: none !important; }
+.c-grid { stroke: #e2e8f0; fill: none; }
+.c-mask { fill: #ffffff; stroke: none; }
+.c-frontend { fill: rgb(218, 245, 247);   stroke: #0891b2; }
+.c-backend { fill: rgb(215, 244, 232);    stroke: #059669; }
+.c-database { fill: rgb(234, 229, 249);   stroke: #7c3aed; }
+.c-cloud { fill: rgb(251, 240, 211);      stroke: #d97706; }
+.c-security { fill: rgb(251, 230, 232);   stroke: #e11d48; }
+.c-messagebus { fill: rgb(251, 235, 221); stroke: #ea580c; }
+.c-external { fill: rgb(232, 235, 237);   stroke: #64748b; }
+.t-primary { fill: #0f172a; }
+.t-muted { fill: #64748b; }
+.t-dim { fill: #94a3b8; }
+.t-frontend { fill: #0891b2; }
+.t-backend { fill: #059669; }
+.t-database { fill: #7c3aed; }
+.t-cloud { fill: #d97706; }
+.t-security { fill: #e11d48; }
+.t-messagebus { fill: #ea580c; }
+.t-external { fill: #64748b; }
+svg .semantic-sigil {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.35;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.76;
+      pointer-events: none;
+    }
+svg .semantic-sigil > * { vector-effect: non-scaling-stroke; }
+svg .semantic-sigil .sigil-fill { fill: currentColor; stroke: none; }
+svg .s-frontend { color: #0891b2; }
+svg .s-backend { color: #059669; }
+svg .s-database { color: #7c3aed; }
+svg .s-cloud { color: #d97706; }
+svg .s-security { color: #e11d48; }
+svg .s-messagebus { color: #ea580c; }
+svg .s-external { color: #64748b; }
+svg .brand-mark { pointer-events: none; }
+svg .brand-mark-badge { fill: #fff; stroke: none; }
+svg .brand-mark-frame {
+      fill: none;
+      stroke: #cbd5e1;
+      stroke-width: 0.8;
+      vector-effect: non-scaling-stroke;
+    }
+svg .brand-mark-fallback {
+      fill: none;
+      stroke: #475569;
+      stroke-width: 1.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+svg[data-preset="blueprint"] .brand-mark-badge,
+    svg[data-preset="blueprint"] .brand-mark-frame { rx: 1px; }
+svg [data-detail] {  }
+svg [data-detail-anchor] {
+      transform-box: fill-box;
+      transform-origin: center;
+
+    }
+.a-default { stroke: #94a3b8; fill: none; }
+.a-emphasis { stroke: #059669; fill: none; }
+.a-security { stroke: #e11d48; fill: none; stroke-dasharray: 5,5; }
+.a-dashed { stroke: #7c3aed; fill: none; stroke-dasharray: 4,4; }
+.m-default { fill: #94a3b8; }
+.m-emphasis { fill: #059669; }
+.m-security { fill: #e11d48; }
+.m-dashed { fill: #7c3aed; }
+svg [data-node-id] {
+
+
+    }
+svg [data-edge-from] {  }
+svg[data-preset="signal-flow"] .source-evidence-beacon { opacity: 0.9; }
+svg[data-preset="blueprint"] .source-evidence-beacon rect {
+      rx: 0.8px;
+      filter: none;
+    }
+svg [data-legend-kind][role="button"] {  }
+svg [data-legend-hit] {
+      fill: none;
+      stroke: transparent;
+      stroke-width: 1.4;
+      pointer-events: all;
+      vector-effect: non-scaling-stroke;
+
+    }
+svg [data-legend-count-badge] { pointer-events: none; }
+svg [data-legend-count-badge] rect {
+      fill: #ffffff;
+      stroke: #e2e8f0;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+svg [data-legend-count-badge] text {
+      fill: #64748b;
+      font-size: 8px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+svg [data-legend-kind][data-legend-selected] [data-legend-hit] {
+      stroke: #7c3aed;
+      stroke-width: 2.2;
+      stroke-dasharray: 3 2;
+    }
+svg [data-legend-kind][data-legend-selected] [data-legend-count-badge] rect {
+      stroke: #7c3aed;
+      stroke-width: 1.8;
+    }
+svg [data-legend-kind][data-legend-zero] { opacity: 0.44; }
+svg[data-preset="signal-flow"] [data-legend-kind][data-legend-selected] [data-legend-hit] {
+      filter: drop-shadow(0 0 4px #7c3aed);
+    }
+svg[data-preset="blueprint"] [data-legend-hit],
+    svg[data-preset="blueprint"] [data-legend-count-badge] rect { rx: 0; filter: none; }
+svg[data-legend-preview-active] [data-node-id],
+    svg[data-legend-preview-active] [data-edge-from] { opacity: 0.11; }
+svg[data-legend-preview-active] [data-legend-preview-match] { opacity: 1; }
+svg[data-legend-preview-active] [data-legend-preview-peer] { opacity: 0.62; }
+svg[data-legend-preview-active] [data-legend-preview-selected] {
+      filter: drop-shadow(0 0 8px #7c3aed);
+    }
+svg[data-lens-active] [data-node-id],
+    svg[data-lens-active] [data-edge-from] { opacity: 0.11; }
+svg[data-lens-active] [data-lens-match] { opacity: 1; }
+svg[data-lens-active] [data-lens-peer] { opacity: 0.62; }
+svg[data-lens-active] [data-lens-selected] {
+      filter: drop-shadow(0 0 10px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow {
+      stroke-width: 3.7;
+      opacity: 1;
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="out"],
+    svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="forward"] {
+      filter: drop-shadow(0 0 6px #0891b2);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="in"],
+    svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="reverse"] {
+      filter: drop-shadow(0 0 6px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="within"] {
+      filter: drop-shadow(0 0 6px #ea580c);
+    }
+svg[data-preset="blueprint"] .semantic-lens-flow {
+      stroke-width: 2.45;
+      stroke-linecap: square;
+      filter: none;
+      opacity: 0.78;
+    }
+svg[data-focus-active] [data-node-id],
+    svg[data-focus-active] [data-edge-from] { opacity: 0.13; }
+svg[data-focus-active] [data-focus-match] { opacity: 1; }
+svg[data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-reach-active] [data-node-id],
+    svg[data-reach-active] [data-edge-from] { opacity: 0.09; }
+svg[data-reach-active] [data-reach-match] { opacity: 1; }
+svg[data-reach-active="upstream"] [data-reach-origin] {
+      filter: drop-shadow(0 0 11px #7c3aed);
+    }
+svg[data-reach-active="downstream"] [data-reach-origin] {
+      filter: drop-shadow(0 0 11px #059669);
+    }
+svg[data-reach-active="upstream"] [data-edge-from][data-reach-match] {
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #7c3aed 72%, transparent));
+    }
+svg[data-reach-active="downstream"] [data-edge-from][data-reach-match] {
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #059669 72%, transparent));
+    }
+svg[data-preset="blueprint"][data-reach-active] [data-reach-origin],
+    svg[data-preset="blueprint"][data-reach-active] [data-edge-from][data-reach-match] {
+      filter: none;
+    }
+svg[data-relationship-direct-active] [data-node-id],
+    svg[data-relationship-direct-active] [data-edge-from] { opacity: 0.16; }
+svg[data-relationship-direct-active] [data-relationship-preview],
+    svg[data-relationship-direct-active] [data-relationship-preview-node] { opacity: 1; }
+svg[data-focus-active]:not([data-relationship-pin-active]) .relationship-hit-rail,
+    svg[data-story-active] .relationship-hit-rail,
+    svg[data-route-picking] .relationship-hit-rail,
+    svg[data-route-active] .relationship-hit-rail,
+    svg[data-lens-active] .relationship-hit-rail,
+    svg[data-chapter-preview] .relationship-hit-rail { pointer-events: none; }
+svg[data-relationship-preview-active] [data-focus-match] { opacity: 0.18; }
+svg[data-relationship-preview-active] [data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview-node] { opacity: 1; }
+svg[data-relationship-preview-active] [data-relationship-preview] {
+      filter: drop-shadow(0 0 5px #059669);
+    }
+svg[data-relationship-preview-active] [data-relationship-preview] path,
+    svg[data-relationship-preview-active] path[data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview] line,
+    svg[data-relationship-preview-active] line[data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview] polyline,
+    svg[data-relationship-preview-active] polyline[data-relationship-preview] {
+      stroke-width: 2.75;
+    }
+svg[data-relationship-preview-active] [data-relationship-preview-source] {
+      filter: drop-shadow(0 0 7px #0891b2);
+    }
+svg[data-relationship-preview-active] [data-relationship-preview-target] {
+      filter: drop-shadow(0 0 7px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .relationship-flow-pulse {
+      stroke: #0891b2;
+      stroke-width: 3.85;
+      filter: drop-shadow(0 0 7px #0891b2);
+    }
+svg[data-preset="blueprint"] .relationship-flow-pulse {
+      stroke-width: 2.5;
+      stroke-linecap: square;
+      filter: none;
+    }
+svg[data-preset="editorial"] .relationship-flow-pulse {
+      stroke: #059669;
+      stroke-width: 2.75;
+      filter: none;
+    }
+svg[data-preset="signal-flow"] .semantic-flow-token {
+      filter: drop-shadow(0 0 5px currentColor);
+    }
+svg[data-preset="blueprint"] .semantic-flow-token { filter: none; }
+svg[data-preset="editorial"] .semantic-flow-token { filter: none; }
+svg[data-intent-trace-active] [data-node-id],
+    svg[data-intent-trace-active] [data-edge-from] { opacity: 0.2; }
+svg[data-intent-trace-active] [data-intent-trace-match] { opacity: 1; }
+svg[data-intent-trace-active] [data-intent-trace-selected] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-preset="blueprint"] [data-intent-trace-selected],
+    svg[data-preset="blueprint"] .intent-trace-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="editorial"] [data-intent-trace-selected],
+    svg[data-preset="editorial"] .intent-trace-flow { filter: none; }
+svg[data-route-picking="target"] [data-node-id] { opacity: 0.24; }
+svg[data-route-picking="target"] [data-route-candidate],
+    svg[data-route-picking="target"] [data-route-start] { opacity: 1; }
+svg[data-route-picking] [data-node-id] {  }
+svg[data-route-picking] [data-route-start] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-route-active] [data-node-id],
+    svg[data-route-active] [data-edge-from] { opacity: 0.11; }
+svg[data-route-active] [data-route-match] { opacity: 1; }
+svg[data-route-active] [data-route-start] {
+      filter: drop-shadow(0 0 11px #0891b2);
+    }
+svg[data-route-active] [data-route-end] {
+      filter: drop-shadow(0 0 11px #e11d48);
+    }
+svg[data-route-active] [data-route-step]:not([data-route-start]):not([data-route-end]) {
+      filter: drop-shadow(0 0 7px #059669);
+    }
+svg[data-route-journey] [data-route-match][data-route-journey-state="past"] { opacity: 0.62; }
+svg[data-route-journey] [data-route-match][data-route-journey-state="future"] { opacity: 0.34; }
+svg[data-route-journey] [data-route-match][data-route-journey-state="current"] { opacity: 1; }
+svg[data-route-journey] [data-node-id][data-route-journey-current] {
+      filter: drop-shadow(0 0 10px #059669);
+    }
+svg[data-route-journey] [data-edge-from][data-route-journey-current] {
+      opacity: 1;
+      filter: drop-shadow(0 0 6px #059669);
+    }
+svg[data-preset="blueprint"] [data-route-start],
+    svg[data-preset="blueprint"] [data-route-end],
+    svg[data-preset="blueprint"] [data-route-step],
+    svg[data-preset="blueprint"] .route-probe-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="blueprint"] .route-journey-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="editorial"] [data-route-start],
+    svg[data-preset="editorial"] [data-route-end],
+    svg[data-preset="editorial"] [data-route-step],
+    svg[data-preset="editorial"] .route-probe-flow,
+    svg[data-preset="editorial"] .route-journey-flow { filter: none; }
+svg[data-preset="editorial"] .c-grid {
+      stroke-dasharray: 1 4;
+      opacity: 0.48;
+    }
+svg[data-preset="editorial"] .c-region {
+      fill: color-mix(in srgb, rgb(251, 240, 211) 48%, transparent);
+      stroke-dasharray: 9 4;
+    }
+svg[data-preset="blueprint"] .c-grid {
+      stroke-dasharray: 1 3;
+      opacity: 0.78;
+    }
+svg[data-preset="blueprint"] .c-region {
+      fill: color-mix(in srgb, rgb(251, 240, 211) 58%, transparent);
+      stroke-dasharray: 12 4 2 4;
+    }
+svg[data-preset="blueprint"] .c-security-group,
+    svg[data-preset="blueprint"] .c-lane { stroke-dasharray: 7 3; }
+svg[data-preset="blueprint"][data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-preset="blueprint"][data-focus-active][data-reach-active] [data-focus-selected][data-reach-origin] {
+      filter: none;
+    }
+svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview],
+    svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-source],
+    svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-target] {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-story-beat] [data-story-step] {
+      opacity: 0.22;
+      filter: saturate(0.42);
+
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="past"] {
+      opacity: 0.72;
+      filter: saturate(0.82);
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="next"] {
+      opacity: 0.5;
+      filter: saturate(0.66);
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      opacity: 1;
+      filter: drop-shadow(0 0 7px #0891b2);
+      animation: archify-story-beat-node 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+svg[data-story-beat] [data-edge-from][data-story-beat-step] {
+      opacity: 0.16;
+
+    }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="past"] { opacity: 0.58; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="next"] { opacity: 0.34; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="active"] { opacity: 1; }
+svg[data-story-beat] .story-trail-flow { opacity: 0;  }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="past"] { opacity: 0.34; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="next"] { opacity: 0.2; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="active"] { opacity: 0.92; }
+svg[data-story-beat] .story-trail-flow[data-story-pulse="true"] {
+      stroke-dasharray: 2 13;
+      stroke-dashoffset: 30;
+      opacity: 0.92;
+      animation: archify-story-flow 0.78s linear 1 both;
+    }
+svg[data-preset="blueprint"] .story-trail-flow {
+      stroke-linecap: square;
+      filter: none;
+      opacity: 0.5;
+    }
+svg[data-preset="blueprint"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      filter: none;
+      animation: none;
+    }
+svg[data-preset="editorial"] .story-trail-flow { filter: none; }
+svg[data-preset="editorial"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      filter: drop-shadow(0 2px 2px color-mix(in srgb, #0f172a 16%, transparent));
+    }
+svg[data-chapter-preview] [data-node-id],
+    svg[data-chapter-preview] [data-edge-from] {
+      opacity: 0.1 !important;
+      filter: none !important;
+
+    }
+svg[data-chapter-preview] .story-trail-overlay { opacity: 0.08 !important; }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="stay"] {
+      opacity: 0.76 !important;
+      filter: saturate(0.7) !important;
+    }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="enter"] {
+      opacity: 1 !important;
+      filter: saturate(1.2) !important;
+    }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="leave"] {
+      opacity: 0.28 !important;
+      filter: grayscale(0.72) !important;
+    }
+svg[data-preset="blueprint"][data-chapter-preview] [data-node-id] { filter: none !important; }
+.c-security-group { fill: none; stroke: #e11d48; stroke-dasharray: 4,4; }
+.c-region { fill: rgb(251, 248, 238); stroke: #d97706; stroke-dasharray: 8,4; }
+.c-lane { fill: rgb(249, 250, 251); stroke: #cbd5e1; stroke-dasharray: 6,6; }
+svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="edge"] {
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 3px #059669);
+      animation-duration: 1.75s;
+    }
+svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="node"] {
+      animation-duration: 3.1s;
+    }
+svg[data-preset="blueprint"][data-animation="trace"] [data-animate="edge"] {
+      stroke-linecap: square;
+      filter: none;
+      animation-duration: 2.15s;
+    }
+svg[data-preset="blueprint"][data-animation="trace"] [data-animate="node"] {
+      animation-name: archify-blueprint-node-pulse;
+      animation-duration: 3.8s;
+    }
+svg[data-preset="editorial"][data-animation="trace"] [data-animate="edge"] {
+      filter: none;
+      animation-duration: 2.2s;
+    }
+svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] {
+      animation-name: archify-editorial-node-pulse;
+      animation-duration: 3.5s;
+    }
+svg[data-animation="trace"] [data-animate] {
+        animation: none !important;
+        stroke-dashoffset: 0;
+      }
+.guided-view-chapter,
+      svg[data-chapter-preview] [data-node-id],
+      svg[data-chapter-preview] [data-edge-from] {  }
+svg[data-story-playing="true"] .story-trail-flow {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        opacity: 0.55;
+      }
+.source-evidence-beacon,
+      svg [data-node-id], svg [data-edge-from], svg [data-detail], svg [data-detail-anchor], svg [data-legend-hit], svg {  }
+svg, svg text { font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif; }
+svg, svg text { font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif; }
+svg,text{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif;}]]></style>
+<rect x="0" y="0" width="100%" height="100%" fill="#fbfbf9"/>
+        <title id="archify-diagram-title">재고 보류와 품질 판정</title>
+        <desc id="archify-diagram-description">A workflow diagram generated by Archify.</desc>
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- Swimlanes -->
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-0" x="40" y="52" width="1164" height="104" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="74" class="t-dim" font-size="10" font-weight="600">01 / 이상 발견과 보류</text>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-1" x="40" y="176" width="1164" height="104" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="198" class="t-dim" font-size="10" font-weight="600">02 / 품질 판정</text>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-2" x="40" y="300" width="1164" height="104" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="322" class="t-dim" font-size="10" font-weight="600">03 / 정상 결과</text>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-3" x="40" y="424" width="1164" height="104" rx="10" class="c-lane" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="exception-lane" data-composition-frame-id="lane-3-exception" x="46" y="430" width="1152" height="92" rx="8" class="c-security-group" stroke-width="1"/>
+        <text x="54" y="446" class="t-security" font-size="10" font-weight="600">EX / 불량 결과</text>
+
+        <!-- Phase headers -->
+        <line x1="74.5" y1="35" x2="377.7" y2="35" class="a-default" stroke-width="1.1"/>
+        <rect x="74.5" y="27" width="303.2" height="16" rx="4" class="c-mask"/>
+        <text x="226.1" y="39" class="t-muted" font-size="8" font-weight="600" text-anchor="middle">대상 확인</text>
+        <line x1="496.90000000000003" y1="35" x2="819.0999999999999" y2="35" class="a-security" stroke-width="1.1"/>
+        <rect x="496.90000000000003" y="27" width="322.19999999999993" height="16" rx="4" class="c-mask"/>
+        <text x="658" y="39" class="t-security" font-size="8" font-weight="600" text-anchor="middle">보류 적용</text>
+        <line x1="847.0999999999999" y1="35" x2="1169.3" y2="35" class="a-dashed" stroke-width="1.1"/>
+        <rect x="847.0999999999999" y="27" width="322.20000000000005" height="16" rx="4" class="c-mask"/>
+        <text x="1008.1999999999999" y="39" class="t-messagebus" font-size="8" font-weight="600" text-anchor="middle">판정과 후속</text>
+
+        <!-- Workflow groups -->
+
+
+        <!-- Edge paths -->
+        <path data-edge-from="block" data-edge-to="qa" data-edge-label="검사 결과 대기" data-edge-key="0" data-composition-points="773.0999999999999,145;773.0999999999999,166;893.0999999999999,166;893.0999999999999,217" d="M 773.0999999999999 145 L 773.0999999999999 166 L 893.0999999999999 166 L 893.0999999999999 217" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="hold" data-edge-to="block" data-edge-label="보류 레벨 적용" data-edge-key="1" data-composition-points="615.4,119;700.5999999999999,119" d="M 615.4 119 L 700.5999999999999 119" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="issue" data-edge-to="scope" data-edge-label="확인 요청" data-edge-key="2" data-composition-points="193,119;254.2,119" d="M 193 119 L 254.2 119" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="qa" data-edge-to="release" data-edge-label="정상 판정" data-edge-key="3" data-composition-points="965.5999999999999,243;1123.3,243;1123.3,341" d="M 965.5999999999999 243 L 1123.3 243 L 1123.3 341" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="qa" data-edge-to="unlock" data-edge-label="불량 판정" data-edge-key="4" data-composition-points="820.5999999999999,243;20,243;20,491;820.5999999999999,491" d="M 820.5999999999999 243 L 20 243 L 20 491 L 820.5999999999999 491" class="a-security" stroke-width="1.4" marker-end="url(#arrowhead-security)"/>
+        <path data-edge-from="scope" data-edge-to="hold" data-edge-label="대상 등록" data-edge-key="5" data-composition-points="409.2,119;470.4,119" d="M 409.2 119 L 470.4 119" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="unlock" data-edge-to="change" data-edge-label="변경 가능 상태" data-edge-key="6" data-composition-points="965.5999999999999,491;1050.8,491" d="M 965.5999999999999 491 L 1050.8 491" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+
+        <!-- Nodes -->
+        <g id="node-issue" data-node-id="issue" data-node-label="① 이상 징후 발견" aria-label="Focus ① 이상 징후 발견, 오염·손상·기한 임박, 이상 발견과 보류 › 대상 확인" data-node-kind="external" data-node-sublabel="오염·손상·기한 임박" data-node-context="이상 발견과 보류 › 대상 확인">
+          <title>① 이상 징후 발견 · 오염·손상·기한 임박 · 이상 발견과 보류 › 대상 확인</title>
+          <rect x="48" y="93" width="145" height="52" rx="6" class="c-mask"/>
+          <rect x="48" y="93" width="145" height="52" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(54 99) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="120.5" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">① 이상 징후 발견</text>
+          <text data-detail="context" x="120.5" y="131" class="t-muted" font-size="8" text-anchor="middle">오염·손상·기한 임박</text>
+        </g>
+
+        <g id="node-scope" data-node-id="scope" data-node-label="② 보류 대상·범위 지정" aria-label="Focus ② 보류 대상·범위 지정, 제품·로트·존·LOC·일부 수량, 이상 발견과 보류 › 대상 확인" data-node-kind="frontend" data-node-sublabel="제품·로트·존·LOC·일부 수량" data-node-context="이상 발견과 보류 › 대상 확인">
+          <title>② 보류 대상·범위 지정 · 제품·로트·존·LOC·일부 수량 · 이상 발견과 보류 › 대상 확인</title>
+          <rect x="254.2" y="93" width="155" height="52" rx="6" class="c-mask"/>
+          <rect x="254.2" y="93" width="155" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(260.2 99) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="331.7" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">② 보류 대상·범위 지정</text>
+          <text data-detail="context" x="331.7" y="131" class="t-muted" font-size="8" text-anchor="middle">제품·로트·존·LOC·일부 수량</text>
+        </g>
+
+        <g id="node-hold" data-node-id="hold" data-node-label="③ WMS 재고 보류 등록" aria-label="Focus ③ WMS 재고 보류 등록, 사유·처리자 기록, 이상 발견과 보류 › 보류 적용" data-node-kind="security" data-node-sublabel="사유·처리자 기록" data-node-context="이상 발견과 보류 › 보류 적용">
+          <title>③ WMS 재고 보류 등록 · 사유·처리자 기록 · 이상 발견과 보류 › 보류 적용</title>
+          <rect x="470.4" y="93" width="145" height="52" rx="6" class="c-mask"/>
+          <rect x="470.4" y="93" width="145" height="52" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(476.4 99) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="542.9" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">③ WMS 재고 보류 등록</text>
+          <text data-detail="context" x="542.9" y="131" class="t-muted" font-size="8" text-anchor="middle">사유·처리자 기록</text>
+        </g>
+
+        <g id="node-block" data-node-id="block" data-node-label="④ 설정한 작업 통제" aria-label="Focus ④ 설정한 작업 통제, 이동·할당·상태변경, 이상 발견과 보류 › 보류 적용" data-node-kind="database" data-node-sublabel="이동·할당·상태변경" data-node-context="이상 발견과 보류 › 보류 적용">
+          <title>④ 설정한 작업 통제 · 이동·할당·상태변경 · 이상 발견과 보류 › 보류 적용</title>
+          <rect x="700.5999999999999" y="93" width="145" height="52" rx="6" class="c-mask"/>
+          <rect x="700.5999999999999" y="93" width="145" height="52" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(706.5999999999999 99) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="773.0999999999999" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">④ 설정한 작업 통제</text>
+          <text data-detail="context" x="773.0999999999999" y="131" class="t-muted" font-size="8" text-anchor="middle">이동·할당·상태변경</text>
+        </g>
+
+        <g id="node-qa" data-node-id="qa" data-node-label="⑤ 품질 부서 판정" aria-label="Focus ⑤ 품질 부서 판정, 품질 판정 › 판정과 후속" data-node-kind="backend" data-node-context="품질 판정 › 판정과 후속">
+          <title>⑤ 품질 부서 판정 · 품질 판정 › 판정과 후속</title>
+          <rect x="820.5999999999999" y="217" width="145" height="52" rx="6" class="c-mask"/>
+          <rect x="820.5999999999999" y="217" width="145" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(826.5999999999999 223) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" x="893.0999999999999" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">⑤ 품질 부서 판정</text>
+        </g>
+
+        <g id="node-release" data-node-id="release" data-node-label="⑥ 정상" aria-label="Focus ⑥ 정상, 보류 해제, 정상 결과 › 판정과 후속" data-node-kind="backend" data-node-sublabel="보류 해제" data-node-context="정상 결과 › 판정과 후속">
+          <title>⑥ 정상 · 보류 해제 · 정상 결과 › 판정과 후속</title>
+          <rect x="1077.3" y="341" width="92" height="52" rx="6" class="c-mask"/>
+          <rect x="1077.3" y="341" width="92" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(1083.3 347) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1123.3" y="362" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">⑥ 정상</text>
+          <text data-detail="context" x="1123.3" y="379" class="t-muted" font-size="8" text-anchor="middle">보류 해제</text>
+        </g>
+
+        <g id="node-unlock" data-node-id="unlock" data-node-label="⑥ 불량" aria-label="Focus ⑥ 불량, 보류·상태변경 통제 해제, 불량 결과 › 판정과 후속" data-node-kind="security" data-node-sublabel="보류·상태변경 통제 해제" data-node-context="불량 결과 › 판정과 후속">
+          <title>⑥ 불량 · 보류·상태변경 통제 해제 · 불량 결과 › 판정과 후속</title>
+          <rect x="820.5999999999999" y="465" width="145" height="52" rx="6" class="c-mask"/>
+          <rect x="820.5999999999999" y="465" width="145" height="52" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(826.5999999999999 471) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="893.0999999999999" y="486" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">⑥ 불량</text>
+          <text data-detail="context" x="893.0999999999999" y="503" class="t-muted" font-size="8" text-anchor="middle">보류·상태변경 통제 해제</text>
+        </g>
+
+        <g id="node-change" data-node-id="change" data-node-label="⑦ 상태변경·폐기 절차" aria-label="Focus ⑦ 상태변경·폐기 절차, 불량 결과 › 판정과 후속" data-node-kind="external" data-node-context="불량 결과 › 판정과 후속">
+          <title>⑦ 상태변경·폐기 절차 · 불량 결과 › 판정과 후속</title>
+          <rect x="1050.8" y="465" width="145" height="52" rx="6" class="c-mask"/>
+          <rect x="1050.8" y="465" width="145" height="52" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(1056.8 471) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" x="1123.3" y="486" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">⑦ 상태변경·폐기 절차</text>
+        </g>
+
+        <!-- Edge labels -->
+        <g data-detail="context" data-edge-from="block" data-edge-to="qa" data-edge-label="검사 결과 대기" data-edge-key="0">
+          <rect x="794.4999999999999" y="146" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="833.0999999999999" y="156" class="t-database" font-size="8" text-anchor="middle">검사 결과 대기</text>
+        </g>
+        <g data-detail="context" data-edge-from="hold" data-edge-to="block" data-edge-label="보류 레벨 적용" data-edge-key="1">
+          <rect x="619.4" y="99" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="658" y="109" class="t-database" font-size="8" text-anchor="middle">보류 레벨 적용</text>
+        </g>
+        <g data-detail="context" data-edge-from="issue" data-edge-to="scope" data-edge-label="확인 요청" data-edge-key="2">
+          <rect x="197" y="99" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="223.6" y="109" class="t-database" font-size="8" text-anchor="middle">확인 요청</text>
+        </g>
+        <g data-detail="context" data-edge-from="qa" data-edge-to="release" data-edge-label="정상 판정" data-edge-key="3">
+          <rect x="1017.8499999999998" y="223" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="1044.4499999999998" y="233" class="t-backend" font-size="8" text-anchor="middle">정상 판정</text>
+        </g>
+        <g data-detail="context" data-edge-from="qa" data-edge-to="unlock" data-edge-label="불량 판정" data-edge-key="4">
+          <rect x="393.69999999999993" y="223" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="420.29999999999995" y="233" class="t-security" font-size="8" text-anchor="middle">불량 판정</text>
+        </g>
+        <g data-detail="context" data-edge-from="scope" data-edge-to="hold" data-edge-label="대상 등록" data-edge-key="5">
+          <rect x="413.19999999999993" y="99" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="439.79999999999995" y="109" class="t-database" font-size="8" text-anchor="middle">대상 등록</text>
+        </g>
+        <g data-detail="context" data-edge-from="unlock" data-edge-to="change" data-edge-label="변경 가능 상태" data-edge-key="6">
+          <rect x="969.5999999999999" y="471" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="1008.1999999999999" y="481" class="t-database" font-size="8" text-anchor="middle">변경 가능 상태</text>
+        </g>
+
+        <!-- Legend -->
+
+      </svg>

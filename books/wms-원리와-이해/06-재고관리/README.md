@@ -56,34 +56,7 @@
 
 ### 여섯 기능은 세 부류다
 
-```mermaid
-%% lint: layout  기능을 성격별로 묶은 분류도다. 재고 흐름이 아니다
-flowchart LR
-    subgraph SEE["보기"]
-        F1["① 재고 조회"]
-    end
-    subgraph CHG["바꾸기"]
-        F2["② 재고이동"]
-        F3["③ 재고 보류"]
-        F4["④ 재고 상태 변경"]
-    end
-    subgraph FIT["실물과 맞추기"]
-        F5["⑤ 재고 조사"]
-        F6["⑥ 재고 조정"]
-    end
-
-    F5 -. "차이 발견" .-> F6
-
-    classDef see fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef chg fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef fit fill:#b9a8d0,stroke:#7f6a9e,color:#1a1224
-    class F1 see
-    class F2,F3,F4 chg
-    class F5,F6 fit
-    style SEE fill:none,stroke:#9aa0a6,stroke-dasharray: 4 4
-    style CHG fill:none,stroke:#9aa0a6,stroke-dasharray: 4 4
-    style FIT fill:none,stroke:#9aa0a6,stroke-dasharray: 4 4
-```
+![재고관리 기능의 세 가지 성격](./assets/01-재고관리-기능.svg)
 
 *여섯 기능의 성격 — 보기 / 바꾸기 / 실물과 맞추기*
 
