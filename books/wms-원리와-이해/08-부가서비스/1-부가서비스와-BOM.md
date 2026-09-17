@@ -96,38 +96,7 @@
 
 BOM은 두 가지 형태로 구성할 수 있다.
 
-```mermaid
-flowchart TB
-%% lint: layout   BOM의 구성 관계를 나타낸 구조도다. 재고 흐름이 아니므로 화살표 검사를 건너뛴다
-    subgraph SL["싱글레벨 BOM"]
-        direction TB
-        A1["제품A (1개)"]
-        B1["부품B (3개)"]
-        C1["부품C (1개)"]
-        A1 --- B1
-        A1 --- C1
-    end
-
-    subgraph ML["멀티레벨 BOM"]
-        direction TB
-        A2["제품A (1개)"]
-        B2["부품B (3개)"]
-        C2["부품C (1개)"]
-        D2["부품D (2개)"]
-        E2["부품E (1개)"]
-        A2 --- B2
-        A2 --- C2
-        B2 --- D2
-        B2 --- E2
-    end
-
-    SL ~~~ ML
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class A1,A2 core
-    class B1,C1,B2,C2,D2,E2 sys
-```
+![싱글레벨 BOM과 멀티레벨 BOM](./assets/02-bom-구조.svg)
 
 *[그림 8-3] BOM 구성 예시 — 멀티레벨은 부품B가 다시 부품D·E로 쪼개진다*
 
