@@ -83,12 +83,11 @@ svg[data-preset="blueprint"] .source-evidence-beacon rect {
       rx: 0.8px;
       filter: none;
     }
-svg [data-legend-kind][role="button"] {  }
 svg [data-legend-hit] {
       fill: none;
       stroke: transparent;
       stroke-width: 1.4;
-      pointer-events: all;
+      pointer-events: none;
       vector-effect: non-scaling-stroke;
 
     }
@@ -333,7 +332,7 @@ svg[data-story-beat] [data-story-step][data-story-beat-state="next"] {
 svg[data-story-beat] [data-story-step][data-story-beat-state="active"] {
       opacity: 1;
       filter: drop-shadow(0 0 7px #0891b2);
-      animation: archify-story-beat-node 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+
     }
 svg[data-story-beat] [data-edge-from][data-story-beat-step] {
       opacity: 0.16;
@@ -350,7 +349,7 @@ svg[data-story-beat] .story-trail-flow[data-story-pulse="true"] {
       stroke-dasharray: 2 13;
       stroke-dashoffset: 30;
       opacity: 0.92;
-      animation: archify-story-flow 0.78s linear 1 both;
+
     }
 svg[data-preset="blueprint"] .story-trail-flow {
       stroke-linecap: square;
@@ -359,7 +358,7 @@ svg[data-preset="blueprint"] .story-trail-flow {
     }
 svg[data-preset="blueprint"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
       filter: none;
-      animation: none;
+
     }
 svg[data-preset="editorial"] .story-trail-flow { filter: none; }
 svg[data-preset="editorial"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
@@ -391,30 +390,30 @@ svg[data-preset="blueprint"][data-chapter-preview] [data-node-id] { filter: none
 svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="edge"] {
       stroke-linecap: round;
       filter: drop-shadow(0 0 3px #059669);
-      animation-duration: 1.75s;
+
     }
 svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="node"] {
-      animation-duration: 3.1s;
+
     }
 svg[data-preset="blueprint"][data-animation="trace"] [data-animate="edge"] {
       stroke-linecap: square;
       filter: none;
-      animation-duration: 2.15s;
+
     }
 svg[data-preset="blueprint"][data-animation="trace"] [data-animate="node"] {
-      animation-name: archify-blueprint-node-pulse;
-      animation-duration: 3.8s;
+
+
     }
 svg[data-preset="editorial"][data-animation="trace"] [data-animate="edge"] {
       filter: none;
-      animation-duration: 2.2s;
+
     }
 svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] {
-      animation-name: archify-editorial-node-pulse;
-      animation-duration: 3.5s;
+
+
     }
 svg[data-animation="trace"] [data-animate] {
-        animation: none !important;
+
         stroke-dashoffset: 0;
       }
 .guided-view-chapter,
