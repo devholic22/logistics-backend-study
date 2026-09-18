@@ -22,38 +22,7 @@
 
 ## 크로스도킹은 창고의 어느 구간을 건너뛰는가
 
-```mermaid
-%% lint-ok: NO-INBOUND, DEAD-END  공급처가 시작점, 출고처가 종점인 흐름도다
-flowchart LR
-    SUP["공급처(공장)<br/>Supplier"]
-    subgraph WH["창고 (Warehouse)"]
-        RCV["입고(입하)존<br/>Receive Zone"]
-        STO["보관존<br/>Storage Zone"]
-        STO2["보관존<br/>다른 로케이션"]
-        PCK["피킹존<br/>Picking Zone"]
-        WRK["작업존<br/>Work Zone"]
-        XD["분배존<br/>Cross dock Zone"]
-        DCK["출고(출하)존<br/>Dock Zone"]
-    end
-    CUS["출고처<br/>Shipto, Customer"]
-
-    SUP -- "① 입고 Inbound" --> RCV
-    RCV -- "② 적치 Putaway" --> STO
-    STO -- "③ 이동 Move" --> STO2
-    STO -- "④ 보충 Replenishment" --> PCK
-    PCK -- "⑤ 피킹 Picking" --> DCK
-    DCK -- "⑥ 출고 Outbound" --> CUS
-    STO -- "유통가공" --> WRK
-    WRK -- "가공 완료" --> STO
-    RCV -- "크로스도킹" --> XD
-    XD -- "바로 출고" --> DCK
-
-    classDef zone fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    class SUP,CUS,RCV,STO,STO2,PCK,WRK,DCK zone
-    class XD core
-    style WH fill:none,stroke:#9aa0a6,stroke-dasharray: 4 4
-```
+![창고 프로세스 속 크로스도킹](./assets/01-창고-프로세스와-크로스도킹.svg)
 
 *원서 [그림 7-1] 크로스도킹 프로세스 범위 — 크로스도킹은 ②적치~⑤피킹 구간을 건너뛴다*
 
@@ -151,27 +120,7 @@ flowchart LR
 
 ## 어떻게 돌아가는가
 
-```mermaid
-flowchart LR
-    REQ["① WMS · OMS<br/>출고처 요청 수량 집계"]
-    SUP["② 공급처<br/>정해진 일자까지 납품"]
-    RCV["③ 입고존<br/>수량 · 이상 여부 확인"]
-    XD["④ 크로스도킹 존<br/>출고처별 수량 배분"]
-    OUT["⑤ 출고존<br/>출고처별 인계"]
-    STO["미사용 경로<br/>보관존 · 적치 · 피킹"]
-
-    REQ -. "입고 요청 정보" .-> SUP
-    SUP -- "납품 실물" --> RCV
-    RCV -- "적치 없이 이동" --> XD
-    XD -- "출고 물량 이동" --> OUT
-
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class REQ,SUP,RCV,OUT sys
-    class XD core
-    class STO muted
-```
+![크로스도킹 기본 흐름](./assets/02-크로스도킹-기본흐름.svg)
 
 > [!NOTE]
 > **선의 의미**
@@ -206,22 +155,7 @@ flowchart LR
 > 크로스도킹존에서 거래처별로 **배분작업 실시**
 > 배분된 수량을 출고존으로 이동 (출고처리)
 
-```mermaid
-flowchart LR
-    SUP["① 공급처<br/>100 (총량)"]
-    RCV["② 입고존 R01<br/>100"]
-    XD["③ 크로스도킹존 C01<br/>A출고처 30 · B출고처 30 · C출고처 40"]
-    K["④ 출고존 K01<br/>30 · 30 · 40"]
-
-    SUP -- "총량 납품" --> RCV
-    RCV -- "적치 없이 바로" --> XD
-    XD -- "출고처리" --> K
-
-    classDef zone fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    class SUP,RCV,K zone
-    class XD core
-```
+![크로스도킹 운영 예시](./assets/03-크로스도킹-운영예시.svg)
 
 *원서 [그림 7-3] 크로스도킹 운영예시*
 

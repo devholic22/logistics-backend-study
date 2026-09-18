@@ -8,20 +8,7 @@
 
 > 점차 창고 내에서 **유통가공(조립, 해체, 라벨링, 포장, 가공 등)의 업무를 통해 새로운 부가가치를 창출**하고 **SCM 관점에서 전체적으로 최적화하는 데 많은 역할**을 하고 있다.
 
-```mermaid
-flowchart LR
-    COST["코스트센터<br/>입출고 처리 · 재고관리"]
-    VAS["유통가공<br/>조립 · 해체 · 라벨링 · 포장 · 가공"]
-    VALUE["새로운 부가가치<br/>SCM 전체 최적화"]
-
-    COST -- "작업존에서" --> VAS
-    VAS -- "창출" --> VALUE
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class VAS core
-    class COST,VALUE sys
-```
+![부가서비스가 만드는 가치](./assets/01-부가서비스-가치창출.svg)
 
 *부가서비스가 창고의 성격을 바꾼다. 비용을 쓰는 곳에서 가치를 만드는 곳으로*
 
