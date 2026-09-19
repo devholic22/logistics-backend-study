@@ -1,0 +1,597 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="860" viewBox="0 0 1380 860" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-theme="light" data-preset="classic" data-quality-profile="showcase">
+<style><![CDATA[svg[data-chapter-handoff] [data-node-id][data-chapter-role="stay"] { opacity: 1; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="enter"] { opacity: 0.78; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="leave"] { opacity: 0.26; }
+svg [data-node-id][data-chapter-role] { opacity: 1 !important; }
+svg[data-chapter-preview] [data-node-id],
+      svg[data-chapter-preview] [data-edge-from] { opacity: 1 !important; filter: none !important; }
+.c-grid { stroke: #e2e8f0; fill: none; }
+.c-mask { fill: #ffffff; stroke: none; }
+.c-frontend { fill: rgb(218, 245, 247);   stroke: #0891b2; }
+.c-backend { fill: rgb(215, 244, 232);    stroke: #059669; }
+.c-database { fill: rgb(234, 229, 249);   stroke: #7c3aed; }
+.c-cloud { fill: rgb(251, 240, 211);      stroke: #d97706; }
+.c-security { fill: rgb(251, 230, 232);   stroke: #e11d48; }
+.c-messagebus { fill: rgb(251, 235, 221); stroke: #ea580c; }
+.c-external { fill: rgb(232, 235, 237);   stroke: #64748b; }
+.t-primary { fill: #0f172a; }
+.t-muted { fill: #64748b; }
+.t-dim { fill: #94a3b8; }
+.t-frontend { fill: #0891b2; }
+.t-backend { fill: #059669; }
+.t-database { fill: #7c3aed; }
+.t-cloud { fill: #d97706; }
+.t-security { fill: #e11d48; }
+.t-messagebus { fill: #ea580c; }
+.t-external { fill: #64748b; }
+svg .semantic-sigil {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.35;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.76;
+      pointer-events: none;
+    }
+svg .semantic-sigil > * { vector-effect: non-scaling-stroke; }
+svg .semantic-sigil .sigil-fill { fill: currentColor; stroke: none; }
+svg .s-frontend { color: #0891b2; }
+svg .s-backend { color: #059669; }
+svg .s-database { color: #7c3aed; }
+svg .s-cloud { color: #d97706; }
+svg .s-security { color: #e11d48; }
+svg .s-messagebus { color: #ea580c; }
+svg .s-external { color: #64748b; }
+svg .brand-mark { pointer-events: none; }
+svg .brand-mark-badge { fill: #fff; stroke: none; }
+svg .brand-mark-frame {
+      fill: none;
+      stroke: #cbd5e1;
+      stroke-width: 0.8;
+      vector-effect: non-scaling-stroke;
+    }
+svg .brand-mark-fallback {
+      fill: none;
+      stroke: #475569;
+      stroke-width: 1.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+svg[data-preset="blueprint"] .brand-mark-badge,
+    svg[data-preset="blueprint"] .brand-mark-frame { rx: 1px; }
+svg [data-detail] {  }
+svg [data-detail-anchor] {
+      transform-box: fill-box;
+      transform-origin: center;
+
+    }
+.a-default { stroke: #94a3b8; fill: none; }
+.a-emphasis { stroke: #059669; fill: none; }
+.a-security { stroke: #e11d48; fill: none; stroke-dasharray: 5,5; }
+.a-dashed { stroke: #7c3aed; fill: none; stroke-dasharray: 4,4; }
+.m-default { fill: #94a3b8; }
+.m-emphasis { fill: #059669; }
+.m-security { fill: #e11d48; }
+.m-dashed { fill: #7c3aed; }
+svg [data-node-id] {
+
+
+    }
+svg [data-edge-from] {  }
+svg[data-preset="signal-flow"] .source-evidence-beacon { opacity: 0.9; }
+svg[data-preset="blueprint"] .source-evidence-beacon rect {
+      rx: 0.8px;
+      filter: none;
+    }
+svg [data-legend-hit] {
+      fill: none;
+      stroke: transparent;
+      stroke-width: 1.4;
+      pointer-events: none;
+      vector-effect: non-scaling-stroke;
+
+    }
+svg [data-legend-count-badge] { pointer-events: none; }
+svg [data-legend-count-badge] rect {
+      fill: #ffffff;
+      stroke: #e2e8f0;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+svg [data-legend-count-badge] text {
+      fill: #64748b;
+      font-size: 8px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+svg [data-legend-kind][data-legend-selected] [data-legend-hit] {
+      stroke: #7c3aed;
+      stroke-width: 2.2;
+      stroke-dasharray: 3 2;
+    }
+svg [data-legend-kind][data-legend-selected] [data-legend-count-badge] rect {
+      stroke: #7c3aed;
+      stroke-width: 1.8;
+    }
+svg [data-legend-kind][data-legend-zero] { opacity: 0.44; }
+svg[data-preset="signal-flow"] [data-legend-kind][data-legend-selected] [data-legend-hit] {
+      filter: drop-shadow(0 0 4px #7c3aed);
+    }
+svg[data-preset="blueprint"] [data-legend-hit],
+    svg[data-preset="blueprint"] [data-legend-count-badge] rect { rx: 0; filter: none; }
+svg[data-legend-preview-active] [data-node-id],
+    svg[data-legend-preview-active] [data-edge-from] { opacity: 0.11; }
+svg[data-legend-preview-active] [data-legend-preview-match] { opacity: 1; }
+svg[data-legend-preview-active] [data-legend-preview-peer] { opacity: 0.62; }
+svg[data-legend-preview-active] [data-legend-preview-selected] {
+      filter: drop-shadow(0 0 8px #7c3aed);
+    }
+svg[data-lens-active] [data-node-id],
+    svg[data-lens-active] [data-edge-from] { opacity: 0.11; }
+svg[data-lens-active] [data-lens-match] { opacity: 1; }
+svg[data-lens-active] [data-lens-peer] { opacity: 0.62; }
+svg[data-lens-active] [data-lens-selected] {
+      filter: drop-shadow(0 0 10px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow {
+      stroke-width: 3.7;
+      opacity: 1;
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="out"],
+    svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="forward"] {
+      filter: drop-shadow(0 0 6px #0891b2);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="in"],
+    svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="reverse"] {
+      filter: drop-shadow(0 0 6px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="within"] {
+      filter: drop-shadow(0 0 6px #ea580c);
+    }
+svg[data-preset="blueprint"] .semantic-lens-flow {
+      stroke-width: 2.45;
+      stroke-linecap: square;
+      filter: none;
+      opacity: 0.78;
+    }
+svg[data-focus-active] [data-node-id],
+    svg[data-focus-active] [data-edge-from] { opacity: 0.13; }
+svg[data-focus-active] [data-focus-match] { opacity: 1; }
+svg[data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-reach-active] [data-node-id],
+    svg[data-reach-active] [data-edge-from] { opacity: 0.09; }
+svg[data-reach-active] [data-reach-match] { opacity: 1; }
+svg[data-reach-active="upstream"] [data-reach-origin] {
+      filter: drop-shadow(0 0 11px #7c3aed);
+    }
+svg[data-reach-active="downstream"] [data-reach-origin] {
+      filter: drop-shadow(0 0 11px #059669);
+    }
+svg[data-reach-active="upstream"] [data-edge-from][data-reach-match] {
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #7c3aed 72%, transparent));
+    }
+svg[data-reach-active="downstream"] [data-edge-from][data-reach-match] {
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #059669 72%, transparent));
+    }
+svg[data-preset="blueprint"][data-reach-active] [data-reach-origin],
+    svg[data-preset="blueprint"][data-reach-active] [data-edge-from][data-reach-match] {
+      filter: none;
+    }
+svg[data-relationship-direct-active] [data-node-id],
+    svg[data-relationship-direct-active] [data-edge-from] { opacity: 0.16; }
+svg[data-relationship-direct-active] [data-relationship-preview],
+    svg[data-relationship-direct-active] [data-relationship-preview-node] { opacity: 1; }
+svg[data-focus-active]:not([data-relationship-pin-active]) .relationship-hit-rail,
+    svg[data-story-active] .relationship-hit-rail,
+    svg[data-route-picking] .relationship-hit-rail,
+    svg[data-route-active] .relationship-hit-rail,
+    svg[data-lens-active] .relationship-hit-rail,
+    svg[data-chapter-preview] .relationship-hit-rail { pointer-events: none; }
+svg[data-relationship-preview-active] [data-focus-match] { opacity: 0.18; }
+svg[data-relationship-preview-active] [data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview-node] { opacity: 1; }
+svg[data-relationship-preview-active] [data-relationship-preview] {
+      filter: drop-shadow(0 0 5px #059669);
+    }
+svg[data-relationship-preview-active] [data-relationship-preview] path,
+    svg[data-relationship-preview-active] path[data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview] line,
+    svg[data-relationship-preview-active] line[data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview] polyline,
+    svg[data-relationship-preview-active] polyline[data-relationship-preview] {
+      stroke-width: 2.75;
+    }
+svg[data-relationship-preview-active] [data-relationship-preview-source] {
+      filter: drop-shadow(0 0 7px #0891b2);
+    }
+svg[data-relationship-preview-active] [data-relationship-preview-target] {
+      filter: drop-shadow(0 0 7px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .relationship-flow-pulse {
+      stroke: #0891b2;
+      stroke-width: 3.85;
+      filter: drop-shadow(0 0 7px #0891b2);
+    }
+svg[data-preset="blueprint"] .relationship-flow-pulse {
+      stroke-width: 2.5;
+      stroke-linecap: square;
+      filter: none;
+    }
+svg[data-preset="editorial"] .relationship-flow-pulse {
+      stroke: #059669;
+      stroke-width: 2.75;
+      filter: none;
+    }
+svg[data-preset="signal-flow"] .semantic-flow-token {
+      filter: drop-shadow(0 0 5px currentColor);
+    }
+svg[data-preset="blueprint"] .semantic-flow-token { filter: none; }
+svg[data-preset="editorial"] .semantic-flow-token { filter: none; }
+svg[data-intent-trace-active] [data-node-id],
+    svg[data-intent-trace-active] [data-edge-from] { opacity: 0.2; }
+svg[data-intent-trace-active] [data-intent-trace-match] { opacity: 1; }
+svg[data-intent-trace-active] [data-intent-trace-selected] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-preset="blueprint"] [data-intent-trace-selected],
+    svg[data-preset="blueprint"] .intent-trace-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="editorial"] [data-intent-trace-selected],
+    svg[data-preset="editorial"] .intent-trace-flow { filter: none; }
+svg[data-route-picking="target"] [data-node-id] { opacity: 0.24; }
+svg[data-route-picking="target"] [data-route-candidate],
+    svg[data-route-picking="target"] [data-route-start] { opacity: 1; }
+svg[data-route-picking] [data-node-id] {  }
+svg[data-route-picking] [data-route-start] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-route-active] [data-node-id],
+    svg[data-route-active] [data-edge-from] { opacity: 0.11; }
+svg[data-route-active] [data-route-match] { opacity: 1; }
+svg[data-route-active] [data-route-start] {
+      filter: drop-shadow(0 0 11px #0891b2);
+    }
+svg[data-route-active] [data-route-end] {
+      filter: drop-shadow(0 0 11px #e11d48);
+    }
+svg[data-route-active] [data-route-step]:not([data-route-start]):not([data-route-end]) {
+      filter: drop-shadow(0 0 7px #059669);
+    }
+svg[data-route-journey] [data-route-match][data-route-journey-state="past"] { opacity: 0.62; }
+svg[data-route-journey] [data-route-match][data-route-journey-state="future"] { opacity: 0.34; }
+svg[data-route-journey] [data-route-match][data-route-journey-state="current"] { opacity: 1; }
+svg[data-route-journey] [data-node-id][data-route-journey-current] {
+      filter: drop-shadow(0 0 10px #059669);
+    }
+svg[data-route-journey] [data-edge-from][data-route-journey-current] {
+      opacity: 1;
+      filter: drop-shadow(0 0 6px #059669);
+    }
+svg[data-preset="blueprint"] [data-route-start],
+    svg[data-preset="blueprint"] [data-route-end],
+    svg[data-preset="blueprint"] [data-route-step],
+    svg[data-preset="blueprint"] .route-probe-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="blueprint"] .route-journey-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="editorial"] [data-route-start],
+    svg[data-preset="editorial"] [data-route-end],
+    svg[data-preset="editorial"] [data-route-step],
+    svg[data-preset="editorial"] .route-probe-flow,
+    svg[data-preset="editorial"] .route-journey-flow { filter: none; }
+svg[data-preset="editorial"] .c-grid {
+      stroke-dasharray: 1 4;
+      opacity: 0.48;
+    }
+svg[data-preset="editorial"] .c-region {
+      fill: color-mix(in srgb, rgb(251, 240, 211) 48%, transparent);
+      stroke-dasharray: 9 4;
+    }
+svg[data-preset="blueprint"] .c-grid {
+      stroke-dasharray: 1 3;
+      opacity: 0.78;
+    }
+svg[data-preset="blueprint"] .c-region {
+      fill: color-mix(in srgb, rgb(251, 240, 211) 58%, transparent);
+      stroke-dasharray: 12 4 2 4;
+    }
+svg[data-preset="blueprint"] .c-security-group,
+    svg[data-preset="blueprint"] .c-lane { stroke-dasharray: 7 3; }
+svg[data-preset="blueprint"][data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-preset="blueprint"][data-focus-active][data-reach-active] [data-focus-selected][data-reach-origin] {
+      filter: none;
+    }
+svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview],
+    svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-source],
+    svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-target] {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-story-beat] [data-story-step] {
+      opacity: 0.22;
+      filter: saturate(0.42);
+
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="past"] {
+      opacity: 0.72;
+      filter: saturate(0.82);
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="next"] {
+      opacity: 0.5;
+      filter: saturate(0.66);
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      opacity: 1;
+      filter: drop-shadow(0 0 7px #0891b2);
+
+    }
+svg[data-story-beat] [data-edge-from][data-story-beat-step] {
+      opacity: 0.16;
+
+    }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="past"] { opacity: 0.58; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="next"] { opacity: 0.34; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="active"] { opacity: 1; }
+svg[data-story-beat] .story-trail-flow { opacity: 0;  }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="past"] { opacity: 0.34; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="next"] { opacity: 0.2; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="active"] { opacity: 0.92; }
+svg[data-story-beat] .story-trail-flow[data-story-pulse="true"] {
+      stroke-dasharray: 2 13;
+      stroke-dashoffset: 30;
+      opacity: 0.92;
+
+    }
+svg[data-preset="blueprint"] .story-trail-flow {
+      stroke-linecap: square;
+      filter: none;
+      opacity: 0.5;
+    }
+svg[data-preset="blueprint"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      filter: none;
+
+    }
+svg[data-preset="editorial"] .story-trail-flow { filter: none; }
+svg[data-preset="editorial"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      filter: drop-shadow(0 2px 2px color-mix(in srgb, #0f172a 16%, transparent));
+    }
+svg[data-chapter-preview] [data-node-id],
+    svg[data-chapter-preview] [data-edge-from] {
+      opacity: 0.1 !important;
+      filter: none !important;
+
+    }
+svg[data-chapter-preview] .story-trail-overlay { opacity: 0.08 !important; }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="stay"] {
+      opacity: 0.76 !important;
+      filter: saturate(0.7) !important;
+    }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="enter"] {
+      opacity: 1 !important;
+      filter: saturate(1.2) !important;
+    }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="leave"] {
+      opacity: 0.28 !important;
+      filter: grayscale(0.72) !important;
+    }
+svg[data-preset="blueprint"][data-chapter-preview] [data-node-id] { filter: none !important; }
+.c-security-group { fill: none; stroke: #e11d48; stroke-dasharray: 4,4; }
+.c-region { fill: rgb(251, 248, 238); stroke: #d97706; stroke-dasharray: 8,4; }
+.c-lane { fill: rgb(249, 250, 251); stroke: #cbd5e1; stroke-dasharray: 6,6; }
+svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="edge"] {
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 3px #059669);
+
+    }
+svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="node"] {
+
+    }
+svg[data-preset="blueprint"][data-animation="trace"] [data-animate="edge"] {
+      stroke-linecap: square;
+      filter: none;
+
+    }
+svg[data-preset="blueprint"][data-animation="trace"] [data-animate="node"] {
+
+
+    }
+svg[data-preset="editorial"][data-animation="trace"] [data-animate="edge"] {
+      filter: none;
+
+    }
+svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] {
+
+
+    }
+svg[data-animation="trace"] [data-animate] {
+
+        stroke-dashoffset: 0;
+      }
+.guided-view-chapter,
+      svg[data-chapter-preview] [data-node-id],
+      svg[data-chapter-preview] [data-edge-from] {  }
+svg[data-story-playing="true"] .story-trail-flow {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        opacity: 0.55;
+      }
+.source-evidence-beacon,
+      svg [data-node-id], svg [data-edge-from], svg [data-detail], svg [data-detail-anchor], svg [data-legend-hit], svg {  }
+svg, svg text { font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif; }
+svg, svg text { font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif; }
+svg,text{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif;}]]></style>
+<rect x="0" y="0" width="100%" height="100%" fill="#fbfbf9"/>
+        <title id="archify-diagram-title">WMS 인터페이스 대상</title>
+        <desc id="archify-diagram-description">An architecture diagram generated by Archify.</desc>
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- Boundaries (behind everything) -->
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="창고 (W/H)" x="568" y="178" width="794" height="412" rx="12" class="c-region" stroke-width="1"/>
+
+        <!-- Connection paths (before components for correct z-order) -->
+        <path data-edge-from="erp" data-edge-to="wms" data-edge-key="0" data-edge-id="erp-wms" data-composition-points="250,123;435,123;435,346;620,346" d="M 250 123 L 427 123 Q 435 123 435 131 L 435 338 Q 435 346 443 346 L 620 346" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="delivery" data-edge-to="wms" data-edge-key="1" data-edge-id="delivery-wms" data-composition-points="250,283;435,283;435,359.5;620,359.5" d="M 250 283 L 427 283 Q 435 283 435 291 L 435 351.5 Q 435 359.5 443 359.5 L 620 359.5" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="commerce" data-edge-to="wms" data-edge-key="2" data-edge-id="commerce-wms" data-composition-points="280,446;450,446;450,373;620,373" d="M 280 446 L 442 446 Q 450 446 450 438 L 450 381 Q 450 373 458 373 L 620 373" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="government" data-edge-to="wms" data-edge-key="3" data-edge-id="government-wms" data-composition-points="250,613;435,613;435,386.5;620,386.5" d="M 250 613 L 427 613 Q 435 613 435 605 L 435 394.5 Q 435 386.5 443 386.5 L 620 386.5" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="telecom" data-edge-to="wms" data-edge-key="4" data-edge-id="telecom-wms" data-composition-points="250,733;435,733;435,400;620,400" d="M 250 733 L 427 733 Q 435 733 435 725 L 435 408 Q 435 400 443 400 L 620 400" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="wms" data-edge-to="automation" data-edge-key="5" data-edge-id="wms-auto" data-composition-points="840,366;950,366;950,268;1060,268" d="M 840 366 L 942 366 Q 950 366 950 358 L 950 276 Q 950 268 958 268 L 1060 268" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="wms" data-edge-to="mobile" data-edge-key="6" data-edge-id="wms-mobile" data-composition-points="840,380;950,380;950,535;1060,535" d="M 840 380 L 942 380 Q 950 380 950 388 L 950 527 Q 950 535 958 535 L 1060 535" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+
+        <!-- Components -->
+        <g id="node-erp" data-node-id="erp" data-node-label="ERP / OMS" aria-label="Focus ERP / OMS, Architecture component" data-node-kind="external" data-node-context="Architecture component">
+          <title>ERP / OMS · Architecture component</title>
+          <rect x="60" y="90" width="190" height="66" rx="6" class="c-mask"/>
+          <rect x="60" y="90" width="190" height="66" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(66 96) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" x="155" y="127" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">ERP / OMS</text>
+        </g>
+
+        <g id="node-delivery" data-node-id="delivery" data-node-label="택배 / 운송사" aria-label="Focus 택배 / 운송사, Architecture component" data-node-kind="external" data-node-context="Architecture component">
+          <title>택배 / 운송사 · Architecture component</title>
+          <rect x="60" y="250" width="190" height="66" rx="6" class="c-mask"/>
+          <rect x="60" y="250" width="190" height="66" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(66 256) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" x="155" y="287" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">택배 / 운송사</text>
+        </g>
+
+        <g id="node-commerce" data-node-id="commerce" data-node-label="전자상거래" aria-label="Focus 전자상거래, 11번가 · TMON · 쿠팡, Architecture component" data-node-kind="external" data-node-sublabel="11번가 · TMON · 쿠팡" data-node-context="Architecture component">
+          <title>전자상거래 · 11번가 · TMON · 쿠팡 · Architecture component</title>
+          <rect x="60" y="410" width="220" height="72" rx="6" class="c-mask"/>
+          <rect x="60" y="410" width="220" height="72" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(66 416) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="170" y="444" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">전자상거래</text>
+        <text data-detail="context" x="170" y="460" class="t-muted" font-size="9" text-anchor="middle">11번가 · TMON · 쿠팡</text>
+        </g>
+
+        <g id="node-government" data-node-id="government" data-node-label="정부기관 / 단체" aria-label="Focus 정부기관 / 단체, Architecture component" data-node-kind="external" data-node-context="Architecture component">
+          <title>정부기관 / 단체 · Architecture component</title>
+          <rect x="60" y="580" width="190" height="66" rx="6" class="c-mask"/>
+          <rect x="60" y="580" width="190" height="66" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(66 586) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" x="155" y="617" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">정부기관 / 단체</text>
+        </g>
+
+        <g id="node-telecom" data-node-id="telecom" data-node-label="통신사" aria-label="Focus 통신사, SMS · 알림톡, Architecture component" data-node-kind="external" data-node-sublabel="SMS · 알림톡" data-node-context="Architecture component">
+          <title>통신사 · SMS · 알림톡 · Architecture component</title>
+          <rect x="60" y="700" width="190" height="66" rx="6" class="c-mask"/>
+          <rect x="60" y="700" width="190" height="66" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(66 706) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="155" y="731" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">통신사</text>
+        <text data-detail="context" x="155" y="747" class="t-muted" font-size="9" text-anchor="middle">SMS · 알림톡</text>
+        </g>
+
+        <g id="node-wms" data-node-id="wms" data-node-label="WMS" aria-label="Focus WMS, 창고 운영의 중심, 창고 (W/H)" data-node-kind="backend" data-node-sublabel="창고 운영의 중심" data-node-context="창고 (W/H)">
+          <title>WMS · 창고 운영의 중심 · 창고 (W/H)</title>
+          <rect x="620" y="330" width="220" height="86" rx="6" class="c-mask"/>
+          <rect x="620" y="330" width="220" height="86" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(626 336) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="730" y="371" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">WMS</text>
+        <text data-detail="context" x="730" y="387" class="t-muted" font-size="9" text-anchor="middle">창고 운영의 중심</text>
+        </g>
+
+        <g id="node-automation" data-node-id="automation" data-node-label="물류자동화설비" aria-label="Focus 물류자동화설비, 자동창고 · 로봇 · DPS 등, 창고 (W/H)" data-node-kind="cloud" data-node-sublabel="자동창고 · 로봇 · DPS 등" data-node-context="창고 (W/H)">
+          <title>물류자동화설비 · 자동창고 · 로봇 · DPS 등 · 창고 (W/H)</title>
+          <rect x="1060" y="230" width="250" height="76" rx="6" class="c-mask"/>
+          <rect x="1060" y="230" width="250" height="76" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(1066 236) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1185" y="266" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">물류자동화설비</text>
+        <text data-detail="context" x="1185" y="282" class="t-muted" font-size="9" text-anchor="middle">자동창고 · 로봇 · DPS 등</text>
+        </g>
+
+        <g id="node-mobile" data-node-id="mobile" data-node-label="모바일장비" aria-label="Focus 모바일장비, 창고 (W/H)" data-node-kind="frontend" data-node-context="창고 (W/H)">
+          <title>모바일장비 · 창고 (W/H)</title>
+          <rect x="1060" y="500" width="220" height="70" rx="6" class="c-mask"/>
+          <rect x="1060" y="500" width="220" height="70" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(1066 506) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" x="1170" y="539" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모바일장비</text>
+        </g>
+
+        <!-- Connection labels -->
+
+
+
+
+
+
+
+
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="창고 (W/H)">
+          <rect data-graph-role="structural-frame-label-mask" x="572" y="210" width="64" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="576" y="223" class="t-cloud" font-size="9" font-weight="600">창고 (W/H)</text>
+        </g>
+
+        <!-- Legend -->
+        <g data-legend="" data-legend-bridge="">
+          <text x="40" y="824" class="t-primary" font-size="12" font-weight="650">범례</text>
+          <g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="Frontend" data-legend-x="40" data-legend-baseline="844" data-legend-width="83">
+            <rect x="40" y="835" width="16" height="10" rx="2.5" class="c-frontend" stroke-width="1"/>
+            <text x="62" y="844" class="t-muted" font-size="10" font-weight="500">Frontend</text>
+          </g>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="145" data-legend-baseline="844" data-legend-width="78">
+            <rect x="145" y="835" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="167" y="844" class="t-muted" font-size="10" font-weight="500">Backend</text>
+          </g>
+          <g data-legend-semantic-kind="cloud" data-legend-kind="cloud" data-legend-label="Cloud" data-legend-x="245" data-legend-baseline="844" data-legend-width="68">
+            <rect x="245" y="835" width="16" height="10" rx="2.5" class="c-cloud" stroke-width="1"/>
+            <text x="267" y="844" class="t-muted" font-size="10" font-weight="500">Cloud</text>
+          </g>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External" data-legend-x="335" data-legend-baseline="844" data-legend-width="83">
+            <rect x="335" y="835" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="357" y="844" class="t-muted" font-size="10" font-weight="500">External</text>
+          </g>
+        </g>
+      </svg>
