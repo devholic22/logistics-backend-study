@@ -15,33 +15,7 @@
 
 이 장에서 말하는 사용자 아이디와 추가 인증은 인증에, 창고·프로그램·고객사별 권한은 인가에 해당한다. 사용자그룹은 비슷한 업무를 수행하는 사람에게 권한 묶음을 재사용하는 방식이다. 권한은 업무에 필요한 최소 범위만 부여하고, 명시적으로 허용되지 않은 요청은 기본적으로 거부하는 것이 안전하다. 이는 OWASP의 [최소 권한과 기본 거부 원칙](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#enforce-least-privileges)과도 맞닿아 있다.
 
-```mermaid
-flowchart LR
-%% lint-ok: DEAD-END  창고와 이력 데이터는 권한 통제의 대상·결과이므로 나가는 화살표가 없다
-%% lint-ok: LABEL-JAM  세 사용자가 하나의 WMS로 접속하는 원서의 배치다. 렌더 결과에서 라벨이 겹치지 않는 것을 확인했다
-    U1["사용자1<br/>권한그룹: 고객사(화주)<br/>고객사권한: 회사1 · 창고권한: 창고1"]
-    U2["사용자2<br/>권한그룹: 고객사(화주)<br/>고객사권한: 회사2 · 창고권한: 창고2"]
-    U3["사용자3<br/>권한그룹: 관리자<br/>고객사권한: 모든고객사 · 창고권한: 모든창고"]
-
-    WMS["WMS"]
-    W1["창고1"]
-    W2["창고2"]
-    LOG[("접속이력 · 작업이력<br/>오류발생이력")]
-
-    U1 -. "접속(허용된 범위만)" .-> WMS
-    U2 -. "접속(허용된 범위만)" .-> WMS
-    U3 -. "접속(모든 범위)" .-> WMS
-    WMS -. "해당 창고별 권한(창고1 데이터만)" .-> W1
-    WMS -. "해당 창고별 권한(창고2 데이터만)" .-> W2
-    WMS -. "저장(접속 · 작업 · 오류 이력)" .-> LOG
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class WMS core
-    class U1,U2,U3 sys
-    class W1,W2,LOG muted
-```
+![WMS 권한 범위와 감사 이력](./assets/01-wms-권한-범위와-감사이력.svg)
 
 *[그림 9-1] 권한관리 개념도 — 같은 WMS에 접속해도 사용자1은 창고1만, 사용자2는 창고2만 볼 수 있다. 관리자만 전체를 본다*
 
