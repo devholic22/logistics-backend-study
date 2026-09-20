@@ -8,24 +8,7 @@
 
 이 장이 다루는 **가시성**은 그 "현 상황을 빠르게 파악하는" 일이다.
 
-```mermaid
-flowchart LR
-    SUP["공급처"]
-    FAC["생산공장"]
-    WH["물류센터<br/>창고"]
-    STORE["매장"]
-    CUS["소비자"]
-
-    SUP -- "① 조달" --> FAC
-    FAC -- "② 생산 · 이동" --> WH
-    WH -- "③ 보관 · 출고" --> STORE
-    STORE -- "④ 판매 · 전달" --> CUS
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class WH core
-    class SUP,FAC,STORE,CUS sys
-```
+![공급망 전체의 가시성](./assets/01-공급망-전체-가시성.svg)
 
 *가시성이 보아야 하는 범위 — 공급처에서 소비자까지 각 단계·시점별로 재고량·재고 위치·재고 흐름을 본다. 이 장의 주인공인 창고는 그 가운데 한 칸이다*
 
