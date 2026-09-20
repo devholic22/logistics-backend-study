@@ -13,22 +13,7 @@
 
 > 가시성(Visibility)는 **다양하고 복잡한 시스템이 서로 얽혀서 관련 업무를 수행하고 있어 데이터를 통합하기 어렵고, 다양한 형태와 구조로 복잡하게 분산되어 있기 때문에 구현이 매우 까다롭고 어려움이 따른다.** **최적의 가시성을 확보하기 위해서는 다음과 같은 성숙도 모델을 기반으로 단계적으로 접근하는 전략이 필요**하다.
 
-```mermaid
-flowchart BT
-    S3["3단계<br/>예측 · 예방정보"]
-    S2["2단계<br/>데이터분석 · 오류통보"]
-    S1["1단계<br/>물류 실시간현황"]
-
-    S1 -- "① 정제된 현황 데이터" --> S2
-    S2 -- "② 필요시 외부 데이터" --> S3
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class S1 core
-    class S2 sys
-    class S3 muted
-```
+![WMS 가시성 단계적 구축](./assets/03-가시성-단계적-구축.svg)
 
 *[그림 11-3] WMS 가시성 단계적 구축 방안 — 원서는 삼각형으로 그렸다. 아래가 넓다는 것은 이것이 토대라는 뜻이다*
 

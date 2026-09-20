@@ -12,20 +12,7 @@
 
 > **가시성 확보는 시스템의 효율성, 고객 만족도, 비용 절감 등에 기여할 수 있는 중요한 기능**이다. **WMS 시스템에서 가시성을 제공하기 위해서는 실시간으로 데이터를 수집하고, 관리된 데이터를 기반으로 데이터를 분석하고, 이를 시각화 또는 의미 있는 정보로 가공하는 작업이 중요**하다.
 
-```mermaid
-flowchart LR
-    COLLECT["실시간 데이터 수집"]
-    ANALYZE["데이터 분석<br/>관리된 데이터 기반"]
-    VISUAL["시각화 · 의미 있는<br/>정보로 가공"]
-
-    COLLECT -- "① 정제 · 축적" --> ANALYZE
-    ANALYZE -- "② 분석 결과 전달" --> VISUAL
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class ANALYZE,VISUAL core
-    class COLLECT sys
-```
+![가시성을 만드는 세 가지 작업](./assets/02-가시성-생성-작업.svg)
 
 *수집 → 분석 → 가공. 앞 단계가 부실하면 뒤 단계는 성립하지 않는다*
 

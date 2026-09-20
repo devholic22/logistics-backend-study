@@ -16,28 +16,7 @@
 
 표를 읽는 법. 세 묶음이 각각 **사람의 손을 돕는 것 · 물건을 옮기는 것 · 데이터를 오가게 하는 것**이다. 앞의 둘은 [WCS를 통해 WMS와 연결](../10-인터페이스/3-인터페이스-정보.md#다-물류자동화-인터페이스)되고, 마지막 묶음은 [가시성의 재료](../11-가시성/1-가시성-개요.md)가 된다.
 
-```mermaid
-flowchart LR
-    WMS["WMS"]
-    WCS["WCS"]
-    AUTO["자동화 설비<br/>DPS · DAS · AS/RS · 로봇"]
-    DEVICE["데이터 수집 장비<br/>단말기 · 스캐너 · RFID"]
-    VIS["가시성<br/>현황 · 분석"]
-
-    WMS -. "① 작업 지시" .-> WCS
-    WCS -. "② 설비 제어" .-> AUTO
-    AUTO -. "③ 결과 · 상태" .-> WCS
-    WCS -. "④ 실적 회신" .-> WMS
-    DEVICE -. "⑤ 스캔 · 작업결과" .-> WMS
-    WMS -. "⑥ 데이터 축적" .-> VIS
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class WMS,WCS core
-    class AUTO,DEVICE sys
-    class VIS muted
-```
+![WMS와 물류자동화 설비의 정보 흐름](./assets/01-wms-물류자동화-정보흐름.svg)
 
 *점선은 정보 흐름이다. 제품의 물리적 이동은 각 설비 내부에서 일어나며, WMS는 WCS와 현장 장비를 통해 지시와 결과를 주고받는다.*
 
