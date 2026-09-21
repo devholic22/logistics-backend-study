@@ -6,24 +6,7 @@
 
 [13장](../13-wms-솔루션-도입/README.md)이 **업체를 고르는 이야기**였다면, 14장은 **고른 업체와 함께 시스템을 실제로 만드는 이야기**다. 이 책의 마지막 장이다.
 
-```mermaid
-flowchart LR
-    P1["계획 수립"]
-    P2["분석"]
-    P3["설계 및 개발"]
-    P4["테스트 및 교육"]
-    P5["시스템 OPEN"]
-
-    P1 --> P2
-    P2 --> P3
-    P3 --> P4
-    P4 --> P5
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class P1,P2,P3,P4 sys
-    class P5 core
-```
+![WMS 구축 절차](./assets/02-wms-구축-절차.svg)
 
 *[그림 14-2] WMS 구축 절차의 다섯 단계 — 각 단계 아래에 세부 작업이 붙는다*
 

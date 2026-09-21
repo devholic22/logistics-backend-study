@@ -8,31 +8,7 @@
 
 ## 도입은 여덟 단계다
 
-```mermaid
-flowchart TB
-%% lint-ok: NO-INBOUND  ①은 절차의 시작이라 들어오는 화살표가 없다
-%% lint-ok: DEAD-END  ⑧은 절차의 끝(프로젝트 착수)이라 나가는 화살표가 없다
-    subgraph PREP["우리 쪽 준비"]
-        direction LR
-        S1["① 시스템 도입<br/>필요성 및 검토"] --> S2["② 시장조사 및<br/>기초지식 습득"]
-        S2 --> S3["③ 도입범위 및<br/>예산 검토"]
-        S3 --> S4["④ 후보업체 선정 및<br/>제안요청 발송"]
-    end
-
-    subgraph SELECT["업체와 함께 진행"]
-        direction LR
-        S5["⑤ 제안 접수"] --> S6["⑥ 제안 평가 /<br/>현장 방문"]
-        S6 --> S7["⑦ 우선협상 선정 /<br/>협상"]
-        S7 --> S8["⑧ 업체 선정 /<br/>프로젝트 착수"]
-    end
-
-    S4 --> S5
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class S1,S2,S3,S4 sys
-    class S5,S6,S7,S8 core
-```
+![WMS 솔루션 도입 절차](./assets/01-wms-솔루션-도입-절차.svg)
 
 *[그림 13-1] WMS 솔루션 도입 절차 — ①~④는 우리 쪽 준비, ⑤~⑧은 업체와 함께 진행하는 단계다*
 
