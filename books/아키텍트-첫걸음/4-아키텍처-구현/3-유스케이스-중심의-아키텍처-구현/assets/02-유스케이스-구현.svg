@@ -1,0 +1,614 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="1338" viewBox="0 0 820 1338" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-theme="light" data-preset="classic" data-quality-profile="showcase">
+<style><![CDATA[svg[data-chapter-handoff] [data-node-id][data-chapter-role="stay"] { opacity: 1; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="enter"] { opacity: 0.78; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="leave"] { opacity: 0.26; }
+svg [data-node-id][data-chapter-role] { opacity: 1 !important; }
+svg[data-chapter-preview] [data-node-id],
+      svg[data-chapter-preview] [data-edge-from] { opacity: 1 !important; filter: none !important; }
+.c-grid { stroke: #e2e8f0; fill: none; }
+.c-mask { fill: #ffffff; stroke: none; }
+.c-frontend { fill: rgb(218, 245, 247);   stroke: #0891b2; }
+.c-backend { fill: rgb(215, 244, 232);    stroke: #059669; }
+.c-database { fill: rgb(234, 229, 249);   stroke: #7c3aed; }
+.c-cloud { fill: rgb(251, 240, 211);      stroke: #d97706; }
+.c-security { fill: rgb(251, 230, 232);   stroke: #e11d48; }
+.c-messagebus { fill: rgb(251, 235, 221); stroke: #ea580c; }
+.c-external { fill: rgb(232, 235, 237);   stroke: #64748b; }
+.t-primary { fill: #0f172a; }
+.t-muted { fill: #64748b; }
+.t-dim { fill: #94a3b8; }
+.t-frontend { fill: #0891b2; }
+.t-backend { fill: #059669; }
+.t-database { fill: #7c3aed; }
+.t-cloud { fill: #d97706; }
+.t-security { fill: #e11d48; }
+.t-messagebus { fill: #ea580c; }
+.t-external { fill: #64748b; }
+svg .semantic-sigil {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.35;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.76;
+      pointer-events: none;
+    }
+svg .semantic-sigil > * { vector-effect: non-scaling-stroke; }
+svg .semantic-sigil .sigil-fill { fill: currentColor; stroke: none; }
+svg .s-frontend { color: #0891b2; }
+svg .s-backend { color: #059669; }
+svg .s-database { color: #7c3aed; }
+svg .s-cloud { color: #d97706; }
+svg .s-security { color: #e11d48; }
+svg .s-messagebus { color: #ea580c; }
+svg .s-external { color: #64748b; }
+svg .brand-mark { pointer-events: none; }
+svg .brand-mark-badge { fill: #fff; stroke: none; }
+svg .brand-mark-frame {
+      fill: none;
+      stroke: #cbd5e1;
+      stroke-width: 0.8;
+      vector-effect: non-scaling-stroke;
+    }
+svg .brand-mark-fallback {
+      fill: none;
+      stroke: #475569;
+      stroke-width: 1.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+svg[data-preset="blueprint"] .brand-mark-badge,
+    svg[data-preset="blueprint"] .brand-mark-frame { rx: 1px; }
+svg [data-detail] {  }
+svg [data-detail-anchor] {
+      transform-box: fill-box;
+      transform-origin: center;
+
+    }
+.a-default { stroke: #94a3b8; fill: none; }
+.a-emphasis { stroke: #059669; fill: none; }
+.a-security { stroke: #e11d48; fill: none; stroke-dasharray: 5,5; }
+.a-dashed { stroke: #7c3aed; fill: none; stroke-dasharray: 4,4; }
+.m-default { fill: #94a3b8; }
+.m-emphasis { fill: #059669; }
+.m-security { fill: #e11d48; }
+.m-dashed { fill: #7c3aed; }
+svg [data-node-id] {
+
+
+    }
+svg [data-edge-from] {  }
+svg[data-preset="signal-flow"] .source-evidence-beacon { opacity: 0.9; }
+svg[data-preset="blueprint"] .source-evidence-beacon rect {
+      rx: 0.8px;
+      filter: none;
+    }
+svg [data-legend-hit] {
+      fill: none;
+      stroke: transparent;
+      stroke-width: 1.4;
+      pointer-events: none;
+      vector-effect: non-scaling-stroke;
+
+    }
+svg [data-legend-count-badge] { pointer-events: none; }
+svg [data-legend-count-badge] rect {
+      fill: #ffffff;
+      stroke: #e2e8f0;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+svg [data-legend-count-badge] text {
+      fill: #64748b;
+      font-size: 8px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+svg [data-legend-kind][data-legend-selected] [data-legend-hit] {
+      stroke: #7c3aed;
+      stroke-width: 2.2;
+      stroke-dasharray: 3 2;
+    }
+svg [data-legend-kind][data-legend-selected] [data-legend-count-badge] rect {
+      stroke: #7c3aed;
+      stroke-width: 1.8;
+    }
+svg [data-legend-kind][data-legend-zero] { opacity: 0.44; }
+svg[data-preset="signal-flow"] [data-legend-kind][data-legend-selected] [data-legend-hit] {
+      filter: drop-shadow(0 0 4px #7c3aed);
+    }
+svg[data-preset="blueprint"] [data-legend-hit],
+    svg[data-preset="blueprint"] [data-legend-count-badge] rect { rx: 0; filter: none; }
+svg[data-legend-preview-active] [data-node-id],
+    svg[data-legend-preview-active] [data-edge-from] { opacity: 0.11; }
+svg[data-legend-preview-active] [data-legend-preview-match] { opacity: 1; }
+svg[data-legend-preview-active] [data-legend-preview-peer] { opacity: 0.62; }
+svg[data-legend-preview-active] [data-legend-preview-selected] {
+      filter: drop-shadow(0 0 8px #7c3aed);
+    }
+svg[data-lens-active] [data-node-id],
+    svg[data-lens-active] [data-edge-from] { opacity: 0.11; }
+svg[data-lens-active] [data-lens-match] { opacity: 1; }
+svg[data-lens-active] [data-lens-peer] { opacity: 0.62; }
+svg[data-lens-active] [data-lens-selected] {
+      filter: drop-shadow(0 0 10px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow {
+      stroke-width: 3.7;
+      opacity: 1;
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="out"],
+    svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="forward"] {
+      filter: drop-shadow(0 0 6px #0891b2);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="in"],
+    svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="reverse"] {
+      filter: drop-shadow(0 0 6px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="within"] {
+      filter: drop-shadow(0 0 6px #ea580c);
+    }
+svg[data-preset="blueprint"] .semantic-lens-flow {
+      stroke-width: 2.45;
+      stroke-linecap: square;
+      filter: none;
+      opacity: 0.78;
+    }
+svg[data-focus-active] [data-node-id],
+    svg[data-focus-active] [data-edge-from] { opacity: 0.13; }
+svg[data-focus-active] [data-focus-match] { opacity: 1; }
+svg[data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-reach-active] [data-node-id],
+    svg[data-reach-active] [data-edge-from] { opacity: 0.09; }
+svg[data-reach-active] [data-reach-match] { opacity: 1; }
+svg[data-reach-active="upstream"] [data-reach-origin] {
+      filter: drop-shadow(0 0 11px #7c3aed);
+    }
+svg[data-reach-active="downstream"] [data-reach-origin] {
+      filter: drop-shadow(0 0 11px #059669);
+    }
+svg[data-reach-active="upstream"] [data-edge-from][data-reach-match] {
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #7c3aed 72%, transparent));
+    }
+svg[data-reach-active="downstream"] [data-edge-from][data-reach-match] {
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #059669 72%, transparent));
+    }
+svg[data-preset="blueprint"][data-reach-active] [data-reach-origin],
+    svg[data-preset="blueprint"][data-reach-active] [data-edge-from][data-reach-match] {
+      filter: none;
+    }
+svg[data-relationship-direct-active] [data-node-id],
+    svg[data-relationship-direct-active] [data-edge-from] { opacity: 0.16; }
+svg[data-relationship-direct-active] [data-relationship-preview],
+    svg[data-relationship-direct-active] [data-relationship-preview-node] { opacity: 1; }
+svg[data-focus-active]:not([data-relationship-pin-active]) .relationship-hit-rail,
+    svg[data-story-active] .relationship-hit-rail,
+    svg[data-route-picking] .relationship-hit-rail,
+    svg[data-route-active] .relationship-hit-rail,
+    svg[data-lens-active] .relationship-hit-rail,
+    svg[data-chapter-preview] .relationship-hit-rail { pointer-events: none; }
+svg[data-relationship-preview-active] [data-focus-match] { opacity: 0.18; }
+svg[data-relationship-preview-active] [data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview-node] { opacity: 1; }
+svg[data-relationship-preview-active] [data-relationship-preview] {
+      filter: drop-shadow(0 0 5px #059669);
+    }
+svg[data-relationship-preview-active] [data-relationship-preview] path,
+    svg[data-relationship-preview-active] path[data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview] line,
+    svg[data-relationship-preview-active] line[data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview] polyline,
+    svg[data-relationship-preview-active] polyline[data-relationship-preview] {
+      stroke-width: 2.75;
+    }
+svg[data-relationship-preview-active] [data-relationship-preview-source] {
+      filter: drop-shadow(0 0 7px #0891b2);
+    }
+svg[data-relationship-preview-active] [data-relationship-preview-target] {
+      filter: drop-shadow(0 0 7px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .relationship-flow-pulse {
+      stroke: #0891b2;
+      stroke-width: 3.85;
+      filter: drop-shadow(0 0 7px #0891b2);
+    }
+svg[data-preset="blueprint"] .relationship-flow-pulse {
+      stroke-width: 2.5;
+      stroke-linecap: square;
+      filter: none;
+    }
+svg[data-preset="editorial"] .relationship-flow-pulse {
+      stroke: #059669;
+      stroke-width: 2.75;
+      filter: none;
+    }
+svg[data-preset="signal-flow"] .semantic-flow-token {
+      filter: drop-shadow(0 0 5px currentColor);
+    }
+svg[data-preset="blueprint"] .semantic-flow-token { filter: none; }
+svg[data-preset="editorial"] .semantic-flow-token { filter: none; }
+svg[data-intent-trace-active] [data-node-id],
+    svg[data-intent-trace-active] [data-edge-from] { opacity: 0.2; }
+svg[data-intent-trace-active] [data-intent-trace-match] { opacity: 1; }
+svg[data-intent-trace-active] [data-intent-trace-selected] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-preset="blueprint"] [data-intent-trace-selected],
+    svg[data-preset="blueprint"] .intent-trace-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="editorial"] [data-intent-trace-selected],
+    svg[data-preset="editorial"] .intent-trace-flow { filter: none; }
+svg[data-route-picking="target"] [data-node-id] { opacity: 0.24; }
+svg[data-route-picking="target"] [data-route-candidate],
+    svg[data-route-picking="target"] [data-route-start] { opacity: 1; }
+svg[data-route-picking] [data-node-id] {  }
+svg[data-route-picking] [data-route-start] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-route-active] [data-node-id],
+    svg[data-route-active] [data-edge-from] { opacity: 0.11; }
+svg[data-route-active] [data-route-match] { opacity: 1; }
+svg[data-route-active] [data-route-start] {
+      filter: drop-shadow(0 0 11px #0891b2);
+    }
+svg[data-route-active] [data-route-end] {
+      filter: drop-shadow(0 0 11px #e11d48);
+    }
+svg[data-route-active] [data-route-step]:not([data-route-start]):not([data-route-end]) {
+      filter: drop-shadow(0 0 7px #059669);
+    }
+svg[data-route-journey] [data-route-match][data-route-journey-state="past"] { opacity: 0.62; }
+svg[data-route-journey] [data-route-match][data-route-journey-state="future"] { opacity: 0.34; }
+svg[data-route-journey] [data-route-match][data-route-journey-state="current"] { opacity: 1; }
+svg[data-route-journey] [data-node-id][data-route-journey-current] {
+      filter: drop-shadow(0 0 10px #059669);
+    }
+svg[data-route-journey] [data-edge-from][data-route-journey-current] {
+      opacity: 1;
+      filter: drop-shadow(0 0 6px #059669);
+    }
+svg[data-preset="blueprint"] [data-route-start],
+    svg[data-preset="blueprint"] [data-route-end],
+    svg[data-preset="blueprint"] [data-route-step],
+    svg[data-preset="blueprint"] .route-probe-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="blueprint"] .route-journey-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="editorial"] [data-route-start],
+    svg[data-preset="editorial"] [data-route-end],
+    svg[data-preset="editorial"] [data-route-step],
+    svg[data-preset="editorial"] .route-probe-flow,
+    svg[data-preset="editorial"] .route-journey-flow { filter: none; }
+svg[data-preset="editorial"] .c-grid {
+      stroke-dasharray: 1 4;
+      opacity: 0.48;
+    }
+svg[data-preset="editorial"] .c-region {
+      fill: color-mix(in srgb, rgb(251, 240, 211) 48%, transparent);
+      stroke-dasharray: 9 4;
+    }
+svg[data-preset="blueprint"] .c-grid {
+      stroke-dasharray: 1 3;
+      opacity: 0.78;
+    }
+svg[data-preset="blueprint"] .c-region {
+      fill: color-mix(in srgb, rgb(251, 240, 211) 58%, transparent);
+      stroke-dasharray: 12 4 2 4;
+    }
+svg[data-preset="blueprint"] .c-security-group,
+    svg[data-preset="blueprint"] .c-lane { stroke-dasharray: 7 3; }
+svg[data-preset="blueprint"][data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-preset="blueprint"][data-focus-active][data-reach-active] [data-focus-selected][data-reach-origin] {
+      filter: none;
+    }
+svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview],
+    svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-source],
+    svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-target] {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-story-beat] [data-story-step] {
+      opacity: 0.22;
+      filter: saturate(0.42);
+
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="past"] {
+      opacity: 0.72;
+      filter: saturate(0.82);
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="next"] {
+      opacity: 0.5;
+      filter: saturate(0.66);
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      opacity: 1;
+      filter: drop-shadow(0 0 7px #0891b2);
+
+    }
+svg[data-story-beat] [data-edge-from][data-story-beat-step] {
+      opacity: 0.16;
+
+    }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="past"] { opacity: 0.58; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="next"] { opacity: 0.34; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="active"] { opacity: 1; }
+svg[data-story-beat] .story-trail-flow { opacity: 0;  }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="past"] { opacity: 0.34; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="next"] { opacity: 0.2; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="active"] { opacity: 0.92; }
+svg[data-story-beat] .story-trail-flow[data-story-pulse="true"] {
+      stroke-dasharray: 2 13;
+      stroke-dashoffset: 30;
+      opacity: 0.92;
+
+    }
+svg[data-preset="blueprint"] .story-trail-flow {
+      stroke-linecap: square;
+      filter: none;
+      opacity: 0.5;
+    }
+svg[data-preset="blueprint"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      filter: none;
+
+    }
+svg[data-preset="editorial"] .story-trail-flow { filter: none; }
+svg[data-preset="editorial"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      filter: drop-shadow(0 2px 2px color-mix(in srgb, #0f172a 16%, transparent));
+    }
+svg[data-chapter-preview] [data-node-id],
+    svg[data-chapter-preview] [data-edge-from] {
+      opacity: 0.1 !important;
+      filter: none !important;
+
+    }
+svg[data-chapter-preview] .story-trail-overlay { opacity: 0.08 !important; }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="stay"] {
+      opacity: 0.76 !important;
+      filter: saturate(0.7) !important;
+    }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="enter"] {
+      opacity: 1 !important;
+      filter: saturate(1.2) !important;
+    }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="leave"] {
+      opacity: 0.28 !important;
+      filter: grayscale(0.72) !important;
+    }
+svg[data-preset="blueprint"][data-chapter-preview] [data-node-id] { filter: none !important; }
+.c-security-group { fill: none; stroke: #e11d48; stroke-dasharray: 4,4; }
+.c-region { fill: rgb(251, 248, 238); stroke: #d97706; stroke-dasharray: 8,4; }
+.c-lane { fill: rgb(249, 250, 251); stroke: #cbd5e1; stroke-dasharray: 6,6; }
+svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="edge"] {
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 3px #059669);
+
+    }
+svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="node"] {
+
+    }
+svg[data-preset="blueprint"][data-animation="trace"] [data-animate="edge"] {
+      stroke-linecap: square;
+      filter: none;
+
+    }
+svg[data-preset="blueprint"][data-animation="trace"] [data-animate="node"] {
+
+
+    }
+svg[data-preset="editorial"][data-animation="trace"] [data-animate="edge"] {
+      filter: none;
+
+    }
+svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] {
+
+
+    }
+svg[data-animation="trace"] [data-animate] {
+
+        stroke-dashoffset: 0;
+      }
+.guided-view-chapter,
+      svg[data-chapter-preview] [data-node-id],
+      svg[data-chapter-preview] [data-edge-from] {  }
+svg[data-story-playing="true"] .story-trail-flow {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        opacity: 0.55;
+      }
+.source-evidence-beacon,
+      svg [data-node-id], svg [data-edge-from], svg [data-detail], svg [data-detail-anchor], svg [data-legend-hit], svg {  }
+svg, svg text { font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif; }
+svg, svg text { font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif; }
+svg,text{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif;}]]></style>
+<rect x="0" y="0" width="100%" height="100%" fill="#fbfbf9"/>
+        <title id="archify-diagram-title">유스케이스 구현</title>
+        <desc id="archify-diagram-description">노드와 연결 관계를 따라 구조와 의존 방향을 읽는다</desc>
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- Boundaries (behind everything) -->
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="인터페이스 어댑터 계층" x="177.5" y="126" width="465" height="382" rx="12" class="c-region" stroke-width="1"/>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="1" data-composition-frame-label="유스케이스 계층" x="290" y="626" width="465" height="382" rx="12" class="c-region" stroke-width="1"/>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="2" data-composition-frame-label="엔티티 계층" x="65" y="876" width="577.5" height="382" rx="12" class="c-region" stroke-width="1"/>
+
+        <!-- Connection paths (before components for correct z-order) -->
+        <path data-edge-from="CTRL" data-edge-to="VAL" data-edge-label="① 입력" data-edge-key="0" data-edge-id="edge_1" data-composition-points="297.5,238;297.5,319;410,319;410,400" d="M 297.5 238 L 297.5 311 Q 297.5 319 305.5 319 L 402 319 Q 410 319 410 327 L 410 400" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="VAL" data-edge-to="UC" data-edge-label="② 검증 결과" data-edge-key="1" data-edge-id="edge_2" data-composition-points="410,488;410,569;410,569;410,650" d="M 410 488 L 410 569 L 410 569 L 410 650" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="UC" data-edge-to="NUM" data-edge-label="③ 도메인 규칙" data-edge-key="2" data-edge-id="edge_3" data-composition-points="410,738;410,819;185,819;185,900" d="M 410 738 L 410 811 Q 410 819 402 819 L 193 819 Q 185 819 185 827 L 185 900" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="UC" data-edge-to="HDR" data-edge-key="3" data-edge-id="edge_4" data-composition-points="410,738;410,819;410,819;410,900" d="M 410 738 L 410 819 L 410 819 L 410 900" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="HDR" data-edge-to="DTL" data-edge-key="4" data-edge-id="edge_5" data-composition-points="410,988;410,1069;297.5,1069;297.5,1150" d="M 410 988 L 410 1061 Q 410 1069 402 1069 L 305.5 1069 Q 297.5 1069 297.5 1077 L 297.5 1150" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="HDR" data-edge-to="EVD" data-edge-key="5" data-edge-id="edge_6" data-composition-points="410,988;410,1069;522.5,1069;522.5,1150" d="M 410 988 L 410 1061 Q 410 1069 418 1069 L 514.5 1069 Q 522.5 1069 522.5 1077 L 522.5 1150" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="UC" data-edge-to="OUT" data-edge-label="④ 출력 모델" data-edge-key="6" data-edge-id="edge_7" data-composition-points="410,738;410,819;635,819;635,900" d="M 410 738 L 410 811 Q 410 819 418 819 L 627 819 Q 635 819 635 827 L 635 900" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="PRES" data-edge-to="OUT" data-edge-label="구현" data-edge-key="7" data-edge-id="edge_8" data-composition-points="522.5,238;522.5,569;635,569;635,900" d="M 522.5 238 L 522.5 561 Q 522.5 569 530.5 569 L 627 569 Q 635 569 635 577 L 635 900" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+
+        <!-- Components -->
+        <g id="node-CTRL" data-node-id="CTRL" data-node-label="Controller" aria-label="Focus Controller, 인터페이스 어댑터 계층" data-node-kind="external" data-node-context="인터페이스 어댑터 계층">
+          <title>Controller · 인터페이스 어댑터 계층</title>
+          <rect x="197.5" y="150" width="200" height="88" rx="6" class="c-mask"/>
+          <rect x="197.5" y="150" width="200" height="88" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(203.5 156) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" x="297.5" y="198" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Controller</text>
+        </g>
+
+        <g id="node-VAL" data-node-id="VAL" data-node-label="Validator" aria-label="Focus Validator, 인터페이스 어댑터 계층" data-node-kind="external" data-node-context="인터페이스 어댑터 계층">
+          <title>Validator · 인터페이스 어댑터 계층</title>
+          <rect x="310" y="400" width="200" height="88" rx="6" class="c-mask"/>
+          <rect x="310" y="400" width="200" height="88" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(316 406) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" x="410" y="448" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Validator</text>
+        </g>
+
+        <g id="node-PRES" data-node-id="PRES" data-node-label="Presenter" aria-label="Focus Presenter, 인터페이스 어댑터 계층" data-node-kind="external" data-node-context="인터페이스 어댑터 계층">
+          <title>Presenter · 인터페이스 어댑터 계층</title>
+          <rect x="422.5" y="150" width="200" height="88" rx="6" class="c-mask"/>
+          <rect x="422.5" y="150" width="200" height="88" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(428.5 156) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" x="522.5" y="198" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Presenter</text>
+        </g>
+
+        <g id="node-UC" data-node-id="UC" data-node-label="경비 정산 신청" aria-label="Focus 경비 정산 신청, UseCase, 유스케이스 계층" data-node-kind="backend" data-node-sublabel="UseCase" data-node-context="유스케이스 계층">
+          <title>경비 정산 신청 · UseCase · 유스케이스 계층</title>
+          <rect x="310" y="650" width="200" height="88" rx="6" class="c-mask"/>
+          <rect x="310" y="650" width="200" height="88" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(316 656) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="410" y="692" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">경비 정산 신청</text>
+        <text data-detail="context" x="410" y="708" class="t-muted" font-size="9" text-anchor="middle">UseCase</text>
+        </g>
+
+        <g id="node-OUT" data-node-id="OUT" data-node-label="«interface»" aria-label="Focus «interface», OutputBoundary, 유스케이스 계층" data-node-kind="cloud" data-node-sublabel="OutputBoundary" data-node-context="유스케이스 계층">
+          <title>«interface» · OutputBoundary · 유스케이스 계층</title>
+          <rect x="535" y="900" width="200" height="88" rx="6" class="c-mask"/>
+          <rect x="535" y="900" width="200" height="88" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(541 906) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="635" y="942" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">«interface»</text>
+        <text data-detail="context" x="635" y="958" class="t-muted" font-size="9" text-anchor="middle">OutputBoundary</text>
+        </g>
+
+        <g id="node-NUM" data-node-id="NUM" data-node-label="번호 발급" aria-label="Focus 번호 발급, DomainService, 엔티티 계층" data-node-kind="cloud" data-node-sublabel="DomainService" data-node-context="엔티티 계층">
+          <title>번호 발급 · DomainService · 엔티티 계층</title>
+          <rect x="85" y="900" width="200" height="88" rx="6" class="c-mask"/>
+          <rect x="85" y="900" width="200" height="88" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(91 906) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="185" y="942" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">번호 발급</text>
+        <text data-detail="context" x="185" y="958" class="t-muted" font-size="9" text-anchor="middle">DomainService</text>
+        </g>
+
+        <g id="node-HDR" data-node-id="HDR" data-node-label="경비 정산 신청 헤더" aria-label="Focus 경비 정산 신청 헤더, 엔티티 계층" data-node-kind="backend" data-node-context="엔티티 계층">
+          <title>경비 정산 신청 헤더 · 엔티티 계층</title>
+          <rect x="310" y="900" width="200" height="88" rx="6" class="c-mask"/>
+          <rect x="310" y="900" width="200" height="88" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(316 906) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" x="410" y="948" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">경비 정산 신청 헤더</text>
+        </g>
+
+        <g id="node-DTL" data-node-id="DTL" data-node-label="경비 정산 신청 내역" aria-label="Focus 경비 정산 신청 내역, 엔티티 계층" data-node-kind="cloud" data-node-context="엔티티 계층">
+          <title>경비 정산 신청 내역 · 엔티티 계층</title>
+          <rect x="197.5" y="1150" width="200" height="88" rx="6" class="c-mask"/>
+          <rect x="197.5" y="1150" width="200" height="88" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(203.5 1156) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" x="297.5" y="1198" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">경비 정산 신청 내역</text>
+        </g>
+
+        <g id="node-EVD" data-node-id="EVD" data-node-label="증빙" aria-label="Focus 증빙, 엔티티 계층" data-node-kind="cloud" data-node-context="엔티티 계층">
+          <title>증빙 · 엔티티 계층</title>
+          <rect x="422.5" y="1150" width="200" height="88" rx="6" class="c-mask"/>
+          <rect x="422.5" y="1150" width="200" height="88" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(428.5 1156) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" x="522.5" y="1198" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">증빙</text>
+        </g>
+
+        <!-- Connection labels -->
+        <g data-detail="context" data-edge-from="CTRL" data-edge-to="VAL" data-edge-label="① 입력" data-edge-key="0" data-edge-id="edge_1">
+          <rect x="316.35" y="299" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="335.75" y="309" class="t-muted" font-size="8" text-anchor="middle">① 입력</text>
+        </g>
+        <g data-detail="context" data-edge-from="VAL" data-edge-to="UC" data-edge-label="② 검증 결과" data-edge-key="1" data-edge-id="edge_2">
+          <rect x="378.6" y="549" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="410" y="559" class="t-muted" font-size="8" text-anchor="middle">② 검증 결과</text>
+        </g>
+        <g data-detail="context" data-edge-from="UC" data-edge-to="NUM" data-edge-label="③ 도메인 규칙" data-edge-key="2" data-edge-id="edge_3">
+          <rect x="279.3" y="799" width="72.4" height="14" rx="3" class="c-mask"/>
+          <text x="315.5" y="809" class="t-muted" font-size="8" text-anchor="middle">③ 도메인 규칙</text>
+        </g>
+
+
+
+        <g data-detail="context" data-edge-from="UC" data-edge-to="OUT" data-edge-label="④ 출력 모델" data-edge-key="6" data-edge-id="edge_7">
+          <rect x="473.1" y="799" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="504.5" y="809" class="t-muted" font-size="8" text-anchor="middle">④ 출력 모델</text>
+        </g>
+        <g data-detail="context" data-edge-from="PRES" data-edge-to="OUT" data-edge-label="구현" data-edge-key="7" data-edge-id="edge_8">
+          <rect x="563.75" y="549" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="578.75" y="559" class="t-messagebus" font-size="8" text-anchor="middle">구현</text>
+        </g>
+
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="인터페이스 어댑터 계층">
+          <rect data-graph-role="structural-frame-label-mask" x="181.5" y="130" width="128.8" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="185.5" y="143" class="t-cloud" font-size="9" font-weight="600">인터페이스 어댑터 계층</text>
+        </g>
+
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="1" data-composition-frame-kind="region" data-composition-frame-label="유스케이스 계층">
+          <rect data-graph-role="structural-frame-label-mask" x="294" y="630" width="91" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="298" y="643" class="t-cloud" font-size="9" font-weight="600">유스케이스 계층</text>
+        </g>
+
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="2" data-composition-frame-kind="region" data-composition-frame-label="엔티티 계층">
+          <rect data-graph-role="structural-frame-label-mask" x="69" y="880" width="69.4" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="73" y="893" class="t-cloud" font-size="9" font-weight="600">엔티티 계층</text>
+        </g>
+
+        <!-- Legend -->
+
+      </svg>

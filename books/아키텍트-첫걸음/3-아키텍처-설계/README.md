@@ -6,20 +6,7 @@
 
 2장이 **설계 일반**의 원칙과 패턴을 다뤘다면, 3장은 그 가운데 **가장 위 레벨의 설계**를 실제로 어떻게 진행하는지를 다룬다. 무엇을 목표로 삼고, 무엇을 근거로 고르고, 고른 것을 어떻게 남길 것인가.
 
-```mermaid
-flowchart LR
-    REQ["핵심 아키텍처 요구사항 도출<br/>무엇을 달성할 것인가"]
-    SEL["아키텍처 선정<br/>어느 쪽을 고를 것인가"]
-    DOC["아키텍처 문서화<br/>어떻게 공유할 것인가"]
-
-    REQ -- "아키텍처 드라이버" --> SEL
-    SEL -- "아키텍처 모델·ADR" --> DOC
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class REQ,SEL core
-    class DOC sys
-```
+![아키텍처는 무엇을 정하는 일인가](README/assets/01-아키텍처는-무엇을-정하는-일인가.svg)
 
 *아키텍처 설계는 세 작업으로 이어진다. 화살표 위의 것이 앞 작업이 뒤 작업에 넘기는 산출물이다*
 
