@@ -48,35 +48,7 @@
 
 아래는 **git-flow를 기반으로 한 브랜치 관리 방법의 예**로, **v1.0.0 릴리스 이후 2차 개발이 시작된 상황**을 가정한다.
 
-```mermaid
-gitGraph
-    commit tag: "v1.0.0"
-    branch develop
-    checkout develop
-    commit id: "① 2차 개발 시작"
-    branch feature
-    checkout feature
-    commit id: "② 기능 브랜치"
-    branch story
-    checkout story
-    commit id: "③ 작업 브랜치"
-    commit id: "구현 · 테스트"
-    checkout feature
-    merge story tag: "④ PR 리뷰 후 병합"
-    checkout develop
-    commit id: "다른 기능 반영"
-    checkout feature
-    merge develop tag: "⑤ 개발 브랜치 반영"
-    branch story2
-    checkout story2
-    commit id: "⑥ 다음 유저 스토리"
-    checkout feature
-    merge story2 tag: "⑦ 병합"
-    checkout develop
-    merge feature tag: "⑧ QA 통과 후 병합"
-    checkout main
-    merge develop tag: "⑨ v2.0.0"
-```
+![브랜치 관리 방법](6-구성-관리-및-CI-CD/assets/01-브랜치-관리-방법.svg)
 
 *[그림 4.11] git-flow 기반 브랜치 관리 방법 예 — 마지막 main 병합이 ⑨에 해당한다*
 
