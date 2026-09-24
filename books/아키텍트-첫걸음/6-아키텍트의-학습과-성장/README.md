@@ -6,22 +6,7 @@
 
 1장부터 5장까지가 **아키텍트가 무엇을 하는 사람인지**를 다뤘다면, 6장은 **그 사람이 되기까지의 경로**를 다룬다. 인재상, 학습 방법, 그리고 읽을 책이다.
 
-```mermaid
-flowchart LR
-    BASE["기본 기술<br/>IT · 소프트웨어 엔지니어링"]
-    ARCH["아키텍팅<br/>방법론 + 실무 경험"]
-    SOFT["업무 지식 · 소프트 스킬<br/>초기부터 함께"]
-    CONTRIB["기술 기여 역량<br/>기술력 × 소프트 스킬"]
-
-    BASE -- "① 기반 기술 확장" --> ARCH
-    SOFT -- "② 초기부터 병행" --> CONTRIB
-    ARCH -- "③ 전문성을 가치로 연결" --> CONTRIB
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class ARCH,CONTRIB core
-    class BASE,SOFT sys
-```
+![아키텍트로 성장하는 경로](assets/01-아키텍트-성장-경로.svg)
 
 *기본을 쌓고 아키텍팅을 익히는 길과, 업무 지식·소프트 스킬을 기르는 길은 나란히 간다*
 
