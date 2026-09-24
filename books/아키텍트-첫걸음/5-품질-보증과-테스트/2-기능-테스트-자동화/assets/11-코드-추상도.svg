@@ -1,0 +1,576 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="780" viewBox="0 0 1380 780" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-theme="light" data-preset="classic" data-quality-profile="showcase">
+<style><![CDATA[svg[data-chapter-handoff] [data-node-id][data-chapter-role="stay"] { opacity: 1; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="enter"] { opacity: 0.78; }
+svg[data-chapter-handoff] [data-node-id][data-chapter-role="leave"] { opacity: 0.26; }
+svg [data-node-id][data-chapter-role] { opacity: 1 !important; }
+svg[data-chapter-preview] [data-node-id],
+      svg[data-chapter-preview] [data-edge-from] { opacity: 1 !important; filter: none !important; }
+.c-grid { stroke: #e2e8f0; fill: none; }
+.c-mask { fill: #ffffff; stroke: none; }
+.c-frontend { fill: rgb(218, 245, 247);   stroke: #0891b2; }
+.c-backend { fill: rgb(215, 244, 232);    stroke: #059669; }
+.c-database { fill: rgb(234, 229, 249);   stroke: #7c3aed; }
+.c-cloud { fill: rgb(251, 240, 211);      stroke: #d97706; }
+.c-security { fill: rgb(251, 230, 232);   stroke: #e11d48; }
+.c-messagebus { fill: rgb(251, 235, 221); stroke: #ea580c; }
+.c-external { fill: rgb(232, 235, 237);   stroke: #64748b; }
+.t-primary { fill: #0f172a; }
+.t-muted { fill: #64748b; }
+.t-dim { fill: #94a3b8; }
+.t-frontend { fill: #0891b2; }
+.t-backend { fill: #059669; }
+.t-database { fill: #7c3aed; }
+.t-cloud { fill: #d97706; }
+.t-security { fill: #e11d48; }
+.t-messagebus { fill: #ea580c; }
+.t-external { fill: #64748b; }
+svg .semantic-sigil {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.35;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.76;
+      pointer-events: none;
+    }
+svg .semantic-sigil > * { vector-effect: non-scaling-stroke; }
+svg .semantic-sigil .sigil-fill { fill: currentColor; stroke: none; }
+svg .s-frontend { color: #0891b2; }
+svg .s-backend { color: #059669; }
+svg .s-database { color: #7c3aed; }
+svg .s-cloud { color: #d97706; }
+svg .s-security { color: #e11d48; }
+svg .s-messagebus { color: #ea580c; }
+svg .s-external { color: #64748b; }
+svg .brand-mark { pointer-events: none; }
+svg .brand-mark-badge { fill: #fff; stroke: none; }
+svg .brand-mark-frame {
+      fill: none;
+      stroke: #cbd5e1;
+      stroke-width: 0.8;
+      vector-effect: non-scaling-stroke;
+    }
+svg .brand-mark-fallback {
+      fill: none;
+      stroke: #475569;
+      stroke-width: 1.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+svg[data-preset="blueprint"] .brand-mark-badge,
+    svg[data-preset="blueprint"] .brand-mark-frame { rx: 1px; }
+svg [data-detail] {  }
+svg [data-detail-anchor] {
+      transform-box: fill-box;
+      transform-origin: center;
+
+    }
+.a-default { stroke: #94a3b8; fill: none; }
+.a-emphasis { stroke: #059669; fill: none; }
+.a-security { stroke: #e11d48; fill: none; stroke-dasharray: 5,5; }
+.a-dashed { stroke: #7c3aed; fill: none; stroke-dasharray: 4,4; }
+.m-default { fill: #94a3b8; }
+.m-emphasis { fill: #059669; }
+.m-security { fill: #e11d48; }
+.m-dashed { fill: #7c3aed; }
+svg [data-node-id] {
+
+
+    }
+svg [data-edge-from] {  }
+svg[data-preset="signal-flow"] .source-evidence-beacon { opacity: 0.9; }
+svg[data-preset="blueprint"] .source-evidence-beacon rect {
+      rx: 0.8px;
+      filter: none;
+    }
+svg [data-legend-hit] {
+      fill: none;
+      stroke: transparent;
+      stroke-width: 1.4;
+      pointer-events: none;
+      vector-effect: non-scaling-stroke;
+
+    }
+svg [data-legend-count-badge] { pointer-events: none; }
+svg [data-legend-count-badge] rect {
+      fill: #ffffff;
+      stroke: #e2e8f0;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+svg [data-legend-count-badge] text {
+      fill: #64748b;
+      font-size: 8px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+svg [data-legend-kind][data-legend-selected] [data-legend-hit] {
+      stroke: #7c3aed;
+      stroke-width: 2.2;
+      stroke-dasharray: 3 2;
+    }
+svg [data-legend-kind][data-legend-selected] [data-legend-count-badge] rect {
+      stroke: #7c3aed;
+      stroke-width: 1.8;
+    }
+svg [data-legend-kind][data-legend-zero] { opacity: 0.44; }
+svg[data-preset="signal-flow"] [data-legend-kind][data-legend-selected] [data-legend-hit] {
+      filter: drop-shadow(0 0 4px #7c3aed);
+    }
+svg[data-preset="blueprint"] [data-legend-hit],
+    svg[data-preset="blueprint"] [data-legend-count-badge] rect { rx: 0; filter: none; }
+svg[data-legend-preview-active] [data-node-id],
+    svg[data-legend-preview-active] [data-edge-from] { opacity: 0.11; }
+svg[data-legend-preview-active] [data-legend-preview-match] { opacity: 1; }
+svg[data-legend-preview-active] [data-legend-preview-peer] { opacity: 0.62; }
+svg[data-legend-preview-active] [data-legend-preview-selected] {
+      filter: drop-shadow(0 0 8px #7c3aed);
+    }
+svg[data-lens-active] [data-node-id],
+    svg[data-lens-active] [data-edge-from] { opacity: 0.11; }
+svg[data-lens-active] [data-lens-match] { opacity: 1; }
+svg[data-lens-active] [data-lens-peer] { opacity: 0.62; }
+svg[data-lens-active] [data-lens-selected] {
+      filter: drop-shadow(0 0 10px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow {
+      stroke-width: 3.7;
+      opacity: 1;
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="out"],
+    svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="forward"] {
+      filter: drop-shadow(0 0 6px #0891b2);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="in"],
+    svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="reverse"] {
+      filter: drop-shadow(0 0 6px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .semantic-lens-flow[data-direction="within"] {
+      filter: drop-shadow(0 0 6px #ea580c);
+    }
+svg[data-preset="blueprint"] .semantic-lens-flow {
+      stroke-width: 2.45;
+      stroke-linecap: square;
+      filter: none;
+      opacity: 0.78;
+    }
+svg[data-focus-active] [data-node-id],
+    svg[data-focus-active] [data-edge-from] { opacity: 0.13; }
+svg[data-focus-active] [data-focus-match] { opacity: 1; }
+svg[data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-reach-active] [data-node-id],
+    svg[data-reach-active] [data-edge-from] { opacity: 0.09; }
+svg[data-reach-active] [data-reach-match] { opacity: 1; }
+svg[data-reach-active="upstream"] [data-reach-origin] {
+      filter: drop-shadow(0 0 11px #7c3aed);
+    }
+svg[data-reach-active="downstream"] [data-reach-origin] {
+      filter: drop-shadow(0 0 11px #059669);
+    }
+svg[data-reach-active="upstream"] [data-edge-from][data-reach-match] {
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #7c3aed 72%, transparent));
+    }
+svg[data-reach-active="downstream"] [data-edge-from][data-reach-match] {
+      filter: drop-shadow(0 0 4px color-mix(in srgb, #059669 72%, transparent));
+    }
+svg[data-preset="blueprint"][data-reach-active] [data-reach-origin],
+    svg[data-preset="blueprint"][data-reach-active] [data-edge-from][data-reach-match] {
+      filter: none;
+    }
+svg[data-relationship-direct-active] [data-node-id],
+    svg[data-relationship-direct-active] [data-edge-from] { opacity: 0.16; }
+svg[data-relationship-direct-active] [data-relationship-preview],
+    svg[data-relationship-direct-active] [data-relationship-preview-node] { opacity: 1; }
+svg[data-focus-active]:not([data-relationship-pin-active]) .relationship-hit-rail,
+    svg[data-story-active] .relationship-hit-rail,
+    svg[data-route-picking] .relationship-hit-rail,
+    svg[data-route-active] .relationship-hit-rail,
+    svg[data-lens-active] .relationship-hit-rail,
+    svg[data-chapter-preview] .relationship-hit-rail { pointer-events: none; }
+svg[data-relationship-preview-active] [data-focus-match] { opacity: 0.18; }
+svg[data-relationship-preview-active] [data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview-node] { opacity: 1; }
+svg[data-relationship-preview-active] [data-relationship-preview] {
+      filter: drop-shadow(0 0 5px #059669);
+    }
+svg[data-relationship-preview-active] [data-relationship-preview] path,
+    svg[data-relationship-preview-active] path[data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview] line,
+    svg[data-relationship-preview-active] line[data-relationship-preview],
+    svg[data-relationship-preview-active] [data-relationship-preview] polyline,
+    svg[data-relationship-preview-active] polyline[data-relationship-preview] {
+      stroke-width: 2.75;
+    }
+svg[data-relationship-preview-active] [data-relationship-preview-source] {
+      filter: drop-shadow(0 0 7px #0891b2);
+    }
+svg[data-relationship-preview-active] [data-relationship-preview-target] {
+      filter: drop-shadow(0 0 7px #7c3aed);
+    }
+svg[data-preset="signal-flow"] .relationship-flow-pulse {
+      stroke: #0891b2;
+      stroke-width: 3.85;
+      filter: drop-shadow(0 0 7px #0891b2);
+    }
+svg[data-preset="blueprint"] .relationship-flow-pulse {
+      stroke-width: 2.5;
+      stroke-linecap: square;
+      filter: none;
+    }
+svg[data-preset="editorial"] .relationship-flow-pulse {
+      stroke: #059669;
+      stroke-width: 2.75;
+      filter: none;
+    }
+svg[data-preset="signal-flow"] .semantic-flow-token {
+      filter: drop-shadow(0 0 5px currentColor);
+    }
+svg[data-preset="blueprint"] .semantic-flow-token { filter: none; }
+svg[data-preset="editorial"] .semantic-flow-token { filter: none; }
+svg[data-intent-trace-active] [data-node-id],
+    svg[data-intent-trace-active] [data-edge-from] { opacity: 0.2; }
+svg[data-intent-trace-active] [data-intent-trace-match] { opacity: 1; }
+svg[data-intent-trace-active] [data-intent-trace-selected] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-preset="blueprint"] [data-intent-trace-selected],
+    svg[data-preset="blueprint"] .intent-trace-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="editorial"] [data-intent-trace-selected],
+    svg[data-preset="editorial"] .intent-trace-flow { filter: none; }
+svg[data-route-picking="target"] [data-node-id] { opacity: 0.24; }
+svg[data-route-picking="target"] [data-route-candidate],
+    svg[data-route-picking="target"] [data-route-start] { opacity: 1; }
+svg[data-route-picking] [data-node-id] {  }
+svg[data-route-picking] [data-route-start] {
+      filter: drop-shadow(0 0 10px #0891b2);
+    }
+svg[data-route-active] [data-node-id],
+    svg[data-route-active] [data-edge-from] { opacity: 0.11; }
+svg[data-route-active] [data-route-match] { opacity: 1; }
+svg[data-route-active] [data-route-start] {
+      filter: drop-shadow(0 0 11px #0891b2);
+    }
+svg[data-route-active] [data-route-end] {
+      filter: drop-shadow(0 0 11px #e11d48);
+    }
+svg[data-route-active] [data-route-step]:not([data-route-start]):not([data-route-end]) {
+      filter: drop-shadow(0 0 7px #059669);
+    }
+svg[data-route-journey] [data-route-match][data-route-journey-state="past"] { opacity: 0.62; }
+svg[data-route-journey] [data-route-match][data-route-journey-state="future"] { opacity: 0.34; }
+svg[data-route-journey] [data-route-match][data-route-journey-state="current"] { opacity: 1; }
+svg[data-route-journey] [data-node-id][data-route-journey-current] {
+      filter: drop-shadow(0 0 10px #059669);
+    }
+svg[data-route-journey] [data-edge-from][data-route-journey-current] {
+      opacity: 1;
+      filter: drop-shadow(0 0 6px #059669);
+    }
+svg[data-preset="blueprint"] [data-route-start],
+    svg[data-preset="blueprint"] [data-route-end],
+    svg[data-preset="blueprint"] [data-route-step],
+    svg[data-preset="blueprint"] .route-probe-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="blueprint"] .route-journey-flow {
+      filter: none;
+      stroke-linecap: square;
+    }
+svg[data-preset="editorial"] [data-route-start],
+    svg[data-preset="editorial"] [data-route-end],
+    svg[data-preset="editorial"] [data-route-step],
+    svg[data-preset="editorial"] .route-probe-flow,
+    svg[data-preset="editorial"] .route-journey-flow { filter: none; }
+svg[data-preset="editorial"] .c-grid {
+      stroke-dasharray: 1 4;
+      opacity: 0.48;
+    }
+svg[data-preset="editorial"] .c-region {
+      fill: color-mix(in srgb, rgb(251, 240, 211) 48%, transparent);
+      stroke-dasharray: 9 4;
+    }
+svg[data-preset="blueprint"] .c-grid {
+      stroke-dasharray: 1 3;
+      opacity: 0.78;
+    }
+svg[data-preset="blueprint"] .c-region {
+      fill: color-mix(in srgb, rgb(251, 240, 211) 58%, transparent);
+      stroke-dasharray: 12 4 2 4;
+    }
+svg[data-preset="blueprint"] .c-security-group,
+    svg[data-preset="blueprint"] .c-lane { stroke-dasharray: 7 3; }
+svg[data-preset="blueprint"][data-focus-active] [data-focus-selected] {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-preset="blueprint"][data-focus-active][data-reach-active] [data-focus-selected][data-reach-origin] {
+      filter: none;
+    }
+svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview],
+    svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-source],
+    svg[data-preset="blueprint"][data-relationship-preview-active] [data-relationship-preview-target] {
+      filter: drop-shadow(0 0 3px #0891b2);
+    }
+svg[data-story-beat] [data-story-step] {
+      opacity: 0.22;
+      filter: saturate(0.42);
+
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="past"] {
+      opacity: 0.72;
+      filter: saturate(0.82);
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="next"] {
+      opacity: 0.5;
+      filter: saturate(0.66);
+    }
+svg[data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      opacity: 1;
+      filter: drop-shadow(0 0 7px #0891b2);
+
+    }
+svg[data-story-beat] [data-edge-from][data-story-beat-step] {
+      opacity: 0.16;
+
+    }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="past"] { opacity: 0.58; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="next"] { opacity: 0.34; }
+svg[data-story-beat] [data-edge-from][data-story-beat-step][data-story-beat-state="active"] { opacity: 1; }
+svg[data-story-beat] .story-trail-flow { opacity: 0;  }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="past"] { opacity: 0.34; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="next"] { opacity: 0.2; }
+svg[data-story-beat] .story-trail-flow[data-story-beat-state="active"] { opacity: 0.92; }
+svg[data-story-beat] .story-trail-flow[data-story-pulse="true"] {
+      stroke-dasharray: 2 13;
+      stroke-dashoffset: 30;
+      opacity: 0.92;
+
+    }
+svg[data-preset="blueprint"] .story-trail-flow {
+      stroke-linecap: square;
+      filter: none;
+      opacity: 0.5;
+    }
+svg[data-preset="blueprint"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      filter: none;
+
+    }
+svg[data-preset="editorial"] .story-trail-flow { filter: none; }
+svg[data-preset="editorial"][data-story-beat] [data-story-step][data-story-beat-state="active"] {
+      filter: drop-shadow(0 2px 2px color-mix(in srgb, #0f172a 16%, transparent));
+    }
+svg[data-chapter-preview] [data-node-id],
+    svg[data-chapter-preview] [data-edge-from] {
+      opacity: 0.1 !important;
+      filter: none !important;
+
+    }
+svg[data-chapter-preview] .story-trail-overlay { opacity: 0.08 !important; }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="stay"] {
+      opacity: 0.76 !important;
+      filter: saturate(0.7) !important;
+    }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="enter"] {
+      opacity: 1 !important;
+      filter: saturate(1.2) !important;
+    }
+svg[data-chapter-preview] [data-node-id][data-chapter-preview-role="leave"] {
+      opacity: 0.28 !important;
+      filter: grayscale(0.72) !important;
+    }
+svg[data-preset="blueprint"][data-chapter-preview] [data-node-id] { filter: none !important; }
+.c-security-group { fill: none; stroke: #e11d48; stroke-dasharray: 4,4; }
+.c-region { fill: rgb(251, 248, 238); stroke: #d97706; stroke-dasharray: 8,4; }
+.c-lane { fill: rgb(249, 250, 251); stroke: #cbd5e1; stroke-dasharray: 6,6; }
+svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="edge"] {
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 3px #059669);
+
+    }
+svg[data-preset="signal-flow"][data-animation="trace"] [data-animate="node"] {
+
+    }
+svg[data-preset="blueprint"][data-animation="trace"] [data-animate="edge"] {
+      stroke-linecap: square;
+      filter: none;
+
+    }
+svg[data-preset="blueprint"][data-animation="trace"] [data-animate="node"] {
+
+
+    }
+svg[data-preset="editorial"][data-animation="trace"] [data-animate="edge"] {
+      filter: none;
+
+    }
+svg[data-preset="editorial"][data-animation="trace"] [data-animate="node"] {
+
+
+    }
+svg[data-animation="trace"] [data-animate] {
+
+        stroke-dashoffset: 0;
+      }
+.guided-view-chapter,
+      svg[data-chapter-preview] [data-node-id],
+      svg[data-chapter-preview] [data-edge-from] {  }
+svg[data-story-playing="true"] .story-trail-flow {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        opacity: 0.55;
+      }
+.source-evidence-beacon,
+      svg [data-node-id], svg [data-edge-from], svg [data-detail], svg [data-detail-anchor], svg [data-legend-hit], svg {  }
+svg, svg text { font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif; }
+svg, svg text { font-family: -apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif; }
+svg,text{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,'Noto Sans KR','Malgun Gothic',system-ui,sans-serif;}]]></style>
+<rect x="0" y="0" width="100%" height="100%" fill="#fbfbf9"/>
+        <title id="archify-diagram-title">프로덕션 코드와 테스트 코드의 추상도</title>
+        <desc id="archify-diagram-description">An architecture diagram generated by Archify.</desc>
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- Boundaries (behind everything) -->
+
+
+        <!-- Connection paths (before components for correct z-order) -->
+        <path data-edge-from="production_code" data-edge-to="behavior" data-edge-key="0" data-edge-id="prod_to_behavior" data-composition-points="230,186;230,430" d="M 230 186 L 230 430" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="behavior" data-edge-to="abstract" data-edge-key="1" data-edge-id="behavior_to_abstract" data-composition-points="230,516;230,650" d="M 230 516 L 230 650" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="test_code" data-edge-to="test_case" data-edge-key="2" data-edge-id="test_to_case" data-composition-points="1190,186;1190,430" d="M 1190 186 L 1190 430" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="test_case" data-edge-to="behavior" data-edge-label="검증하기(테스트 케이스 → 동작)" data-edge-key="3" data-edge-id="case_to_behavior" data-composition-points="1040,473;380,473" d="M 1040 473 L 380 473" class="a-emphasis" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+        <path data-edge-from="test_case" data-edge-to="concrete" data-edge-key="4" data-edge-id="case_to_concrete" data-composition-points="1190,516;1190,650" d="M 1190 516 L 1190 650" class="a-dashed" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+
+        <!-- Components -->
+        <g id="node-production_code" data-node-id="production_code" data-node-label="프로덕션 코드" aria-label="Focus 프로덕션 코드, 일반적 · 추상적, Architecture component" data-node-kind="frontend" data-node-sublabel="일반적 · 추상적" data-node-context="Architecture component">
+          <title>프로덕션 코드 · 일반적 · 추상적 · Architecture component</title>
+          <rect x="80" y="100" width="300" height="86" rx="6" class="c-mask"/>
+          <rect x="80" y="100" width="300" height="86" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(86 106) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="230" y="141" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">프로덕션 코드</text>
+        <text data-detail="context" x="230" y="157" class="t-muted" font-size="9" text-anchor="middle">일반적 · 추상적</text>
+        </g>
+
+        <g id="node-behavior" data-node-id="behavior" data-node-label="동작" aria-label="Focus 동작, z = x * y, Architecture component" data-node-kind="backend" data-node-sublabel="z = x * y" data-node-context="Architecture component">
+          <title>동작 · z = x * y · Architecture component</title>
+          <rect x="80" y="430" width="300" height="86" rx="6" class="c-mask"/>
+          <rect x="80" y="430" width="300" height="86" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(86 436) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="230" y="471" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">동작</text>
+        <text data-detail="context" x="230" y="487" class="t-muted" font-size="9" text-anchor="middle">z = x * y</text>
+        </g>
+
+        <g id="node-abstract" data-node-id="abstract" data-node-label="일반적 · 추상적" aria-label="Focus 일반적 · 추상적, 동작의 성격, Architecture component" data-node-kind="external" data-node-sublabel="동작의 성격" data-node-context="Architecture component">
+          <title>일반적 · 추상적 · 동작의 성격 · Architecture component</title>
+          <rect x="100" y="650" width="260" height="76" rx="6" class="c-mask"/>
+          <rect x="100" y="650" width="260" height="76" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(106 656) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="230" y="686" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">일반적 · 추상적</text>
+        <text data-detail="context" x="230" y="702" class="t-muted" font-size="9" text-anchor="middle">동작의 성격</text>
+        </g>
+
+        <g id="node-test_code" data-node-id="test_code" data-node-label="테스트 코드" aria-label="Focus 테스트 코드, 개별적 · 구체적, Architecture component" data-node-kind="frontend" data-node-sublabel="개별적 · 구체적" data-node-context="Architecture component">
+          <title>테스트 코드 · 개별적 · 구체적 · Architecture component</title>
+          <rect x="1040" y="100" width="300" height="86" rx="6" class="c-mask"/>
+          <rect x="1040" y="100" width="300" height="86" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(1046 106) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1190" y="141" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">테스트 코드</text>
+        <text data-detail="context" x="1190" y="157" class="t-muted" font-size="9" text-anchor="middle">개별적 · 구체적</text>
+        </g>
+
+        <g id="node-test_case" data-node-id="test_case" data-node-label="테스트 케이스" aria-label="Focus 테스트 케이스, x = 2 · y = 3 · z = 6, Architecture component" data-node-kind="security" data-node-sublabel="x = 2 · y = 3 · z = 6" data-node-context="Architecture component">
+          <title>테스트 케이스 · x = 2 · y = 3 · z = 6 · Architecture component</title>
+          <rect x="1040" y="430" width="300" height="86" rx="6" class="c-mask"/>
+          <rect x="1040" y="430" width="300" height="86" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(1046 436) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1190" y="471" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">테스트 케이스</text>
+        <text data-detail="context" x="1190" y="487" class="t-muted" font-size="9" text-anchor="middle">x = 2 · y = 3 · z = 6</text>
+        </g>
+
+        <g id="node-concrete" data-node-id="concrete" data-node-label="개별적 · 구체적" aria-label="Focus 개별적 · 구체적, 사례의 성격, Architecture component" data-node-kind="external" data-node-sublabel="사례의 성격" data-node-context="Architecture component">
+          <title>개별적 · 구체적 · 사례의 성격 · Architecture component</title>
+          <rect x="1060" y="650" width="260" height="76" rx="6" class="c-mask"/>
+          <rect x="1060" y="650" width="260" height="76" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(1066 656) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1190" y="686" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">개별적 · 구체적</text>
+        <text data-detail="context" x="1190" y="702" class="t-muted" font-size="9" text-anchor="middle">사례의 성격</text>
+        </g>
+
+        <!-- Connection labels -->
+
+
+
+        <g data-detail="context" data-edge-from="test_case" data-edge-to="behavior" data-edge-label="검증하기(테스트 케이스 → 동작)" data-edge-key="3" data-edge-id="case_to_behavior">
+          <rect x="633" y="530" width="154" height="14" rx="3" class="c-mask"/>
+          <text x="710" y="540" class="t-backend" font-size="8" text-anchor="middle">검증하기(테스트 케이스 → 동작)</text>
+        </g>
+
+
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+
+
+        <!-- Legend -->
+        <g data-legend="" data-legend-bridge="">
+          <text x="40" y="744" class="t-primary" font-size="12" font-weight="650">범례</text>
+          <g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="Frontend" data-legend-x="40" data-legend-baseline="764" data-legend-width="83">
+            <rect x="40" y="755" width="16" height="10" rx="2.5" class="c-frontend" stroke-width="1"/>
+            <text x="62" y="764" class="t-muted" font-size="10" font-weight="500">Frontend</text>
+          </g>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="145" data-legend-baseline="764" data-legend-width="78">
+            <rect x="145" y="755" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="167" y="764" class="t-muted" font-size="10" font-weight="500">Backend</text>
+          </g>
+          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="Security" data-legend-x="245" data-legend-baseline="764" data-legend-width="83">
+            <rect x="245" y="755" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
+            <text x="267" y="764" class="t-muted" font-size="10" font-weight="500">Security</text>
+          </g>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External" data-legend-x="350" data-legend-baseline="764" data-legend-width="83">
+            <rect x="350" y="755" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="372" y="764" class="t-muted" font-size="10" font-weight="500">External</text>
+          </g>
+        </g>
+      </svg>
