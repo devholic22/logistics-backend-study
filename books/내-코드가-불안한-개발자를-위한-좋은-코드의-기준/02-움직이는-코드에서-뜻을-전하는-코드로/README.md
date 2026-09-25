@@ -6,26 +6,7 @@
 
 **코드는 결국 사람이 읽기 위해 작성하는 것이다.** 동작하는 코드를 만드는 일과 **뜻이 전해지는 코드**를 만드는 일은 다르며, 이 장은 후자를 위한 세 가지 도구를 다룬다.
 
-```mermaid
-flowchart TB
-    RUN["움직이는 코드<br/>결과가 맞다"]
-    NAME["이름 짓기"]
-    COMMENT["주석"]
-    DOMAIN["도메인 지식 표현"]
-    MEAN["뜻을 전하는 코드<br/>의도가 읽힌다"]
-
-    RUN --> NAME
-    NAME --> COMMENT
-    COMMENT --> DOMAIN
-    DOMAIN --> MEAN
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class MEAN core
-    class NAME,COMMENT,DOMAIN sys
-    class RUN muted
-```
+![움직이는 코드에서 뜻을 전하는 코드로](./assets/01-움직이는-코드에서-뜻을-전하는-코드로.svg)
 
 *세 도구를 거쳐야 동작하는 코드가 읽히는 코드가 된다*
 
