@@ -37,28 +37,7 @@
 
 그리고 **도메인에서 공통적으로 사용하는 마스터 정보를 모아두는 모듈(`domain-master`)** 을 추가했다.
 
-```mermaid
-flowchart TB
-    APP["API · Consumer · Batch"]
-    SVC["service-wms (결합 모듈)<br/>연관관계 엔터티<br/>Join 리포지터리<br/>조합 서비스"]
-    DW["domain-wms<br/>입고 · 출고"]
-    DI["domain-inventory<br/>재고"]
-    DM["domain-master<br/>공통 마스터"]
-
-    APP --> SVC
-    SVC --> DW
-    SVC --> DI
-    DW --> DM
-    DI --> DM
-
-    %% lint-ok: NO-INBOUND  모듈 의존 관계도다. App 레이어는 의존하는 쪽이므로 들어오는 화살표가 없는 것이 맞다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class DI core
-    class DW,DM sys
-    class APP,SVC muted
-```
+![service-wms가 조합하는 분리된 도메인](./assets/02-service-wms가-조합하는-분리된-도메인.svg)
 
 *[그림] 결합 모듈을 둔 중간 상태 — 걷어내야 할 것이 한곳에 모여 눈에 보인다*
 
@@ -97,32 +76,7 @@ flowchart TB
 
 **adapter 패턴을 적용해 모듈 간에는 접근 가능한 인터페이스(port)만 정의하고, 실제 구현(adapter)은 각 도메인 내부에 두는 방식**으로 구성했다.
 
-```mermaid
-flowchart TB
-    APP["API · Consumer · Batch"]
-    UC["usecase-inventory<br/>재고증가 · 재고차감<br/>인터페이스(port)"]
-    DIN["domain-inbound<br/>입고"]
-    DOUT["domain-outbound<br/>출고"]
-    DINV["domain-inventory<br/>재고<br/>Usecase 구현체(adapter)"]
-    DM["domain-master<br/>공통 마스터"]
-
-    APP --> UC
-    UC -- "사용" --> DIN
-    UC -- "사용" --> DOUT
-    DINV -- "Implement" --> UC
-    DIN --> DM
-    DOUT --> DM
-    DINV --> DM
-
-    %% lint-ok: DEAD-END  domain-master는 모든 도메인이 참조하는 최하위 공통 모듈이므로 나가는 의존이 없는 것이 맞다
-    %% lint-ok: NO-INBOUND  모듈 의존 관계도다. App 레이어는 의존하는 쪽이므로 들어오는 화살표가 없는 것이 맞다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class UC,DINV core
-    class DIN,DOUT,DM sys
-    class APP muted
-```
+![Usecase 포트로 끊어낸 도메인 결합](./assets/03-usecase-포트로-끊어낸-도메인-결합.svg)
 
 *[그림] 헥사고날을 적용한 최종 구조 — `usecase-inventory` 는 인터페이스만 갖고, 구현은 `domain-inventory` 안에 있다*
 

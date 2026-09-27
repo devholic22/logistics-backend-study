@@ -8,20 +8,7 @@
 
 > 이런 문제는 보통 **하나의 도메인이 지나치게 많은 책임을 지고 있을 때** 발생한다. **코드가 복잡해진 걸 넘어 시스템 전체의 복잡도가 임계점을 넘은 것**이기도 하다.
 
-```mermaid
-flowchart LR
-    S1["Step 1<br/>도메인 간 결합 끊기"]
-    S2["Step 2<br/>모듈 내부 응집도 높이기"]
-    S3["Step 3<br/>안전하게 배포하기"]
-
-    S1 --> S2
-    S2 --> S3
-
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class S1,S2 core
-    class S3 sys
-```
+![도메인 모듈을 안전하게 분리하는 세 단계](./assets/06-도메인-모듈을-안전하게-분리하는-세-단계.svg)
 
 *결합을 끊고(밖), 내부를 정돈하고(안), 그것을 무사히 내보낸다*
 

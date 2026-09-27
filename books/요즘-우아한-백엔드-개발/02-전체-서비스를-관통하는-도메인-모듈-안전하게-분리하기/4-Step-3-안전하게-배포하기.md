@@ -31,27 +31,7 @@
 
 표를 읽는 법. **같은 도구를 반대 방향으로 쓴다.** 안전을 원하면 조용한 곳부터, 정보를 원하면 붐비는 곳부터다. 무엇을 먼저 알고 싶은지가 순서를 정한다.
 
-```mermaid
-flowchart LR
-    P10["10% 적용<br/>저위험 센터"]
-    P50["50% 적용"]
-    P100["100% 적용"]
-    OFF["즉시 OFF"]
-
-    P10 -- "1주 모니터링" --> P50
-    P50 -- "1주 모니터링" --> P100
-    P10 -- "이슈 시" --> OFF
-    P50 -- "이슈 시" --> OFF
-    P100 -- "이슈 시" --> OFF
-
-    %% lint-ok: LABEL-JAM  어느 단계에서든 즉시 OFF로 빠질 수 있다는 것이 이 도식의 요지이므로 세 엣지를 모두 남긴다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class P100 core
-    class P10,P50 sys
-    class OFF muted
-```
+![점진 적용과 즉시 중단 안전장치](./assets/05-점진-적용과-즉시-중단-안전장치.svg)
 
 *[그림] 피처 플래그 적용 단계 — 어느 단계에서든 이슈가 나면 즉시 OFF로 빠진다*
 

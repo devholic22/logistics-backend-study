@@ -33,24 +33,7 @@
 
 > **코어 서비스의 로직 응집을 해치는 주요 원인**으로 **엔티티를 외부로 반환하는 방식이 로직 전반에 걸쳐 있음**을 알게 되었다.
 
-```mermaid
-flowchart TB
-    RET["코어 서비스가 엔티티를 외부로 반환"]
-    OUT["받은 쪽에서 도메인 로직을 처리"]
-    SPREAD["로직이 분산되고<br/>서비스 간 결합도가 높아짐"]
-    BLUR["도메인 간 책임 경계가 흐려짐"]
-    WEAK["변경에 취약한 구조"]
-
-    RET --> OUT
-    OUT --> SPREAD
-    SPREAD --> BLUR
-    BLUR --> WEAK
-
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class RET,OUT,SPREAD sys
-    class BLUR,WEAK muted
-```
+![엔티티 외부 반환이 구조를 약하게 만드는 경로](./assets/04-엔티티-외부-반환이-구조를-약하게-만드는-경로.svg)
 
 *엔티티 하나를 밖으로 내보내는 것에서 시작해 구조가 무너지는 경로*
 
