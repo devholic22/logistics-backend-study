@@ -16,28 +16,7 @@
 
 우아한형제들의 **B마트는 자체 OMS(Order Management System)를 구축**해 물류 최적화 전략을 실행한다. **B마트에서 발생하는 모든 주문의 흐름을 제어하고, 주문 생성부터 출고·배송까지의 전 과정을 유기적으로 연결**한다. **단순한 주문처리시스템이 아니라 고객 수령 경험, 현장의 작업 여건, 라이더의 업무 흐름까지 고려한 전방위적 최적화 시스템**이다.
 
-```mermaid
-flowchart LR
-    OMS["OMS"]
-    F1["주문 흐름 제어"]
-    F2["판매 재고의 통합 관리"]
-    F3["마감 할인"]
-    F4["작업 효율 데이터 연동"]
-    F5["정시성 관리와 SLA 준수"]
-
-    OMS --> F1
-    OMS --> F2
-    OMS --> F3
-    OMS --> F4
-    OMS --> F5
-
-    %% lint-ok: DEAD-END  OMS가 담당하는 다섯 역할을 나열한 도식이므로 잎 노드에서 나가는 흐름이 없다
-    %% lint-ok: NO-INBOUND  OMS가 담당하는 역할을 펼친 도식이므로 OMS 자체에는 들어오는 흐름이 없다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class OMS core
-    class F1,F2,F3,F4,F5 sys
-```
+![OMS가 연결하는 다섯 가지 물류 주문 관리 역량](./assets/10-oms의-물류-주문-관리-역량.svg)
 
 *OMS가 맡는 다섯 가지 역할*
 
@@ -53,22 +32,7 @@ flowchart LR
 
 ## 이 장이 다루는 두 과제
 
-```mermaid
-flowchart LR
-    T1["B마트 피크매니지먼트<br/>예약 배달 주문을<br/>유휴 시간에 분산"]
-    T2["동적 출고 예정 시각<br/>지점별 현장 상황을 반영해<br/>출고 예정 시각 산정"]
-    G1["피크타임 출고 밀집 현상 해소"]
-    G2["라이더 대기 최소화 · 배달 품질 균형"]
-
-    T1 --> G1
-    T2 --> G2
-
-    %% lint-ok: DEAD-END  두 과제와 각각의 목표를 짝지은 도식이므로 목표 노드에서 나가는 흐름이 없다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class T1,T2 core
-    class G1,G2 sys
-```
+![출고 최적화를 만드는 두 개의 병렬 과제](./assets/11-출고-최적화의-두-과제.svg)
 
 *두 과제는 각각 "언제 만들지"와 "언제 끝날지"를 다룬다*
 
