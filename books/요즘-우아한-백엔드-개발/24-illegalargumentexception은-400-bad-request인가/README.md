@@ -22,28 +22,7 @@ public class GlobalDefaultExceptionHandler {
 
 > 이 예외가 **꼭 클라이언트의 잘못으로 발생하는 건 아니다.** 때로는 **개발자의 실수나 내부 로직의 결함으로 발생**하기도 한다.
 
-```mermaid
-flowchart LR
-    EX["IllegalArgumentException"]
-    C["클라이언트가 보낸 잘못된 값"]
-    S["서버 내부 로직의 결함"]
-    R400["400 Bad Request"]
-    R500["500 Internal Server Error"]
-
-    C --> EX
-    S --> EX
-    EX --> R400
-    EX --> R500
-
-    %% lint-ok: DEAD-END  같은 예외가 두 갈래 응답으로 갈릴 수 있음을 보여주는 도식이므로 응답에서 나가는 흐름이 없다
-    %% lint-ok: NO-INBOUND  두 발생 원인이 각각 흐름의 출발점이다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class EX core
-    class C,S sys
-    class R400,R500 muted
-```
+![같은 예외 클래스에 섞인 두 원인](./assets/01-같은-예외-클래스에-섞인-두-원인.svg)
 
 *하나의 예외 클래스에 두 개의 원인이 모인다 — 그래서 클래스만 보고 응답을 정할 수 없다*
 
