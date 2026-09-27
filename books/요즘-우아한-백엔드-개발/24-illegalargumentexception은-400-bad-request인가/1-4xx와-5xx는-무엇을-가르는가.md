@@ -24,31 +24,7 @@
 
 **5xx는 즉시 대응해야 한다.** **서버 내부 문제의 신호로 간주되어 모니터링·알림 시스템에서 즉시 감지하고, 빠르게 원인을 파악해 조치할 수 있어야** 한다.
 
-```mermaid
-flowchart LR
-    REAL5["실제 원인: 서버"]
-    REAL4["실제 원인: 클라이언트"]
-    W1["4xx로 응답"]
-    W2["5xx로 응답"]
-    B1["클라이언트 문제로 오인<br/>신속한 대응 불가"]
-    B2["불필요한 경보 증가<br/>운영팀 피로 · 무감각"]
-    B3["진짜 서버 문제를 놓친다"]
-
-    REAL5 --> W1
-    REAL4 --> W2
-    W1 --> B1
-    W2 --> B2
-    B2 --> B3
-
-    %% lint-ok: DEAD-END  잘못된 매핑이 낳는 결과까지의 흐름이므로 마지막 노드에서 나가는 흐름이 없다
-    %% lint-ok: NO-INBOUND  두 실제 원인이 각각 흐름의 출발점이다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class B1,B3 core
-    class W1,W2 sys
-    class REAL5,REAL4,B2 muted
-```
+![잘못된 상태 코드가 장애 대응을 늦추는 두 경로](./assets/02-잘못된-상태-코드가-장애-대응을-늦추는-두-경로.svg)
 
 *두 방향의 오분류는 서로 다른 방식으로 대응을 늦춘다*
 
