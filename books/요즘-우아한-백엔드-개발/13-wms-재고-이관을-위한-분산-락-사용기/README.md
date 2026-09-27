@@ -6,25 +6,7 @@
 
 원인은 하나였고, 그것을 고치는 방법은 세 번 바뀌었다. **분산 락을 거는 것만으로는 부족했고, 대기시켰더니 느려졌고, 마지막에 상태 키를 함께 쓰고서야 "막을 것은 막고 병렬로 할 것은 병렬로" 되었다.**
 
-```mermaid
-flowchart LR
-    S0["문제<br/>취소에 락이 없다"]
-    S1["1단계<br/>분산 락 추가"]
-    S2["2단계<br/>분산 락 대기"]
-    S3["3단계<br/>분산 락 + 상태 키"]
-
-    S0 --> S1
-    S1 -- "N개 SKU 중 첫 건만 성공" --> S2
-    S2 -- "SKU가 늘수록 느려짐" --> S3
-
-    %% lint-ok: DEAD-END  해결 방법이 바뀌어 간 순서를 보여주는 도식이므로 마지막 단계에서 나가는 흐름이 없다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class S3 core
-    class S1,S2 sys
-    class S0 muted
-```
+![재고 이관 동시성 문제의 해결 과정](./assets/01-재고-이관-동시성-문제의-해결-과정.svg)
 
 *해결책이 두 번 바뀐 이유는 각 단계가 새 문제를 만들었기 때문이다*
 
@@ -36,53 +18,13 @@ flowchart LR
 - **실시간 재고 정보 관리**
 - **고객 주문 정보에 따른 신속하고 정확한 상품 출고**
 
-```mermaid
-flowchart LR
-    SUP["공급업체"]
-    DC["DC<br/>중앙물류기지"]
-    PPC["PPC<br/>피킹패킹센터"]
-    CUST["고객"]
-
-    SUP -- "입고" --> DC
-    DC -- "재고 이관" --> PPC
-    PPC -- "주문 출고" --> CUST
-
-    %% lint-ok: DEAD-END  물류 흐름의 종착점이 고객이므로 나가는 흐름이 없다
-    %% lint-ok: NO-INBOUND  공급업체는 흐름의 출발점이므로 들어오는 흐름이 없다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class DC,PPC core
-    class SUP sys
-    class CUST muted
-```
+![공급업체에서 고객까지의 물류 흐름](./assets/02-공급업체에서-고객까지의-물류-흐름.svg)
 
 *이 장이 다루는 구간은 가운데 — **DC에서 PPC로의 재고 이관**이다*
 
 창고 안에서의 단계는 이렇게 이어진다.
 
-```mermaid
-flowchart LR
-    A["상품 입고"]
-    B["적재"]
-    C["재고 관리"]
-    D["분배 · 배치"]
-    E["재고 보충"]
-    F["상품 피킹"]
-    G["상품 패킹"]
-
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-
-    %% lint-ok: DEAD-END  작업 순서를 나열한 도식이므로 마지막 단계에서 나가는 흐름이 없다
-    %% lint-ok: NO-INBOUND  상품 입고가 순서의 출발점이므로 들어오는 흐름이 없다
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class A,B,C,D,E,F,G sys
-```
+![WMS가 관장하는 창고 내 작업 순서](./assets/03-wms가-관장하는-창고-내-작업-순서.svg)
 
 *WMS가 관장하는 창고 내 작업 순서*
 
