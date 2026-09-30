@@ -20,22 +20,7 @@
 
 ## 사용자 여정의 세 국면
 
-```mermaid
-flowchart LR
-    D["발견<br/>풀고 싶은 문제는 있지만<br/>해결 방법은 모른다"]
-    U["이해<br/>이게 뭔지,<br/>어떻게 작동하는지 배운다"]
-    S["사용<br/>의도대로 쓰되<br/>위험한 길은 피한다"]
-
-    D --> U
-    U --> S
-
-    %% lint-ok: DEAD-END  여정의 마지막 국면이므로 나가는 흐름이 없다
-    %% lint-ok: NO-INBOUND  발견이 여정의 출발점이다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class D core
-    class U,S sys
-```
+![사용자 여정의 세 국면](./assets/01-사용자-여정의-세-국면.svg)
 
 *[그림] 사용자 여정을 이루는 세 종류의 시나리오*
 
