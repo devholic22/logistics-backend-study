@@ -12,26 +12,7 @@
 
 ## 기능이 늘어난 것이 문제가 아니었다
 
-```mermaid
-flowchart LR
-    ADD["수요가 큰 기능을<br/>계속 추가"]
-    UI["도구 모음 31개<br/>작업창 19개"]
-    LOST["사용자가 기능을<br/>발견하지 못함"]
-    IMP["추가한 기능의<br/>임팩트가 사라짐"]
-
-    ADD --> UI
-    UI --> LOST
-    LOST --> IMP
-
-    %% lint-ok: DEAD-END  문제가 귀결되는 지점이므로 나가는 흐름이 없다
-    %% lint-ok: NO-INBOUND  기능 추가가 흐름의 출발점이다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class LOST core
-    class ADD,UI sys
-    class IMP muted
-```
+![기능 추가가 발견 병목으로 바뀌는 과정](./assets/02-기능-추가가-발견-병목으로-바뀌는-과정.svg)
 
 *만든 기능과 닿은 기능 사이의 간격 — 발견에서 끊기면 나머지는 없는 것이나 마찬가지다*
 
