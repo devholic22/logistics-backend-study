@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "외부 WMS 호출의 연결 경계",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1100,
+      720
+    ]
+  },
+  "components": [
+    {
+      "id": "caller",
+      "type": "backend",
+      "label": "호출 서비스",
+      "sublabel": "HTTP client",
+      "pos": [
+        50,
+        170
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "alb",
+      "type": "cloud",
+      "label": "내부 ALB",
+      "sublabel": "idle timeout",
+      "pos": [
+        420,
+        170
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "adapter",
+      "type": "backend",
+      "label": "연동 서비스",
+      "sublabel": "외부 응답 대기",
+      "pos": [
+        790,
+        170
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "nat",
+      "type": "cloud",
+      "label": "NAT Gateway",
+      "sublabel": "TCP idle timeout",
+      "pos": [
+        790,
+        440
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "wms",
+      "type": "external",
+      "label": "외부 WMS",
+      "sublabel": "외부 API",
+      "pos": [
+        420,
+        440
+      ],
+      "size": [
+        190,
+        78
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "caller",
+      "to": "alb",
+      "label": "내부 HTTP 요청"
+    },
+    {
+      "from": "alb",
+      "to": "adapter",
+      "label": "target 요청"
+    },
+    {
+      "from": "adapter",
+      "to": "nat",
+      "label": "외부 HTTP 요청",
+      "labelDy": 24
+    },
+    {
+      "from": "nat",
+      "to": "wms",
+      "label": "외부 연결 전달"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "내부 요청 경로",
+      "items": [
+        "호출 서비스 → ALB → 연동 서비스",
+        "ALB는 client·target 연결을 각각 관리한다."
+      ]
+    },
+    {
+      "dot": "orange",
+      "title": "외부 요청 경로",
+      "items": [
+        "연동 서비스 → NAT → 외부 WMS",
+        "NAT는 외부 TCP 흐름을 전달한다."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "동기 대기의 영향",
+      "items": [
+        "외부 응답을 기다리는 동안 내부 요청도 대기한다.",
+        "각 timeout은 적용 구간과 갱신 조건이 다르다."
+      ]
+    }
+  ]
+}

@@ -9,37 +9,33 @@
 
 ## 빠른 복습
 
-- `pollux → ALB → scorpius`와 `scorpius → NAT → Extensiv`는 서로 다른 두 HTTP 연결이다.
+- `호출 서비스 → ALB → 연동 서비스`와 `연동 서비스 → NAT → 외부 WMS`는 서로 다른 두 HTTP 연결이다.
 - 공유된 코드의 30초는 connect timeout이고 120초는 전체 deadline이 아닌 socket timeout이다.
 - ALB·NAT·OS·application에는 고정 우선순위가 없고 각 종료 조건을 먼저 만족한 timer가 실패를 만든다.
 - Timeout을 늘리면 오류는 줄 수 있지만 thread·connection 점유와 pool 대기는 커질 수 있다.
 - 정상적으로 수분 걸리는 작업이라면 ALB만 늘리기보다 queue 기반 비동기 구조를 검토한다.
 
-> `pollux → scorpius → Extensiv` 동기 호출의 timeout을 조정하면서 오간 대화를 기술 원리 중심으로 재구성했다. 개인 이름은 제외하고 서비스와 역할만 남겼다.
+> `호출 서비스 → 연동 서비스 → 외부 WMS` 동기 호출의 timeout을 조정하면서 오간 대화를 기술 원리 중심으로 재구성했다. 개인 이름과 서비스 고유명은 제외하고 역할 중심으로 일반화했다. 설정값은 사례 이해를 위한 예시이며 권장 표준값이 아니다.
 
 ## 이 논의는 무엇에 관한 것이었나
 
-scorpius가 외부 API 응답을 기다리는 시간을 기존 값보다 늘리려는 과정에서 다음 질문이 나왔다.
+연동 서비스가 외부 API 응답을 기다리는 시간을 기존 값보다 늘리려는 과정에서 다음 질문이 나왔다.
 
 1. 외부 API timeout을 애플리케이션 대신 AWS나 container에서 관리할 수 있는가?
 2. 애플리케이션 값을 바꾸면 ALB·NAT Gateway·OS timeout과 충돌하는가?
-3. scorpius의 대기시간을 늘리면 internal ALB도 변경해야 하는가?
+3. 연동 서비스의 대기시간을 늘리면 internal ALB도 변경해야 하는가?
 
-최종적으로 scorpius의 대기시간을 약 2분으로 늘리고, pollux와 scorpius 사이 internal ALB의 idle timeout을 180초로 늘리는 방향으로 논의됐다. 이를 이해하려면 **하나의 요청에 서로 다른 두 HTTP 연결이 존재한다**는 사실부터 봐야 한다.
+최종적으로 연동 서비스의 대기시간을 약 2분으로 늘리고, 호출 서비스와 연동 서비스 사이 internal ALB의 idle timeout을 180초로 늘리는 방향으로 논의됐다. 이를 이해하려면 **하나의 요청에 서로 다른 두 HTTP 연결이 존재한다**는 사실부터 봐야 한다.
 
-```mermaid
-flowchart LR
-    P["pollux<br/>HTTP client"] -->|"연결 1"| A["internal ALB<br/>inbound idle timeout"]
-    A --> S["scorpius<br/>동기 요청 thread"]
-    S -->|"연결 2"| N["NAT Gateway<br/>outbound idle timeout"]
-    N --> E["Extensiv<br/>외부 API"]
-```
+![외부 WMS 호출의 연결 경계](./assets/01-http-connection-boundaries.svg)
 
-- 연결 1은 pollux가 ALB를 거쳐 scorpius를 호출하는 내부 통신이다.
-- 연결 2는 scorpius가 NAT Gateway를 거쳐 Extensiv를 호출하는 외부 통신이다.
-- scorpius는 연결 2의 응답을 받을 때까지 연결 1에 최종 응답을 보내지 않는다.
+[확대·탐색용 HTML 다운로드](./assets/01-http-connection-boundaries.html) · [도식 원본](./assets/01-http-connection-boundaries.json)
 
-따라서 Extensiv 응답이 120초 걸리면 scorpius만 기다리는 것이 아니다. pollux의 HTTP client, internal ALB, scorpius의 요청 thread와 HTTP connection도 결과를 기다린다.
+- 연결 1은 호출 서비스가 ALB를 거쳐 연동 서비스를 호출하는 내부 통신이다.
+- 연결 2는 연동 서비스가 NAT Gateway를 거쳐 외부 WMS를 호출하는 외부 통신이다.
+- 연동 서비스는 연결 2의 응답을 받을 때까지 연결 1에 최종 응답을 보내지 않는다. ALB는 client와 target의 TCP 연결을 각각 관리하므로, 여기서 “연결 1”은 하나의 TCP socket이 아닌 내부 요청 경로를 뜻한다.
+
+따라서 외부 WMS 응답이 120초 걸리면 연동 서비스만 기다리는 것이 아니다. 호출 서비스의 HTTP client, internal ALB, 연동 서비스의 요청 thread와 HTTP connection도 결과를 기다린다.
 
 ## 왜 AWS가 아니라 애플리케이션에서 관리하는가
 
@@ -95,8 +91,8 @@ Socket timeout은 socket I/O의 대기와 관련된다. 상대가 timeout보다 
 
 ```mermaid
 sequenceDiagram
-    participant S as scorpius
-    participant E as Extensiv
+    participant S as 연동 서비스
+    participant E as 외부 WMS
     S->>E: 요청
     E-->>S: 100초 후 일부 data
     E-->>S: 다시 100초 후 일부 data
@@ -108,7 +104,7 @@ Apache HttpClient의 response timeout도 자동 재실행 등이 포함되면 �
 
 ### 이 코드에는 동시성 병목도 있다
 
-`maxConnPerRoute = 20`이면 HTTP/1.1의 같은 Extensiv route로 동시에 사용할 connection은 최대 20개다. 20개가 각각 120초 동안 기다리면 뒤 요청은 HTTP pool에서 connection을 기다린다.
+`maxConnPerRoute = 20`이면 HTTP/1.1의 같은 외부 WMS route로 동시에 사용할 connection은 최대 20개다. 20개가 각각 120초 동안 기다리면 뒤 요청은 HTTP pool에서 connection을 기다린다.
 
 ```text
 route connection 20개 ÷ 호출당 120초
@@ -144,28 +140,17 @@ Connect timeout 30초와 socket timeout 120초는 서로 우선순위를 다투�
 
 Application Load Balancer의 기본 connection idle timeout은 60초이며 설정 가능하다. Client 또는 target connection에서 **data가 전혀 송수신되지 않은 시간**을 제한하지 API 전체 처리시간을 직접 제한하지는 않는다.
 
-```mermaid
-sequenceDiagram
-    participant P as pollux
-    participant A as internal ALB · idle 60초
-    participant S as scorpius
-    participant E as Extensiv · 120초
-    P->>A: scorpius API 요청
-    A->>S: 요청 전달
-    S->>E: 외부 API 요청
-    Note over P,S: 응답 data 없이 60초 경과
-    A--xP: idle timeout으로 연결 종료
-    E-->>S: 120초 후 응답
-    S--xP: pollux 연결은 이미 종료됨
-```
+![ALB가 먼저 응답 대기를 끝내는 상황](./assets/02-alb-timeout-propagation.svg)
 
-이 때문에 “pollux가 결과를 즉시 기다리는 동기 호출인가?”라는 질문이 중요했다. Queue에 작업을 넣고 `202 Accepted`를 반환하는 구조라면 internal ALB가 외부 처리 완료까지 기다릴 이유가 없다.
+[확대·탐색용 HTML 다운로드](./assets/02-alb-timeout-propagation.html) · [도식 원본](./assets/02-alb-timeout-propagation.json)
 
-Internal ALB를 180초로 늘린 것은 연결 1이 scorpius의 외부 대기시간을 견디게 하기 위한 조치다. 다음 값도 함께 맞아야 한다.
+이 때문에 “호출 서비스가 결과를 즉시 기다리는 동기 호출인가?”라는 질문이 중요했다. Queue에 작업을 넣고 `202 Accepted`를 반환하는 구조라면 internal ALB가 외부 처리 완료까지 기다릴 이유가 없다.
 
-- pollux HTTP client의 전체 response·call timeout
-- scorpius의 외부 호출 전체 deadline
-- scorpius server request timeout
+Internal ALB를 180초로 늘린 것은 연결 1이 연동 서비스의 외부 대기시간을 견디게 하기 위한 조치다. 다음 값도 함께 맞아야 한다.
+
+- 호출 서비스 HTTP client의 전체 response·call timeout
+- 연동 서비스의 외부 호출 전체 deadline
+- 연동 서비스 server request timeout
 - 경로상의 추가 proxy·ingress timeout
 - 외부 호출 이후 JSON 가공과 응답 전송에 필요한 여유
 
@@ -173,7 +158,7 @@ Internal ALB를 180초로 늘린 것은 연결 1이 scorpius의 외부 대기시
 
 AWS NAT Gateway는 TCP connection에 traffic이 없는 상태가 350초 이상 지속되면 연결을 timeout시킨다. 이는 “외부 API는 최대 350초까지만 실행 가능하다”는 뜻이 아니다. 350초보다 짧은 간격으로 traffic이 발생하면 idle timer가 갱신될 수 있다.
 
-Scorpius의 socket timeout이 120초이고 byte가 전혀 오지 않는다면 application이 NAT Gateway보다 먼저 호출을 끝낼 가능성이 높다. 반대로 120초보다 짧은 간격으로 data가 오면서 전체 호출만 길어진다면 둘 다 호출 전체를 제한하지 못할 수 있다.
+연동 서비스의 socket timeout이 120초이고 byte가 전혀 오지 않는다면 application이 NAT Gateway보다 먼저 호출을 끝낼 가능성이 높다. 반대로 120초보다 짧은 간격으로 data가 오면서 전체 호출만 길어진다면 둘 다 호출 전체를 제한하지 못할 수 있다.
 
 AWS 공식 문서 기준으로 ALB 기본 idle timeout은 60초이고 유효 범위는 1~4,000초다. NAT Gateway의 TCP idle timeout은 350초다. 이는 회사의 API timeout 표준이 아니라 network connection 관리값이다.
 
@@ -191,22 +176,17 @@ TCP keepalive는 죽은 connection을 감지하거나 network idle flow를 유�
 
 ## 왜 동기 호출 여부를 반복해서 확인했는가
 
-외부 API가 정상적으로 2분까지 걸린다면 동기 HTTP 요청으로 계속 기다리는 구조가 적합한지 검토해야 한다. Blocking 방식에서는 scorpius의 요청 thread가 외부 응답을 기다리는 동안 점유될 수 있다.
+외부 API가 정상적으로 2분까지 걸린다면 동기 HTTP 요청으로 계속 기다리는 구조가 적합한지 검토해야 한다. Blocking 방식에서는 연동 서비스의 요청 thread가 외부 응답을 기다리는 동안 점유될 수 있다.
 
-```mermaid
-flowchart LR
-    subgraph SYNC["현재 동기 구조"]
-        A1["pollux 요청"] --> A2["scorpius thread 점유"] --> A3["Extensiv 최대 120초 대기"] --> A4["같은 요청으로 결과 반환"]
-    end
-    subgraph ASYNC["대안: 비동기 작업"]
-        B1["pollux 요청"] --> B2["작업 저장·queue"] --> B3["202 + 작업 ID 반환"]
-        B3 --> B4["worker가 Extensiv 처리"] --> B5["polling·webhook으로 확인"]
-    end
-```
+![동기 대기와 비동기 작업의 처리 관계](./assets/03-sync-async-structure.svg)
+
+[확대·탐색용 HTML 다운로드](./assets/03-sync-async-structure.html) · [도식 원본](./assets/03-sync-async-structure.json)
+
+비동기 도식에서 접수 응답과 Worker 실행은 작업 등록 이후 분리되는 흐름이다. `202` 응답이 Worker 실행을 촉발하는 것은 아니며, 실제로는 Worker가 응답 전송 전에 작업을 시작할 수도 있다. 상태 조회·webhook은 실행 결과를 확인하는 별도 경로다.
 
 동기 구조가 항상 잘못은 아니다. 즉시 결과가 필요하고 정상 latency가 충분히 짧으며 자원을 감당할 수 있다면 단순하고 적절하다. 그러나 정상 작업이 수십 초~수분이고 dashboard가 나중에 결과를 표시해도 된다면 비동기 job은 다음 장점이 있다.
 
-- pollux와 ALB connection을 수분 동안 유지하지 않는다.
+- 호출 서비스와 ALB connection을 수분 동안 유지하지 않는다.
 - Request thread와 긴 작업을 분리한다.
 - Retry, 진행 상태, 실패 이력과 재처리를 관리할 수 있다.
 - Durable queue를 쓰면 일시 장애와 배포 중에도 작업을 이어갈 수 있다.
@@ -234,16 +214,16 @@ Blocking request thread pool이 200개이고 모든 요청이 외부 호출을 �
 
 ### 모든 timeout의 실효값
 
-- pollux의 전체 call timeout
+- 호출 서비스의 전체 call timeout
 - Internal ALB와 추가 proxy의 idle·request timeout
-- Scorpius의 pool acquisition, connect, socket·response와 전체 deadline
+- 연동 서비스의 pool acquisition, connect, socket·response와 전체 deadline
 - 자동 retry를 포함한 실제 최장 수행시간
 
 ### 긴 timeout을 감당할 자원
 
-- scorpius의 active request thread와 queue
+- 연동 서비스의 active request thread와 queue
 - HTTP pool의 leased·available·pending connection
-- Extensiv route 최대 connection 20개의 근거
+- 외부 WMS route 최대 connection 20개의 근거
 - 외부 API의 분당 quota와 허용 동시성
 - 변경 전후 p95·p99, timeout과 pool 대기시간
 
@@ -262,18 +242,18 @@ Blocking request thread pool이 200개이고 모든 요청이 외부 호출을 �
 - Response·socket timeout
 - ALB·NAT·peer의 connection reset
 - 외부 API의 `429`·`5xx`
-- Pollux가 먼저 요청을 취소한 경우
+- 호출 서비스가 먼저 요청을 취소한 경우
 
 `500` 하나로 합치면 장애 원인과 retry 가능 여부를 판단하기 어렵다. Proxy 성격이라면 `504 Gateway Timeout`을 고려할 수 있지만 내부 error code와 trace도 함께 남겨야 한다.
 
 ### Client가 먼저 포기한 뒤에도 작업은 남을 수 있다
 
-Pollux나 ALB가 먼저 timeout되어도 scorpius와 Extensiv의 작업이 즉시 중단된다고 보장할 수 없다.
+호출 서비스나 ALB가 먼저 timeout되어도 연동 서비스와 외부 WMS의 작업이 즉시 중단된다고 보장할 수 없다.
 
-1. Pollux는 실패로 판단한다.
-2. Scorpius는 취소를 감지하지 못하고 계속 기다린다.
-3. Pollux 또는 사용자가 재시도한다.
-4. 이전 호출과 새 호출이 동시에 Extensiv를 압박한다.
+1. 호출 서비스는 실패로 판단한다.
+2. 연동 서비스는 취소를 감지하지 못하고 계속 기다린다.
+3. 호출 서비스 또는 사용자가 재시도한다.
+4. 이전 호출과 새 호출이 동시에 외부 WMS를 압박한다.
 
 따라서 cancellation 전파, bounded queue, bulkhead, circuit breaker와 retry budget을 함께 설계해야 한다.
 
@@ -296,21 +276,21 @@ Pollux나 ALB가 먼저 timeout되어도 scorpius와 Extensiv의 작업이 즉�
 | --- | --- |
 | “AWS에서 외부 API 대기시간을 관리할 수 있는가?” | Network idle timeout과 application call timeout의 책임 경계 확인 |
 | “Container 값과 충돌하지 않는가?” | OS TCP timer, proxy timer와 HTTP client timer 중 어느 조건이 실패를 만드는지 확인 |
-| “ALB를 180초로 늘려 달라” | 동기 외부 호출 동안 pollux–scorpius 연결이 먼저 idle 종료되지 않도록 조정 |
-| “pollux가 동기로 결과를 기다리는가?” | 긴 작업을 HTTP lifecycle에 둘지 queue 기반으로 분리할지 확인 |
-| “scorpius 코드에서 관리한다” | 업무별 timeout·오류·retry 정책의 집행 주체는 application이라는 결론 |
+| “ALB를 180초로 늘려 달라” | 동기 외부 호출 동안 호출 서비스–연동 서비스 연결이 먼저 idle 종료되지 않도록 조정 |
+| “호출 서비스가 동기로 결과를 기다리는가?” | 긴 작업을 HTTP lifecycle에 둘지 queue 기반으로 분리할지 확인 |
+| “연동 서비스 코드에서 관리한다” | 업무별 timeout·오류·retry 정책의 집행 주체는 application이라는 결론 |
 
 ## 핵심 정리
 
-- 이 사례에는 `pollux → scorpius`와 `scorpius → Extensiv`라는 두 HTTP 연결이 있다.
-- 동기 호출이므로 외부 지연이 internal ALB, pollux와 scorpius request thread까지 전파된다.
+- 이 사례에는 `호출 서비스 → 연동 서비스`와 `연동 서비스 → 외부 WMS`라는 두 HTTP 연결이 있다.
+- 동기 호출이므로 외부 지연이 internal ALB, 호출 서비스와 연동 서비스 request thread까지 전파된다.
 - 공유된 코드에서 30초는 connect timeout이고 120초는 socket timeout이다.
 - Socket timeout과 ALB·NAT idle timeout은 전체 호출 deadline이 아니다.
 - 고정된 계층 우선순위는 없으며 각 조건을 먼저 충족한 timer가 실패를 만든다.
 - ALB 기본 60초와 NAT Gateway 350초는 API 표준이 아니라 network idle 값이다.
 - `tcp_keepalive_time = 7200`은 최대 연결시간이 아니라 첫 keepalive probe 전 유휴시간이다.
 - 외부 timeout을 네 배 늘리면 최악의 thread·connection 점유시간도 네 배가 될 수 있다.
-- ALB 180초 조정과 함께 pollux client timeout, 전체 deadline과 pool 용량도 검증해야 한다.
+- ALB 180초 조정과 함께 호출 서비스 client timeout, 전체 deadline과 pool 용량도 검증해야 한다.
 - 정상적으로 수분 걸리는 작업이라면 queue 기반 비동기 구조를 검토한다.
 
 ## 참고 자료

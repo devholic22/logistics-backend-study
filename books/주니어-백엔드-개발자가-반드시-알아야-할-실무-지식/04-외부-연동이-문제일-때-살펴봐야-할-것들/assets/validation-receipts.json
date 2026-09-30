@@ -1,0 +1,81 @@
+{
+  "generator": "archify 2.17",
+  "deliveries": [
+    {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "architecture",
+      "input": "/workspace/scratch/cc893a4e5444/logistics-backend-study/books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/04-외부-연동이-문제일-때-살펴봐야-할-것들/assets/01-http-connection-boundaries.json",
+      "output": "/workspace/scratch/cc893a4e5444/logistics-backend-study/books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/04-외부-연동이-문제일-때-살펴봐야-할-것들/assets/01-http-connection-boundaries.html",
+      "specification": {
+        "sha256": "8f8db9a4ecd7c6a0986c2147225599f9ad2061265ce630f720821eb7d9f68083",
+        "bytes": 2436
+      },
+      "artifact": {
+        "sha256": "dc9de25ba5181242ca7c16d87e18499bd5de05988bbd2495c58300ba170ebce9",
+        "bytes": 800003
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "sequence",
+      "input": "/workspace/scratch/cc893a4e5444/logistics-backend-study/books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/04-외부-연동이-문제일-때-살펴봐야-할-것들/assets/02-alb-timeout-propagation.json",
+      "output": "/workspace/scratch/cc893a4e5444/logistics-backend-study/books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/04-외부-연동이-문제일-때-살펴봐야-할-것들/assets/02-alb-timeout-propagation.html",
+      "specification": {
+        "sha256": "417d34fb8cda3164c99ca03e2b8aed335171352d2a0cbe5e708a8f2cec47a442",
+        "bytes": 2010
+      },
+      "artifact": {
+        "sha256": "76c4cc8d324d790021ab8100352751aed65559ad30dc67092d0d86234fa08f65",
+        "bytes": 800085
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "ok": true,
+      "command": "deliver",
+      "type": "architecture",
+      "input": "/workspace/scratch/cc893a4e5444/logistics-backend-study/books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/04-외부-연동이-문제일-때-살펴봐야-할-것들/assets/03-sync-async-structure.json",
+      "output": "/workspace/scratch/cc893a4e5444/logistics-backend-study/books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/04-외부-연동이-문제일-때-살펴봐야-할-것들/assets/03-sync-async-structure.html",
+      "specification": {
+        "sha256": "bb27c90d4e88821733cfe2b9d0394f386cf8de31ca12b04a10f5742ddf478221",
+        "bytes": 3137
+      },
+      "artifact": {
+        "sha256": "818c068cc61f035ef4829fc9b99a288e7427add1f800242444c57fe0aa507fe9",
+        "bytes": 803166
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  ],
+  "browser_evidence": "skipped: Chrome/Chromium unavailable",
+  "svg_visual_review": "passed: light static SVG render; Korean labels and arrow relationships inspected",
+  "html_visual_review": "skipped: browser unavailable",
+  "correction_rounds": 1
+}

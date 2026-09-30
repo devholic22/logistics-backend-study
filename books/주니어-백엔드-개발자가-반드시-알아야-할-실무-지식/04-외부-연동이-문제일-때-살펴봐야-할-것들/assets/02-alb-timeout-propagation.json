@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "ALB가 먼저 응답 대기를 끝내는 상황",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1100,
+      720
+    ],
+    "column_fit": "spread"
+  },
+  "participants": [
+    {
+      "id": "caller",
+      "type": "backend",
+      "label": "호출 서비스"
+    },
+    {
+      "id": "alb",
+      "type": "cloud",
+      "label": "내부 ALB"
+    },
+    {
+      "id": "adapter",
+      "type": "backend",
+      "label": "연동 서비스"
+    },
+    {
+      "id": "wms",
+      "type": "external",
+      "label": "외부 WMS"
+    }
+  ],
+  "messages": [
+    {
+      "from": "caller",
+      "to": "alb",
+      "y": 180,
+      "label": "API 요청",
+      "variant": "default"
+    },
+    {
+      "from": "alb",
+      "to": "adapter",
+      "y": 240,
+      "label": "요청 전달",
+      "variant": "default"
+    },
+    {
+      "from": "adapter",
+      "to": "wms",
+      "y": 300,
+      "label": "외부 API 호출",
+      "variant": "emphasis"
+    },
+    {
+      "from": "alb",
+      "to": "caller",
+      "y": 420,
+      "label": "60초 무응답: 504 가능",
+      "variant": "return"
+    },
+    {
+      "from": "wms",
+      "to": "adapter",
+      "y": 510,
+      "label": "120초 후 외부 응답",
+      "variant": "return"
+    },
+    {
+      "from": "adapter",
+      "to": "alb",
+      "y": 600,
+      "label": "응답 시도: 기존 요청 종료",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "rose",
+      "title": "호출자가 관측한 실패",
+      "items": [
+        "ALB의 idle 조건이 먼저 충족된다.",
+        "상태 코드는 연결 종료 원인과 경로에 따라 확인한다."
+      ]
+    },
+    {
+      "dot": "orange",
+      "title": "외부 작업은 계속될 수 있음",
+      "items": [
+        "상위 timeout이 하위 작업 취소를 보장하지 않는다.",
+        "상태 변경 API 재시도 전 성공 여부를 확인한다."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "동기 대기와 비동기 작업의 처리 관계",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1100,
+      720
+    ]
+  },
+  "components": [
+    {
+      "id": "syncCaller",
+      "type": "backend",
+      "label": "호출 서비스",
+      "sublabel": "동기 결과 대기",
+      "pos": [
+        50,
+        140
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "syncAdapter",
+      "type": "backend",
+      "label": "연동 서비스",
+      "sublabel": "요청 자원 점유",
+      "pos": [
+        420,
+        140
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "syncWms",
+      "type": "external",
+      "label": "외부 WMS",
+      "sublabel": "긴 응답 지연",
+      "pos": [
+        790,
+        140
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "jobApi",
+      "type": "backend",
+      "label": "작업 접수 API",
+      "sublabel": "지속 가능한 접수 확인",
+      "pos": [
+        50,
+        390
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "queue",
+      "type": "messagebus",
+      "label": "작업 큐",
+      "sublabel": "처리 대기",
+      "pos": [
+        420,
+        390
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "worker",
+      "type": "backend",
+      "label": "Worker",
+      "sublabel": "백그라운드 실행",
+      "pos": [
+        790,
+        390
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "ack",
+      "type": "backend",
+      "label": "호출 서비스",
+      "sublabel": "202 + 작업 ID",
+      "pos": [
+        50,
+        590
+      ],
+      "size": [
+        190,
+        78
+      ]
+    },
+    {
+      "id": "asyncWms",
+      "type": "external",
+      "label": "외부 WMS",
+      "sublabel": "작업 수행",
+      "pos": [
+        790,
+        590
+      ],
+      "size": [
+        190,
+        78
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "syncCaller",
+      "to": "syncAdapter",
+      "label": "동기 HTTP 요청"
+    },
+    {
+      "from": "syncAdapter",
+      "to": "syncWms",
+      "label": "외부 API 호출"
+    },
+    {
+      "from": "jobApi",
+      "to": "queue",
+      "label": "작업 등록"
+    },
+    {
+      "from": "queue",
+      "to": "worker",
+      "label": "작업 전달"
+    },
+    {
+      "from": "jobApi",
+      "to": "ack",
+      "label": "접수 응답",
+      "labelDy": 24
+    },
+    {
+      "from": "worker",
+      "to": "asyncWms",
+      "label": "외부 API 호출",
+      "labelDy": 24
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "동기 방식",
+      "items": [
+        "외부 처리 완료까지 원래 요청이 대기한다."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "비동기 방식",
+      "items": [
+        "접수 응답과 Worker 실행은 별도 흐름이다.",
+        "진행·결과는 상태 조회 또는 webhook으로 확인한다."
+      ]
+    }
+  ]
+}
