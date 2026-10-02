@@ -1,0 +1,123 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "원본 맥락을 보존해야 구체적으로 진단할 수 있다",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "retained",
+      "label": "맥락을 보존하는 경로"
+    },
+    {
+      "id": "discarded",
+      "label": "맥락을 버린 경로"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "source",
+      "lane": "retained",
+      "col": 0,
+      "type": "external",
+      "label": "원본 입력",
+      "sublabel": "줄 번호 · 공백 · 토큰",
+      "width": 150
+    },
+    {
+      "id": "lexer",
+      "lane": "retained",
+      "col": 1,
+      "type": "backend",
+      "label": "렉서",
+      "sublabel": "토큰과 위치를 전달",
+      "width": 150
+    },
+    {
+      "id": "passes",
+      "lane": "retained",
+      "col": 2,
+      "type": "backend",
+      "label": "파서와 이후 패스",
+      "sublabel": "오류 발견 시 원본 참조",
+      "width": 150
+    },
+    {
+      "id": "diagnostic",
+      "lane": "retained",
+      "col": 3,
+      "type": "frontend",
+      "label": "구체적인 진단",
+      "sublabel": "어느 줄을 어떻게 고칠까",
+      "width": 150
+    },
+    {
+      "id": "loss",
+      "lane": "discarded",
+      "col": 2,
+      "type": "backend",
+      "label": "원본 맥락 유실",
+      "sublabel": "공백과 위치를 제거",
+      "width": 150
+    },
+    {
+      "id": "generic",
+      "lane": "discarded",
+      "col": 3,
+      "type": "frontend",
+      "label": "제한된 진단",
+      "sublabel": "내부 상태만 설명 가능",
+      "width": 150
+    }
+  ],
+  "edges": [
+    {
+      "from": "source",
+      "to": "lexer",
+      "label": "입력 변환"
+    },
+    {
+      "from": "lexer",
+      "to": "passes",
+      "label": "원본 맥락 유지"
+    },
+    {
+      "from": "passes",
+      "to": "diagnostic",
+      "label": "위치와 원인 활용"
+    },
+    {
+      "from": "lexer",
+      "to": "loss",
+      "label": "맥락 제거"
+    },
+    {
+      "from": "loss",
+      "to": "generic",
+      "label": "복원할 근거 없음"
+    }
+  ],
+  "mainPath": [
+    "source",
+    "lexer",
+    "passes",
+    "diagnostic"
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "진단을 위한 정보",
+      "items": [
+        "당장 계산에 필요 없더라도 이후 진단에 필요한 맥락은 전달한다."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "사례 해석의 한계",
+      "items": [
+        "LaTeX 내부 구현을 확정한 그림이 아니라 정보 유실의 개념도다."
+      ]
+    }
+  ]
+}
