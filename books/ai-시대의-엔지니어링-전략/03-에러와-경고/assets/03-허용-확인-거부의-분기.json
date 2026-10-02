@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "불확실한 입력은 확인하고 금지된 입력은 차단한다",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "assessment",
+      "label": "검증과 판단"
+    },
+    {
+      "id": "permitted",
+      "label": "허용 경로"
+    },
+    {
+      "id": "blocked",
+      "label": "거부 경로"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "input",
+      "lane": "assessment",
+      "col": 0,
+      "type": "frontend",
+      "label": "입력 검증",
+      "sublabel": "규칙과 맥락 확인",
+      "width": 150
+    },
+    {
+      "id": "decision",
+      "lane": "assessment",
+      "col": 1,
+      "type": "backend",
+      "label": "입력의 상태 판단",
+      "sublabel": "금지 여부 · 오류 가능성",
+      "width": 150
+    },
+    {
+      "id": "confirm",
+      "lane": "permitted",
+      "col": 2,
+      "type": "frontend",
+      "label": "사용자 확인",
+      "sublabel": "허용되지만 의심스러움",
+      "width": 150
+    },
+    {
+      "id": "execute",
+      "lane": "permitted",
+      "col": 3,
+      "type": "backend",
+      "label": "작업 실행",
+      "sublabel": "허용된 의도 확인",
+      "width": 150
+    },
+    {
+      "id": "reject",
+      "lane": "blocked",
+      "col": 2,
+      "type": "security",
+      "label": "에러로 차단",
+      "sublabel": "절대 허용할 수 없는 입력",
+      "width": 150
+    }
+  ],
+  "edges": [
+    {
+      "from": "input",
+      "to": "decision",
+      "label": "검증 결과"
+    },
+    {
+      "from": "decision",
+      "to": "confirm",
+      "label": "오류 가능성 높음"
+    },
+    {
+      "from": "confirm",
+      "to": "execute",
+      "label": "사용자가 확인"
+    },
+    {
+      "from": "decision",
+      "to": "execute",
+      "label": "정상 입력"
+    },
+    {
+      "from": "decision",
+      "to": "reject",
+      "label": "규칙 위반"
+    }
+  ],
+  "mainPath": [
+    "input",
+    "decision",
+    "confirm",
+    "execute"
+  ],
+  "cards": [
+    {
+      "dot": "amber",
+      "title": "확인은 유연한 안내",
+      "items": [
+        "사용자가 취소하면 실행하지 않는다. 추측을 에러로 단정하지 않는다."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "확인은 안전 경계가 아니다",
+      "items": [
+        "금지된 입력은 확인이나 강제 실행 옵션으로 허용하지 않는다."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "workflow",
+    "input": "01-에러의-대상과-복구-행동.json",
+    "output": "01-에러의-대상과-복구-행동.html",
+    "specification": {
+      "sha256": "787052ea36d77a28fd6c6fba68641e830963dfbbd8fc70cc7e47df1abb3213eb",
+      "bytes": 2578
+    },
+    "artifact": {
+      "sha256": "65445175439d10304574ffc0ec449ab255d8ff23ac627ac112346cefaa585df3",
+      "bytes": 802929
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "skipped",
+    "browser_reason": "Chrome/Chromium unavailable",
+    "visual_review": "SVG light theme passed; HTML viewer not inspected",
+    "correction_rounds": 1,
+    "svg": {
+      "path": "01-에러의-대상과-복구-행동.svg",
+      "sha256": "94e620d4d54b079e662bd83e004b8aa59562d20b9c0397ea7be75abca90043bd",
+      "bytes": 48797,
+      "xml_valid": true,
+      "raster_review": "passed"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "workflow",
+    "input": "02-진단의-정보-체인.json",
+    "output": "02-진단의-정보-체인.html",
+    "specification": {
+      "sha256": "887135325d6002f122548ad602b1ca90d0a9dd37878aa5c58be2cb4f93f383e8",
+      "bytes": 2622
+    },
+    "artifact": {
+      "sha256": "69c999400220d1dcbdb3ba2093693fe1869f5ce94f913a0d133f27c1af28c228",
+      "bytes": 802975
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "skipped",
+    "browser_reason": "Chrome/Chromium unavailable",
+    "visual_review": "SVG light theme passed; HTML viewer not inspected",
+    "correction_rounds": 0,
+    "svg": {
+      "path": "02-진단의-정보-체인.svg",
+      "sha256": "f084cabb8078337400bd99790027a1ed4a2f9ef45b2987c07b7514bef6cde6f0",
+      "bytes": 48806,
+      "xml_valid": true,
+      "raster_review": "passed"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "workflow",
+    "input": "03-허용-확인-거부의-분기.json",
+    "output": "03-허용-확인-거부의-분기.html",
+    "specification": {
+      "sha256": "a9b8982453062ac55c175e3581fb78de6d561f7a8b821fe7e6ae5398b7d68e95",
+      "bytes": 2488
+    },
+    "artifact": {
+      "sha256": "4007370d386bc53bdc181adf324ebf9d3ea5dab02ad5f922235a19cedca5caa1",
+      "bytes": 801958
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "skipped",
+    "browser_reason": "Chrome/Chromium unavailable",
+    "visual_review": "SVG light theme passed; HTML viewer not inspected",
+    "correction_rounds": 0,
+    "svg": {
+      "path": "03-허용-확인-거부의-분기.svg",
+      "sha256": "e834baac9a8db799c874f340f0771665e7f926676668649c8ee1db47c84ae547",
+      "bytes": 47763,
+      "xml_valid": true,
+      "raster_review": "passed"
+    }
+  }
+]

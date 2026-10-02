@@ -1,0 +1,122 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "에러의 대상에 따라 복구 행동을 나눈다",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "context",
+      "label": "진단의 출발점"
+    },
+    {
+      "id": "runtime",
+      "label": "사용자의 런타임 조치"
+    },
+    {
+      "id": "development",
+      "label": "개발자의 코드 수정"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "failure",
+      "lane": "context",
+      "col": 0,
+      "type": "backend",
+      "label": "에러 발생",
+      "sublabel": "작업과 원인을 확인"
+    },
+    {
+      "id": "audience",
+      "lane": "context",
+      "col": 1,
+      "type": "frontend",
+      "label": "대상 분류",
+      "sublabel": "누가 해결할 수 있는가"
+    },
+    {
+      "id": "user",
+      "lane": "runtime",
+      "col": 2,
+      "type": "frontend",
+      "label": "최종 사용자",
+      "sublabel": "관리자 권한도 고려"
+    },
+    {
+      "id": "action",
+      "lane": "runtime",
+      "col": 3,
+      "type": "frontend",
+      "label": "복구 행동 안내",
+      "sublabel": "재시도 · 입력 · 선행 조건",
+      "width": 150
+    },
+    {
+      "id": "developer",
+      "lane": "development",
+      "col": 2,
+      "type": "backend",
+      "label": "개발자",
+      "sublabel": "우리 팀 또는 호출자"
+    },
+    {
+      "id": "fix",
+      "lane": "development",
+      "col": 3,
+      "type": "backend",
+      "label": "코드 수정 안내",
+      "sublabel": "어서션 · 잘못된 인수"
+    }
+  ],
+  "edges": [
+    {
+      "from": "failure",
+      "to": "audience",
+      "label": "시나리오 확인"
+    },
+    {
+      "from": "audience",
+      "to": "user",
+      "label": "런타임 조치"
+    },
+    {
+      "from": "user",
+      "to": "action",
+      "label": "권한에 맞게 안내"
+    },
+    {
+      "from": "audience",
+      "to": "developer",
+      "label": "개발 시점 수정"
+    },
+    {
+      "from": "developer",
+      "to": "fix",
+      "label": "담당 팀에 전달"
+    }
+  ],
+  "mainPath": [
+    "failure",
+    "audience",
+    "user",
+    "action"
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "분류는 행동을 정한다",
+      "items": [
+        "범주 이름보다 누가 무엇을 고칠 수 있는지가 중요하다."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "시스템 에러의 재시도",
+      "items": [
+        "일시적 실패인지, 중복 실행이 안전한지부터 확인한다."
+      ]
+    }
+  ]
+}
