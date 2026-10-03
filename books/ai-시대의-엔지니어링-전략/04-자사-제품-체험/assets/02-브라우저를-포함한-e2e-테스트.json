@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "실제 클릭 경로를 검증하는 E2E 테스트",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1080,
+      740
+    ],
+    "column_fit": "spread"
+  },
+  "participants": [
+    {
+      "id": "harness",
+      "type": "external",
+      "label": "테스트 하네스",
+      "sublabel": "실행 · 단언"
+    },
+    {
+      "id": "browser",
+      "type": "frontend",
+      "label": "헤드리스 브라우저",
+      "sublabel": "실제 렌더링"
+    },
+    {
+      "id": "backend",
+      "type": "backend",
+      "label": "백엔드",
+      "sublabel": "실제 제품 코드"
+    },
+    {
+      "id": "store",
+      "type": "database",
+      "label": "실제 DB",
+      "sublabel": "예시의 테스트 사용자"
+    }
+  ],
+  "messages": [
+    {
+      "id": "step1",
+      "from": "harness",
+      "to": "browser",
+      "y": 170,
+      "label": "홈 화면 열기",
+      "variant": "emphasis"
+    },
+    {
+      "id": "step2",
+      "from": "browser",
+      "to": "backend",
+      "y": 222,
+      "label": "홈 화면 요청",
+      "variant": "default"
+    },
+    {
+      "id": "step3",
+      "from": "backend",
+      "to": "store",
+      "y": 274,
+      "label": "작품 조회",
+      "variant": "default"
+    },
+    {
+      "id": "step4",
+      "from": "store",
+      "to": "backend",
+      "y": 326,
+      "label": "작품 데이터",
+      "variant": "return"
+    },
+    {
+      "id": "step5",
+      "from": "backend",
+      "to": "browser",
+      "y": 378,
+      "label": "HTML · JS 응답",
+      "variant": "return"
+    },
+    {
+      "id": "step6",
+      "from": "harness",
+      "to": "browser",
+      "y": 430,
+      "label": "작품 썸네일 클릭",
+      "variant": "emphasis"
+    },
+    {
+      "id": "step7",
+      "from": "browser",
+      "to": "backend",
+      "y": 482,
+      "label": "클릭으로 만든 요청",
+      "variant": "default"
+    },
+    {
+      "id": "step8",
+      "from": "backend",
+      "to": "browser",
+      "y": 534,
+      "label": "작품 페이지 응답",
+      "variant": "return"
+    },
+    {
+      "id": "step9",
+      "from": "browser",
+      "to": "harness",
+      "y": 586,
+      "label": "화면 결과 확인",
+      "variant": "return"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "브라우저 경계를 포함한다",
+      "items": [
+        "레이아웃과 클릭부터 서버 응답까지 연결해 검증한다."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "운영 DB는 필수 조건이 아니다",
+      "items": [
+        "원서 예시는 운영 DB의 테스트 사용자를 쓴다. 일반화할 때는 환경과 데이터를 격리한다."
+      ]
+    }
+  ]
+}

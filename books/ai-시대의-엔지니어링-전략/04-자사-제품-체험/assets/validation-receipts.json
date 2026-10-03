@@ -1,0 +1,72 @@
+[
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "sequence",
+    "input": "01-페이크를-이용한-시나리오-테스트.json",
+    "output": "01-페이크를-이용한-시나리오-테스트.html",
+    "specification": {
+      "sha256": "250b716cb4fad2be42e03452880d4117fed550a96c7574cf29eaf8ab457b40d0",
+      "bytes": 2719
+    },
+    "artifact": {
+      "sha256": "d36269af7fbe6a4b3e0338a1e751916fd892bc8311e32342f5e74a348d0ccdfb",
+      "bytes": 803355
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "skipped",
+    "browser_reason": "Chrome/Chromium unavailable",
+    "visual_review": "SVG light theme passed; HTML viewer not inspected",
+    "correction_rounds": 1,
+    "svg": {
+      "path": "01-페이크를-이용한-시나리오-테스트.svg",
+      "sha256": "aa30674441d36764bfc9b5cef8f8ebaf7e83e3e4330569d788f3a525669b68ce",
+      "bytes": 49219,
+      "xml_valid": true,
+      "raster_review": "passed"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "sequence",
+    "input": "02-브라우저를-포함한-e2e-테스트.json",
+    "output": "02-브라우저를-포함한-e2e-테스트.html",
+    "specification": {
+      "sha256": "a55258ec94a9fafb8aa7a2660badc3b0e0d6edf97234767c3dc3bf38dcdfff00",
+      "bytes": 2764
+    },
+    "artifact": {
+      "sha256": "8b09834761ac554f935353970f20e7a1630d6c1c742ad9b426e4cf75316fd8f7",
+      "bytes": 803427
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "skipped",
+    "browser_reason": "Chrome/Chromium unavailable",
+    "visual_review": "SVG light theme passed; HTML viewer not inspected",
+    "correction_rounds": 1,
+    "svg": {
+      "path": "02-브라우저를-포함한-e2e-테스트.svg",
+      "sha256": "a55c76997bc1749dc9076007448209212015d4293d1ef0abd86421078987945c",
+      "bytes": 49280,
+      "xml_valid": true,
+      "raster_review": "passed"
+    }
+  }
+]

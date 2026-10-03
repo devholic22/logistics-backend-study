@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "출력에서 다음 요청을 얻는 시나리오 테스트",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1080,
+      740
+    ],
+    "column_fit": "spread"
+  },
+  "participants": [
+    {
+      "id": "harness",
+      "type": "external",
+      "label": "테스트 하네스",
+      "sublabel": "사용자 행동 재현"
+    },
+    {
+      "id": "dom",
+      "type": "frontend",
+      "label": "페이크 DOM",
+      "sublabel": "링크 추출"
+    },
+    {
+      "id": "backend",
+      "type": "backend",
+      "label": "백엔드",
+      "sublabel": "실제 제품 코드"
+    },
+    {
+      "id": "store",
+      "type": "database",
+      "label": "페이크 DB",
+      "sublabel": "합성 작품 데이터"
+    }
+  ],
+  "messages": [
+    {
+      "id": "step1",
+      "from": "harness",
+      "to": "backend",
+      "y": 170,
+      "label": "홈 화면 요청",
+      "variant": "emphasis"
+    },
+    {
+      "id": "step2",
+      "from": "backend",
+      "to": "store",
+      "y": 222,
+      "label": "작품 조회",
+      "variant": "default"
+    },
+    {
+      "id": "step3",
+      "from": "store",
+      "to": "backend",
+      "y": 274,
+      "label": "작품 데이터",
+      "variant": "return"
+    },
+    {
+      "id": "step4",
+      "from": "backend",
+      "to": "harness",
+      "y": 326,
+      "label": "HTML · JS 응답",
+      "variant": "return"
+    },
+    {
+      "id": "step5",
+      "from": "harness",
+      "to": "dom",
+      "y": 378,
+      "label": "DOM 해석 요청",
+      "variant": "default"
+    },
+    {
+      "id": "step6",
+      "from": "dom",
+      "to": "harness",
+      "y": 430,
+      "label": "작품 링크 반환",
+      "variant": "return"
+    },
+    {
+      "id": "step7",
+      "from": "harness",
+      "to": "backend",
+      "y": 482,
+      "label": "추출한 링크 요청",
+      "variant": "emphasis"
+    },
+    {
+      "id": "step8",
+      "from": "backend",
+      "to": "harness",
+      "y": 534,
+      "label": "작품 페이지 응답",
+      "variant": "return"
+    },
+    {
+      "id": "step9",
+      "from": "harness",
+      "to": "dom",
+      "y": 586,
+      "label": "자동 재생 설정 단언",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "사용자 여정을 연결한다",
+      "items": [
+        "홈페이지 출력에서 다음 요청을 추출해 링크의 연결을 검증한다."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "이 테스트의 경계",
+      "items": [
+        "실제 브라우저의 클릭 가능성이나 영상 재생 성공은 검증하지 않는다."
+      ]
+    }
+  ]
+}
