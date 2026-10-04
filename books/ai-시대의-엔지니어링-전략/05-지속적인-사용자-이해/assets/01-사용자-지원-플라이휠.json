@@ -1,0 +1,90 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "사용자 지원 플라이휠",
+    "quality_profile": "showcase",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "user",
+      "label": "사용자와의 연결"
+    },
+    {
+      "id": "learning",
+      "label": "팀의 학습과 개선"
+    }
+  ],
+  "mainPath": [
+    "support",
+    "returning",
+    "insight"
+  ],
+  "nodes": [
+    {
+      "id": "support",
+      "lane": "user",
+      "col": 0,
+      "type": "frontend",
+      "label": "훌륭한 지원",
+      "sublabel": "당장의 막힘 해결",
+      "width": 180
+    },
+    {
+      "id": "returning",
+      "lane": "user",
+      "col": 2,
+      "type": "external",
+      "label": "지속적인 연결",
+      "sublabel": "다시 찾는 사용자",
+      "width": 180
+    },
+    {
+      "id": "insight",
+      "lane": "learning",
+      "col": 2,
+      "type": "database",
+      "label": "피드백과 통찰",
+      "sublabel": "시나리오와 원인 기록",
+      "width": 180
+    },
+    {
+      "id": "improve",
+      "lane": "learning",
+      "col": 0,
+      "type": "backend",
+      "label": "제품과 지원 개선",
+      "sublabel": "문서 · 진단 · 테스트",
+      "width": 180
+    }
+  ],
+  "edges": [
+    {
+      "from": "support",
+      "to": "returning",
+      "label": "신뢰 축적",
+      "role": "main"
+    },
+    {
+      "from": "returning",
+      "to": "insight",
+      "label": "경험 공유",
+      "role": "main"
+    },
+    {
+      "from": "insight",
+      "to": "improve",
+      "label": "반복 문제 반영",
+      "role": "return"
+    },
+    {
+      "from": "improve",
+      "to": "support",
+      "label": "다음 지원에 활용",
+      "role": "return"
+    }
+  ]
+}
