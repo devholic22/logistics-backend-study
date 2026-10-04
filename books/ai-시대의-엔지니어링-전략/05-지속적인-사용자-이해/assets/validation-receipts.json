@@ -1,0 +1,20 @@
+{
+  "diagram_type": "workflow",
+  "output": "01-사용자-지원-플라이휠.html",
+  "specification_sha256": "95a7bcf747d49964393cf7b4cb7370bcee90dd809fcf1de86a21058bf125b70b",
+  "artifact_sha256": "dedcb7cb98a85ccef5301db0f9cc3001cd32948876c90cd31b519db58c5c978e",
+  "svg_sha256": "4c456d1e3a807ddd6c9d3a1e2cf302082764e19b28cb05ea0a5b48aebd5e1c3c",
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  },
+  "browser_evidence": "skipped",
+  "browser_reason": "Chrome/Chromium unavailable",
+  "html_visual_review": "not performed; browser unavailable",
+  "svg_visual_review": "passed; light static SVG raster inspected; Korean text and all four relationships readable",
+  "correction_rounds": 2
+}
