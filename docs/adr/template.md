@@ -4,7 +4,7 @@
 국소적이고 쉽게 되돌릴 수 있는 결정은 `배경과 문제 정의`, `결정 기준`, `검토한 선택지`,
 `결정`, `결과와 영향`만 남기는 짧은 형식을 사용해도 된다. 문서 분량보다 판단 근거와 증거가 중요하다.
 
-- 상태: Proposed | Accepted | Rejected | Superseded | Deprecated
+- 상태: Draft | Proposed | Accepted | Rejected | Superseded | Deprecated
 - 작성일: YYYY-MM-DD
 - 결정자: 이름 또는 역할
 - 상위 기획 문서: Product Brief, PRD 또는 Product Spec 링크
@@ -34,7 +34,8 @@
 
 기술 결정이 보호하려는 사용자 시나리오와 결과를 상위 기획 문서에서 가져온다.
 아직 기획 문서가 없다면 사실처럼 만들지 않고 `미작성` 또는 `가설`로 표시하며,
-ADR은 `Proposed` 상태로 유지한다.
+ADR은 `Draft` 상태로 유지한다. 상위 사용자 시나리오와 기능·비기능 요구사항에서
+결정 기준을 추적할 수 있을 때만 `Proposed`로 전환한다.
 
 | 항목 | 내용 | 상위 문서 근거 |
 | --- | --- | --- |
@@ -145,6 +146,8 @@ ADR은 `Proposed` 상태로 유지한다.
 - 가설 또는 아직 구현되지 않은 요소:
 
 Archify의 `validate`, `deliver`, `visual-check`를 통과한 산출물만 연결한다.
+작성 환경에 `archify`가 없으면 검증되지 않은 대체 그림을 만들지 않는다.
+그림이 결정 이해에 필수라면 ADR을 `Draft`로 유지하고, 필수가 아니라면 시각화만 후속 작업으로 남긴다.
 
 ## 위험 완화책
 
