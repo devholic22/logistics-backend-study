@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: mini-wms
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
