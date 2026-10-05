@@ -133,6 +133,19 @@ ADR은 `Proposed` 상태로 유지한다.
 
 - 좋고 나쁨보다 후속 결정을 강제하는 변화
 
+## 시각화 (필요한 경우)
+
+세 개 이상의 요소 관계, 요청 순서, 데이터 흐름, 상태 전이 또는 결정 절차가
+글과 표만으로 명확하지 않을 때만 `archify` 스킬로 작성한다. 장식용 그림은 추가하지 않는다.
+
+- Archify 유형: architecture | workflow | sequence | dataflow | lifecycle
+- 원본 JSON: `docs/adr/assets/<adr-id>-<name>/<name>.json`
+- 검증된 HTML: `docs/adr/assets/<adr-id>-<name>/<name>.html`
+- 그림이 설명하는 결정 범위:
+- 가설 또는 아직 구현되지 않은 요소:
+
+Archify의 `validate`, `deliver`, `visual-check`를 통과한 산출물만 연결한다.
+
 ## 위험 완화책
 
 | 위험 | 완화책 | 확인 시점 |
