@@ -1,0 +1,156 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "앱 센터: 안티테제에서 기능 조합으로",
+    "quality_profile": "showcase",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "audience",
+      "label": "페르소나별 판단"
+    },
+    {
+      "id": "response",
+      "label": "대응 방향"
+    },
+    {
+      "id": "scope",
+      "label": "초기 제품 범위"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "compare",
+      "lane": "audience",
+      "col": 0,
+      "type": "backend",
+      "label": "안티테제 비교",
+      "sublabel": "페니·모비·패튼",
+      "width": 132
+    },
+    {
+      "id": "patton",
+      "lane": "audience",
+      "col": 1,
+      "type": "backend",
+      "label": "패튼의 장벽",
+      "sublabel": "취향에 맞는 게임 부족"
+    },
+    {
+      "id": "casual",
+      "lane": "response",
+      "col": 0,
+      "type": "backend",
+      "label": "페니·모비의 장벽",
+      "sublabel": "방문 동기·기존 게임 선호",
+      "width": 132
+    },
+    {
+      "id": "catalog",
+      "lane": "response",
+      "col": 1,
+      "type": "backend",
+      "label": "콘텐츠 확보",
+      "sublabel": "출시 때 즐길 신규 게임"
+    },
+    {
+      "id": "filter",
+      "lane": "response",
+      "col": 2,
+      "type": "backend",
+      "label": "장르 필터",
+      "sublabel": "전략 게임을 찾는 경로"
+    },
+    {
+      "id": "whole",
+      "lane": "scope",
+      "col": 2,
+      "type": "backend",
+      "label": "완결된 조합",
+      "sublabel": "찾을 게임과 찾는 수단",
+      "width": 132
+    },
+    {
+      "id": "align",
+      "lane": "scope",
+      "col": 3,
+      "type": "backend",
+      "label": "초점 공유",
+      "sublabel": "타깃·논페르소나로 범위 유지",
+      "width": 132
+    }
+  ],
+  "edges": [
+    {
+      "to": "patton",
+      "label": "고칠 수 있는 장벽",
+      "role": "main",
+      "from": "compare"
+    },
+    {
+      "to": "casual",
+      "label": "더 설득력 있는 반대",
+      "role": "branch",
+      "from": "compare"
+    },
+    {
+      "to": "catalog",
+      "label": "게임 부족 해소",
+      "role": "main",
+      "from": "patton"
+    },
+    {
+      "to": "filter",
+      "label": "탐색 지원",
+      "role": "branch",
+      "from": "patton"
+    },
+    {
+      "to": "whole",
+      "label": "콘텐츠 제공",
+      "role": "main",
+      "from": "catalog"
+    },
+    {
+      "to": "whole",
+      "label": "발견 가능성",
+      "role": "branch",
+      "from": "filter"
+    },
+    {
+      "to": "align",
+      "label": "범위 합의",
+      "role": "main",
+      "from": "whole"
+    }
+  ],
+  "mainPath": [
+    "compare",
+    "patton",
+    "catalog",
+    "whole",
+    "align"
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "기능과 콘텐츠의 보완",
+      "items": [
+        "필터만 만들고 게임이 없으면 문제는 남는다.",
+        "선택한 고객의 과업을 온전히 해결한다."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "받아들일 반대",
+      "items": [
+        "모든 페르소나의 장벽을 기능으로 해소하지 않는다.",
+        "본문 사례의 판단이며 보편적 사용자 분류가 아니다."
+      ]
+    }
+  ]
+}

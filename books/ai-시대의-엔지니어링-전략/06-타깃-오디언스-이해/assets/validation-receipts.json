@@ -1,0 +1,74 @@
+[
+  {
+    "diagram_type": "workflow",
+    "output": "01-고객-발견-인터뷰.html",
+    "specification": {
+      "sha256": "49b5c5780f02fff23d5081ce3f97af29e41af467d51758d3a5fb91af7d58dff3",
+      "bytes": 3338
+    },
+    "artifact": {
+      "sha256": "bd0311f729efe8d768f9b2f9a3ae513e1385f3dcb23950bb3bec1cba3102bf04",
+      "bytes": 804436
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "skipped",
+    "visual_review": {
+      "scope": "static SVG, light theme, 1700px PNG",
+      "status": "passed",
+      "observations": [
+        "한국어 글자 표시 확인",
+        "노드 내부 글자와 아이콘의 간격 확인",
+        "분기·합류와 화살표·관계 라벨 확인"
+      ],
+      "html_review": "not performed"
+    },
+    "svg": {
+      "path": "01-고객-발견-인터뷰.svg",
+      "sha256": "7b341d10ff5776aa297c797d692f16794bb84f4c33c73bef9ba35f4f6b91eb4d"
+    },
+    "correction_rounds": 2
+  },
+  {
+    "diagram_type": "workflow",
+    "output": "02-안티테제와-기능-선택.html",
+    "specification": {
+      "sha256": "1537dd4525f8601ad85833a8000698b43da4ba7bff499835c35e252eb3f67aa0",
+      "bytes": 3332
+    },
+    "artifact": {
+      "sha256": "1ba83a0aa0008c5411d261a7da36400ca95475c213cd219eac7d74903c5805da",
+      "bytes": 804069
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "skipped",
+    "visual_review": {
+      "scope": "static SVG, light theme, 1700px PNG",
+      "status": "passed",
+      "observations": [
+        "한국어 글자 표시 확인",
+        "노드 내부 글자와 아이콘의 간격 확인",
+        "분기·합류와 화살표·관계 라벨 확인"
+      ],
+      "html_review": "not performed"
+    },
+    "svg": {
+      "path": "02-안티테제와-기능-선택.svg",
+      "sha256": "997bc6a86c43a96674328d13416f2be29c5d0cc313913fc49ae560f3f9baf4ca"
+    },
+    "correction_rounds": 2
+  }
+]
