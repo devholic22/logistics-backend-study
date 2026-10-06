@@ -1,0 +1,158 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "고객 발견 인터뷰: 문제에서 제품으로",
+    "quality_profile": "showcase",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "listening",
+      "label": "사용자 경험 탐색"
+    },
+    {
+      "id": "judgment",
+      "label": "동기와 대상 판단"
+    },
+    {
+      "id": "learning",
+      "label": "제품 반응과 학습"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "story",
+      "lane": "listening",
+      "col": 0,
+      "type": "backend",
+      "label": "최근 경험",
+      "sublabel": "실제로 한 일과 당시 상황",
+      "width": 132
+    },
+    {
+      "id": "focus",
+      "lane": "listening",
+      "col": 1,
+      "type": "backend",
+      "label": "주제를 좁힌다",
+      "sublabel": "문제와 우회 방법 탐색",
+      "width": 132
+    },
+    {
+      "id": "motive",
+      "lane": "judgment",
+      "col": 1,
+      "type": "backend",
+      "label": "동기의 강도",
+      "sublabel": "이 문제를 해결할 이유"
+    },
+    {
+      "id": "fit",
+      "lane": "judgment",
+      "col": 2,
+      "type": "backend",
+      "label": "대상 적합성",
+      "sublabel": "아이디어로 이득을 볼 사람인가",
+      "width": 132
+    },
+    {
+      "id": "show",
+      "lane": "learning",
+      "col": 2,
+      "type": "backend",
+      "label": "아이디어 소개",
+      "sublabel": "적합한 경우 목업·시안 제시",
+      "width": 132
+    },
+    {
+      "id": "revise",
+      "lane": "learning",
+      "col": 3,
+      "type": "backend",
+      "label": "테제 다듬기",
+      "sublabel": "긍정·부정 신호와 맥락 기록",
+      "width": 132
+    },
+    {
+      "id": "counter",
+      "lane": "judgment",
+      "col": 3,
+      "type": "backend",
+      "label": "반대 신호",
+      "sublabel": "문제 부재·타깃 불일치"
+    }
+  ],
+  "edges": [
+    {
+      "to": "focus",
+      "label": "중립 질문",
+      "role": "main",
+      "from": "story"
+    },
+    {
+      "to": "motive",
+      "label": "경험 해석",
+      "role": "main",
+      "from": "focus"
+    },
+    {
+      "to": "fit",
+      "label": "동기 확인",
+      "role": "main",
+      "from": "motive"
+    },
+    {
+      "to": "show",
+      "label": "적합한 경우",
+      "role": "main",
+      "from": "fit"
+    },
+    {
+      "to": "revise",
+      "label": "반응 해석",
+      "role": "main",
+      "from": "show"
+    },
+    {
+      "to": "counter",
+      "label": "맞지 않는 경우",
+      "role": "branch",
+      "from": "fit"
+    },
+    {
+      "to": "revise",
+      "label": "안티테제 보완",
+      "role": "branch",
+      "from": "counter"
+    }
+  ],
+  "mainPath": [
+    "story",
+    "focus",
+    "motive",
+    "fit",
+    "show",
+    "revise"
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "질문 순서",
+      "items": [
+        "제품을 보여주기 전 사용자 경험을 충분히 듣는다.",
+        "최근 행동과 유도된 동의를 구분한다."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "반대 신호도 학습",
+      "items": [
+        "문제 부재를 실패한 인터뷰로 버리지 않는다.",
+        "사용자 상황과 동기를 테제·안티테제에 반영한다."
+      ]
+    }
+  ]
+}
