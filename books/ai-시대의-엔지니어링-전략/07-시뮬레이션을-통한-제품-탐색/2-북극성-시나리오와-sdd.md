@@ -27,26 +27,12 @@
 
 > **북극성 시나리오는 제품 요구 사항에 정당성을 부여하고 구체화하는 데 기여**합니다. **나중에는 이 이야기를 기준으로 빠뜨린 기능이 없는지 점검하고 데모를 만들게** 됩니다. **제품에 따라 마케팅 자료, 시작 가이드, 샘플로도 이어질 수** 있어요.
 
-```mermaid
-flowchart LR
-    NS["북극성 시나리오"]
-    REQ["요구 사항의 정당성과 구체화"]
-    CHECK["빠뜨린 기능 점검"]
-    DEMO["데모"]
-    DOC["마케팅 자료 · 시작 가이드 · 샘플"]
-
-    NS --> REQ
-    NS --> CHECK
-    NS --> DEMO
-    NS --> DOC
-
-    %% lint-ok: DEAD-END  한 시나리오가 쓰이는 자리를 펼친 도식이다
-    %% lint-ok: NO-INBOUND  북극성 시나리오가 출발점이다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class NS core
-    class REQ,CHECK,DEMO,DOC sys
-```
+| 쓰임 | 시나리오와의 연결 |
+| --- | --- |
+| 요구 사항 | 동기와 필요한 동작을 구체화 |
+| 점검 | 빠뜨린 기능과 여정의 빈틈 확인 |
+| 데모 | 완결된 사용자 결과를 보여 줌 |
+| 문서 | 마케팅 자료·시작 가이드·샘플로 재사용 |
 
 *하나의 이야기가 요구 사항·점검·데모·문서로 계속 재사용된다*
 
@@ -64,27 +50,12 @@ flowchart LR
 
 > 수년간 배운 교훈 하나는, **사람마다 종종 무의식 중에 발견 작업의 시간 범위를 다르게 잡고 있다**는 점입니다. **어떤 사람은 장기를 보고, 어떤 사람은 몇 주 뒤를** 봅니다.
 
-```mermaid
-flowchart LR
-    LONG["장기를 보는 사람"]
-    SHORT["몇 주 뒤를 보는 사람"]
-    CLASH["같은 회의에서 충돌<br/>'그걸 첫 릴리스에 넣자고?'"]
-    AGREE["먼저 합의한다<br/>상상한다고 곧 만드는 건 아니다"]
+| 관점 | 시간 범위 |
+| --- | --- |
+| 장기 비전 | 최종적으로 가능한 사용자 경험 |
+| 첫 릴리스 | 몇 주 안에 완성할 경험 |
 
-    LONG --> CLASH
-    SHORT --> CLASH
-    AGREE ~~~ CLASH
-
-    %% lint-ok: DEAD-END  갈등이 발생하는 지점이 종착점이다
-    %% lint-ok: ORPHAN  합의는 갈등을 예방하는 별도 조치라 배치로만 표시한다
-    %% lint-ok: NO-INBOUND  두 성향이 각각 출발점이다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class AGREE core
-    class LONG,SHORT sys
-    class CLASH muted
-```
+회의 전에 상상할 범위와 실제 출시 범위를 구분한다.
 
 *"지금 상상하는 것이 곧 만들 것은 아니다"를 미리 합의해 둔다*
 
@@ -97,3 +68,4 @@ flowchart LR
 ## 함께 읽기
 - [다음 절 — 헬피의 북극성 시나리오들](./3-북극성-시나리오-쓰기.md)
 - [1.4 시나리오의 여섯 가지 용도](../01-프로덕트-사고의-기본/4-시나리오의-여섯-가지-용도.md)
+

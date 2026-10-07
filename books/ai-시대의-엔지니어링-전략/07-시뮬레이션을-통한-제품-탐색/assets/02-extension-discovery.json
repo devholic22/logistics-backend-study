@@ -1,0 +1,109 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "새 저장소에서 확장을 발견하는 사용자 흐름",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "discover",
+      "label": "추천과 선택"
+    },
+    {
+      "id": "result",
+      "label": "사용자의 다음 행동"
+    }
+  ],
+  "mainPath": [
+    "open",
+    "popup",
+    "store",
+    "item",
+    "install"
+  ],
+  "nodes": [
+    {
+      "id": "open",
+      "lane": "discover",
+      "col": 0,
+      "type": "external",
+      "label": "새 저장소 열기",
+      "width": 180
+    },
+    {
+      "id": "popup",
+      "lane": "discover",
+      "col": 1,
+      "type": "frontend",
+      "label": "추천 팝업",
+      "sublabel": "확장을 살펴볼지 제안",
+      "width": 180
+    },
+    {
+      "id": "store",
+      "lane": "discover",
+      "col": 2,
+      "type": "frontend",
+      "label": "마켓플레이스",
+      "sublabel": "언어 필터 · 인기와 별점",
+      "width": 180
+    },
+    {
+      "id": "item",
+      "lane": "result",
+      "col": 2,
+      "type": "frontend",
+      "label": "항목 확인",
+      "sublabel": "이름 · 설명 · 다운로드 · 별점",
+      "width": 180
+    },
+    {
+      "id": "install",
+      "lane": "result",
+      "col": 3,
+      "type": "backend",
+      "label": "설치 페이지",
+      "sublabel": "사용법 설명 · 다운로드 진행률",
+      "width": 180
+    },
+    {
+      "id": "close",
+      "lane": "result",
+      "col": 1,
+      "type": "external",
+      "label": "팝업 닫기",
+      "sublabel": "X로 제안을 닫음",
+      "width": 180
+    }
+  ],
+  "edges": [
+    {
+      "from": "open",
+      "to": "popup",
+      "label": "추천 제시"
+    },
+    {
+      "from": "popup",
+      "to": "store",
+      "label": "이동 선택"
+    },
+    {
+      "from": "popup",
+      "to": "close",
+      "label": "닫기 선택",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
+      "from": "store",
+      "to": "item",
+      "label": "목록 표시"
+    },
+    {
+      "from": "item",
+      "to": "install",
+      "label": "설치 선택"
+    }
+  ]
+}

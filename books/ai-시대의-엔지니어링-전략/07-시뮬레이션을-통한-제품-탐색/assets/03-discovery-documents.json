@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "왜·무엇·어떻게를 연결하는 발견 문서",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "documents",
+      "label": "발견에서 설계로"
+    }
+  ],
+  "mainPath": [
+    "brief",
+    "prd",
+    "spec"
+  ],
+  "nodes": [
+    {
+      "id": "brief",
+      "lane": "documents",
+      "col": 0,
+      "type": "external",
+      "label": "프로덕트 브리프",
+      "sublabel": "테제 · 안티테제 · 사용자 · 지표",
+      "width": 190
+    },
+    {
+      "id": "prd",
+      "lane": "documents",
+      "col": 1,
+      "type": "frontend",
+      "label": "제품 요구 사항 문서",
+      "sublabel": "유스 케이스 · 첫 마일스톤",
+      "width": 190
+    },
+    {
+      "id": "spec",
+      "lane": "documents",
+      "col": 2,
+      "type": "backend",
+      "label": "제품 명세",
+      "sublabel": "사용자 흐름 · 시스템 요구",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "brief",
+      "to": "prd",
+      "label": "요구 구체화"
+    },
+    {
+      "from": "prd",
+      "to": "spec",
+      "label": "설계"
+    },
+    {
+      "from": "prd",
+      "to": "brief",
+      "label": "비전 수정",
+      "role": "return",
+      "variant": "dashed"
+    },
+    {
+      "from": "spec",
+      "to": "prd",
+      "label": "설계에서 배운 것",
+      "role": "return",
+      "variant": "dashed"
+    }
+  ]
+}

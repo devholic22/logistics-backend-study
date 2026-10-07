@@ -39,23 +39,9 @@
 
 ## 세 개의 문서
 
-```mermaid
-flowchart LR
-    BRIEF["프로덕트 브리프<br/>제품 테제 · 안티테제<br/>타깃 오디언스 · 목표 지표<br/>북극성 시나리오"]
-    PRD["제품 요구 사항 문서(PRD)<br/>유스 케이스 요약집<br/>마일스톤 0"]
-    SPEC["제품 명세<br/>사용자 흐름 · 시스템 요구 사항<br/>해야 할 일"]
+![발견 문서 간 구체화와 피드백](./assets/03-discovery-documents.svg)
 
-    BRIEF --> PRD
-    PRD --> SPEC
-    PRD -. "피드백(요구 사항 → 비전 수정)" .-> BRIEF
-    SPEC -. "피드백(설계에서 배운 것)" .-> PRD
-
-    %% lint-ok: DEAD-END  마지막 문서가 이 프로세스의 끝이다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class BRIEF core
-    class PRD,SPEC sys
-```
+[인터랙티브 도식](./assets/03-discovery-documents.html) · [원본 JSON](./assets/03-discovery-documents.json)
 
 *[그림 7-1] 프로덕트 발견 프로세스의 예시*
 
@@ -91,3 +77,4 @@ flowchart LR
 - [6.3 제품 테제와 안티테제](../06-타깃-오디언스-이해/2-제품-테제와-안티테제.md) — 프로덕트 브리프의 첫 항목이 거기서 온다.
 - [1.7 시뮬레이션](../01-프로덕트-사고의-기본/7-시나리오의-구성-시뮬레이션.md) — 이 장이 쓰는 이야기의 문법.
 - [4.1 시나리오 테스트](../04-자사-제품-체험/3-시나리오-기능-e2e-사용자-수락-테스트.md) — 여기서 만든 시나리오가 **나중에 테스트가 된다.**
+
