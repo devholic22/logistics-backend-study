@@ -1,0 +1,101 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "설계를 깨뜨리는 시나리오와 요구 사항 피드백",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "explore",
+      "label": "시나리오와 설계"
+    },
+    {
+      "id": "feedback",
+      "label": "발견을 되돌려 반영"
+    }
+  ],
+  "mainPath": [
+    "new",
+    "design",
+    "break",
+    "story"
+  ],
+  "nodes": [
+    {
+      "id": "new",
+      "lane": "explore",
+      "col": 0,
+      "type": "external",
+      "label": "새 시나리오",
+      "sublabel": "기술 지원에 세일즈 추가",
+      "width": 180
+    },
+    {
+      "id": "design",
+      "lane": "explore",
+      "col": 1,
+      "type": "backend",
+      "label": "설계안",
+      "sublabel": "전문 어시스턴트로 위임",
+      "width": 180
+    },
+    {
+      "id": "break",
+      "lane": "explore",
+      "col": 2,
+      "type": "security",
+      "label": "반례 탐색",
+      "sublabel": "지원과 세일즈가 겹치는 대화",
+      "width": 180
+    },
+    {
+      "id": "story",
+      "lane": "feedback",
+      "col": 2,
+      "type": "frontend",
+      "label": "새 유저 스토리",
+      "sublabel": "두 역할 모두 필요한 상황",
+      "width": 180
+    },
+    {
+      "id": "reindex",
+      "lane": "feedback",
+      "col": 1,
+      "type": "database",
+      "label": "요구 사항 재색인",
+      "sublabel": "시나리오와 요약집 갱신",
+      "width": 180
+    }
+  ],
+  "edges": [
+    {
+      "from": "new",
+      "to": "design",
+      "label": "설계"
+    },
+    {
+      "from": "design",
+      "to": "break",
+      "label": "검토"
+    },
+    {
+      "from": "break",
+      "to": "story",
+      "label": "빈틈 발견"
+    },
+    {
+      "from": "story",
+      "to": "reindex",
+      "label": "요구 도출",
+      "role": "return"
+    },
+    {
+      "from": "reindex",
+      "to": "design",
+      "label": "설계 수정",
+      "role": "return",
+      "variant": "emphasis"
+    }
+  ]
+}

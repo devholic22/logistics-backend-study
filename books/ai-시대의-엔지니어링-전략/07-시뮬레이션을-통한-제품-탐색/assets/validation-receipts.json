@@ -1,0 +1,89 @@
+[
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "workflow",
+    "input": "/workspace/scratch/9e1e1b84a3e8/repo/books/ai-시대의-엔지니어링-전략/07-시뮬레이션을-통한-제품-탐색/assets/02-extension-discovery.json",
+    "output": "/workspace/scratch/9e1e1b84a3e8/repo/books/ai-시대의-엔지니어링-전략/07-시뮬레이션을-통한-제품-탐색/assets/02-extension-discovery.html",
+    "specification": {
+      "sha256": "2661f9f0a04e8cf6160f4c4ad466aab6875102486f71bf8ba6f09a7a56af8e4a",
+      "bytes": 2162
+    },
+    "artifact": {
+      "sha256": "65cb22e9e72c5195beb03c6390f9a1d75c83daec3ae10c2afabacfb5e4cf1cac",
+      "bytes": 802419
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "skipped",
+    "static_svg_review": "passed",
+    "correction_rounds": 1,
+    "svg_sha256": "bc6a1099f01f3069866f740af3baa38e262433edfcd8654d19d4fadd4997343c",
+    "html_visual_review": "not performed"
+  },
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "workflow",
+    "input": "/workspace/scratch/9e1e1b84a3e8/repo/books/ai-시대의-엔지니어링-전략/07-시뮬레이션을-통한-제품-탐색/assets/01-design-feedback.json",
+    "output": "/workspace/scratch/9e1e1b84a3e8/repo/books/ai-시대의-엔지니어링-전략/07-시뮬레이션을-통한-제품-탐색/assets/01-design-feedback.html",
+    "specification": {
+      "sha256": "8eae0f9c3510a77f49f57c2e5c15a26e1629f3549a327cc1462703f2f44a1f88",
+      "bytes": 2031
+    },
+    "artifact": {
+      "sha256": "c53e52556e8d9043300c9a1e5c522cd0d39917fa8d614926d3778fa3adce97ae",
+      "bytes": 801883
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "skipped",
+    "static_svg_review": "passed",
+    "correction_rounds": 1,
+    "svg_sha256": "e52892901b095866e1959b88ce06bbf7b6b9cbf0ce09858529981daca680d715",
+    "html_visual_review": "not performed"
+  },
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "workflow",
+    "input": "/workspace/scratch/9e1e1b84a3e8/repo/books/ai-시대의-엔지니어링-전략/07-시뮬레이션을-통한-제품-탐색/assets/03-discovery-documents.json",
+    "output": "/workspace/scratch/9e1e1b84a3e8/repo/books/ai-시대의-엔지니어링-전략/07-시뮬레이션을-통한-제품-탐색/assets/03-discovery-documents.html",
+    "specification": {
+      "sha256": "d2fe4b80d19008274d7dd1952d3f33e6f415b5096c653300a2fc9061a2e4b69f",
+      "bytes": 1475
+    },
+    "artifact": {
+      "sha256": "4976d9c407f4159a1a08aec36ef3a1326bfc7474341ca7abe68f86f8323a2587",
+      "bytes": 797730
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "skipped",
+    "static_svg_review": "passed",
+    "correction_rounds": 0,
+    "svg_sha256": "e1b0c7f9ce010f41af8e51eb02e0ed15abce2df38bf28047c14aeebe5e23703d",
+    "html_visual_review": "not performed"
+  }
+]
