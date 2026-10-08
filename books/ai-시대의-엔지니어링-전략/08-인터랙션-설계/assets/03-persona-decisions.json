@@ -1,0 +1,103 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "페르소나별 결정과 검증",
+    "quality_profile": "showcase",
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "설계 판단"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "schema",
+      "label": "스키마 작성자"
+    },
+    {
+      "id": "caller",
+      "label": "객체 생성 호출자"
+    },
+    {
+      "id": "validation",
+      "label": "공통 검증과 생성"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "policy",
+      "lane": "schema",
+      "col": 0,
+      "type": "backend",
+      "label": "생성 정책 선언",
+      "sublabel": "ID · at_creation()",
+      "width": 190,
+      "height": 64
+    },
+    {
+      "id": "rules",
+      "lane": "schema",
+      "col": 1,
+      "type": "backend",
+      "label": "입력 규칙 선언",
+      "sublabel": "max_length · user_input()",
+      "width": 190,
+      "height": 64
+    },
+    {
+      "id": "input",
+      "lane": "caller",
+      "col": 1,
+      "type": "backend",
+      "label": "사용자 입력 전달",
+      "sublabel": "ID와 생성 시각은 맡긴다",
+      "width": 190,
+      "height": 64
+    },
+    {
+      "id": "validate",
+      "lane": "validation",
+      "col": 2,
+      "type": "backend",
+      "label": "검증과 정규화",
+      "sublabel": "별도 권한·보안 검증 필요",
+      "width": 190,
+      "height": 64
+    },
+    {
+      "id": "create",
+      "lane": "validation",
+      "col": 3,
+      "type": "backend",
+      "label": "객체를 생성한다",
+      "sublabel": "정책에 따라 값 초기화",
+      "width": 190,
+      "height": 64
+    }
+  ],
+  "edges": [
+    {
+      "from": "policy",
+      "to": "rules",
+      "label": "책임 집중"
+    },
+    {
+      "from": "rules",
+      "to": "validate",
+      "label": "검증 정책"
+    },
+    {
+      "from": "input",
+      "to": "validate",
+      "label": "입력 값"
+    },
+    {
+      "from": "validate",
+      "to": "create",
+      "label": "검증 통과"
+    }
+  ]
+}

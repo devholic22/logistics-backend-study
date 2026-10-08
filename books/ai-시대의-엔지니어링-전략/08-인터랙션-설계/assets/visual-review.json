@@ -1,0 +1,74 @@
+[
+  {
+    "diagram_type": "workflow",
+    "output": "01-affordance-timing.html",
+    "specification_sha256": "aefa7b2a584b459c210584b8ebba8e12fc4af022f3e79664d1fb777e8c7ce65e",
+    "artifact_sha256": "d506507460c5a9f4d8a97a18cbae64c65fa0b53f317b5e9d3c447adf7ddbce09",
+    "artifact_bytes": 799849,
+    "validation": "9/9 showcase, 0 errors, 0 warnings",
+    "browser_evidence": "passed",
+    "visual_review": "passed",
+    "correction_rounds": 2,
+    "reviewer": "Codex image-capable reviewer",
+    "inspected_screenshots": [
+      "01-affordance-timing.visual-check.1440x900.light.png",
+      "01-affordance-timing.visual-check.1440x900.dark.png",
+      "01-affordance-timing.visual-check.2048x1320.light.png",
+      "01-affordance-timing.visual-check.2048x1320.dark.png"
+    ],
+    "observations": [
+      "한국어 글리프·노드·레이블이 잘림 없이 표시됨",
+      "밝은/어두운 테마에서 화살표와 분기 식별 가능",
+      "전체 화면을 확인해 관계 교차·레이블 가림 없음"
+    ],
+    "scope": "정적 READ/Still 화면과 배치 검수. 검색·focus·export의 동작 검증은 포함하지 않음."
+  },
+  {
+    "diagram_type": "workflow",
+    "output": "02-extension-scenarios.html",
+    "specification_sha256": "f54041ced10647679dca4f5b4879c84b1f705dd725baca27137e737f971e262c",
+    "artifact_sha256": "3048fb64ea5132d99cac96659b4691078f2557324769f56c462a6ad5f6e028ab",
+    "artifact_bytes": 800158,
+    "validation": "9/9 showcase, 0 errors, 0 warnings",
+    "browser_evidence": "passed",
+    "visual_review": "passed",
+    "correction_rounds": 2,
+    "reviewer": "Codex image-capable reviewer",
+    "inspected_screenshots": [
+      "02-extension-scenarios.visual-check.1440x900.light.png",
+      "02-extension-scenarios.visual-check.1440x900.dark.png",
+      "02-extension-scenarios.visual-check.2048x1320.light.png",
+      "02-extension-scenarios.visual-check.2048x1320.dark.png"
+    ],
+    "observations": [
+      "한국어 글리프·노드·레이블이 잘림 없이 표시됨",
+      "밝은/어두운 테마에서 화살표와 분기 식별 가능",
+      "전체 화면을 확인해 관계 교차·레이블 가림 없음"
+    ],
+    "scope": "정적 READ/Still 화면과 배치 검수. 검색·focus·export의 동작 검증은 포함하지 않음."
+  },
+  {
+    "diagram_type": "workflow",
+    "output": "03-persona-decisions.html",
+    "specification_sha256": "6e4a76adb2aa850ac89a11f95d45d03053b2f9c5e1945fb77db39263b975000f",
+    "artifact_sha256": "fcb3c6b54a1f2d26b23ed2607b9e92cc1e301fb672e170d503e913aafb8d4cff",
+    "artifact_bytes": 799586,
+    "validation": "9/9 showcase, 0 errors, 0 warnings",
+    "browser_evidence": "passed",
+    "visual_review": "passed",
+    "correction_rounds": 2,
+    "reviewer": "Codex image-capable reviewer",
+    "inspected_screenshots": [
+      "03-persona-decisions.visual-check.1440x900.light.png",
+      "03-persona-decisions.visual-check.1440x900.dark.png",
+      "03-persona-decisions.visual-check.2048x1320.light.png",
+      "03-persona-decisions.visual-check.2048x1320.dark.png"
+    ],
+    "observations": [
+      "한국어 글리프·노드·레이블이 잘림 없이 표시됨",
+      "밝은/어두운 테마에서 화살표와 분기 식별 가능",
+      "전체 화면을 확인해 관계 교차·레이블 가림 없음"
+    ],
+    "scope": "정적 READ/Still 화면과 배치 검수. 검색·focus·export의 동작 검증은 포함하지 않음."
+  }
+]
