@@ -1,0 +1,74 @@
+[
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "workflow",
+    "input": "/workspace/scratch/d9fdc478fa85/logistics-backend-study/books/ai-시대의-엔지니어링-전략/08-인터랙션-설계/assets/01-affordance-timing.json",
+    "output": "/workspace/scratch/d9fdc478fa85/logistics-backend-study/books/ai-시대의-엔지니어링-전략/08-인터랙션-설계/assets/01-affordance-timing.html",
+    "specification": {
+      "sha256": "aefa7b2a584b459c210584b8ebba8e12fc4af022f3e79664d1fb777e8c7ce65e",
+      "bytes": 2481
+    },
+    "artifact": {
+      "sha256": "d506507460c5a9f4d8a97a18cbae64c65fa0b53f317b5e9d3c447adf7ddbce09",
+      "bytes": 799849
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "workflow",
+    "input": "/workspace/scratch/d9fdc478fa85/logistics-backend-study/books/ai-시대의-엔지니어링-전략/08-인터랙션-설계/assets/02-extension-scenarios.json",
+    "output": "/workspace/scratch/d9fdc478fa85/logistics-backend-study/books/ai-시대의-엔지니어링-전략/08-인터랙션-설계/assets/02-extension-scenarios.html",
+    "specification": {
+      "sha256": "f54041ced10647679dca4f5b4879c84b1f705dd725baca27137e737f971e262c",
+      "bytes": 2557
+    },
+    "artifact": {
+      "sha256": "3048fb64ea5132d99cac96659b4691078f2557324769f56c462a6ad5f6e028ab",
+      "bytes": 800158
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "ok": true,
+    "command": "deliver",
+    "type": "workflow",
+    "input": "/workspace/scratch/d9fdc478fa85/logistics-backend-study/books/ai-시대의-엔지니어링-전략/08-인터랙션-설계/assets/03-persona-decisions.json",
+    "output": "/workspace/scratch/d9fdc478fa85/logistics-backend-study/books/ai-시대의-엔지니어링-전략/08-인터랙션-설계/assets/03-persona-decisions.html",
+    "specification": {
+      "sha256": "6e4a76adb2aa850ac89a11f95d45d03053b2f9c5e1945fb77db39263b975000f",
+      "bytes": 2065
+    },
+    "artifact": {
+      "sha256": "fcb3c6b54a1f2d26b23ed2607b9e92cc1e301fb672e170d503e913aafb8d4cff",
+      "bytes": 799586
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    }
+  }
+]

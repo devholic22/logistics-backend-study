@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "확장 가능한 기능의 판단",
+    "quality_profile": "showcase",
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "설계 판단"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "decision",
+      "label": "시나리오와 비용"
+    },
+    {
+      "id": "narrow",
+      "label": "좁은 기능"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "question",
+      "lane": "decision",
+      "col": 0,
+      "type": "backend",
+      "label": "확장성을 검토한다",
+      "sublabel": "개인 취향보다 시나리오",
+      "width": 190,
+      "height": 80
+    },
+    {
+      "id": "three",
+      "lane": "decision",
+      "col": 1,
+      "type": "backend",
+      "label": "시나리오 셋 확인",
+      "sublabel": "서로 다르고 강력하며 가까움",
+      "width": 190,
+      "height": 80
+    },
+    {
+      "id": "cost",
+      "lane": "decision",
+      "col": 2,
+      "type": "backend",
+      "label": "비용과 우선순위",
+      "sublabel": "복잡성 · 위험한 어포던스",
+      "width": 190,
+      "height": 80
+    },
+    {
+      "id": "extend",
+      "lane": "decision",
+      "col": 3,
+      "type": "backend",
+      "label": "확장 토대를 만든다",
+      "sublabel": "시나리오별 테스트",
+      "width": 190,
+      "height": 80
+    },
+    {
+      "id": "specific",
+      "lane": "narrow",
+      "col": 2,
+      "type": "backend",
+      "label": "구체적인 기능부터",
+      "sublabel": "한두 시나리오에 집중",
+      "width": 190,
+      "height": 80
+    }
+  ],
+  "edges": [
+    {
+      "from": "question",
+      "to": "three",
+      "label": "근거 확인"
+    },
+    {
+      "from": "three",
+      "to": "cost",
+      "label": "셋이 있다"
+    },
+    {
+      "from": "cost",
+      "to": "extend",
+      "label": "비용 검토"
+    },
+    {
+      "from": "three",
+      "to": "specific",
+      "label": "셋이 없다"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "시나리오는 서로 달라야 한다",
+      "items": [
+        "입력 검증 · 가독성 · 프로덕션 객체 인스펙터",
+        "시나리오마다 동기와 검증 방법을 확인한다."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "토대와 구현의 시점을 나눈다",
+      "items": [
+        "미리 필요한 타입 정보는 스키마에 선언한다.",
+        "우선순위가 낮은 인스펙터 구현은 미룰 수 있다."
+      ]
+    }
+  ]
+}

@@ -69,24 +69,7 @@ class Post:
 
 > **EntSchema를 도입할 당시 이미 데이터베이스와 코드베이스에는 수많은 엔티티가 손으로 만들어져** 있었습니다. **단순한 데이터베이스 수준 표현을 유지하는 큰 장점은 여기에** 있어요. **저장돼 있던 데이터베이스 표현에서 EntSchema를 자동으로 만들 수 있다는 점**입니다. **간단한 스크립트만 있으면 아주 큰 코드베이스의 마이그레이션이 한결 가벼워집니다.**
 
-```mermaid
-flowchart LR
-    DB["기존 데이터베이스 표현"]
-    SCRIPT["간단한 스크립트"]
-    SCHEMA["EntSchema 자동 생성"]
-    MIG["대규모 코드베이스 마이그레이션"]
-
-    DB --> SCRIPT
-    SCRIPT --> SCHEMA
-    SCHEMA --> MIG
-
-    %% lint-ok: DEAD-END  마이그레이션이 이 이득의 귀결이다
-    %% lint-ok: NO-INBOUND  기존 표현이 출발점이다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    class SCHEMA core
-    class DB,SCRIPT,MIG sys
-```
+기존 데이터베이스 표현을 스크립트로 읽어 EntSchema를 자동 생성하고, 이를 대규모 코드베이스 마이그레이션의 출발점으로 삼습니다. DB 수준 정보만 담았다는 제약이 자동 변환을 가능하게 했습니다.
 
 *스키마에 DB 밖 정보가 없다는 제약이 자동 변환을 가능하게 했다*
 
