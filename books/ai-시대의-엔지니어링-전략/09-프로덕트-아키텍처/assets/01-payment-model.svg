@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-theme="light" viewBox="0 0 1120 650" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase">
+<style>svg{background:#f8fafc;}
+svg{
+      width: 100%;
+      min-width: min(900px, 100%);
+      display: block;
+      transform-origin: 0 0;
+      transition: transform 0.18s ease;
+    }
+.c-grid{ stroke: #e2e8f0; fill: none; }
+.c-mask{ fill: #ffffff; stroke: none; }
+.c-database{ fill: rgba(167, 139, 250, 0.2);   stroke: #7c3aed; }
+.c-external{ fill: rgba(148, 163, 184, 0.18);   stroke: #64748b; }
+.t-primary{ fill: #0f172a; }
+.t-muted{ fill: #64748b; }
+.a-default{ stroke: #94a3b8; fill: none; }
+.m-default{ fill: #94a3b8; }
+.m-emphasis{ fill: #059669; }
+.m-security{ fill: #e11d48; }
+.m-dashed{ fill: #7c3aed; }
+text{font-family: "Noto Sans CJK KR", sans-serif;}
+</style>
+        <title id="archify-diagram-title">결제 데이터 모델의 일대다 관계</title>
+        <desc id="archify-diagram-description">Archify로 생성한 본문의 관계 도식입니다.</desc>
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- Boundaries (behind everything) -->
+
+
+        <!-- Connection paths (before components for correct z-order) -->
+        <path data-edge-from="customer" data-edge-to="payment" data-edge-label="1 : 다" data-edge-key="0" data-composition-points="300,166;820,166" d="M 300 166 L 820 166" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="merchant" data-edge-to="payment" data-edge-label="1 : 다" data-edge-key="1" data-composition-points="300,496;560,496;560,180;820,180" d="M 300 496 L 552 496 Q 560 496 560 488 L 560 188 Q 560 180 568 180 L 820 180" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="merchant" data-edge-to="balance" data-edge-label="1 : 다" data-edge-key="2" data-composition-points="300,510;820,510" d="M 300 510 L 820 510" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+        <!-- Components -->
+        <g id="node-customer" data-node-id="customer" data-node-label="고객" tabindex="0" role="button" aria-label="Focus 고객, 결제를 수행하는 주체, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="결제를 수행하는 주체" data-node-context="Architecture component">
+          <title>고객 · 결제를 수행하는 주체 · Architecture component</title>
+          <rect x="60" y="130" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="60" y="130" width="240" height="86" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(66 136) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="180" y="171" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">고객</text>
+        <text data-detail="context" x="180" y="187" class="t-muted" font-size="9" text-anchor="middle">결제를 수행하는 주체</text>
+        </g>
+
+        <g id="node-payment" data-node-id="payment" data-node-label="결제" tabindex="0" role="button" aria-label="Focus 결제, 관계의 다 쪽, Architecture component" aria-pressed="false" data-node-kind="database" data-node-sublabel="관계의 다 쪽" data-node-context="Architecture component">
+          <title>결제 · 관계의 다 쪽 · Architecture component</title>
+          <rect x="820" y="130" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="820" y="130" width="240" height="86" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(826 136) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="940" y="171" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">결제</text>
+        <text data-detail="context" x="940" y="187" class="t-muted" font-size="9" text-anchor="middle">관계의 다 쪽</text>
+        </g>
+
+        <g id="node-merchant" data-node-id="merchant" data-node-label="가맹점" tabindex="0" role="button" aria-label="Focus 가맹점, 결제 수취·잔액 보유, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="결제 수취·잔액 보유" data-node-context="Architecture component">
+          <title>가맹점 · 결제 수취·잔액 보유 · Architecture component</title>
+          <rect x="60" y="460" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="60" y="460" width="240" height="86" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(66 466) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="180" y="501" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">가맹점</text>
+        <text data-detail="context" x="180" y="517" class="t-muted" font-size="9" text-anchor="middle">결제 수취·잔액 보유</text>
+        </g>
+
+        <g id="node-balance" data-node-id="balance" data-node-label="잔액" tabindex="0" role="button" aria-label="Focus 잔액, 관계의 다 쪽, Architecture component" aria-pressed="false" data-node-kind="database" data-node-sublabel="관계의 다 쪽" data-node-context="Architecture component">
+          <title>잔액 · 관계의 다 쪽 · Architecture component</title>
+          <rect x="820" y="460" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="820" y="460" width="240" height="86" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(826 466) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="940" y="501" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">잔액</text>
+        <text data-detail="context" x="940" y="517" class="t-muted" font-size="9" text-anchor="middle">관계의 다 쪽</text>
+        </g>
+
+        <!-- Connection labels -->
+        <g data-detail="context" data-edge-from="customer" data-edge-to="payment" data-edge-label="1 : 다" data-edge-key="0">
+          <rect x="540.6" y="146" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="560" y="156" class="t-muted" font-size="8" text-anchor="middle">1 : 다</text>
+        </g>
+        <g data-detail="context" data-edge-from="merchant" data-edge-to="payment" data-edge-label="1 : 다" data-edge-key="1">
+          <rect x="540.6" y="318" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="560" y="328" class="t-muted" font-size="8" text-anchor="middle">1 : 다</text>
+        </g>
+        <g data-detail="context" data-edge-from="merchant" data-edge-to="balance" data-edge-label="1 : 다" data-edge-key="2">
+          <rect x="650.6" y="490" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="670" y="500" class="t-muted" font-size="8" text-anchor="middle">1 : 다</text>
+        </g>
+
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+
+
+        <!-- Legend -->
+        <g data-legend="" data-legend-bridge="">
+          <text x="40" y="614" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="데이터·지표" data-legend-x="40" data-legend-baseline="634" data-legend-width="98">
+            <rect x="40" y="625" width="16" height="10" rx="2.5" class="c-database" stroke-width="1"/>
+            <text x="62" y="634" class="t-muted" font-size="10" font-weight="500">데이터·지표</text>
+          </g>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="사용자·시나리오" data-legend-x="160" data-legend-baseline="634" data-legend-width="118">
+            <rect x="160" y="625" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="182" y="634" class="t-muted" font-size="10" font-weight="500">사용자·시나리오</text>
+          </g>
+        </g>
+      </svg>

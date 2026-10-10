@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-theme="light" viewBox="0 0 1120 650" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase">
+<style>svg{background:#f8fafc;}
+svg{
+      width: 100%;
+      min-width: min(900px, 100%);
+      display: block;
+      transform-origin: 0 0;
+      transition: transform 0.18s ease;
+    }
+.c-grid{ stroke: #e2e8f0; fill: none; }
+.c-mask{ fill: #ffffff; stroke: none; }
+.c-backend{ fill: rgba(52, 211, 153, 0.18);    stroke: #059669; }
+.c-database{ fill: rgba(167, 139, 250, 0.2);   stroke: #7c3aed; }
+.c-security{ fill: rgba(251, 113, 133, 0.15);   stroke: #e11d48; }
+.t-primary{ fill: #0f172a; }
+.t-muted{ fill: #64748b; }
+.a-default{ stroke: #94a3b8; fill: none; }
+.m-default{ fill: #94a3b8; }
+.m-emphasis{ fill: #059669; }
+.m-security{ fill: #e11d48; }
+.m-dashed{ fill: #7c3aed; }
+text{font-family: "Noto Sans CJK KR", sans-serif;}
+</style>
+        <title id="archify-diagram-title">동기 수수료 기록의 가용성 결합</title>
+        <desc id="archify-diagram-description">Archify로 생성한 본문의 관계 도식입니다.</desc>
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- Boundaries (behind everything) -->
+
+
+        <!-- Connection paths (before components for correct z-order) -->
+        <path data-edge-from="fee" data-edge-to="ryw" data-edge-label="일관성 이득" data-edge-key="0" data-composition-points="300,183;820,183" d="M 300 183 L 820 183" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="fee" data-edge-to="shard" data-edge-label="장애 시 의존" data-edge-key="1" data-composition-points="180,226;180,470" d="M 180 226 L 180 470" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="shard" data-edge-to="fail" data-edge-label="동기 의존 전파" data-edge-key="2" data-composition-points="300,513;820,513" d="M 300 513 L 820 513" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+        <!-- Components -->
+        <g id="node-fee" data-node-id="fee" data-node-label="수수료 동기 기록" tabindex="0" role="button" aria-label="Focus 수수료 동기 기록, 플랫폼의 리더 DB에 기록, Architecture component" aria-pressed="false" data-node-kind="backend" data-node-sublabel="플랫폼의 리더 DB에 기록" data-node-context="Architecture component">
+          <title>수수료 동기 기록 · 플랫폼의 리더 DB에 기록 · Architecture component</title>
+          <rect x="60" y="140" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="60" y="140" width="240" height="86" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(66 146) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="180" y="181" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">수수료 동기 기록</text>
+        <text data-detail="context" x="180" y="197" class="t-muted" font-size="9" text-anchor="middle">플랫폼의 리더 DB에 기록</text>
+        </g>
+
+        <g id="node-ryw" data-node-id="ryw" data-node-label="호출자에게 RyW 제공" tabindex="0" role="button" aria-label="Focus 호출자에게 RyW 제공, 수수료 세부 정보 즉시 반환, Architecture component" aria-pressed="false" data-node-kind="database" data-node-sublabel="수수료 세부 정보 즉시 반환" data-node-context="Architecture component">
+          <title>호출자에게 RyW 제공 · 수수료 세부 정보 즉시 반환 · Architecture component</title>
+          <rect x="820" y="140" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="820" y="140" width="240" height="86" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(826 146) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="940" y="181" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">호출자에게 RyW 제공</text>
+        <text data-detail="context" x="940" y="197" class="t-muted" font-size="9" text-anchor="middle">수수료 세부 정보 즉시 반환</text>
+        </g>
+
+        <g id="node-shard" data-node-id="shard" data-node-label="플랫폼 샤드 다운" tabindex="0" role="button" aria-label="Focus 플랫폼 샤드 다운, 약 한 시간 · 책의 장애 사례, Architecture component" aria-pressed="false" data-node-kind="security" data-node-sublabel="약 한 시간 · 책의 장애 사례" data-node-context="Architecture component">
+          <title>플랫폼 샤드 다운 · 약 한 시간 · 책의 장애 사례 · Architecture component</title>
+          <rect x="60" y="470" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="60" y="470" width="240" height="86" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(66 476) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="180" y="511" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">플랫폼 샤드 다운</text>
+        <text data-detail="context" x="180" y="527" class="t-muted" font-size="9" text-anchor="middle">약 한 시간 · 책의 장애 사례</text>
+        </g>
+
+        <g id="node-fail" data-node-id="fail" data-node-label="모든 가맹점 결제 실패" tabindex="0" role="button" aria-label="Focus 모든 가맹점 결제 실패, 해당 플랫폼에 속한 가맹점, Architecture component" aria-pressed="false" data-node-kind="security" data-node-sublabel="해당 플랫폼에 속한 가맹점" data-node-context="Architecture component">
+          <title>모든 가맹점 결제 실패 · 해당 플랫폼에 속한 가맹점 · Architecture component</title>
+          <rect x="820" y="470" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="820" y="470" width="240" height="86" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(826 476) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="940" y="511" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모든 가맹점 결제 실패</text>
+        <text data-detail="context" x="940" y="527" class="t-muted" font-size="9" text-anchor="middle">해당 플랫폼에 속한 가맹점</text>
+        </g>
+
+        <!-- Connection labels -->
+        <g data-detail="context" data-edge-from="fee" data-edge-to="ryw" data-edge-label="일관성 이득" data-edge-key="0">
+          <rect x="528.6" y="163" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="560" y="173" class="t-muted" font-size="8" text-anchor="middle">일관성 이득</text>
+        </g>
+        <g data-detail="context" data-edge-from="fee" data-edge-to="shard" data-edge-label="장애 시 의존" data-edge-key="1">
+          <rect x="146.2" y="320" width="67.6" height="14" rx="3" class="c-mask"/>
+          <text x="180" y="330" class="t-muted" font-size="8" text-anchor="middle">장애 시 의존</text>
+        </g>
+        <g data-detail="context" data-edge-from="shard" data-edge-to="fail" data-edge-label="동기 의존 전파" data-edge-key="2">
+          <rect x="521.4" y="493" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="560" y="503" class="t-muted" font-size="8" text-anchor="middle">동기 의존 전파</text>
+        </g>
+
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+
+
+        <!-- Legend -->
+        <g data-legend="" data-legend-bridge="">
+          <text x="40" y="614" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="처리·판단" data-legend-x="40" data-legend-baseline="634" data-legend-width="88">
+            <rect x="40" y="625" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="62" y="634" class="t-muted" font-size="10" font-weight="500">처리·판단</text>
+          </g>
+          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="데이터·지표" data-legend-x="150" data-legend-baseline="634" data-legend-width="98">
+            <rect x="150" y="625" width="16" height="10" rx="2.5" class="c-database" stroke-width="1"/>
+            <text x="172" y="634" class="t-muted" font-size="10" font-weight="500">데이터·지표</text>
+          </g>
+          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="제약·장애" data-legend-x="270" data-legend-baseline="634" data-legend-width="88">
+            <rect x="270" y="625" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
+            <text x="292" y="634" class="t-muted" font-size="10" font-weight="500">제약·장애</text>
+          </g>
+        </g>
+      </svg>

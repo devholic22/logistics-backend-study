@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-theme="light" viewBox="0 0 1120 650" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase">
+<style>svg{background:#f8fafc;}
+svg{
+      width: 100%;
+      min-width: min(900px, 100%);
+      display: block;
+      transform-origin: 0 0;
+      transition: transform 0.18s ease;
+    }
+.c-grid{ stroke: #e2e8f0; fill: none; }
+.c-mask{ fill: #ffffff; stroke: none; }
+.c-backend{ fill: rgba(52, 211, 153, 0.18);    stroke: #059669; }
+.c-database{ fill: rgba(167, 139, 250, 0.2);   stroke: #7c3aed; }
+.c-cloud{ fill: rgba(251, 191, 36, 0.18);      stroke: #d97706; }
+.c-external{ fill: rgba(148, 163, 184, 0.18);   stroke: #64748b; }
+.t-primary{ fill: #0f172a; }
+.t-muted{ fill: #64748b; }
+.a-default{ stroke: #94a3b8; fill: none; }
+.m-default{ fill: #94a3b8; }
+.m-emphasis{ fill: #059669; }
+.m-security{ fill: #e11d48; }
+.m-dashed{ fill: #7c3aed; }
+text{font-family: "Noto Sans CJK KR", sans-serif;}
+</style>
+        <title id="archify-diagram-title">운영·섀도 클러스터의 부하 비교</title>
+        <desc id="archify-diagram-description">Archify로 생성한 본문의 관계 도식입니다.</desc>
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- Boundaries (behind everything) -->
+
+
+        <!-- Connection paths (before components for correct z-order) -->
+        <path data-edge-from="request" data-edge-to="prod" data-edge-label="운영 처리" data-edge-key="0" data-composition-points="290,316;365,316;365,173;440,173" d="M 290 316 L 357 316 Q 365 316 365 308 L 365 181 Q 365 173 373 173 L 440 173" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="request" data-edge-to="synthetic" data-edge-label="요청 복제" data-edge-key="1" data-composition-points="290,330;365,330;365,503;440,503" d="M 290 330 L 357 330 Q 365 330 365 338 L 365 495 Q 365 503 373 503 L 440 503" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="synthetic" data-edge-to="shadow" data-edge-label="두 배 입력" data-edge-key="2" data-composition-points="680,503;830,503" d="M 680 503 L 830 503" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="shadow" data-edge-to="metrics" data-edge-label="관측" data-edge-key="3" data-composition-points="950,460;950,216" d="M 950 460 L 950 216" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="prod" data-edge-to="metrics" data-edge-label="관측" data-edge-key="4" data-composition-points="680,173;830,173" d="M 680 173 L 830 173" class="a-default" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+        <!-- Components -->
+        <g id="node-request" data-node-id="request" data-node-label="들어온 요청" tabindex="0" role="button" aria-label="Focus 들어온 요청, 실제 운영 트래픽, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="실제 운영 트래픽" data-node-context="Architecture component">
+          <title>들어온 요청 · 실제 운영 트래픽 · Architecture component</title>
+          <rect x="50" y="280" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="50" y="280" width="240" height="86" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(56 286) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="170" y="321" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">들어온 요청</text>
+        <text data-detail="context" x="170" y="337" class="t-muted" font-size="9" text-anchor="middle">실제 운영 트래픽</text>
+        </g>
+
+        <g id="node-prod" data-node-id="prod" data-node-label="운영 클러스터" tabindex="0" role="button" aria-label="Focus 운영 클러스터, 원래 요청 처리, Architecture component" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="원래 요청 처리" data-node-context="Architecture component">
+          <title>운영 클러스터 · 원래 요청 처리 · Architecture component</title>
+          <rect x="440" y="130" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="440" y="130" width="240" height="86" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(446 136) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="560" y="171" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">운영 클러스터</text>
+        <text data-detail="context" x="560" y="187" class="t-muted" font-size="9" text-anchor="middle">원래 요청 처리</text>
+        </g>
+
+        <g id="node-synthetic" data-node-id="synthetic" data-node-label="합성 요청 2건" tabindex="0" role="button" aria-label="Focus 합성 요청 2건, ID만 다르게 복제, Architecture component" aria-pressed="false" data-node-kind="backend" data-node-sublabel="ID만 다르게 복제" data-node-context="Architecture component">
+          <title>합성 요청 2건 · ID만 다르게 복제 · Architecture component</title>
+          <rect x="440" y="460" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="440" y="460" width="240" height="86" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(446 466) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="560" y="501" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">합성 요청 2건</text>
+        <text data-detail="context" x="560" y="517" class="t-muted" font-size="9" text-anchor="middle">ID만 다르게 복제</text>
+        </g>
+
+        <g id="node-shadow" data-node-id="shadow" data-node-label="섀도 클러스터" tabindex="0" role="button" aria-label="Focus 섀도 클러스터, 외부 시스템과 통신 안 함, Architecture component" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="외부 시스템과 통신 안 함" data-node-context="Architecture component">
+          <title>섀도 클러스터 · 외부 시스템과 통신 안 함 · Architecture component</title>
+          <rect x="830" y="460" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="830" y="460" width="240" height="86" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(836 466) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="950" y="501" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">섀도 클러스터</text>
+        <text data-detail="context" x="950" y="517" class="t-muted" font-size="9" text-anchor="middle">외부 시스템과 통신 안 함</text>
+        </g>
+
+        <g id="node-metrics" data-node-id="metrics" data-node-label="시나리오 지표 · 분산 추적" tabindex="0" role="button" aria-label="Focus 시나리오 지표 · 분산 추적, 운영과 시뮬레이션 비교, Architecture component" aria-pressed="false" data-node-kind="database" data-node-sublabel="운영과 시뮬레이션 비교" data-node-context="Architecture component">
+          <title>시나리오 지표 · 분산 추적 · 운영과 시뮬레이션 비교 · Architecture component</title>
+          <rect x="830" y="130" width="240" height="86" rx="6" class="c-mask"/>
+          <rect x="830" y="130" width="240" height="86" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(836 136) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="950" y="171" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">시나리오 지표 · 분산 추적</text>
+        <text data-detail="context" x="950" y="187" class="t-muted" font-size="9" text-anchor="middle">운영과 시뮬레이션 비교</text>
+        </g>
+
+        <!-- Connection labels -->
+        <g data-detail="context" data-edge-from="request" data-edge-to="prod" data-edge-label="운영 처리" data-edge-key="0">
+          <rect x="338.4" y="224.5" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="365" y="234.5" class="t-muted" font-size="8" text-anchor="middle">운영 처리</text>
+        </g>
+        <g data-detail="context" data-edge-from="request" data-edge-to="synthetic" data-edge-label="요청 복제" data-edge-key="1">
+          <rect x="338.4" y="396.5" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="365" y="406.5" class="t-muted" font-size="8" text-anchor="middle">요청 복제</text>
+        </g>
+        <g data-detail="context" data-edge-from="synthetic" data-edge-to="shadow" data-edge-label="두 배 입력" data-edge-key="2">
+          <rect x="726" y="483" width="58" height="14" rx="3" class="c-mask"/>
+          <text x="755" y="493" class="t-muted" font-size="8" text-anchor="middle">두 배 입력</text>
+        </g>
+        <g data-detail="context" data-edge-from="shadow" data-edge-to="metrics" data-edge-label="관측" data-edge-key="3">
+          <rect x="935" y="440" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="950" y="450" class="t-muted" font-size="8" text-anchor="middle">관측</text>
+        </g>
+        <g data-detail="context" data-edge-from="prod" data-edge-to="metrics" data-edge-label="관측" data-edge-key="4">
+          <rect x="740" y="153" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="755" y="163" class="t-muted" font-size="8" text-anchor="middle">관측</text>
+        </g>
+
+        <!-- Boundary labels (foreground masks keep routes out of titles) -->
+
+
+        <!-- Legend -->
+        <g data-legend="" data-legend-bridge="">
+          <text x="40" y="614" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="처리·판단" data-legend-x="40" data-legend-baseline="634" data-legend-width="88">
+            <rect x="40" y="625" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="62" y="634" class="t-muted" font-size="10" font-weight="500">처리·판단</text>
+          </g>
+          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="데이터·지표" data-legend-x="150" data-legend-baseline="634" data-legend-width="98">
+            <rect x="150" y="625" width="16" height="10" rx="2.5" class="c-database" stroke-width="1"/>
+            <text x="172" y="634" class="t-muted" font-size="10" font-weight="500">데이터·지표</text>
+          </g>
+          <g data-legend-semantic-kind="cloud" data-legend-kind="cloud" data-legend-label="실행 환경" data-legend-x="270" data-legend-baseline="634" data-legend-width="88">
+            <rect x="270" y="625" width="16" height="10" rx="2.5" class="c-cloud" stroke-width="1"/>
+            <text x="292" y="634" class="t-muted" font-size="10" font-weight="500">실행 환경</text>
+          </g>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="사용자·시나리오" data-legend-x="380" data-legend-baseline="634" data-legend-width="118">
+            <rect x="380" y="625" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="402" y="634" class="t-muted" font-size="10" font-weight="500">사용자·시나리오</text>
+          </g>
+        </g>
+      </svg>

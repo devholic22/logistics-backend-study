@@ -27,27 +27,14 @@
 
 > 계약서에는 **일정 기간 동안 API 호출의 최소 99.9%는 성공해야 한다**고 명시될 수 있습니다. **회사가 이 기준을 충족하지 못하면 고객에게 일정한 보상**을 제공해야 합니다. **일반적으로는 서비스 크레딧 형태의 환불**이 이루어집니다. **이러한 계약은 기업이 신뢰성을 지속적으로 개선하도록 동기를 부여한다는 점에서 중요한 의미**를 갖습니다.
 
-```mermaid
-flowchart LR
-    SLA["SLA<br/>고객에게 약속한 최소 보장"]
-    SLO["SLO<br/>내부적으로 세운 더 높은 목표"]
-    REAL["실제 달성 수준"]
-    TRUST["공개와 투명성으로 쌓는 신뢰"]
+| 구분 | 의미 |
+| --- | --- |
+| SLA | 고객에게 약속한 최소 보장 |
+| SLO | 약속을 지키기 위해 내부에서 세운 목표 |
+| 실제 달성 수준 | 관측된 결과이며 목표와 다를 수 있음 |
+| 공개와 투명성 | 약속·목표·실제 결과의 차이를 알려 신뢰 형성 |
 
-    SLA ~~~ SLO
-    SLO ~~~ REAL
-    REAL --> TRUST
-
-    %% lint-ok: DEAD-END  신뢰가 이 흐름의 목적지다
-    %% lint-ok: ORPHAN  SLA·SLO·실제는 높이 순으로 늘어놓은 배치다
-    %% lint-ok: NO-INBOUND  같은 이유로 인바운드 엣지가 없다
-    classDef core fill:#93ad70,stroke:#5f7a44,color:#121a08
-    classDef sys fill:#e9e5a8,stroke:#a99f4d,color:#26240c
-    classDef muted fill:#dcdcd2,stroke:#a8a89c,color:#3a3a30
-    class TRUST core
-    class SLO,REAL sys
-    class SLA muted
-```
+SLO에 여유를 두는 것은 설계 의도이고, 실제 달성 수준이 항상 SLO보다 높은 것은 아닙니다.
 
 *SLA는 바닥선이고, 그 위의 실력은 다른 방식으로 보여줘야 한다*
 
