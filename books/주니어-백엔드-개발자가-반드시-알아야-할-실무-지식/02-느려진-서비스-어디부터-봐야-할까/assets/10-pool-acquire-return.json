@@ -1,0 +1,249 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "커넥션 확보부터 쿼리 실행과 반환까지",
+    "quality_profile": "showcase",
+    "output": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/assets/10-pool-acquire-return.html",
+    "repository": {
+      "url": "https://github.com/devholic22/logistics-backend-study.git",
+      "revision": "1a850354b9dbf42a931f12349129fe3185180da9"
+    },
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "backend": {
+          "label": "애플리케이션·풀"
+        },
+        "database": {
+          "label": "DB 연결·작업"
+        },
+        "messagebus": {
+          "label": "대기열"
+        },
+        "external": {
+          "label": "클라이언트"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "pool",
+      "label": "요청과 커넥션 풀"
+    },
+    {
+      "id": "wait",
+      "label": "최대 크기 도달 시 대기",
+      "variant": "exception"
+    },
+    {
+      "id": "db",
+      "label": "DB 작업"
+    }
+  ],
+  "mainPath": [
+    "request",
+    "acquire",
+    "lease",
+    "query",
+    "result",
+    "release"
+  ],
+  "nodes": [
+    {
+      "id": "request",
+      "lane": "pool",
+      "col": 0,
+      "type": "backend",
+      "label": "커넥션 요청",
+      "width": 160,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 129,
+          "end_line": 129
+        }
+      ]
+    },
+    {
+      "id": "acquire",
+      "lane": "pool",
+      "col": 1,
+      "type": "backend",
+      "label": "풀 상태 확인",
+      "width": 160,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 130,
+          "end_line": 139
+        }
+      ]
+    },
+    {
+      "id": "create",
+      "lane": "pool",
+      "col": 2,
+      "type": "database",
+      "label": "새 DB 연결 생성",
+      "width": 160,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 132,
+          "end_line": 135
+        }
+      ]
+    },
+    {
+      "id": "lease",
+      "lane": "pool",
+      "col": 3,
+      "type": "backend",
+      "label": "커넥션 대여",
+      "width": 160,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 130,
+          "end_line": 139
+        }
+      ]
+    },
+    {
+      "id": "wait",
+      "lane": "wait",
+      "col": 1,
+      "type": "messagebus",
+      "label": "반환까지 대기",
+      "width": 160,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 136,
+          "end_line": 138
+        }
+      ]
+    },
+    {
+      "id": "query",
+      "lane": "db",
+      "col": 3,
+      "type": "database",
+      "label": "쿼리 실행",
+      "width": 160,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 141,
+          "end_line": 141
+        }
+      ]
+    },
+    {
+      "id": "result",
+      "lane": "db",
+      "col": 4,
+      "type": "database",
+      "label": "실행 결과",
+      "width": 160,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 142,
+          "end_line": 142
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "lane": "pool",
+      "col": 4,
+      "type": "backend",
+      "label": "풀에 반환",
+      "width": 160,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 123,
+          "end_line": 143
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "ask",
+      "from": "request",
+      "to": "acquire"
+    },
+    {
+      "id": "reuse",
+      "from": "acquire",
+      "to": "lease",
+      "label": "유휴 있음"
+    },
+    {
+      "id": "expand",
+      "from": "acquire",
+      "to": "create",
+      "label": "유휴 없음 · 확장 가능"
+    },
+    {
+      "id": "created",
+      "from": "create",
+      "to": "lease",
+      "label": "연결 완료"
+    },
+    {
+      "id": "saturated",
+      "from": "acquire",
+      "to": "wait",
+      "variant": "security",
+      "role": "branch",
+      "label": "최대 크기 도달"
+    },
+    {
+      "id": "available",
+      "from": "wait",
+      "to": "lease",
+      "variant": "dashed",
+      "role": "return",
+      "label": "반환된 연결 확보"
+    },
+    {
+      "id": "execute",
+      "from": "lease",
+      "to": "query"
+    },
+    {
+      "id": "response",
+      "from": "query",
+      "to": "result"
+    },
+    {
+      "id": "return-pool",
+      "from": "result",
+      "to": "release"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "대여와 반환",
+      "items": [
+        "유휴 연결을 재사용하거나 풀 확장이 가능할 때 새 연결을 만든다.",
+        "쿼리가 끝나면 물리 연결을 닫는 대신 풀에 반환한다."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "대기 조건",
+      "items": [
+        "풀 최대 크기에 도달하면 연결 확보 전에는 쿼리를 실행하지 않는다.",
+        "대기 시간 초과 시 실패하는 처리는 본문의 주요 설정을 참고한다."
+      ]
+    }
+  ]
+}

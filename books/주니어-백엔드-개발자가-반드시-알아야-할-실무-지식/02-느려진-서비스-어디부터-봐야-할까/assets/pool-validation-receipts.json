@@ -1,0 +1,84 @@
+[
+  {
+    "diagram_type": "workflow",
+    "output": "10-pool-acquire-return.html",
+    "specification": {
+      "sha256": "c6fca9cfc578a7497de5c3716cbd8b18f42eeedccd2856dbdf655f8ab962adb2",
+      "bytes": 6324
+    },
+    "artifact": {
+      "sha256": "9c305f00438ab45c03bece33a5dc7aa795b58e2d8b2e041f5bf75fddf5e2501e",
+      "bytes": 760593
+    },
+    "svg": {
+      "path": "10-pool-acquire-return.svg",
+      "sha256": "c2948165450d0a7b3dd9304f54e73ec33f8501dd82e99f5807e6e963a8f72912",
+      "bytes": 147509
+    },
+    "gates": {
+      "validate": "pass",
+      "deliver": "pass",
+      "check": "pass",
+      "browser-check": "pass"
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "quality": "showcase",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "passed",
+    "visual_review": {
+      "status": "passed",
+      "scope": "HTML 1440x900 light / 2048x1320 dark; exported SVG light",
+      "observations": [
+        "한글 렌더링 확인",
+        "분기 조건·반환 경로·순환 화살표 확인",
+        "라벨 겹침과 잘림 없음"
+      ]
+    },
+    "correction_rounds": 1
+  },
+  {
+    "diagram_type": "workflow",
+    "output": "12-pool-retry-feedback.html",
+    "specification": {
+      "sha256": "c569927e5e30b4946df03d6441aa54521a0ba16496d22fa51b9180a46492ff49",
+      "bytes": 4459
+    },
+    "artifact": {
+      "sha256": "fe3dd25103f1650a97824dceee82b6b7d6215ceea26a07ce86620bf2c15f1d8f",
+      "bytes": 752778
+    },
+    "svg": {
+      "path": "12-pool-retry-feedback.svg",
+      "sha256": "5984696a4cb0bdae846208ce04757f17f83e698e2ddb426bae7b2888ed172443",
+      "bytes": 141916
+    },
+    "gates": {
+      "validate": "pass",
+      "deliver": "pass",
+      "check": "pass",
+      "browser-check": "pass"
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "quality": "showcase",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "passed",
+    "visual_review": {
+      "status": "passed",
+      "scope": "HTML 1440x900 light / 2048x1320 dark; exported SVG light",
+      "observations": [
+        "한글 렌더링 확인",
+        "분기 조건·반환 경로·순환 화살표 확인",
+        "라벨 겹침과 잘림 없음"
+      ]
+    },
+    "correction_rounds": 1
+  }
+]
