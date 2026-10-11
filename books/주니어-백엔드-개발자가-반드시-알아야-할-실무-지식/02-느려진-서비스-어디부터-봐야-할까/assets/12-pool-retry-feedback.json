@@ -1,0 +1,173 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "DB 지연과 즉시 재시도의 부하 증폭",
+    "quality_profile": "showcase",
+    "output": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/assets/12-pool-retry-feedback.html",
+    "repository": {
+      "url": "https://github.com/devholic22/logistics-backend-study.git",
+      "revision": "1a850354b9dbf42a931f12349129fe3185180da9"
+    },
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "backend": {
+          "label": "애플리케이션·풀"
+        },
+        "database": {
+          "label": "DB 연결·작업"
+        },
+        "messagebus": {
+          "label": "대기열"
+        },
+        "external": {
+          "label": "클라이언트"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "server",
+      "label": "서버와 DB"
+    },
+    {
+      "id": "client",
+      "label": "클라이언트와 재시도",
+      "variant": "exception"
+    }
+  ],
+  "mainPath": [
+    "slow",
+    "held",
+    "queue",
+    "timeout"
+  ],
+  "nodes": [
+    {
+      "id": "slow",
+      "lane": "server",
+      "col": 0,
+      "type": "database",
+      "label": "DB 지연",
+      "width": 180,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 226,
+          "end_line": 234
+        }
+      ]
+    },
+    {
+      "id": "held",
+      "lane": "server",
+      "col": 1,
+      "type": "backend",
+      "label": "커넥션 장기 점유",
+      "width": 180,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 226,
+          "end_line": 234
+        }
+      ]
+    },
+    {
+      "id": "queue",
+      "lane": "server",
+      "col": 2,
+      "type": "messagebus",
+      "label": "풀 대기열 증가",
+      "width": 180,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 226,
+          "end_line": 234
+        }
+      ]
+    },
+    {
+      "id": "timeout",
+      "lane": "client",
+      "col": 2,
+      "type": "external",
+      "label": "클라이언트 타임아웃",
+      "width": 180,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 232,
+          "end_line": 234
+        }
+      ]
+    },
+    {
+      "id": "retry",
+      "lane": "client",
+      "col": 1,
+      "type": "backend",
+      "label": "즉시 재시도",
+      "width": 180,
+      "sources": [
+        {
+          "path": "books/주니어-백엔드-개발자가-반드시-알아야-할-실무-지식/02-느려진-서비스-어디부터-봐야-할까/2-서버-성능-개선-기초.md",
+          "line": 232,
+          "end_line": 245
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "hold",
+      "from": "slow",
+      "to": "held"
+    },
+    {
+      "id": "enqueue",
+      "from": "held",
+      "to": "queue"
+    },
+    {
+      "id": "expire",
+      "from": "queue",
+      "to": "timeout"
+    },
+    {
+      "id": "again",
+      "from": "timeout",
+      "to": "retry",
+      "role": "return"
+    },
+    {
+      "id": "feedback",
+      "from": "retry",
+      "to": "slow",
+      "variant": "security",
+      "role": "return",
+      "label": "추가 부하"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "rose",
+      "title": "취소 전파가 없는 경우",
+      "items": [
+        "클라이언트 연결 종료가 서버·DB 작업의 즉시 취소를 보장하지 않는다.",
+        "기존 작업과 대기 요청이 남은 상태에서 재시도가 추가될 수 있다."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "악순환을 줄이는 제어",
+      "items": [
+        "짧은 대기 시간만으로 즉시 재시도 폭주를 막을 수는 없다.",
+        "백오프·jitter·횟수 제한·전체 retry budget을 함께 적용한다."
+      ]
+    }
+  ]
+}
