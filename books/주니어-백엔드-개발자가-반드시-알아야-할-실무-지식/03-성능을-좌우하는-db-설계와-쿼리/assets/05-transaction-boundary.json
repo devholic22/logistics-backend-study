@@ -1,0 +1,125 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "회원과 약관 동의의 원자적 저장",
+    "quality_profile": "showcase",
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "애플리케이션"
+        },
+        "database": {
+          "label": "DB"
+        },
+        "frontend": {
+          "label": "클라이언트"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "transaction",
+      "label": "같은 DB 트랜잭션"
+    },
+    {
+      "id": "failure",
+      "label": "오류 시 함께 취소"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "begin",
+      "lane": "transaction",
+      "col": 0,
+      "type": "database",
+      "label": "BEGIN",
+      "sublabel": "트랜잭션 시작",
+      "width": 130
+    },
+    {
+      "id": "member",
+      "lane": "transaction",
+      "col": 1,
+      "type": "database",
+      "label": "회원 저장",
+      "sublabel": "핵심 데이터",
+      "width": 140
+    },
+    {
+      "id": "terms",
+      "lane": "transaction",
+      "col": 2,
+      "type": "database",
+      "label": "약관 동의 저장",
+      "sublabel": "함께 성공할 데이터",
+      "width": 160
+    },
+    {
+      "id": "check",
+      "lane": "transaction",
+      "col": 3,
+      "type": "backend",
+      "label": "DB 작업 성공?",
+      "sublabel": "성공·실패 판단",
+      "width": 160
+    },
+    {
+      "id": "commit",
+      "lane": "transaction",
+      "col": 4,
+      "type": "database",
+      "label": "COMMIT",
+      "sublabel": "두 변경 확정",
+      "width": 140
+    },
+    {
+      "id": "rollback",
+      "lane": "failure",
+      "col": 3,
+      "type": "database",
+      "label": "ROLLBACK",
+      "sublabel": "두 변경 취소",
+      "width": 150
+    }
+  ],
+  "edges": [
+    {
+      "from": "begin",
+      "to": "member"
+    },
+    {
+      "from": "member",
+      "to": "terms"
+    },
+    {
+      "from": "terms",
+      "to": "check"
+    },
+    {
+      "from": "check",
+      "to": "commit",
+      "label": "예"
+    },
+    {
+      "from": "check",
+      "to": "rollback",
+      "label": "아니오",
+      "role": "error"
+    },
+    {
+      "from": "member",
+      "to": "rollback",
+      "label": "오류",
+      "role": "error"
+    }
+  ],
+  "mainPath": [
+    "begin",
+    "member",
+    "terms",
+    "check",
+    "commit"
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "DB 부하가 API 처리량으로 전파되는 과정",
+    "quality_profile": "showcase",
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "애플리케이션"
+        },
+        "database": {
+          "label": "DB"
+        },
+        "frontend": {
+          "label": "클라이언트"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "cause",
+      "label": "부하를 키우는 조건"
+    },
+    {
+      "id": "effect",
+      "label": "DB와 API의 영향"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "frequency",
+      "lane": "cause",
+      "col": 0,
+      "type": "backend",
+      "label": "호출 빈도 증가",
+      "sublabel": "반복 실행",
+      "width": 150
+    },
+    {
+      "id": "data",
+      "lane": "cause",
+      "col": 1,
+      "type": "database",
+      "label": "테이블 데이터 증가",
+      "sublabel": "스캔 대상 증가",
+      "width": 160
+    },
+    {
+      "id": "plan",
+      "lane": "cause",
+      "col": 2,
+      "type": "database",
+      "label": "비효율적인 실행 계획",
+      "sublabel": "불필요한 읽기",
+      "width": 180
+    },
+    {
+      "id": "load",
+      "lane": "effect",
+      "col": 0,
+      "type": "database",
+      "label": "DB 부하",
+      "sublabel": "CPU·I/O 경합",
+      "width": 140
+    },
+    {
+      "id": "latency",
+      "lane": "effect",
+      "col": 1,
+      "type": "database",
+      "label": "쿼리 응답 시간 증가",
+      "sublabel": "실행 지연",
+      "width": 180
+    },
+    {
+      "id": "held",
+      "lane": "effect",
+      "col": 2,
+      "type": "backend",
+      "label": "커넥션 점유 증가",
+      "sublabel": "반환 지연",
+      "width": 170
+    },
+    {
+      "id": "throughput",
+      "lane": "effect",
+      "col": 3,
+      "type": "backend",
+      "label": "API 처리량 감소",
+      "sublabel": "자원 포화 시",
+      "width": 170
+    }
+  ],
+  "edges": [
+    {
+      "from": "frequency",
+      "to": "load"
+    },
+    {
+      "from": "data",
+      "to": "load"
+    },
+    {
+      "from": "plan",
+      "to": "load"
+    },
+    {
+      "from": "load",
+      "to": "latency"
+    },
+    {
+      "from": "latency",
+      "to": "held"
+    },
+    {
+      "from": "held",
+      "to": "throughput"
+    }
+  ],
+  "mainPath": [
+    "load",
+    "latency",
+    "held",
+    "throughput"
+  ]
+}

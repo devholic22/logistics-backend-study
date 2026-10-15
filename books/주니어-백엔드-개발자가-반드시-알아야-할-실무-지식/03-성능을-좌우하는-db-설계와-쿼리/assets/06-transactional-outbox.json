@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "회원가입과 Outbox를 통한 메일 발송 분리",
+    "quality_profile": "showcase",
+    "column_fit": "spread",
+    "viewBox": [
+      1400,
+      830
+    ]
+  },
+  "participants": [
+    {
+      "id": "client",
+      "type": "frontend",
+      "label": "클라이언트"
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "가입 API"
+    },
+    {
+      "id": "db",
+      "type": "database",
+      "label": "DB"
+    },
+    {
+      "id": "worker",
+      "type": "backend",
+      "label": "Outbox Worker"
+    },
+    {
+      "id": "mail",
+      "type": "external",
+      "label": "메일 서비스"
+    }
+  ],
+  "messages": [
+    {
+      "from": "client",
+      "to": "api",
+      "y": 180,
+      "label": "회원가입"
+    },
+    {
+      "from": "api",
+      "to": "db",
+      "y": 240,
+      "label": "회원 + outbox event 저장",
+      "variant": "emphasis"
+    },
+    {
+      "from": "db",
+      "to": "api",
+      "y": 300,
+      "label": "COMMIT",
+      "variant": "return"
+    },
+    {
+      "from": "api",
+      "to": "client",
+      "y": 360,
+      "label": "회원가입 성공 응답",
+      "variant": "return"
+    },
+    {
+      "from": "worker",
+      "to": "db",
+      "y": 440,
+      "label": "미처리 event 조회"
+    },
+    {
+      "from": "worker",
+      "to": "mail",
+      "y": 500,
+      "label": "환영 메일 발송"
+    },
+    {
+      "from": "mail",
+      "to": "worker",
+      "y": 560,
+      "label": "발송 결과",
+      "variant": "return"
+    },
+    {
+      "from": "worker",
+      "to": "db",
+      "y": 640,
+      "label": "[성공] event 처리 완료 기록",
+      "variant": "emphasis"
+    },
+    {
+      "from": "worker",
+      "to": "db",
+      "y": 720,
+      "label": "[재시도 가능한 실패] 상태·횟수 기록",
+      "variant": "dashed"
+    }
+  ],
+  "segments": [
+    {
+      "from": 154,
+      "to": 392,
+      "label": "가입 트랜잭션"
+    },
+    {
+      "from": 414,
+      "to": 590,
+      "label": "별도 Worker 처리"
+    },
+    {
+      "from": 614,
+      "to": 752,
+      "label": "발송 결과에 따른 대안 경로"
+    }
+  ]
+}

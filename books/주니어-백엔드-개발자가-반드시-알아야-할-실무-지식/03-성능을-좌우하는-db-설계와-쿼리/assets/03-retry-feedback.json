@@ -1,0 +1,108 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "느린 쿼리와 재시도의 악순환",
+    "quality_profile": "showcase",
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "애플리케이션"
+        },
+        "database": {
+          "label": "DB"
+        },
+        "frontend": {
+          "label": "클라이언트"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "query",
+      "label": "DB 실행과 자원 점유"
+    },
+    {
+      "id": "requests",
+      "label": "요청 대기와 재시도"
+    }
+  ],
+  "mainPath": [
+    "slow",
+    "held",
+    "waiting",
+    "timeout"
+  ],
+  "nodes": [
+    {
+      "id": "slow",
+      "lane": "query",
+      "col": 0,
+      "type": "database",
+      "label": "느린 쿼리",
+      "sublabel": "실행 시간 증가",
+      "width": 160
+    },
+    {
+      "id": "held",
+      "lane": "query",
+      "col": 1,
+      "type": "database",
+      "label": "커넥션 장시간 점유",
+      "sublabel": "풀에 반환되지 않음",
+      "width": 180
+    },
+    {
+      "id": "waiting",
+      "lane": "query",
+      "col": 2,
+      "type": "backend",
+      "label": "대기 요청 증가",
+      "sublabel": "빈 커넥션 부족",
+      "width": 160
+    },
+    {
+      "id": "timeout",
+      "lane": "requests",
+      "col": 2,
+      "type": "frontend",
+      "label": "클라이언트 Timeout",
+      "sublabel": "재시도 발생",
+      "width": 180
+    },
+    {
+      "id": "duplicate",
+      "lane": "requests",
+      "col": 1,
+      "type": "backend",
+      "label": "중복 요청 증가",
+      "sublabel": "기존 실행과 겹침",
+      "width": 160
+    }
+  ],
+  "edges": [
+    {
+      "from": "slow",
+      "to": "held"
+    },
+    {
+      "from": "held",
+      "to": "waiting"
+    },
+    {
+      "from": "waiting",
+      "to": "timeout"
+    },
+    {
+      "from": "timeout",
+      "to": "duplicate"
+    },
+    {
+      "from": "duplicate",
+      "to": "held",
+      "label": "점유·경합 가중",
+      "role": "error"
+    }
+  ]
+}
