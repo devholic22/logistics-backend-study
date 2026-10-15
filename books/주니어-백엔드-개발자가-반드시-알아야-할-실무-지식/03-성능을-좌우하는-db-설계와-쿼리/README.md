@@ -15,15 +15,11 @@
 - 한 번에 읽고 계산하는 데이터의 범위를 제한한다.
 - `EXPLAIN`과 실제 실행 지표로 쿼리 계획을 검증한다.
 
-```mermaid
-flowchart LR
-    A["호출 빈도 증가"] --> D["DB 부하"]
-    B["테이블 데이터 증가"] --> D
-    C["비효율적인 실행 계획"] --> D
-    D --> E["쿼리 응답 시간 증가"]
-    E --> F["커넥션 점유 시간 증가"]
-    F --> G["API 처리량 감소"]
-```
+![DB 부하가 API 처리량으로 전파되는 과정](./assets/01-db-pressure.svg)
+
+[대화형 도식](./assets/01-db-pressure.html) · [Archify 원본](./assets/01-db-pressure.json)
+
+도식 6개의 원본·재생성 방법과 검증 범위는 [도식 안내](./assets/README.md)에 정리했다.
 
 ## 함께 읽기
 

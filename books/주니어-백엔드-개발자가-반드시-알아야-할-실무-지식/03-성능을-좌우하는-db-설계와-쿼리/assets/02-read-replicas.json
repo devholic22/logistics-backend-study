@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "쓰기와 조회의 DB 경로 분리",
+    "quality_profile": "showcase",
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "애플리케이션"
+        },
+        "database": {
+          "label": "DB"
+        },
+        "frontend": {
+          "label": "클라이언트"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "write",
+      "label": "쓰기와 복제"
+    },
+    {
+      "id": "read",
+      "label": "조회 분산"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "write-api",
+      "lane": "write",
+      "col": 0,
+      "type": "backend",
+      "label": "API 쓰기",
+      "sublabel": "상태 변경",
+      "width": 140
+    },
+    {
+      "id": "primary",
+      "lane": "write",
+      "col": 1,
+      "type": "database",
+      "label": "Primary DB",
+      "sublabel": "쓰기 원본",
+      "width": 150
+    },
+    {
+      "id": "replica-one",
+      "lane": "write",
+      "col": 2,
+      "type": "database",
+      "label": "Read Replica 1",
+      "sublabel": "조회 복제본",
+      "width": 170
+    },
+    {
+      "id": "replica-two",
+      "lane": "read",
+      "col": 2,
+      "type": "database",
+      "label": "Read Replica 2",
+      "sublabel": "조회 복제본",
+      "width": 170
+    },
+    {
+      "id": "read-api",
+      "lane": "read",
+      "col": 1,
+      "type": "backend",
+      "label": "API 조회",
+      "sublabel": "읽기 요청",
+      "width": 140
+    }
+  ],
+  "edges": [
+    {
+      "from": "write-api",
+      "to": "primary"
+    },
+    {
+      "from": "primary",
+      "to": "replica-one",
+      "label": "복제"
+    },
+    {
+      "from": "primary",
+      "to": "replica-two",
+      "label": "복제",
+      "bias": 0.7
+    },
+    {
+      "from": "read-api",
+      "to": "replica-one",
+      "label": "조회"
+    },
+    {
+      "from": "read-api",
+      "to": "replica-two",
+      "label": "조회"
+    }
+  ],
+  "mainPath": [
+    "write-api",
+    "primary",
+    "replica-one"
+  ]
+}

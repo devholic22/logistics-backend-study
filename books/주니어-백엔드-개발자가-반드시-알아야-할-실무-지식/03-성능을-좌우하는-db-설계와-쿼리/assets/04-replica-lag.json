@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "변경 직후 복제본 조회가 과거 상태를 반환하는 경우",
+    "quality_profile": "showcase",
+    "column_fit": "spread",
+    "viewBox": [
+      1100,
+      700
+    ]
+  },
+  "participants": [
+    {
+      "id": "client",
+      "type": "frontend",
+      "label": "클라이언트"
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "API 서버"
+    },
+    {
+      "id": "primary",
+      "type": "database",
+      "label": "Primary DB"
+    },
+    {
+      "id": "replica",
+      "type": "database",
+      "label": "Read Replica"
+    }
+  ],
+  "messages": [
+    {
+      "from": "client",
+      "to": "api",
+      "y": 180,
+      "label": "상태 변경 요청"
+    },
+    {
+      "from": "api",
+      "to": "primary",
+      "y": 250,
+      "label": "UPDATE 후 COMMIT",
+      "variant": "emphasis"
+    },
+    {
+      "from": "primary",
+      "to": "api",
+      "y": 320,
+      "label": "성공",
+      "variant": "return"
+    },
+    {
+      "from": "api",
+      "to": "replica",
+      "y": 390,
+      "label": "즉시 SELECT"
+    },
+    {
+      "from": "replica",
+      "to": "api",
+      "y": 460,
+      "label": "아직 이전 값",
+      "variant": "return"
+    },
+    {
+      "from": "api",
+      "to": "client",
+      "y": 530,
+      "label": "잘못된 실패·과거 상태",
+      "variant": "security"
+    },
+    {
+      "from": "primary",
+      "to": "replica",
+      "y": 600,
+      "label": "변경 내용 복제",
+      "variant": "dashed"
+    }
+  ],
+  "segments": []
+}

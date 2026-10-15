@@ -1,0 +1,168 @@
+{
+  "source_revision": "21d4bf906c08b495773b2567cf1dd99daefdb600",
+  "archify_version": "2.17",
+  "diagrams": [
+    {
+      "id": "01-db-pressure",
+      "diagram_type": "workflow",
+      "output": "01-db-pressure.html",
+      "specification": {
+        "sha256": "43a58c37e09beed9c449538fdd50e77efde073e9a95f1e57a683c1a6e536e2a9",
+        "bytes": 2428
+      },
+      "artifact": {
+        "sha256": "51845331325e31eba44d100795d66de65aa2e7ff0145cc96ce431de8e345836a",
+        "bytes": 800955
+      },
+      "svg_sha256": "0bf8b962958b936e03c8494c48431f0e2ae78becc04241a83c9727cae2d9844a",
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "browser_evidence": "passed",
+      "browser_record": "01-db-pressure.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "1440×900 / 2048×1320, light/dark HTML screenshots and exported SVG",
+      "correction_rounds": 1
+    },
+    {
+      "id": "02-read-replicas",
+      "diagram_type": "workflow",
+      "output": "02-read-replicas.html",
+      "specification": {
+        "sha256": "7a2321e3b8eca12ebde4bf705a7ab96addd7830d939837ae129618f6f8673128",
+        "bytes": 2042
+      },
+      "artifact": {
+        "sha256": "c4ae4152d4755090ca218f64881be61f4a5bbef00ddcf00c609f7046d5643578",
+        "bytes": 799366
+      },
+      "svg_sha256": "d3441c1dcb6725578f098e2c2477290e165fedbbec1dd3c720b0b5a7716fb9a3",
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "browser_evidence": "passed",
+      "browser_record": "02-read-replicas.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "1440×900 / 2048×1320, light/dark HTML screenshots and exported SVG",
+      "correction_rounds": 1
+    },
+    {
+      "id": "03-retry-feedback",
+      "diagram_type": "workflow",
+      "output": "03-retry-feedback.html",
+      "specification": {
+        "sha256": "ec6ec9fa9d14ccfb41655749fc4d7e29f5a514beb9f4a16fc2b253c11dd04fc3",
+        "bytes": 2062
+      },
+      "artifact": {
+        "sha256": "430418fb9a838d0c859caac7dc66d56bc33a20fb9d81a5f7854eabf69c1fc109",
+        "bytes": 799237
+      },
+      "svg_sha256": "20ca59a66e83f1fc5288a16085e924f5da3a64dea623aaa2b644a361e0508d63",
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "browser_evidence": "passed",
+      "browser_record": "03-retry-feedback.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "1440×900 / 2048×1320, light/dark HTML screenshots and exported SVG",
+      "correction_rounds": 1
+    },
+    {
+      "id": "04-replica-lag",
+      "diagram_type": "sequence",
+      "output": "04-replica-lag.html",
+      "specification": {
+        "sha256": "9d93f4f927ded504f86a7a697ab6307e97207b5af3521b3997fbc40a1c2fde54",
+        "bytes": 1593
+      },
+      "artifact": {
+        "sha256": "184c2249609705659db053e6f46f5370a998b0717f72a3f8d976d04a081e648c",
+        "bytes": 800550
+      },
+      "svg_sha256": "a2666f2e134548278761f888e0d3c34b227ecb5c911f4a918a6cec7b9ed25ab8",
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "browser_evidence": "passed",
+      "browser_record": "04-replica-lag.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "1440×900 / 2048×1320, light/dark HTML screenshots and exported SVG",
+      "correction_rounds": 1
+    },
+    {
+      "id": "05-transaction-boundary",
+      "diagram_type": "workflow",
+      "output": "05-transaction-boundary.html",
+      "specification": {
+        "sha256": "b9e56189063faf5d204db55ae2921c342d488f8b199a7dc6c5bc7cac7443b0e9",
+        "bytes": 2353
+      },
+      "artifact": {
+        "sha256": "d2e7e41f40a44b87db1f9dc4befc9a2e7717308a417f29b9b65192c65058d99a",
+        "bytes": 800705
+      },
+      "svg_sha256": "07ff1882a8222cdc94a8339e33351759c547e293de1c5d3b32900164174bd986",
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "browser_evidence": "passed",
+      "browser_record": "05-transaction-boundary.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "1440×900 / 2048×1320, light/dark HTML screenshots and exported SVG",
+      "correction_rounds": 1
+    },
+    {
+      "id": "06-transactional-outbox",
+      "diagram_type": "sequence",
+      "output": "06-transactional-outbox.html",
+      "specification": {
+        "sha256": "f424d4f2dbc44fe52498be69a9a939c8e36257163d4e83d99e94b896426440aa",
+        "bytes": 2211
+      },
+      "artifact": {
+        "sha256": "77c7182da38337d82e95b27e5ad2905f9205cdd76e5a5555c77e0af9728a52ac",
+        "bytes": 803243
+      },
+      "svg_sha256": "3fb0daeb7dfc83b62105a1d60b62cf00b39b74b95bcc0994fffc96ea1f462728",
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "browser_evidence": "passed",
+      "browser_record": "06-transactional-outbox.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "1440×900 / 2048×1320, light/dark HTML screenshots and exported SVG",
+      "correction_rounds": 1
+    }
+  ]
+}
