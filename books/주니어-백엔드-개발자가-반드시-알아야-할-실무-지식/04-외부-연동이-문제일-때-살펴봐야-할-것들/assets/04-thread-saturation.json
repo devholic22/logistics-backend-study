@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "느린 외부 호출이 요청 thread를 포화시키는 과정",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1000,
+      620
+    ],
+    "column_fit": "spread"
+  },
+  "participants": [
+    {
+      "id": "user",
+      "type": "external",
+      "label": "사용자",
+      "sublabel": "요청 유입"
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "A 서비스",
+      "sublabel": "thread pool 200"
+    },
+    {
+      "id": "dep",
+      "type": "external",
+      "label": "B 서비스",
+      "sublabel": "장애·응답 지연"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m0",
+      "from": "user",
+      "to": "api",
+      "y": 180,
+      "label": "0초: 요청 100개",
+      "variant": "default"
+    },
+    {
+      "id": "m1",
+      "from": "api",
+      "to": "dep",
+      "y": 244,
+      "label": "외부 호출 100개 · thread 100개 대기",
+      "variant": "emphasis"
+    },
+    {
+      "id": "m2",
+      "from": "user",
+      "to": "api",
+      "y": 308,
+      "label": "10초 후: 요청 100개 추가",
+      "variant": "default"
+    },
+    {
+      "id": "m3",
+      "from": "api",
+      "to": "dep",
+      "y": 372,
+      "label": "외부 호출 100개 추가 · thread 200개 포화",
+      "variant": "emphasis"
+    },
+    {
+      "id": "m4",
+      "from": "user",
+      "to": "api",
+      "y": 436,
+      "label": "이후 요청: queue 대기·timeout·거절",
+      "variant": "security"
+    }
+  ],
+  "cards": []
+}

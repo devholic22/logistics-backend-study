@@ -40,12 +40,9 @@ HTTP 표준에서 `PUT`, `DELETE`와 safe method는 의미상 멱등이지만 �
 
 retry는 보통 적은 횟수로 제한한다. `1초 → 2초`처럼 exponential backoff를 적용하고 여러 client가 동시에 다시 요청하지 않도록 jitter를 추가한다.
 
-```mermaid
-flowchart LR
-    A["0초<br/>최초 요청 실패"] --> B["약 1초 + jitter<br/>1차 retry"]
-    B --> C["약 2초 + jitter<br/>2차 retry"]
-    C --> D["전체 deadline·retry budget 종료"]
-```
+![Backoff·jitter와 재시도 예산](./assets/07-retry-budget.svg)
+
+[대화형 도식](./assets/07-retry-budget.html) · [Archify 원본](./assets/07-retry-budget.json)
 
 호출 경로가 여러 계층이면 각 계층이 세 번씩 재시도해 요청이 곱셈으로 늘어날 수 있다. 한 계층에서 retry 책임을 지도록 하고, 전체 호출 중 retry가 차지할 수 있는 비율인 retry budget을 둔다.
 

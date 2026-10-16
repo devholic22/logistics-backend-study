@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Backoff·jitter와 재시도 예산",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "retry",
+      "label": "전체 deadline 안의 시도"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "first",
+      "lane": "retry",
+      "col": 0,
+      "type": "backend",
+      "label": "최초 요청 실패",
+      "sublabel": "0초",
+      "width": 190
+    },
+    {
+      "id": "retry1",
+      "lane": "retry",
+      "col": 1,
+      "type": "backend",
+      "label": "1차 retry",
+      "sublabel": "약 1초 + jitter",
+      "width": 190
+    },
+    {
+      "id": "retry2",
+      "lane": "retry",
+      "col": 2,
+      "type": "backend",
+      "label": "2차 retry",
+      "sublabel": "약 2초 + jitter",
+      "width": 190
+    },
+    {
+      "id": "end",
+      "lane": "retry",
+      "col": 3,
+      "type": "backend",
+      "label": "재시도 종료",
+      "sublabel": "전체 deadline·retry budget 종료",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "first",
+      "to": "retry1"
+    },
+    {
+      "from": "retry1",
+      "to": "retry2"
+    },
+    {
+      "from": "retry2",
+      "to": "end"
+    }
+  ],
+  "mainPath": [
+    "first",
+    "retry1",
+    "retry2",
+    "end"
+  ]
+}

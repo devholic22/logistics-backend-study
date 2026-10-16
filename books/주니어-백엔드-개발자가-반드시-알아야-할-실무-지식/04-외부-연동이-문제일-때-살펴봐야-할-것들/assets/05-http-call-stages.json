@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "HTTP 호출 단계와 Timeout 경계",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "connect",
+      "label": "연결 준비"
+    },
+    {
+      "id": "response",
+      "label": "요청과 응답"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "pool",
+      "lane": "connect",
+      "col": 0,
+      "type": "backend",
+      "label": "HTTP pool 대기",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "dns",
+      "lane": "connect",
+      "col": 1,
+      "type": "backend",
+      "label": "DNS 조회",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "tcp",
+      "lane": "connect",
+      "col": 2,
+      "type": "backend",
+      "label": "TCP 연결",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "tls",
+      "lane": "response",
+      "col": 2,
+      "type": "backend",
+      "label": "TLS handshake",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "write",
+      "lane": "response",
+      "col": 3,
+      "type": "backend",
+      "label": "요청 쓰기",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "header",
+      "lane": "response",
+      "col": 4,
+      "type": "backend",
+      "label": "응답 header 대기",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "body",
+      "lane": "response",
+      "col": 5,
+      "type": "backend",
+      "label": "응답 body 읽기",
+      "sublabel": "",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "pool",
+      "to": "dns"
+    },
+    {
+      "from": "dns",
+      "to": "tcp"
+    },
+    {
+      "from": "tcp",
+      "to": "tls"
+    },
+    {
+      "from": "tls",
+      "to": "write"
+    },
+    {
+      "from": "write",
+      "to": "header"
+    },
+    {
+      "from": "header",
+      "to": "body"
+    }
+  ],
+  "mainPath": [
+    "pool",
+    "dns",
+    "tcp",
+    "tls",
+    "write",
+    "header",
+    "body"
+  ]
+}

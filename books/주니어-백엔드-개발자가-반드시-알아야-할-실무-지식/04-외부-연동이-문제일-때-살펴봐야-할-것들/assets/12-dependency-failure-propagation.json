@@ -1,0 +1,120 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "외부 장애가 사용자 응답으로 전파되는 경로",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "internal",
+      "label": "내부 서비스 경로"
+    },
+    {
+      "id": "payment",
+      "label": "필수 결제 경로"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "user",
+      "lane": "internal",
+      "col": 0,
+      "type": "frontend",
+      "label": "사용자",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "api",
+      "lane": "internal",
+      "col": 1,
+      "type": "backend",
+      "label": "우리 API",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "b",
+      "lane": "internal",
+      "col": 2,
+      "type": "backend",
+      "label": "내부 서비스 B",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "c",
+      "lane": "internal",
+      "col": 3,
+      "type": "backend",
+      "label": "내부 서비스 C",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "pg",
+      "lane": "payment",
+      "col": 1,
+      "type": "external",
+      "label": "외부 결제 PG",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "card",
+      "lane": "payment",
+      "col": 2,
+      "type": "external",
+      "label": "카드사",
+      "sublabel": "",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "user",
+      "to": "api"
+    },
+    {
+      "from": "api",
+      "to": "b"
+    },
+    {
+      "from": "b",
+      "to": "c"
+    },
+    {
+      "from": "api",
+      "to": "pg"
+    },
+    {
+      "from": "pg",
+      "to": "card"
+    },
+    {
+      "from": "card",
+      "to": "pg",
+      "label": "지연·장애",
+      "variant": "security"
+    },
+    {
+      "from": "pg",
+      "to": "api",
+      "label": "장애 전파",
+      "variant": "security"
+    },
+    {
+      "from": "api",
+      "to": "user",
+      "label": "응답 지연",
+      "variant": "security"
+    }
+  ],
+  "mainPath": [
+    "user",
+    "api",
+    "b",
+    "c"
+  ]
+}

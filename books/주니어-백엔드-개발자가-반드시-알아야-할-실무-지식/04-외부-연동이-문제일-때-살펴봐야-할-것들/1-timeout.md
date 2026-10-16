@@ -26,21 +26,9 @@
 - thread 200개가 모두 B 서비스 응답을 기다린다.
 - 이후 요청은 accept queue나 애플리케이션 queue에서 기다리다가 timeout되거나 거절된다.
 
-```mermaid
-sequenceDiagram
-    participant U as 사용자
-    participant A as A 서비스 · thread 200
-    participant B as B 서비스 · 장애
+![느린 외부 호출이 요청 thread를 포화시키는 과정](./assets/04-thread-saturation.svg)
 
-    U->>A: 요청 100개
-    A->>B: 외부 호출 100개
-    Note over A,B: 100개 thread가 응답 대기
-    U->>A: 10초 후 요청 100개
-    A->>B: 외부 호출 100개
-    Note over A: thread 200개 포화
-    U->>A: 이후 요청
-    Note over U,A: queue 대기·timeout·거절
-```
+[대화형 도식](./assets/04-thread-saturation.html) · [Archify 원본](./assets/04-thread-saturation.json)
 
 Tomcat의 `maxThreads = 200`은 connector가 내부 thread pool을 사용하는 전형적인 blocking 처리에서 최대 200개의 요청 처리 thread를 뜻한다. 그러나 executor를 별도로 연결하거나 Servlet async, reactive I/O, virtual thread 등을 사용하면 “200 thread = 전체 동시 요청 200개”로 단순화할 수 없다. 비동기 모델도 connection, memory, downstream 동시성 제한이 사라지는 것은 아니다.
 
@@ -50,15 +38,9 @@ B 서비스의 응답 시간이 60초라면 A 서비스 처리량과 가용 thre
 
 API 호출은 단순히 연결과 읽기 두 단계만 거치지 않는다.
 
-```mermaid
-flowchart LR
-    A["HTTP pool 대기"] --> B["DNS 조회"]
-    B --> C["TCP 연결"]
-    C --> D["TLS handshake"]
-    D --> E["요청 쓰기"]
-    E --> F["응답 header 대기"]
-    F --> G["응답 body 읽기"]
-```
+![HTTP 호출 단계와 Timeout 경계](./assets/05-http-call-stages.svg)
+
+[대화형 도식](./assets/05-http-call-stages.html) · [Archify 원본](./assets/05-http-call-stages.json)
 
 | Timeout | 제한하는 구간 | 포화 시 위험 |
 | --- | --- | --- |
@@ -106,17 +88,11 @@ pool 대기 + connect + 요청/응답 + retry/backoff + 후처리 여유
 
 고객은 결제됐지만 주문은 실패한 것처럼 보게 된다. timeout을 15초로 늘렸다면 이 사례는 줄어들 수 있지만, 더 긴 지연이나 응답 유실은 여전히 발생한다. 민감한 기능의 해법은 단순히 timeout을 길게 하는 것이 아니다.
 
-```mermaid
-stateDiagram-v2
-    [*] --> PENDING: 결제 요청 저장
-    PENDING --> PAID: 승인 확인
-    PENDING --> FAILED: 명확한 거절
-    PENDING --> UNKNOWN: timeout·응답 유실
-    UNKNOWN --> PAID: 상태 조회·webhook·대사
-    UNKNOWN --> FAILED: 미승인 확인
-    PAID --> REFUND_PENDING: 취소 필요
-    REFUND_PENDING --> REFUNDED: 환불 확인
-```
+![결제 결과 불명 상태와 최종 확인](./assets/06-payment-unknown.svg)
+
+[대화형 도식](./assets/06-payment-unknown.html) · [Archify 원본](./assets/06-payment-unknown.json)
+
+결제 상태 도식의 분기는 대안 경로입니다. `PENDING`은 결제 요청을 저장한 초기 상태이며, `UNKNOWN`에서 조회·webhook·대사로 승인 또는 미승인을 확인합니다.
 
 결제 요청에는 idempotency key를 사용하고 timeout을 “실패”가 아니라 “결과를 모름”으로 구분한다. PG의 조회 API, webhook과 주기적인 reconciliation으로 최종 상태를 확인해야 한다.
 

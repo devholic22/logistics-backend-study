@@ -1,0 +1,77 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Circuit Breaker의 차단과 복구",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "main",
+      "label": "호출과 시험"
+    },
+    {
+      "id": "blocked",
+      "label": "차단 대기"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "closed",
+      "lane": "main",
+      "col": 0,
+      "type": "backend",
+      "label": "CLOSED",
+      "sublabel": "정상 호출",
+      "width": 190
+    },
+    {
+      "id": "open",
+      "lane": "blocked",
+      "col": 1,
+      "type": "security",
+      "label": "OPEN",
+      "sublabel": "호출 차단",
+      "width": 190
+    },
+    {
+      "id": "half",
+      "lane": "main",
+      "col": 2,
+      "type": "backend",
+      "label": "HALF_OPEN",
+      "sublabel": "제한된 시험 호출",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "closed",
+      "to": "open",
+      "label": "실패율·slow call 임계 초과",
+      "variant": "security"
+    },
+    {
+      "from": "open",
+      "to": "half",
+      "label": "대기 시간 경과"
+    },
+    {
+      "from": "half",
+      "to": "closed",
+      "label": "시험 호출 성공",
+      "variant": "emphasis"
+    },
+    {
+      "from": "half",
+      "to": "open",
+      "label": "시험 호출 실패",
+      "variant": "security"
+    }
+  ],
+  "mainPath": [
+    "closed",
+    "open",
+    "half"
+  ]
+}
