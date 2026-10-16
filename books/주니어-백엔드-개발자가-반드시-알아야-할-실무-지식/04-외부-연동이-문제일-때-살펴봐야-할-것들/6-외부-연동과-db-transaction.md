@@ -25,17 +25,11 @@ DB 작업과 외부 호출을 함께 수행하면 두 시스템을 하나의 로
 
 외부 호출이 4.8초이고 전체 처리가 5초라면 DB transaction을 먼저 열어둔 구조는 그동안 connection과 lock을 점유한다.
 
-```mermaid
-flowchart TB
-    subgraph BAD["DB transaction을 먼저 여는 구조"]
-        A1["DB transaction 시작"] --> A2["외부 API 4.8초 대기<br/>DB connection·lock 점유"]
-        A2 --> A3["DB commit·rollback"]
-    end
-    subgraph BETTER["분리 가능한 기능의 구조"]
-        B1["외부 API 호출"] --> B2["짧은 DB transaction"]
-        B2 --> B3["commit"]
-    end
-```
+![외부 호출과 DB Transaction 경계](./assets/10-db-transaction-boundary.svg)
+
+[대화형 도식](./assets/10-db-transaction-boundary.html) · [Archify 원본](./assets/10-db-transaction-boundary.json)
+
+두 행은 비교 대상인 별도 구조입니다. 외부 호출을 transaction 밖으로 옮겨도 외부 성공·DB 실패의 일관성 문제는 별도 처리가 필요합니다.
 
 외부 호출과 DB 변경의 순서를 바꿀 수 있다면 transaction 밖에서 외부 호출을 수행해 DB connection 점유를 줄일 수 있다. 그러나 commit 후 외부 호출 실패, 외부 성공 후 DB 실패 문제가 생기므로 기능에 맞는 다음 방법을 설계해야 한다.
 

@@ -89,16 +89,9 @@ SSM Parameter Store 같은 외부 configuration store에 값을 저장할 수는
 
 Socket timeout은 socket I/O의 대기와 관련된다. 상대가 timeout보다 짧은 간격으로 데이터를 계속 보낸다면 전체 호출은 120초를 넘을 수 있다.
 
-```mermaid
-sequenceDiagram
-    participant S as 연동 서비스
-    participant E as 외부 WMS
-    S->>E: 요청
-    E-->>S: 100초 후 일부 data
-    E-->>S: 다시 100초 후 일부 data
-    E-->>S: 다시 100초 후 마지막 data
-    Note over S,E: 각 무응답 구간은 120초보다 짧지만<br/>전체 호출은 300초를 넘을 수 있음
-```
+![Socket 무응답 제한과 전체 호출 시간](./assets/11-socket-idle-vs-deadline.svg)
+
+[대화형 도식](./assets/11-socket-idle-vs-deadline.html) · [Archify 원본](./assets/11-socket-idle-vs-deadline.json)
 
 Apache HttpClient의 response timeout도 자동 재실행 등이 포함되면 절대적인 전체 deadline과 같지 않을 수 있다. Pool 대기, 연결, retry와 body 읽기까지 포함해 반드시 120초 안에 끝내려면 별도의 전체 deadline을 설계해야 한다. 자세한 구분은 [Timeout의 종류](./1-timeout.md#timeout의-종류)를 참고한다.
 

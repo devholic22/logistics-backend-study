@@ -1,0 +1,119 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "결제 결과 불명 상태와 최종 확인",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "main",
+      "label": "결제와 환불"
+    },
+    {
+      "id": "resolve",
+      "label": "결과 확인"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "pending",
+      "lane": "main",
+      "col": 0,
+      "type": "backend",
+      "label": "PENDING",
+      "sublabel": "결제 요청 저장",
+      "width": 190
+    },
+    {
+      "id": "paid",
+      "lane": "main",
+      "col": 2,
+      "type": "backend",
+      "label": "PAID",
+      "sublabel": "승인 확인",
+      "width": 190
+    },
+    {
+      "id": "refund",
+      "lane": "main",
+      "col": 3,
+      "type": "backend",
+      "label": "REFUND_PENDING",
+      "sublabel": "취소 필요",
+      "width": 190
+    },
+    {
+      "id": "refunded",
+      "lane": "main",
+      "col": 4,
+      "type": "backend",
+      "label": "REFUNDED",
+      "sublabel": "환불 확인",
+      "width": 190
+    },
+    {
+      "id": "unknown",
+      "lane": "resolve",
+      "col": 0,
+      "type": "backend",
+      "label": "UNKNOWN",
+      "sublabel": "timeout·응답 유실",
+      "width": 190
+    },
+    {
+      "id": "failed",
+      "lane": "resolve",
+      "col": 2,
+      "type": "backend",
+      "label": "FAILED",
+      "sublabel": "명확한 거절·미승인 확인",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "pending",
+      "to": "paid",
+      "label": "승인 확인"
+    },
+    {
+      "from": "pending",
+      "to": "unknown",
+      "label": "timeout·응답 유실"
+    },
+    {
+      "from": "pending",
+      "to": "failed",
+      "label": "명확한 거절"
+    },
+    {
+      "from": "unknown",
+      "to": "paid",
+      "label": "조회·webhook·대사",
+      "fromSide": "left",
+      "toSide": "top"
+    },
+    {
+      "from": "unknown",
+      "to": "failed",
+      "label": "미승인 확인"
+    },
+    {
+      "from": "paid",
+      "to": "refund",
+      "label": "취소 필요"
+    },
+    {
+      "from": "refund",
+      "to": "refunded",
+      "label": "환불 확인"
+    }
+  ],
+  "mainPath": [
+    "pending",
+    "paid",
+    "refund",
+    "refunded"
+  ]
+}

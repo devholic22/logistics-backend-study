@@ -11,18 +11,9 @@
 
 마이크로서비스와 외부 SaaS·결제·인증·검색 API 사용이 늘면서 하나의 사용자 요청이 여러 서비스를 거치는 경우가 많아졌다. 우리 API 서버와 DB가 정상이어도 호출 대상이 느리거나 실패하면 전체 요청이 영향을 받는다.
 
-```mermaid
-flowchart LR
-    U["사용자"] --> A["우리 API"]
-    A --> B["내부 서비스 B"]
-    A --> P["외부 결제 PG"]
-    B --> C["내부 서비스 C"]
-    P --> K["카드사"]
+![외부 장애가 사용자 응답으로 전파되는 경로](./assets/12-dependency-failure-propagation.svg)
 
-    K -. "지연·장애" .-> P
-    P -. "장애 전파" .-> A
-    A -. "응답 지연" .-> U
-```
+[대화형 도식](./assets/12-dependency-failure-propagation.html) · [Archify 원본](./assets/12-dependency-failure-propagation.json)
 
 가상의 A 은행 사례를 생각해보자. 은행 서버는 이벤트 트래픽을 감당할 수 있었지만 필수 외부 연동 서비스의 허용 처리량이 더 작아 전체 행사가 실패할 수 있다. 이때 시스템의 최대 처리량은 우리 서버가 아니라 요청이 반드시 거치는 외부 병목이 결정한다.
 
@@ -37,6 +28,8 @@ flowchart LR
 - HTTP connection pool
 - 멱등성, 보상과 reconciliation
 - dependency별 관측과 필요할 경우 공급자 이중화
+
+도식 원본과 검증 범위는 [도식 안내](./assets/README.md)에 정리했습니다.
 
 ## 함께 읽기
 

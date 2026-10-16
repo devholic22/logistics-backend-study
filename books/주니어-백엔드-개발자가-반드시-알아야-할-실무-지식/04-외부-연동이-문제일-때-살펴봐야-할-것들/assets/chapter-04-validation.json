@@ -1,0 +1,252 @@
+{
+  "archify_version": "2.17",
+  "diagrams": [
+    {
+      "id": "04-thread-saturation",
+      "diagram_type": "sequence",
+      "output": "04-thread-saturation.html",
+      "specification": {
+        "sha256": "3f057783ead29821f4b619ee594e92976640b1d9a01eae0b68d73fcbe39dcd39",
+        "bytes": 1554
+      },
+      "artifact": {
+        "sha256": "ef8907bae2833c0a3412c8f368eae4aae64fb564023aeefed4072c0815dcf9e3",
+        "bytes": 797933
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "svg_sha256": "85a66115ca0306f53e4078d80004145362ae5832ff98b76263a4f48cc1deb50d",
+      "browser_evidence": "passed",
+      "browser_record": "04-thread-saturation.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "2048x1320 HTML light/dark captures; static SVG; font rendering checked",
+      "correction_rounds": 0
+    },
+    {
+      "id": "05-http-call-stages",
+      "diagram_type": "workflow",
+      "output": "05-http-call-stages.html",
+      "specification": {
+        "sha256": "71039d9718a6d5b5138eda9df7fa4454b81bd2011cb05e436702be84816c90eb",
+        "bytes": 1994
+      },
+      "artifact": {
+        "sha256": "197e52451f3c0e89c5f3d59446232fa402a691f1a0e4d28ed66f726309c64a32",
+        "bytes": 797992
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "svg_sha256": "760e350f9ffe46231c1f4204e941e5e6e38e0999ebe17e1cef83c9bb83e372c3",
+      "browser_evidence": "passed",
+      "browser_record": "05-http-call-stages.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "2048x1320 HTML light/dark captures; static SVG; font rendering checked",
+      "correction_rounds": 1
+    },
+    {
+      "id": "06-payment-unknown",
+      "diagram_type": "workflow",
+      "output": "06-payment-unknown.html",
+      "specification": {
+        "sha256": "759cd1acf47e6b8913d8cc0777bb46cb9a83d9b1d798cf777c0ba2851750b4eb",
+        "bytes": 2253
+      },
+      "artifact": {
+        "sha256": "6a61c8d133deba55bc4221f02fcc0cf2ec5d77ee1e7f74872adbf05c285bc0ed",
+        "bytes": 801701
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "svg_sha256": "45aefdedd0739b0e765ab43c1a77ec475703ded504f211b27c64b811a35b3dc2",
+      "browser_evidence": "passed",
+      "browser_record": "06-payment-unknown.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "2048x1320 HTML light/dark captures; static SVG; font rendering checked",
+      "correction_rounds": 2
+    },
+    {
+      "id": "07-retry-budget",
+      "diagram_type": "workflow",
+      "output": "07-retry-budget.html",
+      "specification": {
+        "sha256": "f482933bdef9cf684caad010791daa5a27e0ab009ffaf662185de227f799db92",
+        "bytes": 1295
+      },
+      "artifact": {
+        "sha256": "565df7bdc82948270270a0413f82982ae04a966c072c88e4d3a969d0ef909c63",
+        "bytes": 795650
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "svg_sha256": "79f11cc87020a6ba7f6c90f5cbdec6217cfd60a0d7c71bae2ac414750ce4cbae",
+      "browser_evidence": "passed",
+      "browser_record": "07-retry-budget.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "2048x1320 HTML light/dark captures; static SVG; font rendering checked",
+      "correction_rounds": 0
+    },
+    {
+      "id": "08-dependency-bulkheads",
+      "diagram_type": "workflow",
+      "output": "08-dependency-bulkheads.html",
+      "specification": {
+        "sha256": "ccab8ff4c75dbfe1194e0aab514f8635de2e688b2174880cd4092df78cb0e1d6",
+        "bytes": 2019
+      },
+      "artifact": {
+        "sha256": "c6c2901496b4bcb88267ec0f0bcf2c92653c8d9bdfab56733b000197f582eec5",
+        "bytes": 800127
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "svg_sha256": "4d5bd09c8d722f50009f54c02e43dfd5f8640842f88d9513ab1b32555d8a51a7",
+      "browser_evidence": "passed",
+      "browser_record": "08-dependency-bulkheads.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "2048x1320 HTML light/dark captures; static SVG; font rendering checked",
+      "correction_rounds": 0
+    },
+    {
+      "id": "09-circuit-breaker-states",
+      "diagram_type": "workflow",
+      "output": "09-circuit-breaker-states.html",
+      "specification": {
+        "sha256": "655ec3dab87ea6edaeaa45d76a72eff89cfac314a781051e7ccff6db90b0a7ef",
+        "bytes": 1421
+      },
+      "artifact": {
+        "sha256": "6bb0faf399b7673731fe848bde5756305a1c13cdcf68afb4409a49456b9e2333",
+        "bytes": 797028
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "svg_sha256": "de9562f665172bcfdd50bb6603731af0635a7b7de875a25477b20dc31a64fc50",
+      "browser_evidence": "passed",
+      "browser_record": "09-circuit-breaker-states.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "2048x1320 HTML light/dark captures; static SVG; font rendering checked",
+      "correction_rounds": 0
+    },
+    {
+      "id": "10-db-transaction-boundary",
+      "diagram_type": "workflow",
+      "output": "10-db-transaction-boundary.html",
+      "specification": {
+        "sha256": "24965e39f59a829636df5aaafc75686fa347b408e96cbaedf967f060eb81f4c5",
+        "bytes": 1745
+      },
+      "artifact": {
+        "sha256": "eb18230e4691eb3ebadd2a02bef798470667eb997e2deacd5d02d24f6636ec34",
+        "bytes": 798436
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "svg_sha256": "6b399c78972a76592396b0186a9c4aba23175e9a229d20d10f924a84abd78aff",
+      "browser_evidence": "passed",
+      "browser_record": "10-db-transaction-boundary.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "2048x1320 HTML light/dark captures; static SVG; font rendering checked",
+      "correction_rounds": 0
+    },
+    {
+      "id": "11-socket-idle-vs-deadline",
+      "diagram_type": "sequence",
+      "output": "11-socket-idle-vs-deadline.html",
+      "specification": {
+        "sha256": "95ddc1675636e941b3e2330f1510a95a3ad5705d441618f454ecef00c70e3025",
+        "bytes": 1408
+      },
+      "artifact": {
+        "sha256": "f0278bd9d2cc6f188e0b57177750b5ca761fcf3d12eae08d5c0d64c76242efc2",
+        "bytes": 795969
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "svg_sha256": "0baa5fd41203f3e1145e276bddefa762bbeba9dfa5c870e35b61343130bbbd31",
+      "browser_evidence": "passed",
+      "browser_record": "11-socket-idle-vs-deadline.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "2048x1320 HTML light/dark captures; static SVG; font rendering checked",
+      "correction_rounds": 0
+    },
+    {
+      "id": "12-dependency-failure-propagation",
+      "diagram_type": "workflow",
+      "output": "12-dependency-failure-propagation.html",
+      "specification": {
+        "sha256": "61e598065e8a1a823b32c3f9b32501ea25337ce96ba7e70faeed72f7ebd2048e",
+        "bytes": 2073
+      },
+      "artifact": {
+        "sha256": "e5a403c530a2b810df02598478c6b73124b14c73387a5fcb6282a5580d01c75c",
+        "bytes": 800189
+      },
+      "validation": {
+        "checksPassed": 9,
+        "checkCount": 9,
+        "compositionProfile": "showcase",
+        "compositionStatus": "pass",
+        "errors": 0,
+        "warnings": 0
+      },
+      "svg_sha256": "2979ef90e89f2135d36b414a481cf6061c6785500c17e51944f10b33adac5f82",
+      "browser_evidence": "passed",
+      "browser_record": "12-dependency-failure-propagation.browser.json",
+      "visual_review": "passed",
+      "visual_scope": "2048x1320 HTML light/dark captures; static SVG; font rendering checked",
+      "correction_rounds": 0
+    }
+  ],
+  "limitations": [
+    "Viewer UI uses English; authored content is Korean.",
+    "Search/focus interactions were not exhaustively tested."
+  ]
+}

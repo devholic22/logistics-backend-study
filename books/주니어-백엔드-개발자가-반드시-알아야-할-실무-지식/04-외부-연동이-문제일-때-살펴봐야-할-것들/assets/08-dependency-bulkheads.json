@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Dependency별 Bulkhead 격리",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "pay",
+      "label": "결제 경로"
+    },
+    {
+      "id": "recommend",
+      "label": "추천 경로"
+    },
+    {
+      "id": "notice",
+      "label": "알림 경로"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "svc",
+      "lane": "recommend",
+      "col": 0,
+      "type": "backend",
+      "label": "우리 서비스",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "pay",
+      "lane": "pay",
+      "col": 1,
+      "type": "security",
+      "label": "결제 bulkhead",
+      "sublabel": "동시 실행 40",
+      "width": 190
+    },
+    {
+      "id": "pg",
+      "lane": "pay",
+      "col": 2,
+      "type": "external",
+      "label": "PG",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "rec",
+      "lane": "recommend",
+      "col": 1,
+      "type": "security",
+      "label": "추천 bulkhead",
+      "sublabel": "동시 실행 20",
+      "width": 190
+    },
+    {
+      "id": "recapi",
+      "lane": "recommend",
+      "col": 2,
+      "type": "external",
+      "label": "추천 API",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "msg",
+      "lane": "notice",
+      "col": 1,
+      "type": "security",
+      "label": "알림 bulkhead",
+      "sublabel": "동시 실행 10",
+      "width": 190
+    },
+    {
+      "id": "msgapi",
+      "lane": "notice",
+      "col": 2,
+      "type": "external",
+      "label": "알림 API",
+      "sublabel": "",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "svc",
+      "to": "pay"
+    },
+    {
+      "from": "svc",
+      "to": "rec"
+    },
+    {
+      "from": "svc",
+      "to": "msg"
+    },
+    {
+      "from": "pay",
+      "to": "pg"
+    },
+    {
+      "from": "rec",
+      "to": "recapi"
+    },
+    {
+      "from": "msg",
+      "to": "msgapi"
+    }
+  ],
+  "mainPath": [
+    "svc",
+    "rec",
+    "recapi"
+  ]
+}

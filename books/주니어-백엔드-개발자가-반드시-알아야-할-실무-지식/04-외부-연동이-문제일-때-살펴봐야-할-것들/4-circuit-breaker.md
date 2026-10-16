@@ -17,14 +17,11 @@
 
 downstream이 계속 timeout이나 오류를 반환한다면 매 요청을 끝까지 기다릴 이유가 없다. Circuit breaker는 최근 호출 결과를 관찰하다 장애 기준을 넘으면 호출을 잠시 차단해 빠르게 실패시킨다.
 
-```mermaid
-stateDiagram-v2
-    [*] --> CLOSED
-    CLOSED --> OPEN: 실패율·slow call 비율 임계치 초과
-    OPEN --> HALF_OPEN: 대기 시간 경과
-    HALF_OPEN --> CLOSED: 제한된 시험 호출 성공
-    HALF_OPEN --> OPEN: 시험 호출 실패
-```
+![Circuit Breaker의 차단과 복구](./assets/09-circuit-breaker-states.svg)
+
+[대화형 도식](./assets/09-circuit-breaker-states.html) · [Archify 원본](./assets/09-circuit-breaker-states.json)
+
+도식의 화살표는 각각의 전이 조건을 나타냅니다. `HALF_OPEN`의 시험 결과에 따라 `CLOSED`로 복구하거나 `OPEN`으로 다시 차단하며, 모든 상태를 한 번씩 통과하는 순서는 아닙니다.
 
 ## CLOSED
 

@@ -32,15 +32,9 @@
 
 배의 격벽처럼 dependency별 자원을 분리하면 한 연동의 장애가 전체 thread·connection을 사용하지 못하게 할 수 있다.
 
-```mermaid
-flowchart LR
-    A["우리 서비스"] --> B1["결제 bulkhead · 40"]
-    A --> B2["추천 bulkhead · 20"]
-    A --> B3["알림 bulkhead · 10"]
-    B1 --> P["PG"]
-    B2 --> R["추천 API"]
-    B3 --> N["알림 API"]
-```
+![Dependency별 Bulkhead 격리](./assets/08-dependency-bulkheads.svg)
+
+[대화형 도식](./assets/08-dependency-bulkheads.html) · [Archify 원본](./assets/08-dependency-bulkheads.json)
 
 bulkhead가 포화됐을 때 선택할 수 있는 동작은 다음과 같다.
 

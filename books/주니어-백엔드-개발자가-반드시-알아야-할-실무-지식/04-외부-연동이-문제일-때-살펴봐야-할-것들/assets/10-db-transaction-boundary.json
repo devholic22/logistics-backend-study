@@ -1,0 +1,97 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "외부 호출과 DB Transaction 경계",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "held",
+      "label": "DB transaction을 먼저 여는 구조"
+    },
+    {
+      "id": "short",
+      "label": "분리 가능한 기능의 구조"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "begin",
+      "lane": "held",
+      "col": 0,
+      "type": "database",
+      "label": "DB transaction 시작",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "wait",
+      "lane": "held",
+      "col": 1,
+      "type": "external",
+      "label": "외부 API 4.8초 대기",
+      "sublabel": "DB connection·lock 점유",
+      "width": 190
+    },
+    {
+      "id": "finish",
+      "lane": "held",
+      "col": 2,
+      "type": "database",
+      "label": "DB commit·rollback",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "call",
+      "lane": "short",
+      "col": 0,
+      "type": "external",
+      "label": "외부 API 호출",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "tx",
+      "lane": "short",
+      "col": 1,
+      "type": "database",
+      "label": "짧은 DB transaction",
+      "sublabel": "",
+      "width": 190
+    },
+    {
+      "id": "commit",
+      "lane": "short",
+      "col": 2,
+      "type": "database",
+      "label": "commit",
+      "sublabel": "",
+      "width": 190
+    }
+  ],
+  "edges": [
+    {
+      "from": "begin",
+      "to": "wait"
+    },
+    {
+      "from": "wait",
+      "to": "finish"
+    },
+    {
+      "from": "call",
+      "to": "tx"
+    },
+    {
+      "from": "tx",
+      "to": "commit"
+    }
+  ],
+  "mainPath": [
+    "begin",
+    "wait",
+    "finish"
+  ]
+}

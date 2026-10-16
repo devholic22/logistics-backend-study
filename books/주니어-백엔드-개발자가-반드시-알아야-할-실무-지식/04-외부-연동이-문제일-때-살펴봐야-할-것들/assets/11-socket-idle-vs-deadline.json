@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Socket 무응답 제한과 전체 호출 시간",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1000,
+      620
+    ],
+    "column_fit": "spread"
+  },
+  "participants": [
+    {
+      "id": "svc",
+      "type": "backend",
+      "label": "연동 서비스",
+      "sublabel": "socket timeout 120초"
+    },
+    {
+      "id": "wms",
+      "type": "external",
+      "label": "외부 WMS",
+      "sublabel": "느린 응답 전송"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m0",
+      "from": "svc",
+      "to": "wms",
+      "y": 180,
+      "label": "요청",
+      "variant": "default"
+    },
+    {
+      "id": "m1",
+      "from": "wms",
+      "to": "svc",
+      "y": 244,
+      "label": "100초 후 일부 data",
+      "variant": "return"
+    },
+    {
+      "id": "m2",
+      "from": "wms",
+      "to": "svc",
+      "y": 308,
+      "label": "다시 100초 후 일부 data",
+      "variant": "return"
+    },
+    {
+      "id": "m3",
+      "from": "wms",
+      "to": "svc",
+      "y": 372,
+      "label": "다시 100초 후 마지막 data",
+      "variant": "return"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "amber",
+      "title": "무응답 구간과 전체 시간",
+      "items": [
+        "각 무응답 구간은 120초보다 짧음",
+        "전체 호출은 300초를 넘을 수 있음"
+      ]
+    }
+  ]
+}
