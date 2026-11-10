@@ -4,7 +4,7 @@
 - 작성일: 2026-11-10
 - 결정자: 프로젝트 소유자
 - 상위 기획 문서: 미작성. 아래 `배경과 문제 정의`의 현장 장면은 Product Brief 작성 전의 가설이다.
-- 관련 ADR: [ADR-0001](./0001-use-kotlin-as-primary-language.md), [ADR-0002](./0002-use-spring-boot-as-application-platform.md)
+- 관련 ADR: [ADR-0001](./0001-use-kotlin-as-primary-language.md), [ADR-0002](./0002-use-spring-boot-as-application-platform.md), [ADR-0004](./0004-record-outbound-product-attribute-candidates.md)
 - 대체한 ADR: 없음
 - 대체된 ADR: 없음
 - 검토 예정일: 입고 검수 또는 포장 시나리오를 처음 구현할 때
@@ -71,6 +71,7 @@ mini-WMS의 주 사용자는 창고 현장이다. 현장 작업은 상품 정보
 - X12, UN/ECE, SAP 같은 외부 단위 코드와의 변환
 - 재고가 있는 상품의 입수량 변경 제한(아래 `열린 질문` 참고)
 - 바코드 형식 검증(GTIN 체크 디지트 등)
+- 송장 발급, 채널 출고(FBA, FBT), 해외 통관에 필요한 상품 속성(아웃박스 무게, 채널 바코드, HS코드, 원산지, 위험물, 보관 온도 등). 후보로만 [ADR-0004](./0004-record-outbound-product-attribute-candidates.md)에 기록한다.
 
 ## 제약과 전제
 
